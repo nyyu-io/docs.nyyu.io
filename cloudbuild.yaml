@@ -3,10 +3,6 @@ steps:
   - name: 'gcr.io/cloud-builders/npm'
     args: ['install']
 
-  # Step 2: Build the Next.js application
-  - name: 'gcr.io/cloud-builders/npm'
-    args: ['run', 'build']
-
   # Step 3: Build the Docker container
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'gcr.io/$PROJECT_ID/docs.nyyu.io:$SHORT_SHA', '.']
