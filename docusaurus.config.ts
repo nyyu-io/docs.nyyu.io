@@ -8,15 +8,15 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://docs.orbvpn.com',
+  url: 'https://docs.nyyu.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'OrbVPN', // Usually your GitHub org/user name.
-  projectName: 'OrbVPN Resource Center', // Usually your repo name.
+  organizationName: 'NYYU', // Usually your GitHub org/user name.
+  projectName: 'NYYU Resource Center', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -108,9 +108,9 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'OrbVPN',
+      title: 'NYYU',
       logo: {
-        alt: 'OrbVPN Logo',
+        alt: 'NYYU Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -139,7 +139,7 @@ const config: Config = {
         {to: '/blog', label: 'Blog', position: 'left'},
 
         {
-          href: 'https://orbvpn.xyz',
+          href: 'https://nyyu.io',
           label: 'Login',
           position: 'right',
         },
@@ -181,19 +181,19 @@ const config: Config = {
           items: [
             {
               label: 'X',
-              href: 'https://twitter.com/orbvpn',
+              href: 'https://twitter.com/nyyuio',
             },
             {
               label: 'LinkedIn',
-              href: 'https://www.linkedin.com/company/orbvpn/',
+              href: 'https://www.linkedin.com/company/nyyuio/',
             },
             {
               label: 'Instagram',
-              href: 'https://instagram.com/orbvpn',
+              href: 'https://instagram.com/nyuuio',
             },
             {
               label: 'Youtube',
-              href: 'https://youtube.com/orbvpn',
+              href: 'https://youtube.com/nyyuio',
             },
           ],
         },
@@ -206,12 +206,12 @@ const config: Config = {
             },
             {
               label: 'User Dashboard',
-              href: 'https://orbvpn.xyz',
+              href: 'https://nyyu.io',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} NIMA OÜ.`,
+      copyright: `Copyright © ${new Date().getFullYear()} NYYU UAB`,
     },
     prism: {
       theme: prismThemes.github,
