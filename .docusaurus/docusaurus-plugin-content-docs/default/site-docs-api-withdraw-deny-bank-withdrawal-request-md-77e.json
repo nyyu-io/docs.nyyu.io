@@ -1,0 +1,24 @@
+{
+  "id": "api/Withdraw/Deny Bank Withdrawal Request",
+  "title": "Deny Bank Withdrawal Request",
+  "description": "The denyBankWithdrawRequest mutation allows an admin to deny a bank withdrawal request. The admin can provide a reason for the denial.",
+  "source": "@site/docs/api/Withdraw/Deny Bank Withdrawal Request.md",
+  "sourceDirName": "api/Withdraw",
+  "slug": "/api/Withdraw/Deny Bank Withdrawal Request",
+  "permalink": "/docs/api/Withdraw/Deny Bank Withdrawal Request",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/Withdraw/Deny Bank Withdrawal Request.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Crypto Withdrawal Request",
+    "permalink": "/docs/api/Withdraw/Crypto Withdrawal Request"
+  },
+  "next": {
+    "title": "Fiat Withdrawal Request",
+    "permalink": "/docs/api/Withdraw/Fiat Withdrawal Request"
+  }
+}

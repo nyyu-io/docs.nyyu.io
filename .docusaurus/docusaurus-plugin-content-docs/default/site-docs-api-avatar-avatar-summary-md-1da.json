@@ -1,0 +1,24 @@
+{
+  "id": "api/Avatar/Avatar Summary",
+  "title": "Avatar Summary",
+  "description": "The Avatar system includes various components and profiles to represent users' avatars. These include components (such as accessories), profiles (combinations of components), and avatar sets (groups of components).",
+  "source": "@site/docs/api/Avatar/Avatar Summary.md",
+  "sourceDirName": "api/Avatar",
+  "slug": "/api/Avatar/Avatar Summary",
+  "permalink": "/docs/api/Avatar/Avatar Summary",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/Avatar/Avatar Summary.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Update Existing Auction Round",
+    "permalink": "/docs/api/Auction/Update Existing Auction Round"
+  },
+  "next": {
+    "title": "Create Avatar Component",
+    "permalink": "/docs/api/Avatar/Create Avatar Component"
+  }
+}

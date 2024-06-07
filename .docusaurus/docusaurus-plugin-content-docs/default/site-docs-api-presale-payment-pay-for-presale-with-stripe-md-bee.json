@@ -1,0 +1,24 @@
+{
+  "id": "api/Presale Payment/Pay for presale with Stripe",
+  "title": "Pay for presale with Stripe",
+  "description": "The payStripeForPreSale mutation allows a user to pay for a presale order using Stripe. Please refer to the Stripe API documentation for details on paymentIntentId and paymentMethodId.",
+  "source": "@site/docs/api/Presale Payment/Pay for presale with Stripe.md",
+  "sourceDirName": "api/Presale Payment",
+  "slug": "/api/Presale Payment/Pay for presale with Stripe",
+  "permalink": "/docs/api/Presale Payment/Pay for presale with Stripe",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/Presale Payment/Pay for presale with Stripe.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Pay for presale with PayPal",
+    "permalink": "/docs/api/Presale Payment/Pay for presale with PayPal"
+  },
+  "next": {
+    "title": "Place a New Presale Order",
+    "permalink": "/docs/api/Presale Payment/Place a New Presale Order"
+  }
+}

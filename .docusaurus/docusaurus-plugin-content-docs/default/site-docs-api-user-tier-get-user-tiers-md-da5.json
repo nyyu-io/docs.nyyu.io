@@ -1,0 +1,24 @@
+{
+  "id": "api/User Tier/Get User Tiers",
+  "title": "Get User Tiers",
+  "description": "The getUserTiers query is used to retrieve the list of all user tiers available in the system.",
+  "source": "@site/docs/api/User Tier/Get User Tiers.md",
+  "sourceDirName": "api/User Tier",
+  "slug": "/api/User Tier/Get User Tiers",
+  "permalink": "/docs/api/User Tier/Get User Tiers",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/User Tier/Get User Tiers.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Delete User Tier",
+    "permalink": "/docs/api/User Tier/Delete User Tier"
+  },
+  "next": {
+    "title": "Update Task Setting",
+    "permalink": "/docs/api/User Tier/Update Task Setting"
+  }
+}

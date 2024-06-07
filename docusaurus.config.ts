@@ -3,8 +3,8 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'OrbVPN Resource Center',
-  tagline: 'The OrbVPN Resource Center is your go-to destination for comprehensive guides, tutorials, and expert advice to maximize your online privacy and security with OrbVPN.',
+  title: 'NYYU Resource Center',
+  tagline: 'The NYYU Resource Center is your go-to destination for comprehensive guides, tutorials.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -72,6 +72,12 @@ const config: Config = {
   ],
 
   themeConfig: {
+    colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: false,
+      respectPrefersColorScheme: false,
+    },
+
     algolia: {
       // The application ID provided by Algolia
       appId: 'IZZT1AVCRI',
@@ -112,6 +118,7 @@ const config: Config = {
       logo: {
         alt: 'NYYU Logo',
         src: 'img/logo.svg',
+        srcDark: 'img/logo_dark.svg',
       },
       items: [
 

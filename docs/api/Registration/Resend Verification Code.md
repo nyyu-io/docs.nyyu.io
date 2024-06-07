@@ -1,0 +1,37 @@
+The `resendVerifyCode` mutation is used to resend the verification code to the user's email address. This can be helpful if the user did not receive the initial verification code or if the code has expired.
+
+### Mutation: `resendVerifyCode`
+
+#### Schema:
+```graphql
+resendVerifyCode(
+  email: String!
+): String!
+```
+
+#### Parameters
+
+- `email` (String): The email address to which the verification code should be resent. This field is mandatory.
+
+#### Return
+
+The mutation returns a string indicating the result of the resend request. The possible return values are:
+
+- `"Already verified"`: Indicates that the email address is already verified, so no verification code will be sent.
+- `"Already exists, sent verify code"`: Indicates that the email address is registered but not verified. A new verification code will be sent to the email address.
+- Exception: Indicates an error in the resend process with the specific message:
+  - `"Cannot find user by  + ${email}"`: The email address is not registered in the system.
+
+### Example Mutation
+
+The following is an example of how to use the `resendVerifyCode` mutation to resend a verification code to a user's email address:
+
+```graphql
+mutation {
+  resendVerifyCode(
+    email: "demouser@nyyu.io"
+  )
+}
+```
+
+In this example, the mutation attempts to resend the verification code to the email address `demouser@nyyu.io`. The return value will indicate whether the email is already verified, if a new verification code was sent, or if there was an error such as the email not being registered.

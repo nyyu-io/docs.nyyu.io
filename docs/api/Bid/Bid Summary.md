@@ -1,0 +1,73 @@
+### Constants
+
+#### Payment Methods
+- `CREDIT`: 1
+- `CRYPTO`: 2
+- `WALLET`: 3
+
+#### Status of Bid
+- `NOT_CONFIRMED`: 0
+- `WINNER`: 1
+- `FAILED`: 2
+
+### Types
+
+#### Bid
+```graphql
+type Bid {
+  userId: String,
+  roundId: String,
+  tokenAmount: Float,
+  totalPrice: Float,
+  tokenPrice: Float,
+  tempTokenAmount: Float,
+  tempTokenPrice: Float,
+  delta: Float,
+  pendingIncrease: Boolean,
+  holdings: [BidHoldings],
+  payType: Int,
+  cryptoType: String,
+  placedAt: Float,
+  updatedAt: Float,
+  status: Int
+}
+```
+
+- `userId` (String): The ID of the user placing the bid.
+- `roundId` (String): The ID of the auction round.
+- `tokenAmount` (Float): The total number of tokens the user wants to purchase.
+- `totalPrice` (Float): The total price for the tokens.
+- `tokenPrice` (Float): The price per token.
+- `tempTokenAmount` (Float): Temporary token amount during the bidding process.
+- `tempTokenPrice` (Float): Temporary token price during the bidding process.
+- `delta` (Float): The difference between current and previous bid prices.
+- `pendingIncrease` (Boolean): Indicates if there is a pending increase in bid.
+- `holdings` ([BidHoldings]): List of bid holdings.
+- `payType` (Int): The payment method (1: CREDIT, 2: CRYPTO, 3: WALLET).
+- `cryptoType` (String): The type of cryptocurrency used for payment.
+- `placedAt` (Float): The timestamp when the bid was placed.
+- `updatedAt` (Float): The timestamp when the bid was last updated.
+- `status` (Int): The status of the bid (0: NOT_CONFIRMED, 1: WINNER, 2: FAILED).
+
+#### BidHoldings
+```graphql
+type BidHoldings {
+  key: String,
+  value: BidHolding
+}
+```
+
+- `key` (String): The key for the bid holding.
+- `value` (BidHolding): The value of the bid holding.
+
+#### BidHolding
+```graphql
+type BidHolding {
+  crypto: Float,
+  usd: Float
+}
+```
+
+- `crypto` (Float): The amount of cryptocurrency.
+- `usd` (Float): The equivalent amount in USD.
+```

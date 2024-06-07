@@ -1,0 +1,20 @@
+{
+  "id": "api/User/Verify Account",
+  "title": "Verify Account",
+  "description": "The verifyAccount mutation is used to verify a user's email address using a code sent to the email. This is a crucial step in the user registration process to ensure the email address is valid and belongs to the user.",
+  "source": "@site/docs/api/User/Verify Account.md",
+  "sourceDirName": "api/User",
+  "slug": "/api/User/Verify Account",
+  "permalink": "/docs/api/User/Verify Account",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/User/Verify Account.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Sign up",
+    "permalink": "/docs/api/Registration/Sign up"
+  }
+}

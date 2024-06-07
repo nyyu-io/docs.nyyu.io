@@ -1,0 +1,24 @@
+{
+  "id": "api/User/Request Email Change",
+  "title": "Request Email Change",
+  "description": "The requestEmailChange mutation allows a user to request a change of their email address. After the request is made, a verification code will be sent to the current email address for confirmation.",
+  "source": "@site/docs/api/User/Request Email Change.md",
+  "sourceDirName": "api/User",
+  "slug": "/api/User/Request Email Change",
+  "permalink": "/docs/api/User/Request Email Change",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/User/Request Email Change.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Release User by Admin",
+    "permalink": "/docs/api/User/Release User by Admin"
+  },
+  "next": {
+    "title": "Reset Password By Admin",
+    "permalink": "/docs/api/User/Reset Password By Admin"
+  }
+}

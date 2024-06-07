@@ -1,0 +1,20 @@
+{
+  "id": "api/Withdraw/Send Withdraw Confirmation Code",
+  "title": "Send Withdraw Confirmation Code",
+  "description": "The functions described is accessible only to users with ADMIN privileges.",
+  "source": "@site/docs/api/Withdraw/Send Withdraw Confirmation Code.md",
+  "sourceDirName": "api/Withdraw",
+  "slug": "/api/Withdraw/Send Withdraw Confirmation Code",
+  "permalink": "/docs/api/Withdraw/Send Withdraw Confirmation Code",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/Withdraw/Send Withdraw Confirmation Code.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "PayPal Withdraw Request",
+    "permalink": "/docs/api/Withdraw/PayPal Withdraw Request"
+  }
+}

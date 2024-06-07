@@ -1,0 +1,24 @@
+{
+  "id": "api/Presale Payment/Adding New Coin",
+  "title": "Adding New Coin",
+  "description": "The addNewCoin mutation allows an admin to add a new cryptocurrency to the system.",
+  "source": "@site/docs/api/Presale Payment/Adding New Coin.md",
+  "sourceDirName": "api/Presale Payment",
+  "slug": "/api/Presale Payment/Adding New Coin",
+  "permalink": "/docs/api/Presale Payment/Adding New Coin",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/Presale Payment/Adding New Coin.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Place A New Presale Order",
+    "permalink": "/docs/api/Presale Orders/Place A New Presale Order"
+  },
+  "next": {
+    "title": "Capture Paypal Order For Presale",
+    "permalink": "/docs/api/Presale Payment/Capture Paypal Order For Presale"
+  }
+}

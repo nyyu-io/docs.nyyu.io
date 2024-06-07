@@ -1,0 +1,24 @@
+{
+  "id": "api/Withdraw/Change Withdrawal Request Show Status",
+  "title": "Change Withdrawal Request Show Status",
+  "description": "These mutations allow a user to change the show status of different types of withdrawal transactions (PayPal, Crypto, Bank) to either hide or show them on the wallet page.",
+  "source": "@site/docs/api/Withdraw/Change Withdrawal Request Show Status.md",
+  "sourceDirName": "api/Withdraw",
+  "slug": "/api/Withdraw/Change Withdrawal Request Show Status",
+  "permalink": "/docs/api/Withdraw/Change Withdrawal Request Show Status",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/Withdraw/Change Withdrawal Request Show Status.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Approve Fiat Withdrawal Request",
+    "permalink": "/docs/api/Withdraw/Approve Fiat Withdrawal Request"
+  },
+  "next": {
+    "title": "Confirm PayPal Withdrawal Request",
+    "permalink": "/docs/api/Withdraw/Confirm PayPal Withdrawal Request"
+  }
+}

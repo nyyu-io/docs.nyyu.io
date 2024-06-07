@@ -1,0 +1,24 @@
+{
+  "id": "api/User/Confirm Email Change",
+  "title": "Confirm Email Change",
+  "description": "The confirmEmailChange mutation is used to confirm a change of the user's email address. After receiving a verification code from the backend, this mutation finalizes the email change request.",
+  "source": "@site/docs/api/User/Confirm Email Change.md",
+  "sourceDirName": "api/User",
+  "slug": "/api/User/Confirm Email Change",
+  "permalink": "/docs/api/User/Confirm Email Change",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/User/Confirm Email Change.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Change Role",
+    "permalink": "/docs/api/User/Change Role"
+  },
+  "next": {
+    "title": "Create New User By Admin",
+    "permalink": "/docs/api/User/Create New User By Admin"
+  }
+}

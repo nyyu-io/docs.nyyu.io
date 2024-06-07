@@ -1,0 +1,24 @@
+{
+  "id": "api/Presale/Get Presales",
+  "title": "Get Presales",
+  "description": "The functions described is accessible only to users with ADMIN privileges.",
+  "source": "@site/docs/api/Presale/Get Presales.md",
+  "sourceDirName": "api/Presale",
+  "slug": "/api/Presale/Get Presales",
+  "permalink": "/docs/api/Presale/Get Presales",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/Presale/Get Presales.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Get Presales by Status",
+    "permalink": "/docs/api/Presale/Get Presales by Status"
+  },
+  "next": {
+    "title": "Get All Newly Placed Orders In A Presale Round",
+    "permalink": "/docs/api/Presale Orders/Get All Newly Placed Orders In A Presale Round"
+  }
+}

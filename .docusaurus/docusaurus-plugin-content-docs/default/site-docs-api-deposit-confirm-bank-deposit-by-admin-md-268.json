@@ -1,0 +1,24 @@
+{
+  "id": "api/Deposit/Confirm Bank Deposit by Admin",
+  "title": "Confirm Bank Deposit by Admin",
+  "description": "The functions described is accessible only to users with ADMIN privileges.",
+  "source": "@site/docs/api/Deposit/Confirm Bank Deposit by Admin.md",
+  "sourceDirName": "api/Deposit",
+  "slug": "/api/Deposit/Confirm Bank Deposit by Admin",
+  "permalink": "/docs/api/Deposit/Confirm Bank Deposit by Admin",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/Deposit/Confirm Bank Deposit by Admin.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Change Show Status",
+    "permalink": "/docs/api/Deposit/Change Show Status"
+  },
+  "next": {
+    "title": "Confirm PayPal Checkout Order",
+    "permalink": "/docs/api/Deposit/Confirm PayPal Checkout Order"
+  }
+}

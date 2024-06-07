@@ -1,0 +1,35 @@
+The `getCoins` query is used to retrieve the list of all available cryptocurrencies in the system.
+
+### Query: `getCoins`
+
+#### Schema:
+```graphql
+getCoins: [Coin]
+```
+
+#### Parameters
+
+- None
+
+#### Return
+
+The query returns a list of `Coin` objects representing all available cryptocurrencies.
+
+### Example Query
+
+The following is an example of how to use the `getCoins` query to retrieve the list of all available cryptocurrencies:
+
+```graphql
+query {
+  getCoins {
+    name,
+    symbol
+  }
+}
+```
+
+### Return
+
+The example returns a list of `Coin` objects with their `name` and `symbol`.
+
+In this example, the query retrieves the list of all available cryptocurrencies. Each `Coin` object in the returned list includes the `name` and `symbol` of the coin.

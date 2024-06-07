@@ -1,0 +1,24 @@
+{
+  "id": "api/Profile/Update Avatar Set",
+  "title": "Update Avatar Set",
+  "description": "updateAvatarSet(",
+  "source": "@site/docs/api/Profile/Update Avatar Set.md",
+  "sourceDirName": "api/Profile",
+  "slug": "/api/Profile/Update Avatar Set",
+  "permalink": "/docs/api/Profile/Update Avatar Set",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/Profile/Update Avatar Set.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Set Avatar",
+    "permalink": "/docs/api/Profile/Set Avatar"
+  },
+  "next": {
+    "title": "Confirm 2FA Setting",
+    "permalink": "/docs/api/Registration/Confirm 2FA Setting"
+  }
+}

@@ -1,0 +1,687 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/docs",
+          "mainDocId": "tutorial-basics/create-a-page",
+          "docs": [
+            {
+              "id": "api/Auction/Auction Summary",
+              "path": "/docs/api/Auction/Auction Summary",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Auction/Check Rounds",
+              "path": "/docs/api/Auction/Check Rounds",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Auction/Create New Auction Round",
+              "path": "/docs/api/Auction/Create New Auction Round",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Auction/Get All Auction Rounds",
+              "path": "/docs/api/Auction/Get All Auction Rounds",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Auction/Get Auction By Status",
+              "path": "/docs/api/Auction/Get Auction By Status",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Auction/Get Auction Round by Id",
+              "path": "/docs/api/Auction/Get Auction Round by Id",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Auction/Get Auction Round By Number",
+              "path": "/docs/api/Auction/Get Auction Round By Number",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Auction/Get Current Round",
+              "path": "/docs/api/Auction/Get Current Round",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Auction/Update Existing Auction Round",
+              "path": "/docs/api/Auction/Update Existing Auction Round",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Avatar/Avatar Summary",
+              "path": "/docs/api/Avatar/Avatar Summary",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Avatar/Create Avatar Component",
+              "path": "/docs/api/Avatar/Create Avatar Component",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Avatar/Create New Avatar Profile",
+              "path": "/docs/api/Avatar/Create New Avatar Profile",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Avatar/Get Avatar By ID",
+              "path": "/docs/api/Avatar/Get Avatar By ID",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Avatar/Get Avatar By Name",
+              "path": "/docs/api/Avatar/Get Avatar By Name",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Avatar/Get Avatar Components",
+              "path": "/docs/api/Avatar/Get Avatar Components",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Avatar/Get Avatar Components By Sets",
+              "path": "/docs/api/Avatar/Get Avatar Components By Sets",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Avatar/Get Avatar Profiles",
+              "path": "/docs/api/Avatar/Get Avatar Profiles",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Avatar/Get Components By Group",
+              "path": "/docs/api/Avatar/Get Components By Group",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Avatar/Update Avatar Component",
+              "path": "/docs/api/Avatar/Update Avatar Component",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Avatar/Update Avatar Profile",
+              "path": "/docs/api/Avatar/Update Avatar Profile",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Bid/Bid Summary",
+              "path": "/docs/api/Bid/Bid Summary",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Bid/Close Bid",
+              "path": "/docs/api/Bid/Close Bid",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Bid/Get Bid",
+              "path": "/docs/api/Bid/Get Bid",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Bid/Get Bid By Admin",
+              "path": "/docs/api/Bid/Get Bid By Admin",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Bid/Get Bid List By Admin",
+              "path": "/docs/api/Bid/Get Bid List By Admin",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Bid/Get Bid List By Round ID",
+              "path": "/docs/api/Bid/Get Bid List By Round ID",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Bid/Get Bid List by Round Number",
+              "path": "/docs/api/Bid/Get Bid List by Round Number",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Bid/Get Bid List By User",
+              "path": "/docs/api/Bid/Get Bid List By User",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Bid/Increase an Existing Bid",
+              "path": "/docs/api/Bid/Increase an Existing Bid",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Bid/Place a New Bid",
+              "path": "/docs/api/Bid/Place a New Bid",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Bid/Update an Existing Bid",
+              "path": "/docs/api/Bid/Update an Existing Bid",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Deposit/Change Show Status",
+              "path": "/docs/api/Deposit/Change Show Status",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Deposit/Confirm Bank Deposit by Admin",
+              "path": "/docs/api/Deposit/Confirm Bank Deposit by Admin",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Deposit/Confirm PayPal Checkout Order",
+              "path": "/docs/api/Deposit/Confirm PayPal Checkout Order",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Deposit/Create Bank Deposit Request",
+              "path": "/docs/api/Deposit/Create Bank Deposit Request",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Deposit/Create Crypto Payment for Deposit Into the Wallet",
+              "path": "/docs/api/Deposit/Create Crypto Payment for Deposit Into the Wallet",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Deposit/Create PayPal Payment for Deposit Into the Wallet",
+              "path": "/docs/api/Deposit/Create PayPal Payment for Deposit Into the Wallet",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Deposit/Create Stripe Payment for Deposit Into the Wallet",
+              "path": "/docs/api/Deposit/Create Stripe Payment for Deposit Into the Wallet",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Deposit/Create Stripe payment with Saved Card for Deposit",
+              "path": "/docs/api/Deposit/Create Stripe payment with Saved Card for Deposit",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Deposit/Viewing Deposit Transactions",
+              "path": "/docs/api/Deposit/Viewing Deposit Transactions",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Notification/Add New Notification Type",
+              "path": "/docs/api/Notification/Add New Notification Type",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Notification/Get All Notification Types",
+              "path": "/docs/api/Notification/Get All Notification Types",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Notification/Get All Unread Notifications",
+              "path": "/docs/api/Notification/Get All Unread Notifications",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Notification/Get Notifications with Offset and Limit",
+              "path": "/docs/api/Notification/Get Notifications with Offset and Limit",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Notification/Notification Summary",
+              "path": "/docs/api/Notification/Notification Summary",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Notification/Set Notification Read",
+              "path": "/docs/api/Notification/Set Notification Read",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Presale Orders/Get All Newly Placed Orders In A Presale Round",
+              "path": "/docs/api/Presale Orders/Get All Newly Placed Orders In A Presale Round",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Presale Orders/Get All Presale Orders In A Specific Presale Round",
+              "path": "/docs/api/Presale Orders/Get All Presale Orders In A Specific Presale Round",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Presale Orders/Get Presale Order By ID",
+              "path": "/docs/api/Presale Orders/Get Presale Order By ID",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Presale Orders/Get Presale Order Transactions",
+              "path": "/docs/api/Presale Orders/Get Presale Order Transactions",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Presale Orders/Get Presale Orders By User",
+              "path": "/docs/api/Presale Orders/Get Presale Orders By User",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Presale Orders/Place A New Presale Order",
+              "path": "/docs/api/Presale Orders/Place A New Presale Order",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Presale Payment/Adding New Coin",
+              "path": "/docs/api/Presale Payment/Adding New Coin",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Presale Payment/Capture Paypal Order For Presale",
+              "path": "/docs/api/Presale Payment/Capture Paypal Order For Presale",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Presale Payment/Delete a Coin",
+              "path": "/docs/api/Presale Payment/Delete a Coin",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Presale Payment/Get Coins",
+              "path": "/docs/api/Presale Payment/Get Coins",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Presale Payment/Get Crypto Transactions for Presale Orders",
+              "path": "/docs/api/Presale Payment/Get Crypto Transactions for Presale Orders",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Presale Payment/Get Cryptocurrency Price",
+              "path": "/docs/api/Presale Payment/Get Cryptocurrency Price",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Presale Payment/Get PayPal Transactions for Presale Orders",
+              "path": "/docs/api/Presale Payment/Get PayPal Transactions for Presale Orders",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Presale Payment/Get Stripe Transaction for Presale Orders",
+              "path": "/docs/api/Presale Payment/Get Stripe Transaction for Presale Orders",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Presale Payment/Pay For Presale In Crypto Currency",
+              "path": "/docs/api/Presale Payment/Pay For Presale In Crypto Currency",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Presale Payment/Pay For Presale Order With Nyyu Wallet",
+              "path": "/docs/api/Presale Payment/Pay For Presale Order With Nyyu Wallet",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Presale Payment/Pay for presale with PayPal",
+              "path": "/docs/api/Presale Payment/Pay for presale with PayPal",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Presale Payment/Pay for presale with Stripe",
+              "path": "/docs/api/Presale Payment/Pay for presale with Stripe",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Presale Payment/Pay For Presale with Stripe Saved Card",
+              "path": "/docs/api/Presale Payment/Pay For Presale with Stripe Saved Card",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Presale Payment/Place a New Presale Order",
+              "path": "/docs/api/Presale Payment/Place a New Presale Order",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Presale Payment/Presale Payment Summary",
+              "path": "/docs/api/Presale Payment/Presale Payment Summary",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Presale/Create New Presale",
+              "path": "/docs/api/Presale/Create New Presale",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Presale/Get Presales",
+              "path": "/docs/api/Presale/Get Presales",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Presale/Get Presales by Status",
+              "path": "/docs/api/Presale/Get Presales by Status",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Profile/Set Avatar",
+              "path": "/docs/api/Profile/Set Avatar",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Profile/Update Avatar Set",
+              "path": "/docs/api/Profile/Update Avatar Set",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Registration/Confirm 2FA Setting",
+              "path": "/docs/api/Registration/Confirm 2FA Setting",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Registration/Disable 2FA",
+              "path": "/docs/api/Registration/Disable 2FA",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Registration/Forgot Password",
+              "path": "/docs/api/Registration/Forgot Password",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Registration/Password Reset",
+              "path": "/docs/api/Registration/Password Reset",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Registration/Request 2FA",
+              "path": "/docs/api/Registration/Request 2FA",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Registration/Resend Verification Code",
+              "path": "/docs/api/Registration/Resend Verification Code",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Registration/Sign in",
+              "path": "/docs/api/Registration/Sign in",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Registration/Sign in 2FA Check",
+              "path": "/docs/api/Registration/Sign in 2FA Check",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Registration/Sign up",
+              "path": "/docs/api/Registration/Sign up",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Registration/Verify Account",
+              "path": "/docs/api/Registration/Verify Account",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Social Login - OAuth2/Add & Update Social Sites into DB",
+              "path": "/docs/api/Social Login - OAuth2/Add & Update Social Sites into DB",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Social Login - OAuth2/OAuth2 Summary",
+              "path": "/docs/api/Social Login - OAuth2/OAuth2 Summary",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Social Login - OAuth2/Send Request for Social login",
+              "path": "/docs/api/Social Login - OAuth2/Send Request for Social login",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Statistics/Get Round Chance",
+              "path": "/docs/api/Statistics/Get Round Chance",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Statistics/Get Round Perform 1",
+              "path": "/docs/api/Statistics/Get Round Perform 1",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Statistics/Get Round Perform 2",
+              "path": "/docs/api/Statistics/Get Round Perform 2",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/User Tier/Add New Task Setting",
+              "path": "/docs/api/User Tier/Add New Task Setting",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/User Tier/Add New Tier",
+              "path": "/docs/api/User Tier/Add New Tier",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/User Tier/Delete User Tier",
+              "path": "/docs/api/User Tier/Delete User Tier",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/User Tier/Get User Tiers",
+              "path": "/docs/api/User Tier/Get User Tiers",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/User Tier/Update Task Setting",
+              "path": "/docs/api/User Tier/Update Task Setting",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/User Tier/Update User Tier",
+              "path": "/docs/api/User Tier/Update User Tier",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/User Tier/User Tier Suammary",
+              "path": "/docs/api/User Tier/User Tier Suammary",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/User/Add Disallowed Country",
+              "path": "/docs/api/User/Add Disallowed Country",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/User/Change Password by User",
+              "path": "/docs/api/User/Change Password by User",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/User/Change Role",
+              "path": "/docs/api/User/Change Role",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/User/Confirm Email Change",
+              "path": "/docs/api/User/Confirm Email Change",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/User/Create New User By Admin",
+              "path": "/docs/api/User/Create New User By Admin",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/User/Delete Account",
+              "path": "/docs/api/User/Delete Account",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/User/Get Paginated Users",
+              "path": "/docs/api/User/Get Paginated Users",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/User/Get User",
+              "path": "/docs/api/User/Get User",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/User/Get User by ID",
+              "path": "/docs/api/User/Get User by ID",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/User/Get Users Count",
+              "path": "/docs/api/User/Get Users Count",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/User/Make Allow Location",
+              "path": "/docs/api/User/Make Allow Location",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/User/Release User by Admin",
+              "path": "/docs/api/User/Release User by Admin",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/User/Request Email Change",
+              "path": "/docs/api/User/Request Email Change",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/User/Reset Password By Admin",
+              "path": "/docs/api/User/Reset Password By Admin",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/User/Suspend User by Admin",
+              "path": "/docs/api/User/Suspend User by Admin",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/User/User Summary",
+              "path": "/docs/api/User/User Summary",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Withdraw/Approve Fiat Withdrawal Request",
+              "path": "/docs/api/Withdraw/Approve Fiat Withdrawal Request",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Withdraw/Change Withdrawal Request Show Status",
+              "path": "/docs/api/Withdraw/Change Withdrawal Request Show Status",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Withdraw/Confirm PayPal Withdrawal Request",
+              "path": "/docs/api/Withdraw/Confirm PayPal Withdrawal Request",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Withdraw/Crypto Withdrawal Request",
+              "path": "/docs/api/Withdraw/Crypto Withdrawal Request",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Withdraw/Deny Bank Withdrawal Request",
+              "path": "/docs/api/Withdraw/Deny Bank Withdrawal Request",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Withdraw/Fiat Withdrawal Request",
+              "path": "/docs/api/Withdraw/Fiat Withdrawal Request",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Withdraw/Generate Withdraw Code",
+              "path": "/docs/api/Withdraw/Generate Withdraw Code",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Withdraw/PayPal Withdraw Request",
+              "path": "/docs/api/Withdraw/PayPal Withdraw Request",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "api/Withdraw/Send Withdraw Confirmation Code",
+              "path": "/docs/api/Withdraw/Send Withdraw Confirmation Code",
+              "sidebar": "apiSidebar"
+            },
+            {
+              "id": "intro",
+              "path": "/docs/intro"
+            },
+            {
+              "id": "troubleshoot/troubleshoot",
+              "path": "/docs/troubleshoot/",
+              "sidebar": "troubleshootSidebar"
+            },
+            {
+              "id": "tutorial-basics/congratulations",
+              "path": "/docs/tutorial-basics/congratulations",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/create-a-blog-post",
+              "path": "/docs/tutorial-basics/create-a-blog-post",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/create-a-document",
+              "path": "/docs/tutorial-basics/create-a-document",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/create-a-page",
+              "path": "/docs/tutorial-basics/create-a-page",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/deploy-your-site",
+              "path": "/docs/tutorial-basics/deploy-your-site",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/markdown-features",
+              "path": "/docs/tutorial-basics/markdown-features",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-extras/manage-docs-versions",
+              "path": "/docs/tutorial-extras/manage-docs-versions"
+            },
+            {
+              "id": "tutorial-extras/translate-your-site",
+              "path": "/docs/tutorial-extras/translate-your-site"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "tutorialSidebar": {
+              "link": {
+                "path": "/docs/tutorial-basics/create-a-page",
+                "label": "tutorial-basics/create-a-page"
+              }
+            },
+            "troubleshootSidebar": {
+              "link": {
+                "path": "/docs/troubleshoot/",
+                "label": "troubleshoot/troubleshoot"
+              }
+            },
+            "apiSidebar": {
+              "link": {
+                "path": "/docs/api/Auction/Auction Summary",
+                "label": "api/Auction/Auction Summary"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}

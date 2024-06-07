@@ -1,0 +1,45 @@
+The `getAuctionByStatus` query is used to retrieve auction rounds based on their status.
+
+### Query: `getAuctionByStatus`
+
+#### Schema:
+```graphql
+query getAuctionByStatus(
+  status: Int!
+): [Auction]
+```
+
+#### Parameters
+
+- `status` (Int): The status of the auction rounds to retrieve. This field is mandatory.
+
+#### Return
+
+The query returns a list of `Auction` objects that have the specified status.
+
+### Example Query
+
+The following is an example of how to use the `getAuctionByStatus` query to retrieve auction rounds by status:
+
+```graphql
+query {
+  getAuctionByStatus(
+    status: 1
+  ) {
+    id,
+    round,
+    startedAt,
+    duration,
+    totalToken,
+    minPrice,
+    avatar {
+      groupId,
+      compId
+    },
+    token,
+    status
+  }
+}
+```
+
+In this example, the query retrieves auction rounds with the status `1`. Each `Auction` object in the returned list includes `id`, `round`, `startedAt`, `duration`, `totalToken`, `minPrice`, `avatar`, `token`, and `status` of the auctions.

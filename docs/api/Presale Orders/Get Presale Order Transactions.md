@@ -1,0 +1,44 @@
+:::note
+The functions described is accessible only to users with ADMIN privileges.
+:::
+
+The `getPresaleOrderTransactions` query is used to retrieve all payment transaction history for a specified presale order.
+
+### Query: `getPresaleOrderTransactions`
+
+#### Schema:
+```graphql
+getPresaleOrderTransactions(
+  orderId: Int!
+): [PresaleOrderPayments]
+```
+
+#### Parameters
+
+- `orderId` (Int): The ID of the presale order to retrieve transactions for. This field is mandatory.
+
+#### Return
+
+The query returns a list of `PresaleOrderPayments` objects that represent the payment transaction history for the specified presale order.
+
+### Example Query
+
+The following is an example of how to use the `getPresaleOrderTransactions` query to retrieve payment transaction history for a specific presale order:
+
+```graphql
+query {
+  getPresaleOrderTransactions(
+    orderId: 123
+  ) {
+    transactionId,
+    orderId,
+    amount,
+    currency,
+    status,
+    createdAt,
+    updatedAt
+  }
+}
+```
+
+In this example, the query retrieves the payment transaction history for the presale order with the ID `123`. Each `PresaleOrderPayments` object in the returned list includes details such as `transactionId`, `orderId`, `amount`, `currency`, `status`, `createdAt`, and `updatedAt`.

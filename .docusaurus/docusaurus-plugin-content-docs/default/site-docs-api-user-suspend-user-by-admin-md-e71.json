@@ -1,0 +1,24 @@
+{
+  "id": "api/User/Suspend User by Admin",
+  "title": "Suspend User by Admin",
+  "description": "The functions described is accessible only to users with ADMIN privileges.",
+  "source": "@site/docs/api/User/Suspend User by Admin.md",
+  "sourceDirName": "api/User",
+  "slug": "/api/User/Suspend User by Admin",
+  "permalink": "/docs/api/User/Suspend User by Admin",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/User/Suspend User by Admin.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Reset Password By Admin",
+    "permalink": "/docs/api/User/Reset Password By Admin"
+  },
+  "next": {
+    "title": "User Summary",
+    "permalink": "/docs/api/User/User Summary"
+  }
+}

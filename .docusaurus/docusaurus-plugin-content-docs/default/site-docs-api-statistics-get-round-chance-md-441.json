@@ -1,0 +1,24 @@
+{
+  "id": "api/Statistics/Get Round Chance",
+  "title": "Get Round Chance",
+  "description": "The getRoundChance query is used to retrieve the winning and failing rates for all rounds.",
+  "source": "@site/docs/api/Statistics/Get Round Chance.md",
+  "sourceDirName": "api/Statistics",
+  "slug": "/api/Statistics/Get Round Chance",
+  "permalink": "/docs/api/Statistics/Get Round Chance",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/Statistics/Get Round Chance.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Send Request for Social login",
+    "permalink": "/docs/api/Social Login - OAuth2/Send Request for Social login"
+  },
+  "next": {
+    "title": "Get Round Perform 1",
+    "permalink": "/docs/api/Statistics/Get Round Perform 1"
+  }
+}

@@ -1,0 +1,42 @@
+The `addNewCoin` mutation allows an admin to add a new cryptocurrency to the system.
+
+### Mutation: `addNewCoin`
+
+#### Schema:
+```graphql
+addNewCoin(
+  name: String!,
+  symbol: String!
+): Coin
+```
+
+#### Parameters
+
+- `name` (String): The name of the cryptocurrency (e.g., "bitcoin", "bitcoin cash"). This field is mandatory.
+- `symbol` (String): The symbol of the coin (e.g., "BTC", "BCH"). This field is mandatory.
+
+#### Return
+
+The mutation returns the created `Coin` object.
+
+### Example Mutation
+
+The following is an example of how to use the `addNewCoin` mutation to add a new cryptocurrency:
+
+```graphql
+mutation {
+  addNewCoin(
+    name: "Bitcoin",
+    symbol: "BTC"
+  ) {
+    name,
+    symbol
+  }
+}
+```
+
+### Return
+
+The example returns the created coin with its `name` and `symbol`.
+
+In this example, the mutation adds a new cryptocurrency named "Bitcoin" with the symbol "BTC". The return value includes the `Coin` object with the `name` and `symbol` of the created coin.

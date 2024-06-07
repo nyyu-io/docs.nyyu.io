@@ -1,0 +1,24 @@
+{
+  "id": "api/Auction/Get Auction Round by Id",
+  "title": "Get Auction Round by Id",
+  "description": "The functions described is accessible only to users with ADMIN privileges.",
+  "source": "@site/docs/api/Auction/Get Auction Round by Id.md",
+  "sourceDirName": "api/Auction",
+  "slug": "/api/Auction/Get Auction Round by Id",
+  "permalink": "/docs/api/Auction/Get Auction Round by Id",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/Auction/Get Auction Round by Id.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Get Auction Round By Number",
+    "permalink": "/docs/api/Auction/Get Auction Round By Number"
+  },
+  "next": {
+    "title": "Get Current Round",
+    "permalink": "/docs/api/Auction/Get Current Round"
+  }
+}

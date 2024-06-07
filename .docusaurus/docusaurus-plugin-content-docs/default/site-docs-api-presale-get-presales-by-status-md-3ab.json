@@ -1,0 +1,24 @@
+{
+  "id": "api/Presale/Get Presales by Status",
+  "title": "Get Presales by Status",
+  "description": "The functions described is accessible only to users with ADMIN privileges.",
+  "source": "@site/docs/api/Presale/Get Presales by Status.md",
+  "sourceDirName": "api/Presale",
+  "slug": "/api/Presale/Get Presales by Status",
+  "permalink": "/docs/api/Presale/Get Presales by Status",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/Presale/Get Presales by Status.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Create New Presale",
+    "permalink": "/docs/api/Presale/Create New Presale"
+  },
+  "next": {
+    "title": "Get Presales",
+    "permalink": "/docs/api/Presale/Get Presales"
+  }
+}

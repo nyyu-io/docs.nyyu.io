@@ -1,0 +1,20 @@
+{
+  "id": "api/Authentication and Registration/Resend Verification Code",
+  "title": "Resend Verification Code",
+  "description": "The resendVerifyCode mutation is used to resend the verification code to the user's email address. This can be helpful if the user did not receive the initial verification code or if the code has expired.",
+  "source": "@site/docs/api/Authentication and Registration/Resend Verification Code.md",
+  "sourceDirName": "api/Authentication and Registration",
+  "slug": "/api/Authentication and Registration/Resend Verification Code",
+  "permalink": "/docs/api/Authentication and Registration/Resend Verification Code",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/Authentication and Registration/Resend Verification Code.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "next": {
+    "title": "Sign up",
+    "permalink": "/docs/api/Authentication and Registration/Sign up"
+  }
+}

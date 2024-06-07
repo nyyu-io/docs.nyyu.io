@@ -1,0 +1,24 @@
+{
+  "id": "api/User/Add Disallowed Country",
+  "title": "Add Disallowed Country",
+  "description": "The functions described is accessible only to users with ADMIN privileges.",
+  "source": "@site/docs/api/User/Add Disallowed Country.md",
+  "sourceDirName": "api/User",
+  "slug": "/api/User/Add Disallowed Country",
+  "permalink": "/docs/api/User/Add Disallowed Country",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/User/Add Disallowed Country.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Get Round Perform 2",
+    "permalink": "/docs/api/Statistics/Get Round Perform 2"
+  },
+  "next": {
+    "title": "Change Password by User",
+    "permalink": "/docs/api/User/Change Password by User"
+  }
+}

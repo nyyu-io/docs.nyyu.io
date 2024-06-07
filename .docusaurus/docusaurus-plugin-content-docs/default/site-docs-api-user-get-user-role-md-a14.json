@@ -1,0 +1,20 @@
+{
+  "id": "api/User/Get User Role",
+  "title": "Get User Role",
+  "description": "The functions described is accessible only to users with ADMIN privileges.",
+  "source": "@site/docs/api/User/Get User Role.md",
+  "sourceDirName": "api/User",
+  "slug": "/api/User/Get User Role",
+  "permalink": "/docs/api/User/Get User Role",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/User/Get User Role.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Verify Account",
+    "permalink": "/docs/api/Registration/Verify Account"
+  }
+}

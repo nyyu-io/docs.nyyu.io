@@ -1,0 +1,24 @@
+{
+  "id": "api/Presale Payment/Get Coins",
+  "title": "Get Coins",
+  "description": "The getCoins query is used to retrieve the list of all available cryptocurrencies in the system.",
+  "source": "@site/docs/api/Presale Payment/Get Coins.md",
+  "sourceDirName": "api/Presale Payment",
+  "slug": "/api/Presale Payment/Get Coins",
+  "permalink": "/docs/api/Presale Payment/Get Coins",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/Presale Payment/Get Coins.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Delete a Coin",
+    "permalink": "/docs/api/Presale Payment/Delete a Coin"
+  },
+  "next": {
+    "title": "Get Crypto Transactions for Presale Orders",
+    "permalink": "/docs/api/Presale Payment/Get Crypto Transactions for Presale Orders"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "api/Avatar/Update Avatar Component",
+  "title": "Update Avatar Component",
+  "description": "The functions described is accessible only to users with ADMIN privileges.",
+  "source": "@site/docs/api/Avatar/Update Avatar Component.md",
+  "sourceDirName": "api/Avatar",
+  "slug": "/api/Avatar/Update Avatar Component",
+  "permalink": "/docs/api/Avatar/Update Avatar Component",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/Avatar/Update Avatar Component.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Get Components By Group",
+    "permalink": "/docs/api/Avatar/Get Components By Group"
+  },
+  "next": {
+    "title": "Update Avatar Profile",
+    "permalink": "/docs/api/Avatar/Update Avatar Profile"
+  }
+}

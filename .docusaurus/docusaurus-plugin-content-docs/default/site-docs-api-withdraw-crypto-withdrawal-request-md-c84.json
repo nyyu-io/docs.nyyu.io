@@ -1,0 +1,24 @@
+{
+  "id": "api/Withdraw/Crypto Withdrawal Request",
+  "title": "Crypto Withdrawal Request",
+  "description": "The cryptoWithdrawRequest mutation allows a user to request a withdrawal of cryptocurrency assets. This mutation sends a request to the admin to process the withdrawal. It does not create a real payout request but is used to notify the admin of the user's withdrawal request.",
+  "source": "@site/docs/api/Withdraw/Crypto Withdrawal Request.md",
+  "sourceDirName": "api/Withdraw",
+  "slug": "/api/Withdraw/Crypto Withdrawal Request",
+  "permalink": "/docs/api/Withdraw/Crypto Withdrawal Request",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/Withdraw/Crypto Withdrawal Request.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Confirm PayPal Withdrawal Request",
+    "permalink": "/docs/api/Withdraw/Confirm PayPal Withdrawal Request"
+  },
+  "next": {
+    "title": "Deny Bank Withdrawal Request",
+    "permalink": "/docs/api/Withdraw/Deny Bank Withdrawal Request"
+  }
+}

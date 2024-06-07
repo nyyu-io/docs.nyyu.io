@@ -1,0 +1,46 @@
+:::note
+The functions described is accessible only to users with ADMIN privileges.
+:::
+
+The `getPresaleById` query is used to retrieve a single presale order based on its unique ID.
+
+### Query: `getPresaleById`
+
+#### Schema:
+```graphql
+getPresaleById(
+  id: Int!
+): PreSaleOrder
+```
+
+#### Parameters
+
+- `id` (Int): The unique ID of the presale order to retrieve. This field is mandatory.
+
+#### Return
+
+The query returns a `PreSaleOrder` object that corresponds to the specified ID.
+
+### Example Query
+
+The following is an example of how to use the `getPresaleById` query to retrieve a single presale order by its ID:
+
+```graphql
+query {
+  getPresaleById(
+    id: 123
+  ) {
+    id,
+    presaleId,
+    userId,
+    ndbAmount,
+    destination,
+    extAddr,
+    status,
+    createdAt,
+    updatedAt
+  }
+}
+```
+
+In this example, the query retrieves the presale order with the ID `123`. The returned `PreSaleOrder` object includes details such as `id`, `presaleId`, `userId`, `ndbAmount`, `destination`, `extAddr`, `status`, `createdAt`, and `updatedAt`.

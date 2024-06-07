@@ -1,0 +1,44 @@
+:::note
+The functions described is accessible only to users with ADMIN privileges.
+:::
+
+The `approveBankWithdrawRequest` mutation allows an admin to approve a bank withdrawal request manually. Since there is no automatic way to approve or deny bank withdrawals, the admin must manually send the funds to the specified bank account and then call this mutation to update the request status.
+
+### Mutation: `approveBankWithdrawRequest`
+
+#### Schema:
+```graphql
+approveBankWithdrawRequest(
+  id: Int!,
+  code: String!
+): Int
+```
+
+#### Parameters
+
+- `id` (Int): The ID of the withdrawal request. This field is mandatory.
+- `code` (String): The admin's verification code received via SMS. This field is mandatory.
+
+#### Return
+
+The mutation returns an integer indicating the updated status of the withdrawal request.
+
+### Example Mutation
+
+The following is an example of how to use the `approveBankWithdrawRequest` mutation to approve a bank withdrawal request:
+
+```graphql
+mutation {
+  approveBankWithdrawRequest(
+    id: 123,
+    code: "654321"
+  )
+}
+```
+
+### Note
+
+- The admin must manually send the funds to the specified bank account before calling this mutation.
+- The `code` parameter is the admin's verification code received via SMS.
+
+In this example, the mutation approves the bank withdrawal request with ID `123`. The return value indicates the updated status of the withdrawal request after the admin manually sends the funds to the specified bank account and calls this mutation.

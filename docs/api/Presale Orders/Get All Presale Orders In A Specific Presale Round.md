@@ -1,0 +1,46 @@
+:::note
+The functions described is accessible only to users with ADMIN privileges.
+:::
+
+The `getPresaleOrders` query is used to retrieve all presale orders placed in a specified presale round.
+
+### Query: `getPresaleOrders`
+
+#### Schema:
+```graphql
+getPresaleOrders(
+  presaleId: Int!
+): [PreSaleOrder]
+```
+
+#### Parameters
+
+- `presaleId` (Int): The ID of the presale round to retrieve orders for. This field is mandatory.
+
+#### Return
+
+The query returns a list of `PreSaleOrder` objects that were placed in the specified presale round.
+
+### Example Query
+
+The following is an example of how to use the `getPresaleOrders` query to retrieve all presale orders for a specific presale round:
+
+```graphql
+query {
+  getPresaleOrders(
+    presaleId: 1
+  ) {
+    id,
+    presaleId,
+    userId,
+    ndbAmount,
+    destination,
+    extAddr,
+    status,
+    createdAt,
+    updatedAt
+  }
+}
+```
+
+In this example, the query retrieves all presale orders for the presale round with ID `1`. Each `PreSaleOrder` object in the returned list includes details such as `id`, `presaleId`, `userId`, `ndbAmount`, `destination`, `extAddr`, `status`, `createdAt`, and `updatedAt`.

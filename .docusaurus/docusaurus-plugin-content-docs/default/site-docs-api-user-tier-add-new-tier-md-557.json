@@ -1,0 +1,24 @@
+{
+  "id": "api/User Tier/Add New Tier",
+  "title": "Add New Tier",
+  "description": "The functions described is accessible only to users with ADMIN privileges.",
+  "source": "@site/docs/api/User Tier/Add New Tier.md",
+  "sourceDirName": "api/User Tier",
+  "slug": "/api/User Tier/Add New Tier",
+  "permalink": "/docs/api/User Tier/Add New Tier",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/User Tier/Add New Tier.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Add New Task Setting",
+    "permalink": "/docs/api/User Tier/Add New Task Setting"
+  },
+  "next": {
+    "title": "Delete User Tier",
+    "permalink": "/docs/api/User Tier/Delete User Tier"
+  }
+}

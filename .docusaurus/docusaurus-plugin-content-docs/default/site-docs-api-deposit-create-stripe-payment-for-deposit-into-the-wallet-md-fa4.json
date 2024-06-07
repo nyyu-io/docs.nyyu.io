@@ -1,0 +1,24 @@
+{
+  "id": "api/Deposit/Create Stripe Payment for Deposit Into the Wallet",
+  "title": "Create Stripe Payment for Deposit Into the Wallet",
+  "description": "The stripeForDeposit mutation allows a user to create a Stripe payment for a deposit into their wallet.",
+  "source": "@site/docs/api/Deposit/Create Stripe Payment for Deposit Into the Wallet.md",
+  "sourceDirName": "api/Deposit",
+  "slug": "/api/Deposit/Create Stripe Payment for Deposit Into the Wallet",
+  "permalink": "/docs/api/Deposit/Create Stripe Payment for Deposit Into the Wallet",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/Deposit/Create Stripe Payment for Deposit Into the Wallet.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Create PayPal Payment for Deposit Into the Wallet",
+    "permalink": "/docs/api/Deposit/Create PayPal Payment for Deposit Into the Wallet"
+  },
+  "next": {
+    "title": "Create Stripe payment with Saved Card for Deposit",
+    "permalink": "/docs/api/Deposit/Create Stripe payment with Saved Card for Deposit"
+  }
+}

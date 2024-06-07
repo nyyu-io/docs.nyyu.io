@@ -1,0 +1,24 @@
+{
+  "id": "api/Presale Payment/Get PayPal Transactions for Presale Orders",
+  "title": "Get PayPal Transactions for Presale Orders",
+  "description": "The getPayPalTransactions query is used to retrieve all PayPal transactions for presale orders.",
+  "source": "@site/docs/api/Presale Payment/Get PayPal Transactions for Presale Orders.md",
+  "sourceDirName": "api/Presale Payment",
+  "slug": "/api/Presale Payment/Get PayPal Transactions for Presale Orders",
+  "permalink": "/docs/api/Presale Payment/Get PayPal Transactions for Presale Orders",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/Presale Payment/Get PayPal Transactions for Presale Orders.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Get Cryptocurrency Price",
+    "permalink": "/docs/api/Presale Payment/Get Cryptocurrency Price"
+  },
+  "next": {
+    "title": "Get Stripe Transaction for Presale Orders",
+    "permalink": "/docs/api/Presale Payment/Get Stripe Transaction for Presale Orders"
+  }
+}

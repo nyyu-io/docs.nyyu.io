@@ -1,0 +1,24 @@
+{
+  "id": "api/Presale Orders/Get Presale Order Transactions",
+  "title": "Get Presale Order Transactions",
+  "description": "The functions described is accessible only to users with ADMIN privileges.",
+  "source": "@site/docs/api/Presale Orders/Get Presale Order Transactions.md",
+  "sourceDirName": "api/Presale Orders",
+  "slug": "/api/Presale Orders/Get Presale Order Transactions",
+  "permalink": "/docs/api/Presale Orders/Get Presale Order Transactions",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/Presale Orders/Get Presale Order Transactions.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Get Presale Order By ID",
+    "permalink": "/docs/api/Presale Orders/Get Presale Order By ID"
+  },
+  "next": {
+    "title": "Get Presale Orders By User",
+    "permalink": "/docs/api/Presale Orders/Get Presale Orders By User"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "api/Notification/Set Notification Read",
+  "title": "Set Notification Read",
+  "description": "The setNotificationReadFlag mutation allows a user to mark a notification as read.",
+  "source": "@site/docs/api/Notification/Set Notification Read.md",
+  "sourceDirName": "api/Notification",
+  "slug": "/api/Notification/Set Notification Read",
+  "permalink": "/docs/api/Notification/Set Notification Read",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/Notification/Set Notification Read.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Notification Summary",
+    "permalink": "/docs/api/Notification/Notification Summary"
+  },
+  "next": {
+    "title": "Create New Presale",
+    "permalink": "/docs/api/Presale/Create New Presale"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "api/Withdraw/Generate Withdraw Code",
+  "title": "Generate Withdraw Code",
+  "description": "The generateWithdraw mutation allows a user to generate a verification code for withdrawing assets. When a user initiates a withdrawal, this mutation sends an email with a verification code to the user. This code is required for all types of withdrawal requests.",
+  "source": "@site/docs/api/Withdraw/Generate Withdraw Code.md",
+  "sourceDirName": "api/Withdraw",
+  "slug": "/api/Withdraw/Generate Withdraw Code",
+  "permalink": "/docs/api/Withdraw/Generate Withdraw Code",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/api/Withdraw/Generate Withdraw Code.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "apiSidebar",
+  "previous": {
+    "title": "Fiat Withdrawal Request",
+    "permalink": "/docs/api/Withdraw/Fiat Withdrawal Request"
+  },
+  "next": {
+    "title": "PayPal Withdraw Request",
+    "permalink": "/docs/api/Withdraw/PayPal Withdraw Request"
+  }
+}
