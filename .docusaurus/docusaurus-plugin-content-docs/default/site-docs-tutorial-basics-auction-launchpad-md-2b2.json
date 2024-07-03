@@ -1,0 +1,28 @@
+{
+  "id": "tutorial-basics/auction-launchpad",
+  "title": "Auction and Launchpad Platform",
+  "description": "Auction and launchpad platform, serving digital auctions or incubators for crypto companies.",
+  "source": "@site/docs/tutorial-basics/auction-launchpad.md",
+  "sourceDirName": "tutorial-basics",
+  "slug": "/tutorial-basics/auction-launchpad",
+  "permalink": "/docs/tutorial-basics/auction-launchpad",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/tutorial-basics/auction-launchpad.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "auction-launchpad",
+    "title": "Auction and Launchpad Platform",
+    "sidebar_label": "Auction and Launchpad Platform"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Mart",
+    "permalink": "/docs/tutorial-basics/Marketplace/mart"
+  },
+  "next": {
+    "title": "Decentralized Exchange (DEX)",
+    "permalink": "/docs/tutorial-basics/dex"
+  }
+}

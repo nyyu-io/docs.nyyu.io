@@ -133,7 +133,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'troubleshootSidebar',
           position: 'left',
-          label: 'Troubleshoot',
+          label: 'FAQ',
         },
 
         {

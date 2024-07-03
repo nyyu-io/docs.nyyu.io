@@ -1,0 +1,30 @@
+{
+  "id": "tutorial-basics/Marketplace/real-estate-overview",
+  "title": "NYYU Real Estate Overview",
+  "description": "NYYU Real Estate Overview",
+  "source": "@site/docs/tutorial-basics/Marketplace/real-estate-overview.md",
+  "sourceDirName": "tutorial-basics/Marketplace",
+  "slug": "/tutorial-basics/Marketplace/real-estate-overview",
+  "permalink": "/docs/tutorial-basics/Marketplace/real-estate-overview",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/tutorial-basics/Marketplace/real-estate-overview.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "id": "real-estate-overview",
+    "title": "NYYU Real Estate Overview",
+    "sidebar_label": "Real Estate Overview",
+    "sidebar_position": 2
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Deploy your site",
+    "permalink": "/docs/tutorial-basics/trade"
+  },
+  "next": {
+    "title": "Auction and Launchpad Platform",
+    "permalink": "/docs/tutorial-basics/auction-launchpad"
+  }
+}

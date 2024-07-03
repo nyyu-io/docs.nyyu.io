@@ -8,8 +8,12 @@
           "label": "Next",
           "isLast": true,
           "path": "/docs",
-          "mainDocId": "tutorial-basics/create-a-page",
+          "mainDocId": "tutorial-basics/nyyu-wallet",
           "docs": [
+            {
+              "id": "affiliate-system",
+              "path": "/docs/affiliate-system"
+            },
             {
               "id": "api/Auction/Auction Summary",
               "path": "/docs/api/Auction/Auction Summary",
@@ -611,42 +615,118 @@
               "sidebar": "apiSidebar"
             },
             {
-              "id": "intro",
-              "path": "/docs/intro"
-            },
-            {
-              "id": "troubleshoot/troubleshoot",
-              "path": "/docs/troubleshoot/",
+              "id": "troubleshoot/Startups/invest-startups",
+              "path": "/docs/troubleshoot/Startups/invest-startups",
               "sidebar": "troubleshootSidebar"
             },
             {
-              "id": "tutorial-basics/congratulations",
-              "path": "/docs/tutorial-basics/congratulations",
+              "id": "troubleshoot/Startups/investment-risks",
+              "path": "/docs/troubleshoot/Startups/investment-risks",
+              "sidebar": "troubleshootSidebar"
+            },
+            {
+              "id": "troubleshoot/Startups/minimum-investment",
+              "path": "/docs/troubleshoot/Startups/minimum-investment",
+              "sidebar": "troubleshootSidebar"
+            },
+            {
+              "id": "troubleshoot/Startups/track-performance",
+              "path": "/docs/troubleshoot/Startups/track-performance",
+              "sidebar": "troubleshootSidebar"
+            },
+            {
+              "id": "troubleshoot/Startups/vetting-startups",
+              "path": "/docs/troubleshoot/Startups/vetting-startups",
+              "sidebar": "troubleshootSidebar"
+            },
+            {
+              "id": "troubleshoot/Trading/trade-commodities",
+              "path": "/docs/troubleshoot/Trading/trade-commodities",
+              "sidebar": "troubleshootSidebar"
+            },
+            {
+              "id": "tutorial-basics/auction-launchpad",
+              "path": "/docs/tutorial-basics/auction-launchpad",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "tutorial-basics/create-a-blog-post",
-              "path": "/docs/tutorial-basics/create-a-blog-post",
+              "id": "tutorial-basics/dex",
+              "path": "/docs/tutorial-basics/dex",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "tutorial-basics/create-a-document",
-              "path": "/docs/tutorial-basics/create-a-document",
+              "id": "tutorial-basics/earn-rewards",
+              "path": "/docs/tutorial-basics/earn-rewards",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "tutorial-basics/create-a-page",
-              "path": "/docs/tutorial-basics/create-a-page",
+              "id": "tutorial-basics/emi",
+              "path": "/docs/tutorial-basics/emi",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "tutorial-basics/deploy-your-site",
-              "path": "/docs/tutorial-basics/deploy-your-site",
+              "id": "tutorial-basics/Marketplace/mart",
+              "path": "/docs/tutorial-basics/Marketplace/mart",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "tutorial-basics/markdown-features",
-              "path": "/docs/tutorial-basics/markdown-features",
+              "id": "tutorial-basics/Marketplace/real-estate",
+              "path": "/docs/tutorial-basics/Marketplace/real-estate",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/mobile",
+              "path": "/docs/tutorial-basics/mobile",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/node-support",
+              "path": "/docs/tutorial-basics/node-support",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/nyyu-price",
+              "path": "/docs/tutorial-basics/nyyu-price",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/nyyu-trade",
+              "path": "/docs/tutorial-basics/nyyu-trade",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/nyyu-wallet",
+              "path": "/docs/tutorial-basics/nyyu-wallet",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/pay",
+              "path": "/docs/tutorial-basics/pay",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/proof-of-reserves",
+              "path": "/docs/tutorial-basics/proof-of-reserves",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/sale-launchpad",
+              "path": "/docs/tutorial-basics/sale-launchpad",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/save",
+              "path": "/docs/tutorial-basics/save",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/stablecoin",
+              "path": "/docs/tutorial-basics/stablecoin",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/uni",
+              "path": "/docs/tutorial-basics/uni",
               "sidebar": "tutorialSidebar"
             },
             {
@@ -662,14 +742,14 @@
           "sidebars": {
             "tutorialSidebar": {
               "link": {
-                "path": "/docs/tutorial-basics/create-a-page",
-                "label": "tutorial-basics/create-a-page"
+                "path": "/docs/tutorial-basics/nyyu-wallet",
+                "label": "Wallet"
               }
             },
             "troubleshootSidebar": {
               "link": {
-                "path": "/docs/troubleshoot/",
-                "label": "troubleshoot/troubleshoot"
+                "path": "/docs/troubleshoot/Startups/invest-startups",
+                "label": "Invest in Startups"
               }
             },
             "apiSidebar": {

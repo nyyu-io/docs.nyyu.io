@@ -94,7 +94,7 @@ export default {
           "type": "docSidebar",
           "sidebarId": "troubleshootSidebar",
           "position": "left",
-          "label": "Troubleshoot"
+          "label": "FAQ"
         },
         {
           "type": "docSidebar",

@@ -1,0 +1,24 @@
+{
+  "id": "troubleshoot/Startups/invest-startups",
+  "title": "How can I invest in startups on NYYU?",
+  "description": "Investing in startups on NYYU is a simple process. Start by logging into our platform and browsing the diverse range of startup opportunities available. Each startup listing provides comprehensive details, including industry insights, growth projections, and investment terms. Once you've identified a startup that resonates with your investment strategy, you can proceed to invest directly through your NYYU wallet. Our intuitive platform streamlines the investment process, empowering you to seize opportunities and fuel innovation with confidence.",
+  "source": "@site/docs/troubleshoot/Startups/invest-startups.md",
+  "sourceDirName": "troubleshoot/Startups",
+  "slug": "/troubleshoot/Startups/invest-startups",
+  "permalink": "/docs/troubleshoot/Startups/invest-startups",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/troubleshoot/Startups/invest-startups.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "invest-startups",
+    "title": "How can I invest in startups on NYYU?",
+    "sidebar_label": "Invest in Startups"
+  },
+  "sidebar": "troubleshootSidebar",
+  "next": {
+    "title": "Investment Risks",
+    "permalink": "/docs/troubleshoot/Startups/investment-risks"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "tutorial-basics/nyyu-trade",
+  "title": "NYYU Trade",
+  "description": "NYYU Trade Overview",
+  "source": "@site/docs/tutorial-basics/trade.md",
+  "sourceDirName": "tutorial-basics",
+  "slug": "/tutorial-basics/nyyu-trade",
+  "permalink": "/docs/tutorial-basics/nyyu-trade",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/tutorial-basics/trade.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "id": "nyyu-trade",
+    "title": "NYYU Trade",
+    "sidebar_label": "Trade",
+    "sidebar_position": 3
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Price Intelligence",
+    "permalink": "/docs/tutorial-basics/nyyu-price"
+  },
+  "next": {
+    "title": "Real Estate",
+    "permalink": "/docs/tutorial-basics/Marketplace/real-estate"
+  }
+}

@@ -16,12 +16,8 @@
     "sidebar_position": 2
   },
   "sidebar": "tutorialSidebar",
-  "previous": {
-    "title": "Create a Page",
-    "permalink": "/docs/tutorial-basics/create-a-page"
-  },
   "next": {
-    "title": "Create a Blog Post",
-    "permalink": "/docs/tutorial-basics/create-a-blog-post"
+    "title": "Markdown Features",
+    "permalink": "/docs/tutorial-basics/markdown-features"
   }
 }

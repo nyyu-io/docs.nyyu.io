@@ -1,0 +1,19 @@
+{
+  "id": "affiliate-system",
+  "title": "Affiliate System",
+  "description": "Affiliate system allows invitations and opportunities to earn credit in crypto for involved parties.",
+  "source": "@site/docs/affiliate-system.md",
+  "sourceDirName": ".",
+  "slug": "/affiliate-system",
+  "permalink": "/docs/affiliate-system",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/affiliate-system.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "affiliate-system",
+    "title": "Affiliate System",
+    "sidebar_label": "Affiliate System"
+  }
+}

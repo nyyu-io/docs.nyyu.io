@@ -200,18 +200,22 @@
       "plugin": "plugin---searchc-14-0ea"
     }
   },
-  "/docs-752": {
+  "/docs-253": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
       "plugin": "plugin---docsaba-d7c"
     }
   },
-  "/docs-cbb": {
+  "/docs-853": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
     "__props": "__props---docs-7-c-1-f86"
   },
-  "/docs-a99": {
+  "/docs-536": {
     "__comp": "__comp---theme-doc-roota-94-67a"
+  },
+  "/docs/affiliate-system-2c9": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-affiliate-system-4-e-5-ff6"
   },
   "/docs/api/Auction/Auction Summary-223": {
     "__comp": "__comp---theme-doc-item-178-a40",
@@ -693,37 +697,97 @@
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---docs-api-withdraw-send-withdraw-confirmation-code-168-9f2"
   },
-  "/docs/intro-853": {
+  "/docs/troubleshoot/Startups/invest-startups-17b": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-intro-0-e-3-be1"
+    "content": "content---docs-troubleshoot-startups-invest-startups-37-b-72d"
   },
-  "/docs/troubleshoot/-d6c": {
+  "/docs/troubleshoot/Startups/investment-risks-2f2": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-troubleshoot-f-0-e-eff"
+    "content": "content---docs-troubleshoot-startups-vetting-startups-9-e-4-bff"
   },
-  "/docs/tutorial-basics/congratulations-458": {
+  "/docs/troubleshoot/Startups/minimum-investment-e0e": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-congratulations-822-958"
+    "content": "content---docs-troubleshoot-startups-invest-startups-0-e-5-8d6"
   },
-  "/docs/tutorial-basics/create-a-blog-post-108": {
+  "/docs/troubleshoot/Startups/track-performance-088": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-create-a-blog-post-533-e85"
+    "content": "content---docs-troubleshoot-startups-track-performance-123-cc8"
   },
-  "/docs/tutorial-basics/create-a-document-8fc": {
+  "/docs/troubleshoot/Startups/vetting-startups-9e3": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-create-a-document-1-e-4-078"
+    "content": "content---docs-troubleshoot-startups-minimum-investment-159-a15"
   },
-  "/docs/tutorial-basics/create-a-page-951": {
+  "/docs/troubleshoot/Trading/trade-commodities-6ed": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-create-a-page-5-c-8-e19"
+    "content": "content---docs-troubleshoot-trading-trade-commodities-646-2e5"
   },
-  "/docs/tutorial-basics/deploy-your-site-4f5": {
+  "/docs/tutorial-basics/auction-launchpad-cbb": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-deploy-your-sitef-55-a3f"
+    "content": "content---docs-tutorial-basics-auction-launchpad-2-b-2-4f0"
   },
-  "/docs/tutorial-basics/markdown-features-b05": {
+  "/docs/tutorial-basics/dex-8e5": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-markdown-features-18-c-a79"
+    "content": "content---docs-tutorial-basics-dexb-7-c-b3b"
+  },
+  "/docs/tutorial-basics/earn-rewards-ede": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-basics-earn-rewards-7-b-6-85e"
+  },
+  "/docs/tutorial-basics/emi-090": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-basics-emie-45-024"
+  },
+  "/docs/tutorial-basics/Marketplace/mart-4d8": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-basics-marketplace-mart-734-c3a"
+  },
+  "/docs/tutorial-basics/Marketplace/real-estate-631": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-basics-marketplace-real-estate-overview-9-a-3-ae1"
+  },
+  "/docs/tutorial-basics/mobile-bef": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-basics-mobilefdf-fc1"
+  },
+  "/docs/tutorial-basics/node-support-eaa": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-basics-node-supportedb-fd7"
+  },
+  "/docs/tutorial-basics/nyyu-price-73d": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-basics-dex-8-d-6-402"
+  },
+  "/docs/tutorial-basics/nyyu-trade-a3f": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-basics-tradea-1-b-aef"
+  },
+  "/docs/tutorial-basics/nyyu-wallet-ea5": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-basics-wallet-6-a-9-feb"
+  },
+  "/docs/tutorial-basics/pay-0cc": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-basics-pay-2-b-4-971"
+  },
+  "/docs/tutorial-basics/proof-of-reserves-246": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-basics-proof-of-reserves-033-f5d"
+  },
+  "/docs/tutorial-basics/sale-launchpad-f06": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-basics-sale-launchpadba-8-875"
+  },
+  "/docs/tutorial-basics/save-e99": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-basics-saveab-0-197"
+  },
+  "/docs/tutorial-basics/stablecoin-209": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-basics-stablecoined-1-a1e"
+  },
+  "/docs/tutorial-basics/uni-e1f": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-basics-unib-38-878"
   },
   "/docs/tutorial-extras/manage-docs-versions-a34": {
     "__comp": "__comp---theme-doc-item-178-a40",

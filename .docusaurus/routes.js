@@ -104,16 +104,21 @@ export default [
   },
   {
     path: '/docs',
-    component: ComponentCreator('/docs', '752'),
+    component: ComponentCreator('/docs', '253'),
     routes: [
       {
         path: '/docs',
-        component: ComponentCreator('/docs', 'cbb'),
+        component: ComponentCreator('/docs', '853'),
         routes: [
           {
             path: '/docs',
-            component: ComponentCreator('/docs', 'a99'),
+            component: ComponentCreator('/docs', '536'),
             routes: [
+              {
+                path: '/docs/affiliate-system',
+                component: ComponentCreator('/docs/affiliate-system', '2c9'),
+                exact: true
+              },
               {
                 path: '/docs/api/Auction/Auction Summary',
                 component: ComponentCreator('/docs/api/Auction/Auction Summary', '223'),
@@ -835,49 +840,140 @@ export default [
                 sidebar: "apiSidebar"
               },
               {
-                path: '/docs/intro',
-                component: ComponentCreator('/docs/intro', '853'),
-                exact: true
-              },
-              {
-                path: '/docs/troubleshoot/',
-                component: ComponentCreator('/docs/troubleshoot/', 'd6c'),
+                path: '/docs/troubleshoot/Startups/invest-startups',
+                component: ComponentCreator('/docs/troubleshoot/Startups/invest-startups', '17b'),
                 exact: true,
                 sidebar: "troubleshootSidebar"
               },
               {
-                path: '/docs/tutorial-basics/congratulations',
-                component: ComponentCreator('/docs/tutorial-basics/congratulations', '458'),
+                path: '/docs/troubleshoot/Startups/investment-risks',
+                component: ComponentCreator('/docs/troubleshoot/Startups/investment-risks', '2f2'),
+                exact: true,
+                sidebar: "troubleshootSidebar"
+              },
+              {
+                path: '/docs/troubleshoot/Startups/minimum-investment',
+                component: ComponentCreator('/docs/troubleshoot/Startups/minimum-investment', 'e0e'),
+                exact: true,
+                sidebar: "troubleshootSidebar"
+              },
+              {
+                path: '/docs/troubleshoot/Startups/track-performance',
+                component: ComponentCreator('/docs/troubleshoot/Startups/track-performance', '088'),
+                exact: true,
+                sidebar: "troubleshootSidebar"
+              },
+              {
+                path: '/docs/troubleshoot/Startups/vetting-startups',
+                component: ComponentCreator('/docs/troubleshoot/Startups/vetting-startups', '9e3'),
+                exact: true,
+                sidebar: "troubleshootSidebar"
+              },
+              {
+                path: '/docs/troubleshoot/Trading/trade-commodities',
+                component: ComponentCreator('/docs/troubleshoot/Trading/trade-commodities', '6ed'),
+                exact: true,
+                sidebar: "troubleshootSidebar"
+              },
+              {
+                path: '/docs/tutorial-basics/auction-launchpad',
+                component: ComponentCreator('/docs/tutorial-basics/auction-launchpad', 'cbb'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/docs/tutorial-basics/create-a-blog-post',
-                component: ComponentCreator('/docs/tutorial-basics/create-a-blog-post', '108'),
+                path: '/docs/tutorial-basics/dex',
+                component: ComponentCreator('/docs/tutorial-basics/dex', '8e5'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/docs/tutorial-basics/create-a-document',
-                component: ComponentCreator('/docs/tutorial-basics/create-a-document', '8fc'),
+                path: '/docs/tutorial-basics/earn-rewards',
+                component: ComponentCreator('/docs/tutorial-basics/earn-rewards', 'ede'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/docs/tutorial-basics/create-a-page',
-                component: ComponentCreator('/docs/tutorial-basics/create-a-page', '951'),
+                path: '/docs/tutorial-basics/emi',
+                component: ComponentCreator('/docs/tutorial-basics/emi', '090'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/docs/tutorial-basics/deploy-your-site',
-                component: ComponentCreator('/docs/tutorial-basics/deploy-your-site', '4f5'),
+                path: '/docs/tutorial-basics/Marketplace/mart',
+                component: ComponentCreator('/docs/tutorial-basics/Marketplace/mart', '4d8'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/docs/tutorial-basics/markdown-features',
-                component: ComponentCreator('/docs/tutorial-basics/markdown-features', 'b05'),
+                path: '/docs/tutorial-basics/Marketplace/real-estate',
+                component: ComponentCreator('/docs/tutorial-basics/Marketplace/real-estate', '631'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/docs/tutorial-basics/mobile',
+                component: ComponentCreator('/docs/tutorial-basics/mobile', 'bef'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/docs/tutorial-basics/node-support',
+                component: ComponentCreator('/docs/tutorial-basics/node-support', 'eaa'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/docs/tutorial-basics/nyyu-price',
+                component: ComponentCreator('/docs/tutorial-basics/nyyu-price', '73d'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/docs/tutorial-basics/nyyu-trade',
+                component: ComponentCreator('/docs/tutorial-basics/nyyu-trade', 'a3f'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/docs/tutorial-basics/nyyu-wallet',
+                component: ComponentCreator('/docs/tutorial-basics/nyyu-wallet', 'ea5'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/docs/tutorial-basics/pay',
+                component: ComponentCreator('/docs/tutorial-basics/pay', '0cc'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/docs/tutorial-basics/proof-of-reserves',
+                component: ComponentCreator('/docs/tutorial-basics/proof-of-reserves', '246'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/docs/tutorial-basics/sale-launchpad',
+                component: ComponentCreator('/docs/tutorial-basics/sale-launchpad', 'f06'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/docs/tutorial-basics/save',
+                component: ComponentCreator('/docs/tutorial-basics/save', 'e99'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/docs/tutorial-basics/stablecoin',
+                component: ComponentCreator('/docs/tutorial-basics/stablecoin', '209'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/docs/tutorial-basics/uni',
+                component: ComponentCreator('/docs/tutorial-basics/uni', 'e1f'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },

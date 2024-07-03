@@ -1,0 +1,28 @@
+{
+  "id": "tutorial-basics/pay",
+  "title": "Pay - Payment Gateway Service",
+  "description": "Pay is a payment gateway service that enables users to accept digital payments and immediately receive fiat currency in exchange. Pay is one of the payment gateways that offers high security against price volatility due to its crypto-to-fiat payment conversion.",
+  "source": "@site/docs/tutorial-basics/pay.md",
+  "sourceDirName": "tutorial-basics",
+  "slug": "/tutorial-basics/pay",
+  "permalink": "/docs/tutorial-basics/pay",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/tutorial-basics/pay.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "pay",
+    "title": "Pay - Payment Gateway Service",
+    "sidebar_label": "Pay"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Node Support",
+    "permalink": "/docs/tutorial-basics/node-support"
+  },
+  "next": {
+    "title": "Proof of Reserves",
+    "permalink": "/docs/tutorial-basics/proof-of-reserves"
+  }
+}
