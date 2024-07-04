@@ -5,9 +5,12 @@
 
 .heroBanner {
   padding: 4rem 0;
-  text-align: center;
+  text-align: left;
   position: relative;
   overflow: hidden;
+  line-height: 2; /* Adjusts the space between lines of text */
+  margin-bottom: 3rem; /* Adds space after each paragraph */
+
 }
 
 @media screen and (max-width: 996px) {
@@ -19,5 +22,6 @@
 .buttons {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
+  margin-top: 3rem;
 }

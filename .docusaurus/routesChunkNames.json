@@ -11,12 +11,12 @@
       "plugin": "plugin---docusaurus-debugb-38-ad3"
     }
   },
-  "/__docusaurus/debug/content-466": {
+  "/__docusaurus/debug/content-a2b": {
     "__comp": "__comp---theme-debug-contentba-8-ce7",
     "__context": {
       "plugin": "plugin---docusaurus-debugb-38-ad3"
     },
-    "__props": "__props---docusaurus-debug-content-10-f-697"
+    "__props": "__props---docusaurus-debug-content-3-c-0-be2"
   },
   "/__docusaurus/debug/globalData-c3c": {
     "__comp": "__comp---theme-debug-global-dataede-0fa",
@@ -42,7 +42,7 @@
       "plugin": "plugin---docusaurus-debugb-38-ad3"
     }
   },
-  "/blog-e21": {
+  "/blog-b2f": {
     "__comp": "__comp---theme-blog-list-pagea-6-a-7ba",
     "__context": {
       "plugin": "plugin---blog-369-22e"
@@ -62,14 +62,14 @@
         "content": "content---blog-925-e00"
       }
     ],
-    "__props": "__props---blog-53-a-a6e"
+    "__props": "__props---blogc-15-573"
   },
-  "/blog/archive-245": {
+  "/blog/archive-182": {
     "__comp": "__comp---theme-blog-archive-page-9-e-4-1d8",
     "__context": {
       "plugin": "plugin---blog-369-22e"
     },
-    "__props": "__props---blog-archive-250-cf5"
+    "__props": "__props---blog-archivef-81-229"
   },
   "/blog/first-blog-post-89a": {
     "__comp": "__comp---theme-blog-post-pageccc-cab",
@@ -104,15 +104,15 @@
     "sidebar": "sidebar---blog-814-8ac",
     "content": "content---blog-mdx-blog-post-593-37b"
   },
-  "/blog/tags-4c4": {
+  "/blog/tags-287": {
     "__comp": "__comp---theme-blog-tags-list-page-01-a-d0b",
     "__context": {
       "plugin": "plugin---blog-369-22e"
     },
     "sidebar": "sidebar---blog-814-8ac",
-    "__props": "__props---blog-tags-417-25d"
+    "__props": "__props---blog-tags-3-a-2-fa2"
   },
-  "/blog/tags/docusaurus-fb9": {
+  "/blog/tags/docusaurus-704": {
     "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
     "__context": {
       "plugin": "plugin---blog-369-22e"
@@ -132,9 +132,9 @@
         "content": "content---blog-925-e00"
       }
     ],
-    "__props": "__props---blog-tags-docusaurusf-75-880"
+    "__props": "__props---blog-tags-docusaurus-321-832"
   },
-  "/blog/tags/facebook-aba": {
+  "/blog/tags/facebook-858": {
     "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
     "__context": {
       "plugin": "plugin---blog-369-22e"
@@ -145,9 +145,9 @@
         "content": "content---blog-766-e3c"
       }
     ],
-    "__props": "__props---blog-tags-facebooka-32-22e"
+    "__props": "__props---blog-tags-facebooke-5-a-514"
   },
-  "/blog/tags/hello-41a": {
+  "/blog/tags/hello-299": {
     "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
     "__context": {
       "plugin": "plugin---blog-369-22e"
@@ -161,9 +161,9 @@
         "content": "content---blog-871-381"
       }
     ],
-    "__props": "__props---blog-tags-hello-9-d-2-3a7"
+    "__props": "__props---blog-tags-hellof-82-2fd"
   },
-  "/blog/tags/hola-8e5": {
+  "/blog/tags/hola-00d": {
     "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
     "__context": {
       "plugin": "plugin---blog-369-22e"
@@ -174,7 +174,7 @@
         "content": "content---blog-925-e00"
       }
     ],
-    "__props": "__props---blog-tags-holafbc-785"
+    "__props": "__props---blog-tags-hola-5-e-9-9a3"
   },
   "/blog/welcome-d2b": {
     "__comp": "__comp---theme-blog-post-pageccc-cab",
@@ -200,17 +200,17 @@
       "plugin": "plugin---searchc-14-0ea"
     }
   },
-  "/docs-253": {
+  "/docs-775": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
       "plugin": "plugin---docsaba-d7c"
     }
   },
-  "/docs-853": {
+  "/docs-08f": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
-    "__props": "__props---docs-7-c-1-f86"
+    "__props": "__props---docs-005-788"
   },
-  "/docs-536": {
+  "/docs-49d": {
     "__comp": "__comp---theme-doc-roota-94-67a"
   },
   "/docs/affiliate-system-2c9": {
@@ -703,11 +703,11 @@
   },
   "/docs/troubleshoot/Startups/investment-risks-2f2": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-troubleshoot-startups-vetting-startups-9-e-4-bff"
+    "content": "content---docs-troubleshoot-startups-investment-risks-9-e-4-d05"
   },
   "/docs/troubleshoot/Startups/minimum-investment-e0e": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-troubleshoot-startups-invest-startups-0-e-5-8d6"
+    "content": "content---docs-troubleshoot-startups-minimum-investment-0-e-5-fab"
   },
   "/docs/troubleshoot/Startups/track-performance-088": {
     "__comp": "__comp---theme-doc-item-178-a40",
@@ -715,7 +715,7 @@
   },
   "/docs/troubleshoot/Startups/vetting-startups-9e3": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-troubleshoot-startups-minimum-investment-159-a15"
+    "content": "content---docs-troubleshoot-startups-vetting-startups-159-231"
   },
   "/docs/troubleshoot/Trading/trade-commodities-6ed": {
     "__comp": "__comp---theme-doc-item-178-a40",
@@ -737,13 +737,41 @@
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---docs-tutorial-basics-emie-45-024"
   },
-  "/docs/tutorial-basics/Marketplace/mart-4d8": {
+  "/docs/tutorial-basics/invites-a54": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-marketplace-mart-734-c3a"
+    "content": "content---docs-tutorial-basics-invites-51-d-f9a"
+  },
+  "/docs/tutorial-basics/loan-047": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-basics-loan-26-e-f90"
+  },
+  "/docs/tutorial-basics/Marketplace/commodity-804": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-basics-marketplace-commodity-80-b-f54"
+  },
+  "/docs/tutorial-basics/Marketplace/crypto-352": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-basics-marketplace-crypto-5-dd-d67"
+  },
+  "/docs/tutorial-basics/Marketplace/electricity-543": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-basics-marketplace-electricity-5-c-4-396"
+  },
+  "/docs/tutorial-basics/Marketplace/intro-2e8": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-basics-marketplace-intro-3-bc-391"
+  },
+  "/docs/tutorial-basics/Marketplace/nft-941": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-basics-marketplace-nftafb-8f9"
   },
   "/docs/tutorial-basics/Marketplace/real-estate-631": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-marketplace-real-estate-overview-9-a-3-ae1"
+    "content": "content---docs-tutorial-basics-marketplace-real-estate-9-a-3-69c"
+  },
+  "/docs/tutorial-basics/Marketplace/startup-aca": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-basics-marketplace-startupb-94-47e"
   },
   "/docs/tutorial-basics/mobile-bef": {
     "__comp": "__comp---theme-doc-item-178-a40",
@@ -755,15 +783,19 @@
   },
   "/docs/tutorial-basics/nyyu-price-73d": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-dex-8-d-6-402"
+    "content": "content---docs-tutorial-basics-nyyu-price-8-d-6-c19"
+  },
+  "/docs/tutorial-basics/nyyu-swap-828": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-basics-nyyu-swap-9-b-0-9b6"
   },
   "/docs/tutorial-basics/nyyu-trade-a3f": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-tradea-1-b-aef"
+    "content": "content---docs-tutorial-basics-nyyu-tradea-1-b-fb1"
   },
   "/docs/tutorial-basics/nyyu-wallet-ea5": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-wallet-6-a-9-feb"
+    "content": "content---docs-tutorial-basics-nyyu-wallet-6-a-9-e45"
   },
   "/docs/tutorial-basics/pay-0cc": {
     "__comp": "__comp---theme-doc-item-178-a40",

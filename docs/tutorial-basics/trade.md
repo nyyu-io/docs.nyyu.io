@@ -5,9 +5,21 @@ sidebar_label: Trade
 sidebar_position: 3
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import Trade from '@site/static/img/Trade.png';
+import TradeMarketData from '@site/static/img/TradeMarketData.png';
+import AdvancedChartingTools from '@site/static/img/AdvancedChartingTools.png';
+import OrderBook from '@site/static/img/OrderBook.png';
+import PlaceLimitOrder from '@site/static/img/PlaceLimitOrder.png';
+import MarketTrades from '@site/static/img/MarketTrades.png';
+import OpenOrders from '@site/static/img/OpenOrders.png';
+import TradingPairs from '@site/static/img/TradingPairs.png';
+
 ## NYYU Trade Overview
 
 The NYYU Trade section is designed to provide users with comprehensive trading capabilities for various financial assets, including cryptocurrencies. It offers real-time data, advanced charting tools, and a user-friendly interface for executing trades efficiently.
+
+<img src={Trade} alt="Trade" height="600" />
 
 ### Key Features
 
@@ -18,6 +30,7 @@ The NYYU Trade section is designed to provide users with comprehensive trading c
 - **Market Trades**: Displays recent trades in the market.
 - **My Trades**: Lists the user's recent trades.
 - **Search Functionality**: Allows users to quickly find specific trading pairs.
+- **Spot Tutorial & Guidance**: Includes spot tutorial and guidance for users who are new to trading or need additional help.
 
 ## Managing Your NYYU Trade Dashboard
 
@@ -30,7 +43,7 @@ At the top of the Trade section, you will find essential market data for the sel
 - **24h High/Low**: Indicates the highest and lowest prices within the last 24 hours.
 - **24h Volume**: Displays the trading volume for both BTC and USDT.
 
-![Market Data](https://example.com/market_data_trade.png)
+<img src={TradeMarketData} alt="Market Data" width="800" />
 
 ### Utilizing Advanced Charting Tools
 
@@ -40,7 +53,7 @@ The charting section provides a detailed view of the price movements with variou
 - **Chart Types**: Choose between original, trading view, and depth chart types.
 - **Technical Indicators**: Add indicators like MA, MACD, RSI, and more for detailed analysis.
 
-![Advanced Charting Tools](https://example.com/advanced_charting.png)
+<img src={AdvancedChartingTools} alt="Advanced Charting Tools" width="600" />
 
 ### Using the Order Book
 
@@ -49,7 +62,7 @@ The order book shows current buy and sell orders for the trading pair:
 - **Buy Orders**: Displayed in green with the price and amount.
 - **Sell Orders**: Displayed in red with the price and amount.
 
-![Order Book](https://example.com/order_book.png)
+<img src={OrderBook} alt="Order Book" width="300" />
 
 ### Executing Trades
 
@@ -57,6 +70,7 @@ The trading interface allows you to place different types of orders:
 
 - **Spot Trading**: Options for spot trading with limit, market, and stop-limit orders.
 - **Cross/Isolated Margin**: Choose between cross margin and isolated margin for leveraged trading.
+- **Transfer and Auto-Invest**: Transfer funds between accounts and set up automatic investments.
 
 #### Placing a Limit Order
 
@@ -64,32 +78,52 @@ The trading interface allows you to place different types of orders:
 2. Enter the price and amount you wish to trade.
 3. Click "Buy BTC" or "Sell BTC" to place the order.
 
-![Place Limit Order](https://example.com/place_limit_order.png)
+<img src={PlaceLimitOrder} alt="Place Limit Order" width="600" />
 
 ### Viewing Market and Personal Trades
 
 - **Market Trades**: Displays the most recent trades executed in the market.
 - **My Trades**: Lists your recent trades with details like price, amount, and time.
 
-![Market Trades](https://example.com/market_trades.png)
-![My Trades](https://example.com/my_trades.png)
+<img src={MarketTrades} alt="Market Trades" width="300" />
 
-### Keeping Up with Market News
+### Managing Open Orders
 
-On the right side of the Trade section, there is a news feed that provides the latest updates and articles related to financial markets. This helps users stay informed about significant events and trends that could impact their trading decisions.
+The Open Orders section allows you to view and manage your active trades. You can see details such as date, pair, type, side, price, amount, filled, total, and trigger conditions. You also have the option to cancel all open orders.
 
-![News Feed](https://example.com/news_feed.png)
+<img src={OpenOrders} alt="Open Orders" width="1000" />
 
-## Additional Suggestions for Visual Appeal
+### Searching Trading Pairs
 
-- **Use Clear Icons and Labels**: Ensure that each category and order type is clearly labeled with recognizable icons.
-- **Consistent Color Scheme**: Maintain a consistent color scheme across the interface to make it visually cohesive. Highlight important information with contrasting colors.
-- **Interactive Charts**: Incorporate interactive charts to show the performance of each asset over time. Allow users to hover over data points for more detailed information.
-- **Tooltips and Help Sections**: Add tooltips for complex functions to guide users. Include a help section or FAQ within the Trade interface for quick access to common questions.
+Use the search functionality to quickly find and select specific trading pairs. The trading pairs section provides an overview of available pairs, including price and percentage change.
 
-![Interactive Charts](https://example.com/interactive_charts.png)
-![Tooltips and Help Sections](https://example.com/tooltips_help.png)
+<img src={TradingPairs} alt="Trading Pairs" width="300" />
 
-## Conclusion
+## Comprehensive Tutorial: Conducting Trades
 
-The NYYU Trade section is designed to provide a robust and efficient trading experience, integrating advanced charting tools, real-time market data, and a user-friendly interface. With clear icons, a consistent color scheme, interactive charts, and comprehensive help sections, the platform ensures an intuitive and user-friendly trading environment for all users.
+### Step-by-Step Guide to Trading
+
+#### 1. Select Your Trading Pair
+
+- Use the search functionality to find and select your desired trading pair (e.g., BTC/USDT).
+
+#### 2. Analyze Market Data
+
+- Review the real-time market data, including current price, 24h change, high/low prices, and volume.
+- Utilize the advanced charting tools to analyze price movements and trends.
+
+#### 3. Review the Order Book
+
+- Check the order book to see current buy and sell orders.
+- Analyze the depth of the market to understand the supply and demand dynamics.
+
+#### 4. Place an Order
+
+- Choose your order type (limit, market, stop-limit).
+- Enter the required details (price, amount).
+- Click "Buy" or "Sell" to execute your trade.
+
+#### 5. Monitor Your Trades
+
+- Track your market trades and personal trade history.
+- Use the trade history to review past transactions and make informed trading decisions.

@@ -1,0 +1,24 @@
+{
+  "id": "tutorial-basics/Swap",
+  "title": "Swap",
+  "description": "",
+  "source": "@site/docs/tutorial-basics/Swap.md",
+  "sourceDirName": "tutorial-basics",
+  "slug": "/tutorial-basics/Swap",
+  "permalink": "/docs/tutorial-basics/Swap",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/tutorial-basics/Swap.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Mart",
+    "permalink": "/docs/tutorial-basics/Marketplace/mart"
+  },
+  "next": {
+    "title": "Auction and Launchpad Platform",
+    "permalink": "/docs/tutorial-basics/auction-launchpad"
+  }
+}

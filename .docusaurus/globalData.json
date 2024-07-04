@@ -665,13 +665,48 @@
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "tutorial-basics/Marketplace/mart",
-              "path": "/docs/tutorial-basics/Marketplace/mart",
+              "id": "tutorial-basics/invites",
+              "path": "/docs/tutorial-basics/invites",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/loan",
+              "path": "/docs/tutorial-basics/loan",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/Marketplace/commodity",
+              "path": "/docs/tutorial-basics/Marketplace/commodity",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/Marketplace/crypto",
+              "path": "/docs/tutorial-basics/Marketplace/crypto",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/Marketplace/electricity",
+              "path": "/docs/tutorial-basics/Marketplace/electricity",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/Marketplace/intro",
+              "path": "/docs/tutorial-basics/Marketplace/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/Marketplace/nft",
+              "path": "/docs/tutorial-basics/Marketplace/nft",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "tutorial-basics/Marketplace/real-estate",
               "path": "/docs/tutorial-basics/Marketplace/real-estate",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/Marketplace/startup",
+              "path": "/docs/tutorial-basics/Marketplace/startup",
               "sidebar": "tutorialSidebar"
             },
             {
@@ -687,6 +722,11 @@
             {
               "id": "tutorial-basics/nyyu-price",
               "path": "/docs/tutorial-basics/nyyu-price",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/nyyu-swap",
+              "path": "/docs/tutorial-basics/nyyu-swap",
               "sidebar": "tutorialSidebar"
             },
             {

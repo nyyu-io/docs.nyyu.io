@@ -1,0 +1,30 @@
+{
+  "title": {
+    "message": "NYYU",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "NYYU Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Guides": {
+    "message": "Guides",
+    "description": "Navbar item with label Guides"
+  },
+  "item.label.FAQ": {
+    "message": "FAQ",
+    "description": "Navbar item with label FAQ"
+  },
+  "item.label.API": {
+    "message": "API",
+    "description": "Navbar item with label API"
+  },
+  "item.label.Blog": {
+    "message": "Blog",
+    "description": "Navbar item with label Blog"
+  },
+  "item.label.Login": {
+    "message": "Login",
+    "description": "Navbar item with label Login"
+  }
+}

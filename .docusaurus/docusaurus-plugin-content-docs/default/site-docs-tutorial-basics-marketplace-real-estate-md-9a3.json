@@ -20,11 +20,11 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Trade",
-    "permalink": "/docs/tutorial-basics/nyyu-trade"
+    "title": "Intro",
+    "permalink": "/docs/tutorial-basics/Marketplace/intro"
   },
   "next": {
-    "title": "Mart",
-    "permalink": "/docs/tutorial-basics/Marketplace/mart"
+    "title": "commodity",
+    "permalink": "/docs/tutorial-basics/Marketplace/commodity"
   }
 }

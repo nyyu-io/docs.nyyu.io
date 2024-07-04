@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'NYYU Resource Center',
-  tagline: 'The NYYU Resource Center is your go-to destination for comprehensive guides, tutorials.',
+  tagline: 'The NYYU Resource Center is your ultimate destination for comprehensive helpdesk, in-depth tutorials, FAQs, development APIs, and the latest updates on the NYYU platform.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -26,7 +26,7 @@ const config: Config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'fa'],
+    locales: ['en'],
     path: 'i18n',
     localeConfigs: {
       en: {
@@ -36,13 +36,13 @@ const config: Config = {
         calendar: 'gregory',
         path: 'en',
       },
-      fa: {
-        label: 'فارسی',
-        direction: 'rtl',
-        htmlLang: 'fa-IR',
-        calendar: 'persian',
-        path: 'fa',
-      },
+      // fa: {
+      //   label: 'فارسی',
+      //   direction: 'rtl',
+      //   htmlLang: 'fa-IR',
+      //   calendar: 'persian',
+      //   path: 'fa',
+      // },
     },
   },
 
@@ -126,7 +126,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Guides',
+          label: 'Tutorial',
         },
 
         {
@@ -158,29 +158,130 @@ const config: Config = {
         
       ],
     },
+
+
+
+
+
     footer: {
       style: 'dark',
       links: [
         {
-          title: 'Guides',
+          title: 'Products',
           items: [
             {
-              label: 'iOS',
-              to: '/docs/intro',
+              label: 'Trade',
+              to: '/docs/tutorial-basics/nyyu-trade',
             },
             {
-              label: 'Android',
-              to: '/docs/intro',
+              label: 'Swap',
+              to: '/docs/tutorial-basics/nyyu-swap',
             },
             {
-              label: 'Windows',
-              to: '/docs/intro',
+              label: 'Marketplace',
+              to: '/docs/tutorial-basics/Marketplace/intro',
             },
             {
-              label: 'MacOS',
-              to: '/docs/intro',
+              label: 'Loan',
+              to: '/docs/tutorial-basics/loan',
+            },
+            {
+              label: 'Save',
+              to: '/docs/tutorial-basics/save',
+            },
+            {
+              label: 'Invites',
+              to: '/docs/tutorial-basics/invites',
             },
 
+          ],
+        },
+
+        {
+          title: 'Services',
+          items: [
+            {
+              label: 'Token Listing',
+              to: '/',
+            },
+            {
+              label: 'Startup Listing',
+              href: '/',
+            },
+            {
+              label: 'Property Listing',
+              to: '/',
+            },
+            {
+              label: 'Commodity Listing',
+              href: '/',
+            },
+            {
+              label: 'Fees',
+              to: '/',
+            },
+            {
+              label: 'Bug Boutny',
+              to: '/',
+            },
+            {
+              label: 'Delistings',
+              to: '/',
+            },
+            {
+              label: 'PoR (Proof of Reserves)',
+              to: '/',
+            },
+          ],
+        },
+        {
+          title: 'Developers',
+          items: [
+            {
+              label: 'NYYU API',
+              to: '/',
+            },
+            {
+              label: 'NYYU Node',
+              href: '/',
+            },
+            {
+              label: 'NYYU Pay',
+              to: '/',
+            },
+          ],
+        },
+        {
+          title: 'Corporate',
+          items: [
+            {
+              label: 'About Us',
+              to: '/',
+            },
+            {
+              label: 'Media Kit',
+              href: '/',
+            },
+            {
+              label: 'Whistleblower Contact',
+              to: '/',
+            },
+            {
+              label: 'Security',
+              to: '/',
+            },
+            {
+              label: 'Changelogs',
+              href: '/',
+            },
+            {
+              label: 'Blog',
+              to: '/blog',
+            },
+            {
+              label: 'Contact Us',
+              to: '/blog',
+            },
           ],
         },
         {
@@ -205,15 +306,31 @@ const config: Config = {
           ],
         },
         {
-          title: 'More',
+          title: 'Legal',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: 'Terms of Use',
+              to: '/',
             },
             {
-              label: 'User Dashboard',
-              href: 'https://nyyu.io',
+              label: 'Privacy Policy',
+              href: '/',
+            },
+            {
+              label: 'Risk Disclosure Statement',
+              to: '/',
+            },
+            {
+              label: 'AML & CFT',
+              href: '/',
+            },
+            {
+              label: 'Special Treatment',
+              to: '/',
+            },
+            {
+              label: 'Law Enforcmement Requests',
+              href: '/',
             },
           ],
         },

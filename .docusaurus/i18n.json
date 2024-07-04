@@ -1,8 +1,7 @@
 {
   "defaultLocale": "en",
   "locales": [
-    "en",
-    "fa"
+    "en"
   ],
   "path": "i18n",
   "currentLocale": "en",
@@ -13,13 +12,6 @@
       "htmlLang": "en-US",
       "calendar": "gregory",
       "path": "en"
-    },
-    "fa": {
-      "label": "فارسی",
-      "direction": "rtl",
-      "htmlLang": "fa-IR",
-      "calendar": "persian",
-      "path": "fa"
     }
   }
 }

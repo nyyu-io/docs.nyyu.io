@@ -7,14 +7,17 @@
   "date": "2021-08-26T00:00:00.000Z",
   "tags": [
     {
+      "inline": true,
       "label": "facebook",
       "permalink": "/blog/tags/facebook"
     },
     {
+      "inline": true,
       "label": "hello",
       "permalink": "/blog/tags/hello"
     },
     {
+      "inline": true,
       "label": "docusaurus",
       "permalink": "/blog/tags/docusaurus"
     }

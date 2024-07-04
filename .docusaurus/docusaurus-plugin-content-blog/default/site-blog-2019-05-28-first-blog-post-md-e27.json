@@ -7,10 +7,12 @@
   "date": "2019-05-28T00:00:00.000Z",
   "tags": [
     {
+      "inline": true,
       "label": "hola",
       "permalink": "/blog/tags/hola"
     },
     {
+      "inline": true,
       "label": "docusaurus",
       "permalink": "/blog/tags/docusaurus"
     }

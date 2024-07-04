@@ -14,7 +14,7 @@ export default [
   },
   {
     path: '/__docusaurus/debug/content',
-    component: ComponentCreator('/__docusaurus/debug/content', '466'),
+    component: ComponentCreator('/__docusaurus/debug/content', 'a2b'),
     exact: true
   },
   {
@@ -39,12 +39,12 @@ export default [
   },
   {
     path: '/blog',
-    component: ComponentCreator('/blog', 'e21'),
+    component: ComponentCreator('/blog', 'b2f'),
     exact: true
   },
   {
     path: '/blog/archive',
-    component: ComponentCreator('/blog/archive', '245'),
+    component: ComponentCreator('/blog/archive', '182'),
     exact: true
   },
   {
@@ -64,27 +64,27 @@ export default [
   },
   {
     path: '/blog/tags',
-    component: ComponentCreator('/blog/tags', '4c4'),
+    component: ComponentCreator('/blog/tags', '287'),
     exact: true
   },
   {
     path: '/blog/tags/docusaurus',
-    component: ComponentCreator('/blog/tags/docusaurus', 'fb9'),
+    component: ComponentCreator('/blog/tags/docusaurus', '704'),
     exact: true
   },
   {
     path: '/blog/tags/facebook',
-    component: ComponentCreator('/blog/tags/facebook', 'aba'),
+    component: ComponentCreator('/blog/tags/facebook', '858'),
     exact: true
   },
   {
     path: '/blog/tags/hello',
-    component: ComponentCreator('/blog/tags/hello', '41a'),
+    component: ComponentCreator('/blog/tags/hello', '299'),
     exact: true
   },
   {
     path: '/blog/tags/hola',
-    component: ComponentCreator('/blog/tags/hola', '8e5'),
+    component: ComponentCreator('/blog/tags/hola', '00d'),
     exact: true
   },
   {
@@ -104,15 +104,15 @@ export default [
   },
   {
     path: '/docs',
-    component: ComponentCreator('/docs', '253'),
+    component: ComponentCreator('/docs', '775'),
     routes: [
       {
         path: '/docs',
-        component: ComponentCreator('/docs', '853'),
+        component: ComponentCreator('/docs', '08f'),
         routes: [
           {
             path: '/docs',
-            component: ComponentCreator('/docs', '536'),
+            component: ComponentCreator('/docs', '49d'),
             routes: [
               {
                 path: '/docs/affiliate-system',
@@ -900,14 +900,56 @@ export default [
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/docs/tutorial-basics/Marketplace/mart',
-                component: ComponentCreator('/docs/tutorial-basics/Marketplace/mart', '4d8'),
+                path: '/docs/tutorial-basics/invites',
+                component: ComponentCreator('/docs/tutorial-basics/invites', 'a54'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/docs/tutorial-basics/loan',
+                component: ComponentCreator('/docs/tutorial-basics/loan', '047'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/docs/tutorial-basics/Marketplace/commodity',
+                component: ComponentCreator('/docs/tutorial-basics/Marketplace/commodity', '804'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/docs/tutorial-basics/Marketplace/crypto',
+                component: ComponentCreator('/docs/tutorial-basics/Marketplace/crypto', '352'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/docs/tutorial-basics/Marketplace/electricity',
+                component: ComponentCreator('/docs/tutorial-basics/Marketplace/electricity', '543'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/docs/tutorial-basics/Marketplace/intro',
+                component: ComponentCreator('/docs/tutorial-basics/Marketplace/intro', '2e8'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/docs/tutorial-basics/Marketplace/nft',
+                component: ComponentCreator('/docs/tutorial-basics/Marketplace/nft', '941'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
                 path: '/docs/tutorial-basics/Marketplace/real-estate',
                 component: ComponentCreator('/docs/tutorial-basics/Marketplace/real-estate', '631'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/docs/tutorial-basics/Marketplace/startup',
+                component: ComponentCreator('/docs/tutorial-basics/Marketplace/startup', 'aca'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
@@ -926,6 +968,12 @@ export default [
               {
                 path: '/docs/tutorial-basics/nyyu-price',
                 component: ComponentCreator('/docs/tutorial-basics/nyyu-price', '73d'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/docs/tutorial-basics/nyyu-swap',
+                component: ComponentCreator('/docs/tutorial-basics/nyyu-swap', '828'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
