@@ -4,6 +4,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
+import SearchBar from '@theme/SearchBar';
 
 import styles from './index.module.css';
 
@@ -16,9 +17,12 @@ function HomepageHeader() {
           {siteConfig.title}
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <div className={styles.searchContainer}>
+          <SearchBar />
+        </div>
         <div className={styles.buttons}>
           <Link
-            className="button button--secondary button--lg"
+            className="button"
             to="https://youtu.be/mhSZw97nEiU">
             NYYU 2 Demo - 6min ⏱️
           </Link>

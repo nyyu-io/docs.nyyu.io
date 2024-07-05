@@ -5,7 +5,7 @@
 
 .heroBanner {
   padding: 4rem 0;
-  text-align: left;
+  text-align: center;
   position: relative;
   overflow: hidden;
   line-height: 2; /* Adjusts the space between lines of text */
@@ -19,9 +19,25 @@
   }
 }
 
+.searchContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 64px;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchContainer button {
+  width: 550px; /* Adjust width as needed */
+  height: 64px; /* Adjust height as needed */
+  padding: 10px 20px; /* Adjust padding as needed for text inside the button */
+  font-size: 24px; /* Adjust font size as needed */
+  border-radius: 8px;
+}
+
 .buttons {
   display: flex;
   align-items: center;
-  justify-content: left;
-  margin-top: 3rem;
+  justify-content: center;
+  margin-top: 1rem;
 }

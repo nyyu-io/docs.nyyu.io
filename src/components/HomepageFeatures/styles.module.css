@@ -6,6 +6,85 @@
 }
 
 .featureSvg {
-  height: 200px;
-  width: 200px;
+  height: 64px;
+  width: 64px;
+  margin-top: 24px;
+  margin-bottom: 32px;
+}
+
+.featureBox {
+  border: 1px solid grey;
+  padding: 20px;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  border-radius: 4px; /* optional, for rounded corners */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px; /* Adjust height to make it square */
+}
+
+.featureBox:hover {
+  background-color: #3a3a3a;
+  transform: scale(1.05);
+}
+
+.featureText:hover {
+  color: #90b2df; /* Change to your preferred hover color */
+}
+
+.featureSvg {
+  width: 100px; /* Adjust size as necessary */
+  height: 100px; /* Adjust size as necessary */
+}
+
+.faqSection {
+  margin-top: 20px;
+  margin-bottom: 48px;
+  padding: 32px;
+  background-color: #232323;
+  border-radius: 4px;
+}
+
+.faqColumns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 64px;
+}
+
+.faqColumn {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.faqColumn:last-child {
+  margin-right: 0;
+}
+
+.faqItem {
+  margin-bottom: 10px;
+}
+
+.faqArticleLink {
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.faqArticleLink:hover {
+  color: #90b2df; /* Change to your preferred hover color */
+}
+
+.moreLink {
+  display: block;
+  margin-top: 20px;
+  text-align: right;
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.moreLink:hover {
+  text-decoration: underline;
 }
