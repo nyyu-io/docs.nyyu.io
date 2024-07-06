@@ -1,827 +1,784 @@
 {
-  "/__docusaurus/debug-5ff": {
-    "__comp": "__comp---theme-debug-config-23-a-2ff",
-    "__context": {
-      "plugin": "plugin---docusaurus-debugb-38-ad3"
-    }
-  },
-  "/__docusaurus/debug/config-5ba": {
-    "__comp": "__comp---theme-debug-config-23-a-2ff",
-    "__context": {
-      "plugin": "plugin---docusaurus-debugb-38-ad3"
-    }
-  },
-  "/__docusaurus/debug/content-a2b": {
-    "__comp": "__comp---theme-debug-contentba-8-ce7",
-    "__context": {
-      "plugin": "plugin---docusaurus-debugb-38-ad3"
-    },
-    "__props": "__props---docusaurus-debug-content-3-c-0-be2"
-  },
-  "/__docusaurus/debug/globalData-c3c": {
-    "__comp": "__comp---theme-debug-global-dataede-0fa",
-    "__context": {
-      "plugin": "plugin---docusaurus-debugb-38-ad3"
-    }
-  },
-  "/__docusaurus/debug/metadata-156": {
-    "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
-    "__context": {
-      "plugin": "plugin---docusaurus-debugb-38-ad3"
-    }
-  },
-  "/__docusaurus/debug/registry-88c": {
-    "__comp": "__comp---theme-debug-registry-679-501",
-    "__context": {
-      "plugin": "plugin---docusaurus-debugb-38-ad3"
-    }
-  },
-  "/__docusaurus/debug/routes-000": {
-    "__comp": "__comp---theme-debug-routes-946-699",
-    "__context": {
-      "plugin": "plugin---docusaurus-debugb-38-ad3"
-    }
-  },
   "/blog-b2f": {
-    "__comp": "__comp---theme-blog-list-pagea-6-a-7ba",
+    "__comp": "a6aa9e1f",
     "__context": {
-      "plugin": "plugin---blog-369-22e"
+      "plugin": "36994c47"
     },
-    "sidebar": "sidebar---blog-814-8ac",
+    "sidebar": "814f3328",
     "items": [
       {
-        "content": "content---blog-766-e3c"
+        "content": "7661071f"
       },
       {
-        "content": "content---blogf-4-f-cd7"
+        "content": "f4f34a3a"
       },
       {
-        "content": "content---blog-871-381"
+        "content": "8717b14a"
       },
       {
-        "content": "content---blog-925-e00"
+        "content": "925b3f96"
       }
     ],
-    "__props": "__props---blogc-15-573"
+    "__props": "c15d9823"
   },
   "/blog/archive-182": {
-    "__comp": "__comp---theme-blog-archive-page-9-e-4-1d8",
+    "__comp": "9e4087bc",
     "__context": {
-      "plugin": "plugin---blog-369-22e"
+      "plugin": "36994c47"
     },
-    "__props": "__props---blog-archivef-81-229"
+    "__props": "f81c1134"
   },
   "/blog/first-blog-post-89a": {
-    "__comp": "__comp---theme-blog-post-pageccc-cab",
+    "__comp": "ccc49370",
     "__context": {
       "data": {
-        "blogMetadata": "blogMetadata---blog-first-blog-postace-ee5"
+        "blogMetadata": "acecf23e"
       },
-      "plugin": "plugin---blog-369-22e"
+      "plugin": "36994c47"
     },
-    "sidebar": "sidebar---blog-814-8ac",
-    "content": "content---blog-first-blog-poste-27-4a1"
+    "sidebar": "814f3328",
+    "content": "e273c56f"
   },
   "/blog/long-blog-post-9ad": {
-    "__comp": "__comp---theme-blog-post-pageccc-cab",
+    "__comp": "ccc49370",
     "__context": {
       "data": {
-        "blogMetadata": "blogMetadata---blog-first-blog-postace-ee5"
+        "blogMetadata": "acecf23e"
       },
-      "plugin": "plugin---blog-369-22e"
+      "plugin": "36994c47"
     },
-    "sidebar": "sidebar---blog-814-8ac",
-    "content": "content---blog-long-blog-post-736-bc7"
+    "sidebar": "814f3328",
+    "content": "73664a40"
   },
   "/blog/mdx-blog-post-e9f": {
-    "__comp": "__comp---theme-blog-post-pageccc-cab",
+    "__comp": "ccc49370",
     "__context": {
       "data": {
-        "blogMetadata": "blogMetadata---blog-first-blog-postace-ee5"
+        "blogMetadata": "acecf23e"
       },
-      "plugin": "plugin---blog-369-22e"
+      "plugin": "36994c47"
     },
-    "sidebar": "sidebar---blog-814-8ac",
-    "content": "content---blog-mdx-blog-post-593-37b"
+    "sidebar": "814f3328",
+    "content": "59362658"
   },
   "/blog/tags-287": {
-    "__comp": "__comp---theme-blog-tags-list-page-01-a-d0b",
+    "__comp": "01a85c17",
     "__context": {
-      "plugin": "plugin---blog-369-22e"
+      "plugin": "36994c47"
     },
-    "sidebar": "sidebar---blog-814-8ac",
-    "__props": "__props---blog-tags-3-a-2-fa2"
+    "sidebar": "814f3328",
+    "__props": "3a2db09e"
   },
   "/blog/tags/docusaurus-704": {
-    "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
+    "__comp": "6875c492",
     "__context": {
-      "plugin": "plugin---blog-369-22e"
+      "plugin": "36994c47"
     },
-    "sidebar": "sidebar---blog-814-8ac",
+    "sidebar": "814f3328",
     "items": [
       {
-        "content": "content---blog-766-e3c"
+        "content": "7661071f"
       },
       {
-        "content": "content---blogf-4-f-cd7"
+        "content": "f4f34a3a"
       },
       {
-        "content": "content---blog-871-381"
+        "content": "8717b14a"
       },
       {
-        "content": "content---blog-925-e00"
+        "content": "925b3f96"
       }
     ],
-    "__props": "__props---blog-tags-docusaurus-321-832"
+    "__props": "3217192f"
   },
   "/blog/tags/facebook-858": {
-    "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
+    "__comp": "6875c492",
     "__context": {
-      "plugin": "plugin---blog-369-22e"
+      "plugin": "36994c47"
     },
-    "sidebar": "sidebar---blog-814-8ac",
+    "sidebar": "814f3328",
     "items": [
       {
-        "content": "content---blog-766-e3c"
+        "content": "7661071f"
       }
     ],
-    "__props": "__props---blog-tags-facebooke-5-a-514"
+    "__props": "e5aefb32"
   },
   "/blog/tags/hello-299": {
-    "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
+    "__comp": "6875c492",
     "__context": {
-      "plugin": "plugin---blog-369-22e"
+      "plugin": "36994c47"
     },
-    "sidebar": "sidebar---blog-814-8ac",
+    "sidebar": "814f3328",
     "items": [
       {
-        "content": "content---blog-766-e3c"
+        "content": "7661071f"
       },
       {
-        "content": "content---blog-871-381"
+        "content": "8717b14a"
       }
     ],
-    "__props": "__props---blog-tags-hellof-82-2fd"
+    "__props": "f82cd581"
   },
   "/blog/tags/hola-00d": {
-    "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
+    "__comp": "6875c492",
     "__context": {
-      "plugin": "plugin---blog-369-22e"
+      "plugin": "36994c47"
     },
-    "sidebar": "sidebar---blog-814-8ac",
+    "sidebar": "814f3328",
     "items": [
       {
-        "content": "content---blog-925-e00"
+        "content": "925b3f96"
       }
     ],
-    "__props": "__props---blog-tags-hola-5-e-9-9a3"
+    "__props": "5e90a9b3"
   },
   "/blog/welcome-d2b": {
-    "__comp": "__comp---theme-blog-post-pageccc-cab",
+    "__comp": "ccc49370",
     "__context": {
       "data": {
-        "blogMetadata": "blogMetadata---blog-first-blog-postace-ee5"
+        "blogMetadata": "acecf23e"
       },
-      "plugin": "plugin---blog-369-22e"
+      "plugin": "36994c47"
     },
-    "sidebar": "sidebar---blog-814-8ac",
-    "content": "content---blog-welcomed-9-f-ffb"
+    "sidebar": "814f3328",
+    "content": "d9f32620"
   },
   "/markdown-page-3d7": {
-    "__comp": "__comp---theme-mdx-page-1-f-3-b90",
+    "__comp": "1f391b9e",
     "__context": {
-      "plugin": "plugin---markdown-pagea-74-7b5"
+      "plugin": "a7456010"
     },
-    "content": "content---markdown-page-393-028"
+    "content": "393be207"
   },
   "/search-5de": {
-    "__comp": "__comp---theme-search-page-1-a-4-d6f",
+    "__comp": "1a4e3797",
     "__context": {
-      "plugin": "plugin---searchc-14-0ea"
+      "plugin": "c141421f"
     }
   },
   "/docs-554": {
-    "__comp": "__comp---theme-docs-root-5-e-9-0b6",
+    "__comp": "5e95c892",
     "__context": {
-      "plugin": "plugin---docsaba-d7c"
+      "plugin": "aba21aa0"
     }
   },
   "/docs-49a": {
-    "__comp": "__comp---theme-doc-version-roota-7-b-5de",
-    "__props": "__props---docs-005-788"
+    "__comp": "a7bd4aaa",
+    "__props": "0058b4c6"
   },
   "/docs-16f": {
-    "__comp": "__comp---theme-doc-roota-94-67a"
+    "__comp": "a94703ab"
   },
   "/docs/affiliate-system-2c9": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-affiliate-system-4-e-5-ff6"
+    "__comp": "17896441",
+    "content": "4e5f8539"
   },
   "/docs/api/Auction/Auction Summary-223": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-auction-auction-summaryc-02-691"
+    "__comp": "17896441",
+    "content": "c02e4242"
   },
   "/docs/api/Auction/Check Rounds-2a3": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-auction-check-roundsee-8-83b"
+    "__comp": "17896441",
+    "content": "ee85c6ea"
   },
   "/docs/api/Auction/Create New Auction Round-a6b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-auction-create-new-auction-round-012-0c2"
+    "__comp": "17896441",
+    "content": "012134cd"
   },
   "/docs/api/Auction/Get All Auction Rounds-c7d": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-auction-get-all-auction-roundsd-37-51b"
+    "__comp": "17896441",
+    "content": "d37f58ae"
   },
   "/docs/api/Auction/Get Auction By Status-ce3": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-auction-get-auction-by-status-9-de-150"
+    "__comp": "17896441",
+    "content": "9dec6845"
   },
   "/docs/api/Auction/Get Auction Round by Id-4d2": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-auction-get-auction-round-by-id-4-f-5-7bb"
+    "__comp": "17896441",
+    "content": "4f510aec"
   },
   "/docs/api/Auction/Get Auction Round By Number-788": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-auction-get-auction-round-by-numberf-9-f-af6"
+    "__comp": "17896441",
+    "content": "f9f1d8c8"
   },
   "/docs/api/Auction/Get Current Round-a47": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-auction-get-current-round-0-ea-134"
+    "__comp": "17896441",
+    "content": "0ea685de"
   },
   "/docs/api/Auction/Update Existing Auction Round-ec4": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-auction-update-existing-auction-round-377-0ad"
+    "__comp": "17896441",
+    "content": "377c2412"
   },
   "/docs/api/Avatar/Avatar Summary-2b6": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-avatar-avatar-summary-1-da-f9b"
+    "__comp": "17896441",
+    "content": "1da44f47"
   },
   "/docs/api/Avatar/Create Avatar Component-cb6": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-avatar-create-avatar-component-97-e-2cc"
+    "__comp": "17896441",
+    "content": "97e4f692"
   },
   "/docs/api/Avatar/Create New Avatar Profile-3ad": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-avatar-create-new-avatar-profilec-6-b-1f3"
+    "__comp": "17896441",
+    "content": "c6ba5ed3"
   },
   "/docs/api/Avatar/Get Avatar By ID-dda": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-avatar-get-avatar-by-id-2-fc-5cc"
+    "__comp": "17896441",
+    "content": "2fc2d185"
   },
   "/docs/api/Avatar/Get Avatar By Name-ea4": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-avatar-get-avatar-by-namec-3-b-5b5"
+    "__comp": "17896441",
+    "content": "c3ba6c4f"
   },
   "/docs/api/Avatar/Get Avatar Components-012": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-avatar-get-avatar-components-663-ae0"
+    "__comp": "17896441",
+    "content": "663912ca"
   },
   "/docs/api/Avatar/Get Avatar Components By Sets-cce": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-avatar-get-avatar-components-by-sets-507-e80"
+    "__comp": "17896441",
+    "content": "507f1e37"
   },
   "/docs/api/Avatar/Get Avatar Profiles-e7c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-avatar-get-avatar-profilesdc-3-fea"
+    "__comp": "17896441",
+    "content": "dc3b15d8"
   },
   "/docs/api/Avatar/Get Components By Group-d83": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-avatar-get-components-by-group-790-330"
+    "__comp": "17896441",
+    "content": "790d7f72"
   },
   "/docs/api/Avatar/Update Avatar Component-ee6": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-avatar-update-avatar-component-891-8a4"
+    "__comp": "17896441",
+    "content": "89116296"
   },
   "/docs/api/Avatar/Update Avatar Profile-f82": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-avatar-update-avatar-profilea-42-dc7"
+    "__comp": "17896441",
+    "content": "a4265cf1"
   },
   "/docs/api/Bid/Bid Summary-dc4": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-bid-bid-summary-8-ec-df6"
+    "__comp": "17896441",
+    "content": "8ecf29e9"
   },
   "/docs/api/Bid/Close Bid-3ee": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-bid-close-bid-5-d-3-06d"
+    "__comp": "17896441",
+    "content": "5d3b9879"
   },
   "/docs/api/Bid/Get Bid-428": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-bid-get-bid-47-a-366"
+    "__comp": "17896441",
+    "content": "47a1adfa"
   },
   "/docs/api/Bid/Get Bid By Admin-9be": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-bid-get-bid-by-admin-96-d-07f"
+    "__comp": "17896441",
+    "content": "96d937eb"
   },
   "/docs/api/Bid/Get Bid List By Admin-354": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-bid-get-bid-list-by-admin-9-a-3-ae1"
+    "__comp": "17896441",
+    "content": "9a363842"
   },
   "/docs/api/Bid/Get Bid List By Round ID-792": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-bid-get-bid-list-by-round-id-310-c98"
+    "__comp": "17896441",
+    "content": "3109a9c1"
   },
   "/docs/api/Bid/Get Bid List by Round Number-c1e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-bid-get-bid-list-by-round-number-227-ffd"
+    "__comp": "17896441",
+    "content": "2277ca0c"
   },
   "/docs/api/Bid/Get Bid List By User-072": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-bid-get-bid-list-by-userec-4-160"
+    "__comp": "17896441",
+    "content": "ec4bed91"
   },
   "/docs/api/Bid/Increase an Existing Bid-1f8": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-bid-increase-an-existing-bide-3-b-626"
+    "__comp": "17896441",
+    "content": "e3b679c6"
   },
   "/docs/api/Bid/Place a New Bid-03f": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-bid-place-a-new-bid-43-d-b18"
+    "__comp": "17896441",
+    "content": "43d75c75"
   },
   "/docs/api/Bid/Update an Existing Bid-96b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-bid-update-an-existing-bid-0-ab-d8a"
+    "__comp": "17896441",
+    "content": "0ab5e475"
   },
   "/docs/api/Deposit/Change Show Status-f9a": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-deposit-change-show-statusde-6-c04"
+    "__comp": "17896441",
+    "content": "de6cf7b6"
   },
   "/docs/api/Deposit/Confirm Bank Deposit by Admin-43b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-deposit-confirm-bank-deposit-by-admin-268-085"
+    "__comp": "17896441",
+    "content": "26898a99"
   },
   "/docs/api/Deposit/Confirm PayPal Checkout Order-196": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-deposit-confirm-pay-pal-checkout-order-6-ae-afc"
+    "__comp": "17896441",
+    "content": "6aefe64c"
   },
   "/docs/api/Deposit/Create Bank Deposit Request-d90": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-deposit-create-bank-deposit-request-4-fc-10e"
+    "__comp": "17896441",
+    "content": "4fcf24f1"
   },
   "/docs/api/Deposit/Create Crypto Payment for Deposit Into the Wallet-c7f": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-deposit-create-crypto-payment-for-deposit-into-the-wallet-155-b82"
+    "__comp": "17896441",
+    "content": "155b6a91"
   },
   "/docs/api/Deposit/Create PayPal Payment for Deposit Into the Wallet-27b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-deposit-create-pay-pal-payment-for-deposit-into-the-walletc-3-c-fc3"
+    "__comp": "17896441",
+    "content": "c3c9d11e"
   },
   "/docs/api/Deposit/Create Stripe Payment for Deposit Into the Wallet-bde": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-deposit-create-stripe-payment-for-deposit-into-the-walletfa-4-088"
+    "__comp": "17896441",
+    "content": "fa45f7cf"
   },
   "/docs/api/Deposit/Create Stripe payment with Saved Card for Deposit-d64": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-deposit-create-stripe-payment-with-saved-card-for-depositc-9-e-256"
+    "__comp": "17896441",
+    "content": "c9ea9df4"
   },
   "/docs/api/Deposit/Viewing Deposit Transactions-6b7": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-deposit-viewing-deposit-transactionsf-71-ece"
+    "__comp": "17896441",
+    "content": "f71320de"
   },
   "/docs/api/Notification/Add New Notification Type-9ad": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-notification-add-new-notification-typeef-6-cc2"
+    "__comp": "17896441",
+    "content": "ef62e2f2"
   },
   "/docs/api/Notification/Get All Notification Types-503": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-notification-get-all-notification-types-1-d-1-795"
+    "__comp": "17896441",
+    "content": "1d1ca9e2"
   },
   "/docs/api/Notification/Get All Unread Notifications-428": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-notification-get-all-unread-notifications-8-e-0-33e"
+    "__comp": "17896441",
+    "content": "8e01293e"
   },
   "/docs/api/Notification/Get Notifications with Offset and Limit-18f": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-notification-get-notifications-with-offset-and-limit-172-8fa"
+    "__comp": "17896441",
+    "content": "17245c74"
   },
   "/docs/api/Notification/Notification Summary-114": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-notification-notification-summary-1-e-7-058"
+    "__comp": "17896441",
+    "content": "1e7ccfa5"
   },
   "/docs/api/Notification/Set Notification Read-550": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-notification-set-notification-readc-7-b-673"
+    "__comp": "17896441",
+    "content": "c7b141cb"
   },
   "/docs/api/Presale Orders/Get All Newly Placed Orders In A Presale Round-705": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-presale-orders-get-all-newly-placed-orders-in-a-presale-roundd-9-a-8e7"
+    "__comp": "17896441",
+    "content": "d9a9ca61"
   },
   "/docs/api/Presale Orders/Get All Presale Orders In A Specific Presale Round-8c1": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-presale-orders-get-all-presale-orders-in-a-specific-presale-roundf-01-6a1"
+    "__comp": "17896441",
+    "content": "f0142bfb"
   },
   "/docs/api/Presale Orders/Get Presale Order By ID-4a9": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-presale-orders-get-presale-order-by-i-daf-2-44f"
+    "__comp": "17896441",
+    "content": "af256aad"
   },
   "/docs/api/Presale Orders/Get Presale Order Transactions-6e0": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-presale-orders-get-presale-order-transactions-31-a-e48"
+    "__comp": "17896441",
+    "content": "31a1c9e3"
   },
   "/docs/api/Presale Orders/Get Presale Orders By User-4f7": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-presale-orders-get-presale-orders-by-user-9-cb-859"
+    "__comp": "17896441",
+    "content": "9cb2b9c3"
   },
   "/docs/api/Presale Orders/Place A New Presale Order-157": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-presale-orders-place-a-new-presale-ordere-0-e-a78"
+    "__comp": "17896441",
+    "content": "e0e2e7cb"
   },
   "/docs/api/Presale Payment/Adding New Coin-2d8": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-presale-payment-adding-new-coinc-39-5ac"
+    "__comp": "17896441",
+    "content": "c39e0e34"
   },
   "/docs/api/Presale Payment/Capture Paypal Order For Presale-338": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-presale-payment-capture-paypal-order-for-presale-28-a-f39"
+    "__comp": "17896441",
+    "content": "28ae62e7"
   },
   "/docs/api/Presale Payment/Delete a Coin-aff": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-presale-payment-delete-a-coina-3-a-d68"
+    "__comp": "17896441",
+    "content": "a3a3a69d"
   },
   "/docs/api/Presale Payment/Get Coins-4c2": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-presale-payment-get-coinsb-71-2c6"
+    "__comp": "17896441",
+    "content": "b71c29d9"
   },
   "/docs/api/Presale Payment/Get Crypto Transactions for Presale Orders-978": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-presale-payment-get-crypto-transactions-for-presale-orders-3-c-3-c42"
+    "__comp": "17896441",
+    "content": "3c34ff72"
   },
   "/docs/api/Presale Payment/Get Cryptocurrency Price-6f6": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-presale-payment-get-cryptocurrency-price-791-e7d"
+    "__comp": "17896441",
+    "content": "7913f92a"
   },
   "/docs/api/Presale Payment/Get PayPal Transactions for Presale Orders-fc0": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-presale-payment-get-pay-pal-transactions-for-presale-orders-71-f-eb5"
+    "__comp": "17896441",
+    "content": "71f59364"
   },
   "/docs/api/Presale Payment/Get Stripe Transaction for Presale Orders-a6a": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-presale-payment-get-stripe-transaction-for-presale-orders-995-c87"
+    "__comp": "17896441",
+    "content": "995091bf"
   },
   "/docs/api/Presale Payment/Pay For Presale In Crypto Currency-995": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-presale-payment-pay-for-presale-in-crypto-currencyad-3-70c"
+    "__comp": "17896441",
+    "content": "ad35820d"
   },
   "/docs/api/Presale Payment/Pay For Presale Order With Nyyu Wallet-2fb": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-presale-payment-pay-for-presale-order-with-nyyu-wallet-1-cc-068"
+    "__comp": "17896441",
+    "content": "1cc2ca47"
   },
   "/docs/api/Presale Payment/Pay for presale with PayPal-99b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-presale-payment-pay-for-presale-with-pay-pal-969-7f7"
+    "__comp": "17896441",
+    "content": "96973dec"
   },
   "/docs/api/Presale Payment/Pay for presale with Stripe-90f": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-presale-payment-pay-for-presale-with-stripebee-3c3"
+    "__comp": "17896441",
+    "content": "bee30e12"
   },
   "/docs/api/Presale Payment/Pay For Presale with Stripe Saved Card-47c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-presale-payment-pay-for-presale-with-stripe-saved-card-860-0ce"
+    "__comp": "17896441",
+    "content": "86018166"
   },
   "/docs/api/Presale Payment/Place a New Presale Order-5f1": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-presale-payment-place-a-new-presale-order-3-aa-cd4"
+    "__comp": "17896441",
+    "content": "3aa317ce"
   },
   "/docs/api/Presale Payment/Presale Payment Summary-92e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-presale-payment-presale-payment-summary-1-d-9-418"
+    "__comp": "17896441",
+    "content": "1d92295b"
   },
   "/docs/api/Presale/Create New Presale-473": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-presale-create-new-presale-165-6c6"
+    "__comp": "17896441",
+    "content": "16553c47"
   },
   "/docs/api/Presale/Get Presales-993": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-presale-get-presalesd-5-d-6b5"
+    "__comp": "17896441",
+    "content": "d5ddbe3f"
   },
   "/docs/api/Presale/Get Presales by Status-57b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-presale-get-presales-by-status-3-ab-442"
+    "__comp": "17896441",
+    "content": "3abcd44a"
   },
   "/docs/api/Profile/Set Avatar-f96": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-profile-set-avatar-8-bc-ef8"
+    "__comp": "17896441",
+    "content": "8bc44b89"
   },
   "/docs/api/Profile/Update Avatar Set-53c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-profile-update-avatar-setdbe-49e"
+    "__comp": "17896441",
+    "content": "dbed3f95"
   },
   "/docs/api/Registration/Confirm 2FA Setting-1df": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-registration-confirm-2-fa-settingd-78-870"
+    "__comp": "17896441",
+    "content": "d78684a3"
   },
   "/docs/api/Registration/Disable 2FA-507": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-registration-disable-2-fa-9-b-4-196"
+    "__comp": "17896441",
+    "content": "9b44d534"
   },
   "/docs/api/Registration/Forgot Password-74b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-registration-forgot-passwordf-3-d-b77"
+    "__comp": "17896441",
+    "content": "f3d6f8e6"
   },
   "/docs/api/Registration/Password Reset-1fe": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-registration-password-reset-6-c-5-898"
+    "__comp": "17896441",
+    "content": "6c5d1421"
   },
   "/docs/api/Registration/Request 2FA-e78": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-registration-request-2-f-ae-98-6da"
+    "__comp": "17896441",
+    "content": "e9819bec"
   },
   "/docs/api/Registration/Resend Verification Code-7f9": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-registration-resend-verification-code-5-a-9-251"
+    "__comp": "17896441",
+    "content": "5a9b4301"
   },
   "/docs/api/Registration/Sign in-9f6": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-registration-sign-in-042-551"
+    "__comp": "17896441",
+    "content": "04271470"
   },
   "/docs/api/Registration/Sign in 2FA Check-87e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-registration-sign-in-2-fa-check-731-cc9"
+    "__comp": "17896441",
+    "content": "7313b24e"
   },
   "/docs/api/Registration/Sign up-072": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-registration-sign-up-584-989"
+    "__comp": "17896441",
+    "content": "584582ca"
   },
   "/docs/api/Registration/Verify Account-120": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-registration-verify-account-649-b17"
+    "__comp": "17896441",
+    "content": "649cdd46"
   },
   "/docs/api/Social Login - OAuth2/Add & Update Social Sites into DB-503": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-social-login-o-auth-2-add-update-social-sites-into-db-125-8fd"
+    "__comp": "17896441",
+    "content": "125fe4f4"
   },
   "/docs/api/Social Login - OAuth2/OAuth2 Summary-964": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-social-login-o-auth-2-o-auth-2-summary-894-5d2"
+    "__comp": "17896441",
+    "content": "89499a26"
   },
   "/docs/api/Social Login - OAuth2/Send Request for Social login-2e7": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-social-login-o-auth-2-send-request-for-social-login-878-b9d"
+    "__comp": "17896441",
+    "content": "878488a5"
   },
   "/docs/api/Statistics/Get Round Chance-35d": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-statistics-get-round-chance-441-697"
+    "__comp": "17896441",
+    "content": "44156855"
   },
   "/docs/api/Statistics/Get Round Perform 1-6e7": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-statistics-get-round-perform-1-eaa-7aa"
+    "__comp": "17896441",
+    "content": "eaa0b340"
   },
   "/docs/api/Statistics/Get Round Perform 2-d09": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-statistics-get-round-perform-212-a-d8f"
+    "__comp": "17896441",
+    "content": "12a62b30"
   },
   "/docs/api/User Tier/Add New Task Setting-8df": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-user-tier-add-new-task-settingccf-3d1"
+    "__comp": "17896441",
+    "content": "ccf69b2b"
   },
   "/docs/api/User Tier/Add New Tier-d75": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-user-tier-add-new-tier-557-f8e"
+    "__comp": "17896441",
+    "content": "557fa290"
   },
   "/docs/api/User Tier/Delete User Tier-eb5": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-user-tier-delete-user-tier-9-a-5-2a7"
+    "__comp": "17896441",
+    "content": "9a5197cf"
   },
   "/docs/api/User Tier/Get User Tiers-2d5": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-user-tier-get-user-tiersda-5-1b3"
+    "__comp": "17896441",
+    "content": "da5719d9"
   },
   "/docs/api/User Tier/Update Task Setting-b64": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-user-tier-update-task-setting-5-e-0-df1"
+    "__comp": "17896441",
+    "content": "5e052e4e"
   },
   "/docs/api/User Tier/Update User Tier-fa1": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-user-tier-update-user-tier-97-b-0d4"
+    "__comp": "17896441",
+    "content": "97b563c0"
   },
   "/docs/api/User Tier/User Tier Suammary-2a1": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-user-tier-user-tier-suammary-7-aa-7c4"
+    "__comp": "17896441",
+    "content": "7aa2534b"
   },
   "/docs/api/User/Add Disallowed Country-9fd": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-user-add-disallowed-country-2-ba-034"
+    "__comp": "17896441",
+    "content": "2baa8b05"
   },
   "/docs/api/User/Change Password by User-00a": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-user-change-password-by-user-58-f-6ab"
+    "__comp": "17896441",
+    "content": "58ffbb2d"
   },
   "/docs/api/User/Change Role-fad": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-user-change-rolea-05-c81"
+    "__comp": "17896441",
+    "content": "a0526053"
   },
   "/docs/api/User/Confirm Email Change-24c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-user-confirm-email-changec-43-f45"
+    "__comp": "17896441",
+    "content": "c43a667a"
   },
   "/docs/api/User/Create New User By Admin-b9e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-user-create-new-user-by-adminda-3-966"
+    "__comp": "17896441",
+    "content": "da3805fd"
   },
   "/docs/api/User/Delete Account-aec": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-user-delete-accountc-2-e-111"
+    "__comp": "17896441",
+    "content": "c2e860e2"
   },
   "/docs/api/User/Get Paginated Users-934": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-user-get-paginated-users-09-a-3d3"
+    "__comp": "17896441",
+    "content": "09aeeb9d"
   },
   "/docs/api/User/Get User-65a": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-user-get-user-86-d-5e4"
+    "__comp": "17896441",
+    "content": "86d31002"
   },
   "/docs/api/User/Get User by ID-e4d": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-user-get-user-by-i-df-78-50f"
+    "__comp": "17896441",
+    "content": "f78854a3"
   },
   "/docs/api/User/Get Users Count-328": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-user-get-users-count-6-e-0-9ac"
+    "__comp": "17896441",
+    "content": "6e0ec075"
   },
   "/docs/api/User/Make Allow Location-137": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-user-make-allow-locatione-6-b-be8"
+    "__comp": "17896441",
+    "content": "e6b4a47b"
   },
   "/docs/api/User/Release User by Admin-e3e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-user-release-user-by-admin-1-fe-ac2"
+    "__comp": "17896441",
+    "content": "1fe02bb2"
   },
   "/docs/api/User/Request Email Change-c22": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-user-request-email-change-453-d33"
+    "__comp": "17896441",
+    "content": "453bceb7"
   },
   "/docs/api/User/Reset Password By Admin-fca": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-user-reset-password-by-adminba-7-3b6"
+    "__comp": "17896441",
+    "content": "ba7e8cf7"
   },
   "/docs/api/User/Suspend User by Admin-211": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-user-suspend-user-by-admine-71-228"
+    "__comp": "17896441",
+    "content": "e7180ed2"
   },
   "/docs/api/User/User Summary-091": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-user-user-summary-2-fd-32a"
+    "__comp": "17896441",
+    "content": "2fd19081"
   },
   "/docs/api/Withdraw/Approve Fiat Withdrawal Request-c6d": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-withdraw-approve-fiat-withdrawal-request-339-12a"
+    "__comp": "17896441",
+    "content": "33931a1f"
   },
   "/docs/api/Withdraw/Change Withdrawal Request Show Status-577": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-withdraw-change-withdrawal-request-show-statusea-9-a39"
+    "__comp": "17896441",
+    "content": "ea9729f8"
   },
   "/docs/api/Withdraw/Confirm PayPal Withdrawal Request-023": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-withdraw-confirm-pay-pal-withdrawal-requestee-6-197"
+    "__comp": "17896441",
+    "content": "ee680703"
   },
   "/docs/api/Withdraw/Crypto Withdrawal Request-868": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-withdraw-crypto-withdrawal-requestc-84-a14"
+    "__comp": "17896441",
+    "content": "c845d014"
   },
   "/docs/api/Withdraw/Deny Bank Withdrawal Request-71e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-withdraw-deny-bank-withdrawal-request-77-e-c65"
+    "__comp": "17896441",
+    "content": "77eaa554"
   },
   "/docs/api/Withdraw/Fiat Withdrawal Request-d14": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-withdraw-fiat-withdrawal-request-639-4ce"
+    "__comp": "17896441",
+    "content": "639b933f"
   },
   "/docs/api/Withdraw/Generate Withdraw Code-cab": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-withdraw-generate-withdraw-code-5-c-8-307"
+    "__comp": "17896441",
+    "content": "5c8896cf"
   },
   "/docs/api/Withdraw/PayPal Withdraw Request-8fb": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-withdraw-pay-pal-withdraw-requestb-33-ddf"
+    "__comp": "17896441",
+    "content": "b3373db9"
   },
   "/docs/api/Withdraw/Send Withdraw Confirmation Code-713": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-api-withdraw-send-withdraw-confirmation-code-168-9f2"
+    "__comp": "17896441",
+    "content": "168ca685"
   },
   "/docs/services/affiliate-program-55c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-services-affiliate-program-393-cc0"
+    "__comp": "17896441",
+    "content": "393ef8ff"
   },
   "/docs/services/bug-bounty-b11": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-services-bug-bounty-630-cf5"
+    "__comp": "17896441",
+    "content": "630effd0"
   },
   "/docs/services/commodity-listing-6f5": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-services-commodity-listing-52-a-8a2"
+    "__comp": "17896441",
+    "content": "52ad2b83"
   },
   "/docs/services/de-listing-2a3": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-services-de-listing-9-cd-937"
+    "__comp": "17896441",
+    "content": "9cdcaa6f"
   },
   "/docs/services/fee-structure-5fd": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-services-fees-319-b54"
+    "__comp": "17896441",
+    "content": "3191b1fc"
   },
   "/docs/services/loan-services-9d6": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-services-loan-802-d51"
+    "__comp": "17896441",
+    "content": "80255903"
   },
   "/docs/services/proof-of-reserves-491": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-services-proof-of-reserves-587-9db"
+    "__comp": "17896441",
+    "content": "587f0d5d"
   },
   "/docs/services/real-estate-listing-464": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-services-real-estate-listingcfe-722"
+    "__comp": "17896441",
+    "content": "cfe0dc6b"
   },
   "/docs/services/staking-services-bac": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-services-stakingea-3-bd9"
+    "__comp": "17896441",
+    "content": "ea3d7d7a"
   },
   "/docs/services/start-up-listing-b82": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-services-start-up-listing-36-d-3c5"
+    "__comp": "17896441",
+    "content": "36d67b46"
   },
   "/docs/services/token-listing-f99": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-services-token-listingd-72-f8b"
+    "__comp": "17896441",
+    "content": "d7268c6f"
   },
   "/docs/services/utility-provider-listing-46d": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-services-utility-provider-listinge-6-e-00f"
+    "__comp": "17896441",
+    "content": "e6e94cb8"
   },
   "/docs/troubleshoot/Startups/invest-startups-17b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-troubleshoot-startups-invest-startups-37-b-72d"
+    "__comp": "17896441",
+    "content": "37b50403"
   },
   "/docs/troubleshoot/Startups/investment-risks-2f2": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-troubleshoot-startups-investment-risks-9-e-4-d05"
+    "__comp": "17896441",
+    "content": "9e4b5e87"
   },
   "/docs/troubleshoot/Startups/minimum-investment-e0e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-troubleshoot-startups-minimum-investment-0-e-5-fab"
+    "__comp": "17896441",
+    "content": "0e55bb2d"
   },
   "/docs/troubleshoot/Startups/track-performance-088": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-troubleshoot-startups-track-performance-123-cc8"
+    "__comp": "17896441",
+    "content": "123720bd"
   },
   "/docs/troubleshoot/Startups/vetting-startups-9e3": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-troubleshoot-startups-vetting-startups-159-231"
+    "__comp": "17896441",
+    "content": "159ad088"
   },
   "/docs/troubleshoot/Trading/trade-commodities-6ed": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-troubleshoot-trading-trade-commodities-646-2e5"
+    "__comp": "17896441",
+    "content": "6465f7a6"
   },
   "/docs/tutorial-basics/getting-started-ae8": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-getting-started-2-b-2-ecc"
+    "__comp": "17896441",
+    "content": "2b2b5b09"
   },
   "/docs/tutorial-basics/nyyu-invites-aa9": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-nyyu-invites-51-d-8ac"
+    "__comp": "17896441",
+    "content": "51dda618"
   },
   "/docs/tutorial-basics/nyyu-loans-e2b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-nyyu-loans-26-e-0d0"
+    "__comp": "17896441",
+    "content": "26ecadc8"
   },
   "/docs/tutorial-basics/nyyu-marketplace-af5": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-nyyu-marketplacec-61-520"
+    "__comp": "17896441",
+    "content": "c61035f8"
   },
   "/docs/tutorial-basics/nyyu-price-73d": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-nyyu-price-8-d-6-c19"
+    "__comp": "17896441",
+    "content": "8d696c8b"
   },
   "/docs/tutorial-basics/nyyu-profile-e2c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-nyyu-profileeec-c22"
+    "__comp": "17896441",
+    "content": "eec9b912"
   },
   "/docs/tutorial-basics/nyyu-swap-828": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-nyyu-swap-9-b-0-9b6"
+    "__comp": "17896441",
+    "content": "9b0798f5"
   },
   "/docs/tutorial-basics/nyyu-trade-a3f": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-nyyu-tradea-1-b-fb1"
+    "__comp": "17896441",
+    "content": "a1b8a90d"
   },
   "/docs/tutorial-basics/nyyu-wallet-ea5": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-nyyu-wallet-6-a-9-e45"
+    "__comp": "17896441",
+    "content": "6a9a24a6"
   },
   "/docs/tutorial-basics/save-e99": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-saveab-0-197"
+    "__comp": "17896441",
+    "content": "ab0f1b21"
   },
   "/docs/tutorial-extras/manage-docs-versions-a34": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-extras-manage-docs-versionsdff-6d4"
+    "__comp": "17896441",
+    "content": "dff1c289"
   },
   "/docs/tutorial-extras/translate-your-site-739": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-extras-translate-your-sitee-44-ddf"
+    "__comp": "17896441",
+    "content": "e44a2883"
   },
   "/-e5f": {
-    "__comp": "__comp---site-src-pages-index-tsx-1-df-d3e",
+    "__comp": "1df93b7f",
     "__context": {
-      "plugin": "plugin---markdown-pagea-74-7b5"
+      "plugin": "a7456010"
     },
-    "config": "config---5-e-9-4f3"
+    "config": "5e9f5e1a"
   }
 }

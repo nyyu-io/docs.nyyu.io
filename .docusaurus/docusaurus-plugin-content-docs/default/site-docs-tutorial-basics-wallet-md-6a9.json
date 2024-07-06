@@ -19,6 +19,10 @@
     "sidebar_position": 1
   },
   "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Getting Started",
+    "permalink": "/docs/tutorial-basics/getting-started"
+  },
   "next": {
     "title": "Price Intelligence",
     "permalink": "/docs/tutorial-basics/nyyu-price"
