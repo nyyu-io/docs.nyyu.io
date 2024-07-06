@@ -18,11 +18,11 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Decentralized Exchange (DEX)",
-    "permalink": "/docs/tutorial-basics/dex"
+    "title": "Swap",
+    "permalink": "/docs/tutorial-basics/nyyu-swap"
   },
   "next": {
-    "title": "EMI",
-    "permalink": "/docs/tutorial-basics/emi"
+    "title": "invites",
+    "permalink": "/docs/tutorial-basics/invites"
   }
 }

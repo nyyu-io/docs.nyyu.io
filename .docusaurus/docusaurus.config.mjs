@@ -69,7 +69,6 @@ export default {
     },
     "image": "img/docusaurus-social-card.jpg",
     "navbar": {
-      "title": "NYYU",
       "logo": {
         "alt": "NYYU Logo",
         "src": "img/logo.svg",
@@ -111,7 +110,8 @@ export default {
           "dropdownItemsAfter": []
         }
       ],
-      "hideOnScroll": false
+      "hideOnScroll": false,
+      "title": ""
     },
     "footer": {
       "style": "dark",

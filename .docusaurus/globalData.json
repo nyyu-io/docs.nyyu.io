@@ -645,83 +645,28 @@
               "sidebar": "troubleshootSidebar"
             },
             {
-              "id": "tutorial-basics/auction-launchpad",
-              "path": "/docs/tutorial-basics/auction-launchpad",
+              "id": "tutorial-basics/nyyu-invites",
+              "path": "/docs/tutorial-basics/nyyu-invites",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "tutorial-basics/dex",
-              "path": "/docs/tutorial-basics/dex",
+              "id": "tutorial-basics/nyyu-loans",
+              "path": "/docs/tutorial-basics/nyyu-loans",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "tutorial-basics/earn-rewards",
-              "path": "/docs/tutorial-basics/earn-rewards",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-basics/emi",
-              "path": "/docs/tutorial-basics/emi",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-basics/invites",
-              "path": "/docs/tutorial-basics/invites",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-basics/loan",
-              "path": "/docs/tutorial-basics/loan",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-basics/Marketplace/commodity",
-              "path": "/docs/tutorial-basics/Marketplace/commodity",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-basics/Marketplace/crypto",
-              "path": "/docs/tutorial-basics/Marketplace/crypto",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-basics/Marketplace/electricity",
-              "path": "/docs/tutorial-basics/Marketplace/electricity",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-basics/Marketplace/intro",
-              "path": "/docs/tutorial-basics/Marketplace/intro",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-basics/Marketplace/nft",
-              "path": "/docs/tutorial-basics/Marketplace/nft",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-basics/Marketplace/real-estate",
-              "path": "/docs/tutorial-basics/Marketplace/real-estate",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-basics/Marketplace/startup",
-              "path": "/docs/tutorial-basics/Marketplace/startup",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-basics/mobile",
-              "path": "/docs/tutorial-basics/mobile",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-basics/node-support",
-              "path": "/docs/tutorial-basics/node-support",
+              "id": "tutorial-basics/nyyu-marketplace",
+              "path": "/docs/tutorial-basics/nyyu-marketplace",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "tutorial-basics/nyyu-price",
               "path": "/docs/tutorial-basics/nyyu-price",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial-basics/nyyu-profile",
+              "path": "/docs/tutorial-basics/nyyu-profile",
               "sidebar": "tutorialSidebar"
             },
             {
@@ -740,33 +685,8 @@
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "tutorial-basics/pay",
-              "path": "/docs/tutorial-basics/pay",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-basics/proof-of-reserves",
-              "path": "/docs/tutorial-basics/proof-of-reserves",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-basics/sale-launchpad",
-              "path": "/docs/tutorial-basics/sale-launchpad",
-              "sidebar": "tutorialSidebar"
-            },
-            {
               "id": "tutorial-basics/save",
               "path": "/docs/tutorial-basics/save",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-basics/stablecoin",
-              "path": "/docs/tutorial-basics/stablecoin",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-basics/uni",
-              "path": "/docs/tutorial-basics/uni",
               "sidebar": "tutorialSidebar"
             },
             {

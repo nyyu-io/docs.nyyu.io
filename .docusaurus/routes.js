@@ -104,15 +104,15 @@ export default [
   },
   {
     path: '/docs',
-    component: ComponentCreator('/docs', '775'),
+    component: ComponentCreator('/docs', '9dd'),
     routes: [
       {
         path: '/docs',
-        component: ComponentCreator('/docs', '08f'),
+        component: ComponentCreator('/docs', '531'),
         routes: [
           {
             path: '/docs',
-            component: ComponentCreator('/docs', '49d'),
+            component: ComponentCreator('/docs', '766'),
             routes: [
               {
                 path: '/docs/affiliate-system',
@@ -876,98 +876,32 @@ export default [
                 sidebar: "troubleshootSidebar"
               },
               {
-                path: '/docs/tutorial-basics/auction-launchpad',
-                component: ComponentCreator('/docs/tutorial-basics/auction-launchpad', 'cbb'),
+                path: '/docs/tutorial-basics/nyyu-invites',
+                component: ComponentCreator('/docs/tutorial-basics/nyyu-invites', 'aa9'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/docs/tutorial-basics/dex',
-                component: ComponentCreator('/docs/tutorial-basics/dex', '8e5'),
+                path: '/docs/tutorial-basics/nyyu-loans',
+                component: ComponentCreator('/docs/tutorial-basics/nyyu-loans', 'e2b'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/docs/tutorial-basics/earn-rewards',
-                component: ComponentCreator('/docs/tutorial-basics/earn-rewards', 'ede'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/tutorial-basics/emi',
-                component: ComponentCreator('/docs/tutorial-basics/emi', '090'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/tutorial-basics/invites',
-                component: ComponentCreator('/docs/tutorial-basics/invites', 'a54'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/tutorial-basics/loan',
-                component: ComponentCreator('/docs/tutorial-basics/loan', '047'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/tutorial-basics/Marketplace/commodity',
-                component: ComponentCreator('/docs/tutorial-basics/Marketplace/commodity', '804'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/tutorial-basics/Marketplace/crypto',
-                component: ComponentCreator('/docs/tutorial-basics/Marketplace/crypto', '352'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/tutorial-basics/Marketplace/electricity',
-                component: ComponentCreator('/docs/tutorial-basics/Marketplace/electricity', '543'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/tutorial-basics/Marketplace/intro',
-                component: ComponentCreator('/docs/tutorial-basics/Marketplace/intro', '2e8'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/tutorial-basics/Marketplace/nft',
-                component: ComponentCreator('/docs/tutorial-basics/Marketplace/nft', '941'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/tutorial-basics/Marketplace/real-estate',
-                component: ComponentCreator('/docs/tutorial-basics/Marketplace/real-estate', '631'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/tutorial-basics/Marketplace/startup',
-                component: ComponentCreator('/docs/tutorial-basics/Marketplace/startup', 'aca'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/tutorial-basics/mobile',
-                component: ComponentCreator('/docs/tutorial-basics/mobile', 'bef'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/tutorial-basics/node-support',
-                component: ComponentCreator('/docs/tutorial-basics/node-support', 'eaa'),
+                path: '/docs/tutorial-basics/nyyu-marketplace',
+                component: ComponentCreator('/docs/tutorial-basics/nyyu-marketplace', 'af5'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
                 path: '/docs/tutorial-basics/nyyu-price',
                 component: ComponentCreator('/docs/tutorial-basics/nyyu-price', '73d'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/docs/tutorial-basics/nyyu-profile',
+                component: ComponentCreator('/docs/tutorial-basics/nyyu-profile', 'e2c'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
@@ -990,38 +924,8 @@ export default [
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/docs/tutorial-basics/pay',
-                component: ComponentCreator('/docs/tutorial-basics/pay', '0cc'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/tutorial-basics/proof-of-reserves',
-                component: ComponentCreator('/docs/tutorial-basics/proof-of-reserves', '246'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/tutorial-basics/sale-launchpad',
-                component: ComponentCreator('/docs/tutorial-basics/sale-launchpad', 'f06'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
                 path: '/docs/tutorial-basics/save',
                 component: ComponentCreator('/docs/tutorial-basics/save', 'e99'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/tutorial-basics/stablecoin',
-                component: ComponentCreator('/docs/tutorial-basics/stablecoin', '209'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/docs/tutorial-basics/uni',
-                component: ComponentCreator('/docs/tutorial-basics/uni', 'e1f'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },

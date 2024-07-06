@@ -21,22 +21,22 @@ export default function FAQSection() {
   return (
     <section className={styles.faqSection}>
       <div className="container">
-        <h2>Frequently Asked Questions (FAQ)</h2>
+        <h2 className={styles.faqTitle}>Frequently Asked Questions (FAQ)</h2>
         <div className={styles.faqColumns}>
-          <ul className={styles.faqColumn}>
+          <p className={styles.faqColumn}>
             {faqArticles.slice(0, 6).map((article, idx) => (
-              <li key={idx} className={styles.faqItem}>
+              <p key={idx} className={styles.faqItem}>
                 <Link to={article.link} className={styles.faqArticleLink}>{article.title}</Link>
-              </li>
+              </p>
             ))}
-          </ul>
-          <ul className={styles.faqColumn}>
+          </p>
+          <p className={styles.faqColumn}>
             {faqArticles.slice(6).map((article, idx) => (
-              <li key={idx} className={styles.faqItem}>
+              <p key={idx} className={styles.faqItem}>
                 <Link to={article.link} className={styles.faqArticleLink}>{article.title}</Link>
-              </li>
+              </p>
             ))}
-          </ul>
+          </p>
         </div>
         <Link to="/" className={styles.moreLink}>More FAQs</Link>
       </div>

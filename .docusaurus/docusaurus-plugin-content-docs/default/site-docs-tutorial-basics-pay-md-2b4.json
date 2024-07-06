@@ -18,11 +18,11 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Node Support",
-    "permalink": "/docs/tutorial-basics/node-support"
+    "title": "Mobile",
+    "permalink": "/docs/tutorial-basics/mobile"
   },
   "next": {
-    "title": "Proof of Reserves",
-    "permalink": "/docs/tutorial-basics/proof-of-reserves"
+    "title": "Save",
+    "permalink": "/docs/tutorial-basics/save"
   }
 }

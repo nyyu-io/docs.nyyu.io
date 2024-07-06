@@ -1,0 +1,30 @@
+{
+  "id": "tutorial-basics/nyyu-marketplace",
+  "title": "NYYU Marketplace",
+  "description": "NYYU Marketplace Overview",
+  "source": "@site/docs/tutorial-basics/marketplace.md",
+  "sourceDirName": "tutorial-basics",
+  "slug": "/tutorial-basics/nyyu-marketplace",
+  "permalink": "/docs/tutorial-basics/nyyu-marketplace",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/tutorial-basics/marketplace.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "id": "nyyu-marketplace",
+    "title": "NYYU Marketplace",
+    "sidebar_label": "Marketplace",
+    "sidebar_position": 5
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Swap",
+    "permalink": "/docs/tutorial-basics/nyyu-swap"
+  },
+  "next": {
+    "title": "Invites",
+    "permalink": "/docs/tutorial-basics/nyyu-invites"
+  }
+}

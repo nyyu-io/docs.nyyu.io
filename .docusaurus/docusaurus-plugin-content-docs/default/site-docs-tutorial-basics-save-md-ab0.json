@@ -11,18 +11,20 @@
   "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/tutorial-basics/save.md",
   "tags": [],
   "version": "current",
+  "sidebarPosition": 7,
   "frontMatter": {
     "id": "save",
     "title": "Save - Earn Interest on Savings",
-    "sidebar_label": "Save"
+    "sidebar_label": "Save",
+    "sidebar_position": 7
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Sale and Launchpad Platform",
-    "permalink": "/docs/tutorial-basics/sale-launchpad"
+    "title": "Loans",
+    "permalink": "/docs/tutorial-basics/nyyu-loans"
   },
   "next": {
-    "title": "Stablecoin",
-    "permalink": "/docs/tutorial-basics/stablecoin"
+    "title": "Profile",
+    "permalink": "/docs/tutorial-basics/nyyu-profile"
   }
 }

@@ -1,0 +1,26 @@
+{
+  "id": "tutorial-basics/nyyu-profile",
+  "title": "NYYU Profile",
+  "description": "NYYU Profile Overview",
+  "source": "@site/docs/tutorial-basics/profile.md",
+  "sourceDirName": "tutorial-basics",
+  "slug": "/tutorial-basics/nyyu-profile",
+  "permalink": "/docs/tutorial-basics/nyyu-profile",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/tutorial-basics/profile.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 8,
+  "frontMatter": {
+    "id": "nyyu-profile",
+    "title": "NYYU Profile",
+    "sidebar_label": "Profile",
+    "sidebar_position": 8
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Save",
+    "permalink": "/docs/tutorial-basics/save"
+  }
+}

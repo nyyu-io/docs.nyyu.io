@@ -1,6 +1,6 @@
 {
   "title": {
-    "message": "NYYU",
+    // "message": "NYYU",
     "description": "The title in the navbar"
   },
   "logo.alt": {
@@ -26,5 +26,9 @@
   "item.label.Login": {
     "message": "Login",
     "description": "Navbar item with label Login"
+  },
+  "item.label.Tutorial": {
+    "message": "Tutorial",
+    "description": "Navbar item with label Tutorial"
   }
 }

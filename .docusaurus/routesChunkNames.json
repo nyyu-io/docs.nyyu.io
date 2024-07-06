@@ -200,17 +200,17 @@
       "plugin": "plugin---searchc-14-0ea"
     }
   },
-  "/docs-775": {
+  "/docs-9dd": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
       "plugin": "plugin---docsaba-d7c"
     }
   },
-  "/docs-08f": {
+  "/docs-531": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
     "__props": "__props---docs-005-788"
   },
-  "/docs-49d": {
+  "/docs-766": {
     "__comp": "__comp---theme-doc-roota-94-67a"
   },
   "/docs/affiliate-system-2c9": {
@@ -721,69 +721,25 @@
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---docs-troubleshoot-trading-trade-commodities-646-2e5"
   },
-  "/docs/tutorial-basics/auction-launchpad-cbb": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-auction-launchpad-2-b-2-4f0"
-  },
-  "/docs/tutorial-basics/dex-8e5": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-dexb-7-c-b3b"
-  },
-  "/docs/tutorial-basics/earn-rewards-ede": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-earn-rewards-7-b-6-85e"
-  },
-  "/docs/tutorial-basics/emi-090": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-emie-45-024"
-  },
-  "/docs/tutorial-basics/invites-a54": {
+  "/docs/tutorial-basics/nyyu-invites-aa9": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---docs-tutorial-basics-invites-51-d-f9a"
   },
-  "/docs/tutorial-basics/loan-047": {
+  "/docs/tutorial-basics/nyyu-loans-e2b": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---docs-tutorial-basics-loan-26-e-f90"
   },
-  "/docs/tutorial-basics/Marketplace/commodity-804": {
+  "/docs/tutorial-basics/nyyu-marketplace-af5": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-marketplace-commodity-80-b-f54"
-  },
-  "/docs/tutorial-basics/Marketplace/crypto-352": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-marketplace-crypto-5-dd-d67"
-  },
-  "/docs/tutorial-basics/Marketplace/electricity-543": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-marketplace-electricity-5-c-4-396"
-  },
-  "/docs/tutorial-basics/Marketplace/intro-2e8": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-marketplace-intro-3-bc-391"
-  },
-  "/docs/tutorial-basics/Marketplace/nft-941": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-marketplace-nftafb-8f9"
-  },
-  "/docs/tutorial-basics/Marketplace/real-estate-631": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-marketplace-real-estate-9-a-3-69c"
-  },
-  "/docs/tutorial-basics/Marketplace/startup-aca": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-marketplace-startupb-94-47e"
-  },
-  "/docs/tutorial-basics/mobile-bef": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-mobilefdf-fc1"
-  },
-  "/docs/tutorial-basics/node-support-eaa": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-node-supportedb-fd7"
+    "content": "content---docs-tutorial-basics-marketplacec-61-bf6"
   },
   "/docs/tutorial-basics/nyyu-price-73d": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---docs-tutorial-basics-nyyu-price-8-d-6-c19"
+  },
+  "/docs/tutorial-basics/nyyu-profile-e2c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-tutorial-basics-profileeec-dba"
   },
   "/docs/tutorial-basics/nyyu-swap-828": {
     "__comp": "__comp---theme-doc-item-178-a40",
@@ -797,29 +753,9 @@
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---docs-tutorial-basics-nyyu-wallet-6-a-9-e45"
   },
-  "/docs/tutorial-basics/pay-0cc": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-pay-2-b-4-971"
-  },
-  "/docs/tutorial-basics/proof-of-reserves-246": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-proof-of-reserves-033-f5d"
-  },
-  "/docs/tutorial-basics/sale-launchpad-f06": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-sale-launchpadba-8-875"
-  },
   "/docs/tutorial-basics/save-e99": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---docs-tutorial-basics-saveab-0-197"
-  },
-  "/docs/tutorial-basics/stablecoin-209": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-stablecoined-1-a1e"
-  },
-  "/docs/tutorial-basics/uni-e1f": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-tutorial-basics-unib-38-878"
   },
   "/docs/tutorial-extras/manage-docs-versions-a34": {
     "__comp": "__comp---theme-doc-item-178-a40",

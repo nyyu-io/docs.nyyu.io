@@ -53,10 +53,18 @@
   margin-top: 64px;
 }
 
-.faqColumn {
-  flex: 1;
-  margin-right: 20px;
+.faqColumns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns by default */
+  gap: 32px; /* Adjust the gap between columns as needed */
 }
+
+@media (max-width: 996px) { /* Adjust breakpoint as needed */
+  .faqColumns {
+    grid-template-columns: 1fr; /* One column on smaller screens */
+  }
+}
+
 
 .faqColumn:last-child {
   margin-right: 0;
@@ -87,4 +95,13 @@
 
 .moreLink:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 996px) {
+  .faqTitle {
+    text-align: center;
+  }
+  .faqItem {
+    text-align: center;
+  }
 }

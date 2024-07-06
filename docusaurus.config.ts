@@ -114,7 +114,7 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'NYYU',
+      // title: 'NYYU',
       logo: {
         alt: 'NYYU Logo',
         src: 'img/logo.svg',

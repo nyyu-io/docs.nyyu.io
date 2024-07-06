@@ -1,24 +1,30 @@
 {
-  "id": "tutorial-basics/loan",
-  "title": "loan",
+  "id": "tutorial-basics/nyyu-loans",
+  "title": "NYYU Loans",
   "description": "",
   "source": "@site/docs/tutorial-basics/loan.md",
   "sourceDirName": "tutorial-basics",
-  "slug": "/tutorial-basics/loan",
-  "permalink": "/docs/tutorial-basics/loan",
+  "slug": "/tutorial-basics/nyyu-loans",
+  "permalink": "/docs/tutorial-basics/nyyu-loans",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/tutorial-basics/loan.md",
   "tags": [],
   "version": "current",
-  "frontMatter": {},
+  "sidebarPosition": 6,
+  "frontMatter": {
+    "id": "nyyu-loans",
+    "title": "NYYU Loans",
+    "sidebar_label": "Loans",
+    "sidebar_position": 6
+  },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "invites",
-    "permalink": "/docs/tutorial-basics/invites"
+    "title": "Invites",
+    "permalink": "/docs/tutorial-basics/nyyu-invites"
   },
   "next": {
-    "title": "Mobile",
-    "permalink": "/docs/tutorial-basics/mobile"
+    "title": "Save",
+    "permalink": "/docs/tutorial-basics/save"
   }
 }
