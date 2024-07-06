@@ -1,0 +1,40 @@
+---
+id: proof-of-reserves
+title: Proof of Reserves on NYYU (PoR)
+sidebar_label: Proof of Reserves (PoR)
+sidebar_position: 7
+---
+
+# Proof of Reserves on NYYU
+
+At NYYU, transparency and security are our top priorities. Our Proof of Reserves program is designed to provide our users with the assurance that all digital and fiat assets held on the platform are backed 1:1. This ensures that your assets are secure and verifiable at all times.
+
+## What is Proof of Reserves?
+
+Proof of Reserves is a process that allows NYYU to publicly demonstrate that we hold sufficient reserves to cover all user balances. This process involves regular third-party audits and cryptographic verification to ensure transparency and trust.
+
+## How It Works
+
+1. **Third-Party Audits**: We engage reputable third-party auditing firms to conduct regular audits of our reserves. These audits verify that the total amount of assets held by NYYU matches the total amount of user assets on the platform.
+2. **Cryptographic Verification**: Users can independently verify that their assets are included in the total reserves through cryptographic proofs. This method ensures that individual user balances are accounted for without compromising privacy.
+3. **Regular Reporting**: Audit reports and verification proofs are published regularly on our platform, providing users with up-to-date information on our reserve status.
+
+## Benefits of Proof of Reserves
+
+- **Transparency**: Users can verify that their assets are fully backed and secure.
+- **Security**: Regular audits and cryptographic proofs ensure the integrity and security of user assets.
+- **Trust**: By providing verifiable proof of reserves, NYYU builds trust with its users, ensuring confidence in our platform.
+
+## Audit Reports
+
+Our latest audit reports and cryptographic verification proofs are available for public review. You can access these documents through the links below:
+
+- [Latest Audit Report (PDF)](https://nyyu.io/audit-report)
+- [Cryptographic Verification Proofs](https://nyyu.io/verification-proofs)
+
+## How to Verify Your Assets
+
+1. **Log in to Your Account**: Access your NYYU account.
+2. **Navigate to Proof of Reserves**: Go to the Proof of Reserves section in your account settings.
+3. **View Your Balance**: Check your current asset balance and the corresponding cryptographic proof.
+4. **Verify**: Use the provided cryptographic tools to verify that your assets are included in the total reserves.

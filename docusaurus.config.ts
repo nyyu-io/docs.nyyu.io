@@ -131,6 +131,13 @@ const config: Config = {
 
         {
           type: 'docSidebar',
+          sidebarId: 'servicesSidebar',
+          position: 'left',
+          label: 'Services',
+        },
+
+        {
+          type: 'docSidebar',
           sidebarId: 'troubleshootSidebar',
           position: 'left',
           label: 'FAQ',

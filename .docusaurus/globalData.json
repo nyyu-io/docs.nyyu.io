@@ -8,7 +8,7 @@
           "label": "Next",
           "isLast": true,
           "path": "/docs",
-          "mainDocId": "tutorial-basics/nyyu-wallet",
+          "mainDocId": "tutorial-basics/getting-started",
           "docs": [
             {
               "id": "affiliate-system",
@@ -615,6 +615,66 @@
               "sidebar": "apiSidebar"
             },
             {
+              "id": "services/affiliate-program",
+              "path": "/docs/services/affiliate-program",
+              "sidebar": "servicesSidebar"
+            },
+            {
+              "id": "services/bug-bounty",
+              "path": "/docs/services/bug-bounty",
+              "sidebar": "servicesSidebar"
+            },
+            {
+              "id": "services/commodity-listing",
+              "path": "/docs/services/commodity-listing",
+              "sidebar": "servicesSidebar"
+            },
+            {
+              "id": "services/de-listing",
+              "path": "/docs/services/de-listing",
+              "sidebar": "servicesSidebar"
+            },
+            {
+              "id": "services/fee-structure",
+              "path": "/docs/services/fee-structure",
+              "sidebar": "servicesSidebar"
+            },
+            {
+              "id": "services/loan-services",
+              "path": "/docs/services/loan-services",
+              "sidebar": "servicesSidebar"
+            },
+            {
+              "id": "services/proof-of-reserves",
+              "path": "/docs/services/proof-of-reserves",
+              "sidebar": "servicesSidebar"
+            },
+            {
+              "id": "services/real-estate-listing",
+              "path": "/docs/services/real-estate-listing",
+              "sidebar": "servicesSidebar"
+            },
+            {
+              "id": "services/staking-services",
+              "path": "/docs/services/staking-services",
+              "sidebar": "servicesSidebar"
+            },
+            {
+              "id": "services/start-up-listing",
+              "path": "/docs/services/start-up-listing",
+              "sidebar": "servicesSidebar"
+            },
+            {
+              "id": "services/token-listing",
+              "path": "/docs/services/token-listing",
+              "sidebar": "servicesSidebar"
+            },
+            {
+              "id": "services/utility-provider-listing",
+              "path": "/docs/services/utility-provider-listing",
+              "sidebar": "servicesSidebar"
+            },
+            {
               "id": "troubleshoot/Startups/invest-startups",
               "path": "/docs/troubleshoot/Startups/invest-startups",
               "sidebar": "troubleshootSidebar"
@@ -643,6 +703,11 @@
               "id": "troubleshoot/Trading/trade-commodities",
               "path": "/docs/troubleshoot/Trading/trade-commodities",
               "sidebar": "troubleshootSidebar"
+            },
+            {
+              "id": "tutorial-basics/getting-started",
+              "path": "/docs/tutorial-basics/getting-started",
+              "sidebar": "tutorialSidebar"
             },
             {
               "id": "tutorial-basics/nyyu-invites",
@@ -702,8 +767,14 @@
           "sidebars": {
             "tutorialSidebar": {
               "link": {
-                "path": "/docs/tutorial-basics/nyyu-wallet",
-                "label": "Wallet"
+                "path": "/docs/tutorial-basics/getting-started",
+                "label": "Getting Started"
+              }
+            },
+            "servicesSidebar": {
+              "link": {
+                "path": "/docs/services/fee-structure",
+                "label": "Fees"
               }
             },
             "troubleshootSidebar": {

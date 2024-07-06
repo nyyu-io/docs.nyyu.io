@@ -104,15 +104,15 @@ export default [
   },
   {
     path: '/docs',
-    component: ComponentCreator('/docs', '9dd'),
+    component: ComponentCreator('/docs', '554'),
     routes: [
       {
         path: '/docs',
-        component: ComponentCreator('/docs', '531'),
+        component: ComponentCreator('/docs', '49a'),
         routes: [
           {
             path: '/docs',
-            component: ComponentCreator('/docs', '766'),
+            component: ComponentCreator('/docs', '16f'),
             routes: [
               {
                 path: '/docs/affiliate-system',
@@ -840,6 +840,78 @@ export default [
                 sidebar: "apiSidebar"
               },
               {
+                path: '/docs/services/affiliate-program',
+                component: ComponentCreator('/docs/services/affiliate-program', '55c'),
+                exact: true,
+                sidebar: "servicesSidebar"
+              },
+              {
+                path: '/docs/services/bug-bounty',
+                component: ComponentCreator('/docs/services/bug-bounty', 'b11'),
+                exact: true,
+                sidebar: "servicesSidebar"
+              },
+              {
+                path: '/docs/services/commodity-listing',
+                component: ComponentCreator('/docs/services/commodity-listing', '6f5'),
+                exact: true,
+                sidebar: "servicesSidebar"
+              },
+              {
+                path: '/docs/services/de-listing',
+                component: ComponentCreator('/docs/services/de-listing', '2a3'),
+                exact: true,
+                sidebar: "servicesSidebar"
+              },
+              {
+                path: '/docs/services/fee-structure',
+                component: ComponentCreator('/docs/services/fee-structure', '5fd'),
+                exact: true,
+                sidebar: "servicesSidebar"
+              },
+              {
+                path: '/docs/services/loan-services',
+                component: ComponentCreator('/docs/services/loan-services', '9d6'),
+                exact: true,
+                sidebar: "servicesSidebar"
+              },
+              {
+                path: '/docs/services/proof-of-reserves',
+                component: ComponentCreator('/docs/services/proof-of-reserves', '491'),
+                exact: true,
+                sidebar: "servicesSidebar"
+              },
+              {
+                path: '/docs/services/real-estate-listing',
+                component: ComponentCreator('/docs/services/real-estate-listing', '464'),
+                exact: true,
+                sidebar: "servicesSidebar"
+              },
+              {
+                path: '/docs/services/staking-services',
+                component: ComponentCreator('/docs/services/staking-services', 'bac'),
+                exact: true,
+                sidebar: "servicesSidebar"
+              },
+              {
+                path: '/docs/services/start-up-listing',
+                component: ComponentCreator('/docs/services/start-up-listing', 'b82'),
+                exact: true,
+                sidebar: "servicesSidebar"
+              },
+              {
+                path: '/docs/services/token-listing',
+                component: ComponentCreator('/docs/services/token-listing', 'f99'),
+                exact: true,
+                sidebar: "servicesSidebar"
+              },
+              {
+                path: '/docs/services/utility-provider-listing',
+                component: ComponentCreator('/docs/services/utility-provider-listing', '46d'),
+                exact: true,
+                sidebar: "servicesSidebar"
+              },
+              {
                 path: '/docs/troubleshoot/Startups/invest-startups',
                 component: ComponentCreator('/docs/troubleshoot/Startups/invest-startups', '17b'),
                 exact: true,
@@ -874,6 +946,12 @@ export default [
                 component: ComponentCreator('/docs/troubleshoot/Trading/trade-commodities', '6ed'),
                 exact: true,
                 sidebar: "troubleshootSidebar"
+              },
+              {
+                path: '/docs/tutorial-basics/getting-started',
+                component: ComponentCreator('/docs/tutorial-basics/getting-started', 'ae8'),
+                exact: true,
+                sidebar: "tutorialSidebar"
               },
               {
                 path: '/docs/tutorial-basics/nyyu-invites',
