@@ -69,6 +69,7 @@ export default {
     },
     "image": "img/docusaurus-social-card.jpg",
     "navbar": {
+      "title": "",
       "logo": {
         "alt": "NYYU Logo",
         "src": "img/logo.svg",
@@ -116,8 +117,7 @@ export default {
           "dropdownItemsAfter": []
         }
       ],
-      "hideOnScroll": false,
-      "title": ""
+      "hideOnScroll": false
     },
     "footer": {
       "style": "dark",
@@ -135,11 +135,11 @@ export default {
             },
             {
               "label": "Marketplace",
-              "to": "/docs/tutorial-basics/Marketplace/intro"
+              "to": "/docs/tutorial-basics/nyyu-marketplace"
             },
             {
               "label": "Loan",
-              "to": "/docs/tutorial-basics/loan"
+              "to": "/docs/tutorial-basics/nyyu-loans"
             },
             {
               "label": "Save",
@@ -147,7 +147,7 @@ export default {
             },
             {
               "label": "Invites",
-              "to": "/docs/tutorial-basics/invites"
+              "to": "/docs/tutorial-basics/nyyu-invites"
             }
           ]
         },

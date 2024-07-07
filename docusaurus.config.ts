@@ -114,7 +114,7 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      // title: 'NYYU',
+      title: 'NYYU',
       logo: {
         alt: 'NYYU Logo',
         src: 'img/logo.svg',
@@ -166,10 +166,6 @@ const config: Config = {
       ],
     },
 
-
-
-
-
     footer: {
       style: 'dark',
       links: [
@@ -186,11 +182,11 @@ const config: Config = {
             },
             {
               label: 'Marketplace',
-              to: '/docs/tutorial-basics/Marketplace/intro',
+              to: '/docs/tutorial-basics/nyyu-marketplace',
             },
             {
               label: 'Loan',
-              to: '/docs/tutorial-basics/loan',
+              to: '/docs/tutorial-basics/nyyu-loans',
             },
             {
               label: 'Save',
@@ -198,7 +194,7 @@ const config: Config = {
             },
             {
               label: 'Invites',
-              to: '/docs/tutorial-basics/invites',
+              to: '/docs/tutorial-basics/nyyu-invites',
             },
 
           ],
