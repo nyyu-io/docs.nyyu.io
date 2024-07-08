@@ -74,5 +74,9 @@
   "sidebar.apiSidebar.category.Withdraw": {
     "message": "Withdraw",
     "description": "The label for category Withdraw in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.Social Login (OAuth2)": {
+    "message": "Social Login (OAuth2)",
+    "description": "The label for category Social Login (OAuth2) in sidebar apiSidebar"
   }
 }

@@ -3,18 +3,18 @@ import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 
 const faqArticles = [
-  { title: 'What is NYYU?', link: '/' },
+  { title: 'What is NYYU?', link: '/docs/tutorial-basics/getting-started' },
   { title: 'How to sign up?', link: '/' },
-  { title: 'How to use the wallet?', link: '/' },
-  { title: 'How to trade?', link: '/' },
-  { title: 'What are the fees?', link: '/' },
-  { title: 'How do I access customer support services?', link: '/' },
+  { title: 'How to use the wallet?', link: '/docs/tutorial-basics/nyyu-wallet' },
+  { title: 'How to trade?', link: '/docs/tutorial-basics/nyyu-trade' },
+  { title: 'What are the fees?', link: '/docs/services/fee-structure' },
+  { title: 'How do I access customer support services?', link: '/docs/corporate/contact-us' },
   { title: 'How to reset password?', link: '/' },
   { title: 'How to enable 2FA?', link: '/' },
-  { title: 'What are the supported currencies?', link: '/' },
-  { title: 'How to withdraw funds?', link: '/' },
-  { title: 'How to deposit funds?', link: '/' },
-  { title: 'What is the invite program?', link: '/' },
+  { title: 'What are the supported currencies?', link: '/docs/services/nyyu-supported-currencies' },
+  { title: 'How to withdraw funds?', link: '/docs/tutorial-basics/nyyu-wallet' },
+  { title: 'How to deposit funds?', link: '/docs/tutorial-basics/nyyu-wallet' },
+  { title: 'What is the invite program?', link: '/docs/tutorial-basics/nyyu-invites' },
 ];
 
 export default function FAQSection() {
@@ -38,7 +38,7 @@ export default function FAQSection() {
             ))}
           </p>
         </div>
-        <Link to="/" className={styles.moreLink}>More FAQs</Link>
+        <Link to="/docs/troubleshoot/Trading/trade-commodities" className={styles.moreLink}>More FAQs</Link>
       </div>
     </section>
   );

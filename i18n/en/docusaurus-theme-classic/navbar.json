@@ -7,32 +7,36 @@
     "message": "NYYU Logo",
     "description": "The alt text of navbar logo"
   },
-  "item.label.Guides": {
-    "message": "Guides",
-    "description": "Navbar item with label Guides"
+  "item.label.Tutorial": {
+    "message": "Tutorial",
+    "description": "Navbar item with label Tutorial"
   },
   "item.label.FAQ": {
     "message": "FAQ",
     "description": "Navbar item with label FAQ"
   },
   "item.label.API": {
-    "message": "API",
+    "message": "Developers",
     "description": "Navbar item with label API"
-  },
-  "item.label.Blog": {
-    "message": "Blog",
-    "description": "Navbar item with label Blog"
   },
   "item.label.Login": {
     "message": "Login",
     "description": "Navbar item with label Login"
   },
-  "item.label.Tutorial": {
-    "message": "Tutorial",
-    "description": "Navbar item with label Tutorial"
-  },
   "item.label.Services": {
     "message": "Services",
     "description": "Navbar item with label Services"
+  },
+  "item.label.Corporate": {
+    "message": "Corporate",
+    "description": "Navbar item with label Corporate"
+  },
+  "item.label.Blog": {
+    "message": "Blog",
+    "description": "Navbar item with label Blog"
+  },
+  "item.label.Changelog": {
+    "message": "Changelog",
+    "description": "Navbar item with label Changelog"
   }
 }

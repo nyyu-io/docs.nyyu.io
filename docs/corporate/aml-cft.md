@@ -1,0 +1,80 @@
+---
+id: aml-cft
+title: AML & CFT Policy
+sidebar_label: AML & CFT
+sidebar_position: 10
+---
+
+# AML & CFT Policy
+
+NYYU is committed to preventing money laundering (AML) and countering the financing of terrorism (CFT) in compliance with applicable laws and regulations. This AML & CFT Policy outlines the measures and procedures we have implemented to ensure the integrity and security of our platform and services.
+
+## Purpose
+
+The purpose of this policy is to establish procedures to detect, prevent, and report potential money laundering and terrorist financing activities. Our goal is to comply with relevant regulations and maintain the highest standards of integrity and transparency.
+
+## Regulatory Compliance
+
+NYYU complies with all applicable AML and CFT laws and regulations in the jurisdictions where we operate. This includes adhering to the requirements set forth by regulatory authorities and implementing industry best practices.
+
+## Know Your Customer (KYC) Policy
+
+### Customer Identification
+
+We implement a robust KYC process to verify the identity of our users. This process includes:
+
+- **Identity Verification**: Collecting and verifying personal information such as name, address, date of birth, and government-issued identification.
+- **Document Verification**: Requiring users to submit valid identification documents, such as passports, driver's licenses, or national ID cards.
+- **Ongoing Monitoring**: Continuously monitoring user accounts and transactions for suspicious activities.
+
+### Enhanced Due Diligence (EDD)
+
+For higher-risk customers, we perform enhanced due diligence, which may include:
+
+- **Additional Information**: Collecting more detailed information about the customer's business and source of funds.
+- **Increased Monitoring**: Implementing more frequent and thorough monitoring of transactions.
+
+## Transaction Monitoring
+
+We employ advanced monitoring systems to detect and report suspicious transactions. These systems include:
+
+- **Automated Alerts**: Setting up automated alerts to flag unusual or suspicious transactions.
+- **Manual Review**: Conducting manual reviews of flagged transactions to determine if further action is necessary.
+- **Reporting**: Reporting suspicious activities to the relevant authorities in accordance with applicable laws and regulations.
+
+## Record Keeping
+
+We maintain comprehensive records of all customer identification and transaction information for a minimum period as required by law. This includes:
+
+- **Customer Information**: Keeping records of customer identification documents and verification data.
+- **Transaction Records**: Maintaining detailed records of all transactions conducted on our platform.
+
+## Training and Awareness
+
+We provide regular training to our employees on AML and CFT policies and procedures. This training includes:
+
+- **Regulatory Requirements**: Educating employees about applicable AML and CFT laws and regulations.
+- **Detection and Reporting**: Training employees on how to detect and report suspicious activities.
+- **Ongoing Education**: Keeping employees informed about the latest developments in AML and CFT practices.
+
+## Cooperation with Authorities
+
+We cooperate fully with law enforcement and regulatory authorities in the investigation of potential money laundering and terrorist financing activities. This includes:
+
+- **Information Sharing**: Sharing relevant information with authorities as required by law.
+- **Compliance**: Ensuring our policies and procedures comply with regulatory requirements.
+
+## User Responsibilities
+
+Users of the NYYU platform are expected to adhere to our AML & CFT policies. This includes:
+
+- **Providing Accurate Information**: Providing truthful and accurate information during the account registration and verification process.
+- **Compliance with Laws**: Complying with all applicable AML and CFT laws and regulations.
+- **Reporting Suspicious Activities**: Reporting any suspicious activities to our support team immediately.
+
+## Contact Us
+
+If you have any questions or concerns about this AML & CFT Policy, please contact us at:
+
+- **Email**: [compliance@nyyu.io](mailto:compliance@nyyu.io)
+<!-- - **Phone**: +1 646 921 4660 -->

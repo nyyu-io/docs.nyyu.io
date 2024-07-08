@@ -19,7 +19,7 @@ const FeatureList: FeatureItem[] = [
       Welcome to NYYU! Nice to see you here. Let’s get started!
       </>
     ),
-    link: '/',
+    link: '/docs/services/fee-structure',
   },
   {
     title: 'Using NYYU',
@@ -29,7 +29,7 @@ const FeatureList: FeatureItem[] = [
         From Wallet, Trade to Marketplace, learn how to NYYU works from top to bottom.
       </>
     ),
-    link: '/',
+    link: '/docs/tutorial-basics/getting-started',
   },
   {
     title: 'Connect to NYYU API',
@@ -39,7 +39,7 @@ const FeatureList: FeatureItem[] = [
         Connect to our API and build your own applications on top of NYYU.
       </>
     ),
-    link: '/',
+    link: '/docs/api/getting-started',
   },
   // Repeat the items for the second row
   {
@@ -50,7 +50,7 @@ const FeatureList: FeatureItem[] = [
       Listing applications for crowdfunding, commodities, real estate, and electricty.
       </>
     ),
-    link: '/docs/getting-started',
+    link: '/docs/services/start-up-listing',
   },
   {
     title: 'Recent Features & Updates',
@@ -60,7 +60,7 @@ const FeatureList: FeatureItem[] = [
       Stay informed with the latest enhancements and additions to the NYYU platform.
       </>
     ),
-    link: '/docs/using-nyyu',
+    link: '/docs/changelog/changelog',
   },
   {
     title: 'Support',
@@ -70,7 +70,7 @@ const FeatureList: FeatureItem[] = [
         Submit a support ticket or connct with one of our live agents.
       </>
     ),
-    link: '/docs/connect-api',
+    link: '/',
   },
 ];
 

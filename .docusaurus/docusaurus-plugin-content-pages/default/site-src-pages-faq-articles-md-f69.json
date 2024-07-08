@@ -1,8 +1,0 @@
-{
-  "type": "mdx",
-  "permalink": "/faq-articles",
-  "source": "@site/src/pages/faq-articles.md",
-  "description": "const faqArticles = [",
-  "frontMatter": {},
-  "unlisted": false
-}

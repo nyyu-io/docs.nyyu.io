@@ -2,7 +2,7 @@
 id: commodity-listing
 title: Commodity Listing Application
 sidebar_label: Commodity Listing
-sidebar_position: 4
+sidebar_position: 11
 ---
 
 # Commodity Listing on NYYU

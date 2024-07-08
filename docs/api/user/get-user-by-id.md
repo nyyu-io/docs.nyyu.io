@@ -1,0 +1,48 @@
+---
+id: forgot-password
+title: Get User by ID
+sidebar_label: Get User by ID
+sidebar_position: 3
+---
+
+:::note
+The functions described is accessible only to users with ADMIN privileges.
+:::
+
+The `getUserById` query is used to retrieve information about a user by their unique ID. This query can be executed by users with ADMIN privileges.
+
+### Query: `getUserById`
+
+#### Schema:
+```graphql
+getUserById(
+  id: Int!
+): User
+```
+
+#### Parameters
+
+- `id` (Int): The unique ID of the user to retrieve. This field is mandatory.
+
+#### Return
+
+The query returns the user's information corresponding to the specified ID.
+
+### Example Query
+
+The following is an example of how to use the `getUserById` query to retrieve a user's information by their ID:
+
+```graphql
+query {
+  getUserById(
+    id: 123
+  ) {
+    id
+    email
+    name
+    role
+  }
+}
+```
+
+In this example, the query retrieves the information for the user with the ID `123`, including their `id`, `email`, `name`, and `role`.

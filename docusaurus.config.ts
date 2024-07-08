@@ -150,7 +150,19 @@ const config: Config = {
           label: 'API',
         },
         
-        {to: '/blog', label: 'Blog', position: 'left'},
+        {
+          type: 'docSidebar',
+          sidebarId: 'corporateSidebar',
+          position: 'left',
+          label: 'Corporate',
+        },
+
+        {
+          type: 'docSidebar',
+          sidebarId: 'changelogSidebar',
+          position: 'left',
+          label: 'Changelog',
+        },
 
         {
           href: 'https://nyyu.io',
@@ -205,38 +217,39 @@ const config: Config = {
           items: [
             {
               label: 'Token Listing',
-              to: '/',
+              to: '/docs/services/token-listing',
             },
             {
               label: 'Startup Listing',
-              href: '/',
+              href: '/docs/services/start-up-listing',
             },
             {
               label: 'Property Listing',
-              to: '/',
+              to: '/docs/services/real-estate-listing',
             },
             {
               label: 'Commodity Listing',
-              href: '/',
+              href: '/docs/services/commodity-listing',
             },
             {
               label: 'Fees',
-              to: '/',
+              to: '/docs/services/fee-structure',
             },
             {
               label: 'Bug Boutny',
-              to: '/',
+              to: '/docs/services/bug-bounty',
             },
             {
               label: 'Delistings',
-              to: '/',
+              to: '/docs/services/de-listing',
             },
             {
               label: 'PoR (Proof of Reserves)',
-              to: '/',
+              to: '/docs/services/proof-of-reserves',
             },
           ],
         },
+
         {
           title: 'Developers',
           items: [
@@ -254,39 +267,37 @@ const config: Config = {
             },
           ],
         },
+
         {
           title: 'Corporate',
           items: [
             {
               label: 'About Us',
-              to: '/',
+              to: '/docs/corporate/about-us',
             },
             {
               label: 'Media Kit',
-              href: '/',
+              href: '/docs/corporate/media-kit',
             },
             {
               label: 'Whistleblower Contact',
-              to: '/',
+              to: '/docs/corporate/whistleblower-contact',
             },
             {
               label: 'Security',
-              to: '/',
+              to: '/docs/corporate/security',
             },
             {
               label: 'Changelogs',
-              href: '/',
-            },
-            {
-              label: 'Blog',
-              to: '/blog',
+              href: '/docs/changelog/changelog',
             },
             {
               label: 'Contact Us',
-              to: '/blog',
+              to: '/docs/corporate/contact-us',
             },
           ],
         },
+
         {
           title: 'Community',
           items: [
@@ -300,11 +311,15 @@ const config: Config = {
             },
             {
               label: 'Instagram',
-              href: 'https://instagram.com/nyuuio',
+              href: 'https://instagram.com/nyuu.io',
             },
             {
-              label: 'Youtube',
-              href: 'https://youtube.com/nyyuio',
+              label: 'Facebook',
+              href: 'https://facebook.com/nyyu.io',
+            },
+            {
+              label: 'YouTube',
+              href: 'https://youtube.com/nyyu.io',
             },
           ],
         },
@@ -313,27 +328,27 @@ const config: Config = {
           items: [
             {
               label: 'Terms of Use',
-              to: '/',
+              to: '/docs/corporate/terms-of-use',
             },
             {
               label: 'Privacy Policy',
-              href: '/',
+              href: '/docs/corporate/privacy-policy',
             },
             {
-              label: 'Risk Disclosure Statement',
-              to: '/',
+              label: 'Risk Disclosure',
+              to: '/docs/corporate/risk-disclosure',
             },
             {
               label: 'AML & CFT',
-              href: '/',
+              href: '/docs/corporate/aml-cft',
             },
             {
               label: 'Special Treatment',
-              to: '/',
+              to: '/docs/corporate/special-treatment',
             },
             {
-              label: 'Law Enforcmement Requests',
-              href: '/',
+              label: 'Law Enforcmement',
+              href: '/docs/corporate/law-enforcement',
             },
           ],
         },

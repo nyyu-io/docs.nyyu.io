@@ -21,11 +21,11 @@
   },
   "link.item.label.Marketplace": {
     "message": "Marketplace",
-    "description": "The label of footer link with label=Marketplace linking to /docs/tutorial-basics/Marketplace/intro"
+    "description": "The label of footer link with label=Marketplace linking to /docs/tutorial-basics/nyyu-marketplace"
   },
   "link.item.label.Loan": {
     "message": "Loan",
-    "description": "The label of footer link with label=Loan linking to /docs/tutorial-basics/loan"
+    "description": "The label of footer link with label=Loan linking to /docs/tutorial-basics/nyyu-loans"
   },
   "link.item.label.Save": {
     "message": "Save",
@@ -33,7 +33,7 @@
   },
   "link.item.label.Invites": {
     "message": "Invites",
-    "description": "The label of footer link with label=Invites linking to /docs/tutorial-basics/invites"
+    "description": "The label of footer link with label=Invites linking to /docs/tutorial-basics/nyyu-invites"
   },
   "link.item.label.X": {
     "message": "X",
@@ -45,7 +45,7 @@
   },
   "link.item.label.Instagram": {
     "message": "Instagram",
-    "description": "The label of footer link with label=Instagram linking to https://instagram.com/nyuuio"
+    "description": "The label of footer link with label=Instagram linking to https://instagram.com/nyuu.io"
   },
   "link.item.label.Youtube": {
     "message": "Youtube",
@@ -81,35 +81,35 @@
   },
   "link.item.label.Token Listing": {
     "message": "Token Listing",
-    "description": "The label of footer link with label=Token Listing linking to /"
+    "description": "The label of footer link with label=Token Listing linking to /docs/services/token-listing"
   },
   "link.item.label.Startup Listing": {
     "message": "Startup Listing",
-    "description": "The label of footer link with label=Startup Listing linking to /"
+    "description": "The label of footer link with label=Startup Listing linking to /docs/services/start-up-listing"
   },
   "link.item.label.Property Listing": {
     "message": "Property Listing",
-    "description": "The label of footer link with label=Property Listing linking to /"
+    "description": "The label of footer link with label=Property Listing linking to /docs/services/real-estate-listing"
   },
   "link.item.label.Commodity Listing": {
     "message": "Commodity Listing",
-    "description": "The label of footer link with label=Commodity Listing linking to /"
+    "description": "The label of footer link with label=Commodity Listing linking to /docs/services/commodity-listing"
   },
   "link.item.label.Fees": {
     "message": "Fees",
-    "description": "The label of footer link with label=Fees linking to /"
+    "description": "The label of footer link with label=Fees linking to /docs/services/fee-structure"
   },
   "link.item.label.Bug Boutny": {
     "message": "Bug Boutny",
-    "description": "The label of footer link with label=Bug Boutny linking to /"
+    "description": "The label of footer link with label=Bug Boutny linking to /docs/services/bug-bounty"
   },
   "link.item.label.Delistings": {
     "message": "Delistings",
-    "description": "The label of footer link with label=Delistings linking to /"
+    "description": "The label of footer link with label=Delistings linking to /docs/services/de-listing"
   },
   "link.item.label.PoR (Proof of Reserves)": {
     "message": "PoR (Proof of Reserves)",
-    "description": "The label of footer link with label=PoR (Proof of Reserves) linking to /"
+    "description": "The label of footer link with label=PoR (Proof of Reserves) linking to /docs/services/proof-of-reserves"
   },
   "link.item.label.NYYU API": {
     "message": "NYYU API",
@@ -125,35 +125,35 @@
   },
   "link.item.label.About Us": {
     "message": "About Us",
-    "description": "The label of footer link with label=About Us linking to /"
+    "description": "The label of footer link with label=About Us linking to /docs/corporate/about-us"
   },
   "link.item.label.Media Kit": {
     "message": "Media Kit",
-    "description": "The label of footer link with label=Media Kit linking to /"
+    "description": "The label of footer link with label=Media Kit linking to /docs/corporate/media-kit"
   },
   "link.item.label.Whistleblower Contact": {
     "message": "Whistleblower Contact",
-    "description": "The label of footer link with label=Whistleblower Contact linking to /"
+    "description": "The label of footer link with label=Whistleblower Contact linking to /docs/corporate/whistleblower-contact"
   },
   "link.item.label.Security": {
     "message": "Security",
-    "description": "The label of footer link with label=Security linking to /"
+    "description": "The label of footer link with label=Security linking to /docs/corporate/security"
   },
   "link.item.label.Changelogs": {
     "message": "Changelogs",
-    "description": "The label of footer link with label=Changelogs linking to /"
+    "description": "The label of footer link with label=Changelogs linking to /docs/changelog/changelog"
   },
   "link.item.label.Contact Us": {
     "message": "Contact Us",
-    "description": "The label of footer link with label=Contact Us linking to /blog"
+    "description": "The label of footer link with label=Contact Us linking to /docs/corporate/contact-us"
   },
   "link.item.label.Terms of Use": {
     "message": "Terms of Use",
-    "description": "The label of footer link with label=Terms of Use linking to /"
+    "description": "The label of footer link with label=Terms of Use linking to /docs/corporate/terms-of-use"
   },
   "link.item.label.Privacy Policy": {
     "message": "Privacy Policy",
-    "description": "The label of footer link with label=Privacy Policy linking to /"
+    "description": "The label of footer link with label=Privacy Policy linking to /docs/corporate/privacy-policy"
   },
   "link.item.label.Risk Disclosure Statement": {
     "message": "Risk Disclosure Statement",
@@ -161,14 +161,30 @@
   },
   "link.item.label.AML & CFT": {
     "message": "AML & CFT",
-    "description": "The label of footer link with label=AML & CFT linking to /"
+    "description": "The label of footer link with label=AML & CFT linking to /docs/corporate/aml-cft"
   },
   "link.item.label.Special Treatment": {
     "message": "Special Treatment",
-    "description": "The label of footer link with label=Special Treatment linking to /"
+    "description": "The label of footer link with label=Special Treatment linking to /docs/corporate/special-treatment"
   },
   "link.item.label.Law Enforcmement Requests": {
     "message": "Law Enforcmement Requests",
     "description": "The label of footer link with label=Law Enforcmement Requests linking to /"
+  },
+  "link.item.label.Facebook": {
+    "message": "Facebook",
+    "description": "The label of footer link with label=Facebook linking to https://facebook.com/nyyu.io"
+  },
+  "link.item.label.YouTube": {
+    "message": "YouTube",
+    "description": "The label of footer link with label=YouTube linking to https://youtube.com/nyyu.io"
+  },
+  "link.item.label.Risk Disclosure": {
+    "message": "Risk Disclosure",
+    "description": "The label of footer link with label=Risk Disclosure linking to /docs/corporate/risk-disclosure"
+  },
+  "link.item.label.Law Enforcmement": {
+    "message": "Law Enforcmement",
+    "description": "The label of footer link with label=Law Enforcmement linking to /docs/corporate/law-enforcement"
   }
 }
