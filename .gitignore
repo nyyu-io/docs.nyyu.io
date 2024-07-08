@@ -1,9 +1,3 @@
-
 .DS_Store
-.docusaurus
-.docusaurus/*
-.docusaurus/**/*
-node_modules/*
-node_modules/**/*
-
-
+.docusaurus/
+node_modules/
