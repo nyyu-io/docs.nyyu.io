@@ -1,3 +1,10 @@
+---
+id: create-crypto-payment-for-deposit-into-the-wallet
+title: Create Crypto Payment for Deposit Into the Wallet
+sidebar_label: Create Crypto Payment for Deposit Into the Wallet
+sidebar_position: 1
+---
+
 The `createChargeForDeposit` mutation allows a user to create a cryptocurrency payment for a deposit into their wallet. It returns a deposit transaction with a deposit address.
 
 ### Mutation: `createChargeForDeposit`

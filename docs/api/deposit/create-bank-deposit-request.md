@@ -1,3 +1,10 @@
+---
+id: create-bank-deposit-request
+title: Create Bank Deposit Request
+sidebar_label: Create Bank Deposit Request
+sidebar_position: 1
+---
+
 The `bankForDeposit` mutation allows a user to create an empty bank deposit transaction. This can be used to initiate a bank deposit request.
 
 ### Mutation: `bankForDeposit`

@@ -1,3 +1,10 @@
+---
+id: create-paypal-payment-for-deposit-into-the-wallet
+title: Create PayPal Payment for Deposit Into the Wallet
+sidebar_label: Create PayPal Payment for Deposit Into the Wallet
+sidebar_position: 1
+---
+
 The `paypalForDeposit` mutation allows a user to create a PayPal payment for a deposit into their wallet. It returns an order response with details needed to proceed with the PayPal checkout.
 
 ### Mutation: `paypalForDeposit`

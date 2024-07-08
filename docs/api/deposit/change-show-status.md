@@ -1,3 +1,10 @@
+---
+id: change-show-status
+title: Change Show Status
+sidebar_label: Change Show Status
+sidebar_position: 1
+---
+
 These mutations allow a user to change the show status of different types of deposit transactions (PayPal, Stripe, Bank) to either hide or show them.
 
 ### Change PayPal Deposit Show Status

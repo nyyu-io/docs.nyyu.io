@@ -1,3 +1,10 @@
+---
+id: confirm-bank-deposit-by-admin
+title: Confirm Bank Deposit by Admin
+sidebar_label: Confirm Bank Deposit by Admin
+sidebar_position: 1
+---
+
 :::note
 The functions described is accessible only to users with ADMIN privileges.
 :::

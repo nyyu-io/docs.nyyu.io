@@ -1,3 +1,10 @@
+---
+id: confirm-paypal-checkout-order
+title: Confirm PayPal Checkout Order
+sidebar_label: Confirm PayPal Checkout Order
+sidebar_position: 1
+---
+
 The `captureOrderForDeposit` mutation allows a user to confirm a PayPal payment for a deposit into their wallet. The backend will verify the payment and, if successful, add the balance to the user's internal wallet.
 
 ### Mutation: `captureOrderForDeposit`
