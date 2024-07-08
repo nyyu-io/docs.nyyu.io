@@ -1,3 +1,10 @@
+---
+id: avatar-summary
+title: Avatar API Introduction
+sidebar_label: Avatar API Introduction
+sidebar_position: 1
+---
+
 The Avatar system includes various components and profiles to represent users' avatars. These include components (such as accessories), profiles (combinations of components), and avatar sets (groups of components).
 
 ### Concepts

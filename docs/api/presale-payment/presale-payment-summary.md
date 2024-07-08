@@ -1,3 +1,10 @@
+---
+id: presale-payment-summary
+title: Presale Payment API Introduction
+sidebar_label: Presale Payment API Introduction
+sidebar_position: 1
+---
+
 ### Coin
 Represents a cryptocurrency coin.
 

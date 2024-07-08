@@ -1,3 +1,10 @@
+---
+id: bid-summary
+title: Bid API Introduction
+sidebar_label: Bid API Introduction
+sidebar_position: 1
+---
+
 ### Constants
 
 #### Payment Methods

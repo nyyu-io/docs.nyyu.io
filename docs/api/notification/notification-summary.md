@@ -1,3 +1,10 @@
+---
+id: notification-summary
+title: Notification API Introduction
+sidebar_label: Notification API Introduction
+sidebar_position: 1
+---
+
 ### Notification Type
 Represents a type of notification.
 

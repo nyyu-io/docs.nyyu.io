@@ -1,3 +1,9 @@
+---
+id: user-tier-summary
+title: User Tier API Intro
+sidebar_label: User Tier API Intro
+sidebar_position: 1
+---
 
 ## Types
 

@@ -1,3 +1,4 @@
+
 The `updateUserTier` mutation allows an admin to update the details of an existing user tier level.
 
 ### Mutation: `updateUserTier`

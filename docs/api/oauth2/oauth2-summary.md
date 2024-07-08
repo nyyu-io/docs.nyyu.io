@@ -1,5 +1,12 @@
-The `OAuth2Registration` type represents the configuration for OAuth2 social login providers. This is used to handle OAuth2 authentication with various providers.
+---
+id: oauth2-summary
+title: OAuth2 API Introduction
+sidebar_label: OAuth2 API Introduction
+sidebar_position: 1
+---
 
+The `OAuth2Registration` type represents the configuration for OAuth2 social login providers. This is used to handle OAuth2 authentication with various providers.
+ 
 ### Type: `OAuth2Registration`
 
 #### Schema:

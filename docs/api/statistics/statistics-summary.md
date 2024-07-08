@@ -1,3 +1,10 @@
+---
+id: statistics-summary
+title: Statistics API Introduction
+sidebar_label: Statistics API Introduction
+sidebar_position: 1
+---
+
 ### Types
 
 #### RoundPerform1
