@@ -45,7 +45,7 @@ Rate limits vary by endpoint. Refer to the [Rate Limits](/) section for specific
 Use the appropriate mutation in the GraphQL API to update user profile details. See [User Profile](/docs/api/user/user-summary) for examples.
 
 ### How do I manage my avatar using NYYU API?
-Use the provided mutations for setting and updating avatar components. See [Avatar Management](/docs/api/avatar) for details.
+Use the provided mutations for setting and updating avatar components. See [Avatar Management](/docs/api/avatar/avatar-summary) for details.
 
 ### How do I participate in an auction using NYYU API?
 Use the provided mutations for placing and increasing bids. See [Auction Participation](/docs/api/auction/auction-summary) for examples.
@@ -57,7 +57,7 @@ Follow the steps outlined in the [Account Verification](/docs/api/registration/v
 Use the mutations for requesting and confirming 2FA setup. See [Two-Factor Authentication](/docs/api/registration/request-2fa) for details.
 
 ### How do I retrieve notifications using NYYU API?
-Use the queries provided to fetch notifications. See [Notifications](/docs/api/notification) for more information.
+Use the queries provided to fetch notifications. See [Notifications](/docs/api/notification/notification-summary) for more information.
 
 ### What should I do if I encounter a problem with the NYYU API?
 Check the [Troubleshooting](/) section for common issues and solutions, or contact support for further assistance.
