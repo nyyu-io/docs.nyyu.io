@@ -1,3 +1,10 @@
+---
+id: set-avatar
+title: Set Avatar
+sidebar_label: Set Avatar
+sidebar_position: 1
+---
+
 The `setAvatar` mutation allows a user to set an avatar when creating a new account after setting 2FA.
 
 ### Mutation: `setAvatar`

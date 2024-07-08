@@ -1,3 +1,10 @@
+---
+id: create-new-presale
+title: Create New Presale
+sidebar_label: Create New Presale
+sidebar_position: 1
+---
+
 :::note
 The functions described is accessible only to users with ADMIN privileges.
 :::

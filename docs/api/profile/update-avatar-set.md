@@ -1,4 +1,10 @@
-```markdown
+---
+id: update-avatar-set
+title: Update Avatar Set
+sidebar_label: Update Avatar Set
+sidebar_position: 1
+---
+
 ## Update Avatar Set (User Role)
 
 The `updateAvatarSet` mutation allows a user to update their avatar components. This mutation is called when the user clicks the ‘Save’ button in the dress-up modal.

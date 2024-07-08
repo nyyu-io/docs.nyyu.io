@@ -1,3 +1,10 @@
+---
+id: get-presales
+title: Get Presales
+sidebar_label: Get Presales
+sidebar_position: 1
+---
+
 :::note
 The functions described is accessible only to users with ADMIN privileges.
 :::

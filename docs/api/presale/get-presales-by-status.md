@@ -1,3 +1,10 @@
+---
+id: get-presales-by-status
+title: Get Presales by Status
+sidebar_label: Get Presales by Status
+sidebar_position: 1
+---
+
 :::note
 The functions described is accessible only to users with ADMIN privileges.
 :::
