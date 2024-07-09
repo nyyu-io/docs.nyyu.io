@@ -1,0 +1,65 @@
+---
+id: get-bid
+title: Get Bid
+sidebar_label: Get Bid
+sidebar_position: 2
+---
+
+The `getBid` query is used to retrieve the bid placed by the current user for a specific auction round.
+
+### Query: `getBid`
+
+#### Schema:
+```graphql
+getBid(
+  round: Int!
+): Bid
+```
+
+#### Parameters
+
+- `round` (Int): The number of the round to get the bid for. This field is mandatory.
+
+#### Return
+
+The query returns the `Bid` object placed by the current user for the specified round.
+
+### Example Query
+
+The following is an example of how to use the `getBid` query to retrieve a bid for the current user and a specific round:
+
+```graphql
+query {
+  getBid(
+    round: 12
+  ) {
+    userId,
+    roundId,
+    tokenAmount,
+    totalPrice,
+    tokenPrice,
+    tempTokenAmount,
+    tempTokenPrice,
+    delta,
+    pendingIncrease,
+    holdings {
+      key,
+      value {
+        crypto,
+        usd
+      }
+    },
+    payType,
+    cryptoType,
+    placedAt,
+    updatedAt,
+    status
+  }
+}
+```
+
+In this example, the query retrieves the bid placed by the current user for the round number `12`. The returned `Bid` object includes details such as `userId`, `roundId`, `tokenAmount`, `totalPrice`, `tokenPrice`, `tempTokenAmount`, `tempTokenPrice`, `delta`, `pendingIncrease`, `holdings`, `payType`, `cryptoType`, `placedAt`, `updatedAt`, and `status`.
+
+### Note
+
+- The user's ID will be obtained from the JWT token.

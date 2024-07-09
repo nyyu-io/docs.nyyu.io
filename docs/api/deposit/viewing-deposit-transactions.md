@@ -1,3 +1,10 @@
+---
+id: viewing-deposit-transactions
+title: Viewing Deposit Transactions
+sidebar_label: Viewing Deposit Transactions
+sidebar_position: 1
+---
+
 These queries allow users and admins to retrieve various types of deposit transactions. Below are the queries for PayPal, Bank, and Coinpayment deposit transactions.
 
 ### PayPal Deposit Transactions

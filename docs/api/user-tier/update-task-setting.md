@@ -1,0 +1,75 @@
+---
+id: update-task-setting
+title: Update Task Setting
+sidebar_label: Update Task Setting
+sidebar_position: 1
+---
+
+:::note
+The functions described is accessible only to users with ADMIN privileges.
+:::
+
+The `updateTaskSetting` mutation allows an admin to update an existing task setting in the system.
+
+### Mutation: `updateTaskSetting`
+
+#### Schema:
+```graphql
+updateTaskSetting(
+  setting: TaskSettingInput!
+): TaskSetting
+```
+
+#### Parameters
+
+- `setting` (TaskSettingInput): The task setting to update. This field is mandatory and includes the following fields:
+  - `verification` (Float!): The verification points associated with the task setting.
+  - `wallet` ([WalletTaskInput]!): A list of wallet tasks associated with the task setting.
+  - `auction` (Float!): The auction points associated with the task setting.
+  - `direct` (Float!): The direct points associated with the task setting.
+  - `staking` ([StakeTaskInput]!): A list of staking tasks associated with the task setting.
+
+#### Return
+
+The mutation returns the updated `TaskSetting` object if successful.
+
+### Example Mutation
+
+The following is an example of how to use the `updateTaskSetting` mutation to update an existing task setting:
+
+```graphql
+mutation {
+  updateTaskSetting(
+    setting: {
+      verification: 15.0,
+      wallet: [
+        { amount: 200, point: 15.0 }
+      ],
+      auction: 7.0,
+      direct: 3.0,
+      staking: [
+        { expiredTime: 60, ratio: 2.0 }
+      ]
+    }
+  ) {
+    id,
+    verification,
+    wallet {
+      amount,
+      point
+    },
+    auction,
+    direct,
+    staking {
+      expiredTime,
+      ratio
+    }
+  }
+}
+```
+
+### Return
+
+The example returns the updated `TaskSetting` object with details such as `id`, `verification`, `wallet`, `auction`, `direct`, and `staking`.
+
+In this example, the mutation updates an existing task setting with `15.0` verification points, a wallet task for `200` amount and `15.0` points, `7.0` auction points, `3.0` direct points, and a staking task with `60` expired time and `2.0` ratio. The return value includes the details of the updated `TaskSetting`.

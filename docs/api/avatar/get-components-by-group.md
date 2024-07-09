@@ -1,0 +1,44 @@
+---
+id: get-components-by-group
+title: Get Components By Group
+sidebar_label: Get Components By Group
+sidebar_position: 1
+---
+
+The `getAvatarComponentsByGroup` query is used to retrieve a list of avatar components based on a specific group ID. This query allows users to get all components associated with a particular group.
+
+### Query: `getAvatarComponentsByGroup`
+
+#### Schema:
+```graphql
+getAvatarComponentsByGroup(
+  groupId: String!
+): [AvatarComponent]
+```
+
+#### Parameters
+
+- `groupId` (String): The name of the required components group. This field is mandatory.
+
+#### Return
+
+The query returns a list of `AvatarComponent` objects that belong to the specified group.
+
+### Example Query
+
+The following is an example of how to use the `getAvatarComponentsByGroup` query to retrieve avatar components by group:
+
+```graphql
+query {
+  getAvatarComponentsByGroup(
+    groupId: "engineers"
+  ) {
+    id,
+    name,
+    description,
+    imageUrl
+  }
+}
+```
+
+In this example, the query retrieves the avatar components associated with the group ID `engineers`. The returned `AvatarComponent` objects include `id`, `name`, `description`, and `imageUrl` of the components.
