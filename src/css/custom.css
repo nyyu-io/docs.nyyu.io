@@ -13,6 +13,7 @@
   --ifm-color-primary-light: #5BA0FF; /* Lighter blue shade */
   --ifm-color-primary-lighter: #6CB2FF; /* Even lighter blue shade */
   --ifm-color-primary-lightest: #85C5FF; /* Lightest blue shade */
+  --ifm-background-color: #ffffff; /* Light mode background */
   
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
@@ -28,4 +29,5 @@
   --ifm-color-primary-lighter: #3267B3; /* Even darker blue shade for dark mode */
   --ifm-color-primary-lightest: #28528F; /* Darkest blue shade for dark mode */
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-background-color-dark: #232323;
 }
