@@ -1,0 +1,21 @@
+{
+  "title": "User",
+  "pages": [
+    "add-disallowed-country",
+    "change-password-by-user",
+    "change-role",
+    "confirm-email-change",
+    "create-new-user-by-admin",
+    "delete-account",
+    "get-paginated-users",
+    "get-user",
+    "get-user-by-id",
+    "get-users-count",
+    "make-allow-location",
+    "release-user-by-admin",
+    "request-email-change",
+    "reset-password-by-admin",
+    "suspend-user-by-admin",
+    "user-summary"
+  ]
+}

@@ -1,0 +1,47 @@
+---
+title: Get All Unread Notifications
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+The `getAllUnReadNotifications` query is used to retrieve the list of all unread notifications for the current user.
+
+### Query: `getAllUnReadNotifications`
+
+#### Schema:
+```graphql
+getAllUnReadNotifications: [Notification]
+```
+
+#### Parameters
+
+- None
+
+#### Return
+
+The query returns a list of `Notification` objects representing all unread notifications.
+
+### Example Query
+
+The following is an example of how to use the `getAllUnReadNotifications` query to retrieve the list of all unread notifications:
+
+```graphql
+query {
+  getAllUnReadNotifications {
+    id,
+    userId,
+    timeStamp,
+    nType,
+    read,
+    title,
+    msg
+  }
+}
+```
+
+### Return
+
+The example returns a list of `Notification` objects with details such as `id`, `userId`, `timeStamp`, `nType`, `read`, `title`, and `msg`.
+
+In this example, the query retrieves the list of all unread notifications for the current user. Each `Notification` object in the returned list includes details like `id`, `userId`, `timeStamp`, `nType`, `read`, `title`, and `msg`.

@@ -1,0 +1,65 @@
+---
+title: Pay For Presale In Crypto Currency
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+The `createChargeForPresale` mutation allows a user to create a cryptocurrency payment for a presale order. It returns the deposit address for the payment.
+
+### Mutation: `createChargeForPresale`
+
+#### Schema:
+```graphql
+createChargeForPresale(
+  presaleId: Int!,
+  orderId: Int!,
+  coin: String!,
+  network: String!,
+  cryptoType: String!
+): CoinpaymentDepositTransaction
+```
+
+#### Parameters
+
+- `presaleId` (Int): The ID of the presale. This field is mandatory.
+- `orderId` (Int): The ID of the order to pay for. This field is mandatory.
+- `coin` (String): The cryptocurrency coin to use for the payment. This field is mandatory.
+- `network` (String): The network of the cryptocurrency. This field is mandatory.
+- `cryptoType` (String): The type of cryptocurrency. This field is mandatory.
+
+#### Return
+
+The mutation returns a `CoinpaymentDepositTransaction` object, which includes the deposit address and other transaction details.
+
+### Example Mutation
+
+The following is an example of how to use the `createChargeForPresale` mutation to create a cryptocurrency payment for a presale order:
+
+```graphql
+mutation {
+  createChargeForPresale(
+    presaleId: 1,
+    orderId: 123,
+    coin: "BTC",
+    network: "Bitcoin",
+    cryptoType: "Bitcoin"
+  ) {
+    txnId,
+    presaleId,
+    orderId,
+    userId,
+    coin,
+    network,
+    cryptoType,
+    depositAddress,
+    status,
+    createdAt,
+    updatedAt
+  }
+}
+```
+
+### Note
+
+In this example, the mutation initiates a cryptocurrency payment for the presale order with ID `123` in the presale with ID `1`. The payment is made using Bitcoin on the Bitcoin network. The return value includes the `CoinpaymentDepositTransaction` details such as `txnId`, `presaleId`, `orderId`, `userId`, `coin`, `network`, `cryptoType`, `depositAddress`, `status`, `createdAt`, and `updatedAt`.

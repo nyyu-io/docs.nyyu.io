@@ -1,0 +1,15 @@
+{
+  "title": "Registration",
+  "pages": [
+    "confirm-2fa-setting",
+    "disable-2fa",
+    "forgot-password",
+    "password-reset",
+    "request-2fa",
+    "resend-verification-code",
+    "sign-in",
+    "sign-in-2fa-check",
+    "sign-up",
+    "verify-account"
+  ]
+}

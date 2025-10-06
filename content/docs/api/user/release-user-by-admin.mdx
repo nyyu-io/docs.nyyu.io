@@ -1,0 +1,46 @@
+---
+title: Release User by Admin
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+:::note
+The functions described is accessible only to users with ADMIN privileges.
+:::
+
+The `releaseUserByAdmin` mutation allows an admin to release a previously suspended user's account. This can be used to restore a user's access to the system.
+
+### Mutation: `releaseUserByAdmin`
+
+#### Schema:
+```graphql
+releaseUserByAdmin(
+  email: String!
+): String
+```
+
+#### Parameters
+
+- `email` (String): The email address of the user to be released. This field is mandatory.
+
+#### Return
+
+The mutation returns a string indicating the result of the release attempt.
+
+- `"Success"`: Indicates that the user's account has been successfully released.
+- `"Failed"`: Indicates that there was an error in processing the request, such as the user not being found or not being suspended.
+
+### Example Mutation
+
+The following is an example of how to use the `releaseUserByAdmin` mutation to release a user's account:
+
+```graphql
+mutation {
+  releaseUserByAdmin(
+    email: "user@example.com"
+  )
+}
+```
+
+In this example, the mutation attempts to release the user with the email address `user@example.com`. The return value will indicate whether the release was successful.

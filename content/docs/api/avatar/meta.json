@@ -1,0 +1,16 @@
+{
+  "title": "Avatar",
+  "pages": [
+    "avatar-summary",
+    "create-avatar-component",
+    "create-new-avatar-profile",
+    "get-avatar-by-id",
+    "get-avatar-by-name",
+    "get-avatar-components",
+    "get-avatar-components-by-sets",
+    "get-avatar-profiles",
+    "get-components-by-group",
+    "update-avatar-component",
+    "update-avatar-profile"
+  ]
+}

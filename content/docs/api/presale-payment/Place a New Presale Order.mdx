@@ -1,0 +1,65 @@
+---
+title: Place A New Presale Order
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+The `placePreSaleOrder` mutation allows a user to place a new presale order with specified details.
+
+### Mutation: `placePreSaleOrder`
+
+#### Schema:
+```graphql
+placePreSaleOrder(
+  presaleId: Int!,
+  ndbAmount: Float!,
+  destination: Int!,
+  extAddr: String
+): PreSaleOrder
+```
+
+#### Parameters
+
+- `presaleId` (Int): The ID of the presale to place an order. This field is mandatory.
+- `ndbAmount` (Float): The amount of NDB tokens to purchase in the order. This field is mandatory.
+- `destination` (Int): Specifies the destination after purchase is successful. Possible values:
+  - `1`: Internal
+  - `2`: External
+- `extAddr` (String): If the destination is external, the external address to receive NDB tokens. This field is optional but required if `destination` is `2`.
+
+#### Return
+
+The mutation returns the created `PreSaleOrder` object.
+
+### Example Mutation
+
+The following is an example of how to use the `placePreSaleOrder` mutation to place a new presale order:
+
+```graphql
+mutation {
+  placePreSaleOrder(
+    presaleId: 1,
+    ndbAmount: 500.0,
+    destination: 2,
+    extAddr: "0x1234567890abcdef1234567890abcdef12345678"
+  ) {
+    id,
+    presaleId,
+    userId,
+    ndbAmount,
+    destination,
+    extAddr,
+    status,
+    createdAt,
+    updatedAt
+  }
+}
+```
+
+### Note
+
+- The default status of the order is `0`. It must be confirmed by any payment later.
+- If the `destination` is `2` (external), the `extAddr` field must be provided.
+
+In this example, the mutation places a presale order for the presale with ID `1`, purchasing `500` NDB tokens, with the destination set to external and an external address specified. The return value includes the details of the created `PreSaleOrder`.

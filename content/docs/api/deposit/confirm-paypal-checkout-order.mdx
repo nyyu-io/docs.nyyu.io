@@ -1,0 +1,43 @@
+---
+title: Confirm PayPal Checkout Order
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+The `captureOrderForDeposit` mutation allows a user to confirm a PayPal payment for a deposit into their wallet. The backend will verify the payment and, if successful, add the balance to the user's internal wallet.
+
+### Mutation: `captureOrderForDeposit`
+
+#### Schema:
+```graphql
+captureOrderForDeposit(
+  orderId: String!
+): Boolean
+```
+
+#### Parameters
+
+- `orderId` (String): The PayPal checkout order ID. This field is mandatory.
+
+#### Return
+
+The mutation returns a `Boolean` indicating whether the PayPal order was successfully captured and the balance was added to the internal wallet.
+
+### Example Mutation
+
+The following is an example of how to use the `captureOrderForDeposit` mutation to confirm a PayPal payment for a deposit:
+
+```graphql
+mutation {
+  captureOrderForDeposit(
+    orderId: "PAYPAL_ORDER_ID"
+  )
+}
+```
+
+### Return
+
+The example returns `true` if the PayPal order was successfully captured and the balance was added to the internal wallet, or `false` otherwise.
+
+In this example, the mutation captures the PayPal order with the ID `PAYPAL_ORDER_ID`. The backend will check if the payment has been processed successfully. If successful, the balance will be added to the user's internal wallet.

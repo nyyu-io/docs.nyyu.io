@@ -1,0 +1,121 @@
+---
+title: Viewing Deposit Transactions
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+These queries allow users and admins to retrieve various types of deposit transactions. Below are the queries for PayPal, Bank, and Coinpayment deposit transactions.
+
+### PayPal Deposit Transactions
+
+#### Get All PayPal Deposit Transactions
+```graphql
+getAllPaypalDepositTxns(
+  orderBy: String
+): [PaypalDepositTransaction]
+```
+- `orderBy` (String): The field to order the results by.
+
+#### Get PayPal Deposit Transactions by User
+```graphql
+getPaypalDepositTxnsByUser(
+  orderBy: String,
+  showStatus: Int
+): [PaypalDepositTransaction]
+```
+- `orderBy` (String): The field to order the results by.
+- `showStatus` (Int): The show status to filter by.
+
+#### Get PayPal Deposit Transaction by ID
+```graphql
+getPaypalDepositTxnById(
+  id: Int,
+  showStatus: Int
+): PaypalDepositTransaction
+```
+- `id` (Int): The ID of the transaction.
+- `showStatus` (Int): The show status to filter by.
+
+### Bank Deposit Transactions
+
+#### Get All Bank Deposit Transactions
+```graphql
+getAllBankDepositTxns(
+  orderBy: String
+): [BankDepositTransaction]
+```
+- `orderBy` (String): The field to order the results by.
+
+#### Get Bank Deposit Transactions by User
+```graphql
+getBankDepositTxnsByUser(
+  orderBy: String,
+  showStatus: Int
+): [BankDepositTransaction]
+```
+- `orderBy` (String): The field to order the results by.
+- `showStatus` (Int): The show status to filter by.
+
+#### Get Bank Deposit Transaction by ID
+```graphql
+getBankDepositTxnById(
+  id: Int,
+  showStatus: Int
+): BankDepositTransaction
+```
+- `id` (Int): The ID of the transaction.
+- `showStatus` (Int): The show status to filter by.
+
+#### Get Bank Deposit Transaction by ID for Admin
+```graphql
+getBankDepositTxnByIdByAdmin(
+  id: Int
+): BankDepositTransaction
+```
+- `id` (Int): The ID of the transaction.
+
+#### Get Unconfirmed Bank Deposit Transactions
+```graphql
+getUnconfirmedBankDepositTxns: [BankDepositTransaction]
+```
+
+#### Get Unconfirmed Bank Deposit Transactions by User
+```graphql
+getUnconfirmedBankDepositTxnsByUser: [BankDepositTransaction]
+```
+
+### Coinpayment Deposit Transactions
+
+#### Get All Coinpayment Deposit Transactions
+```graphql
+getCoinpaymentDepositTx: [CoinpaymentDepositTransaction]
+```
+
+#### Get Coinpayment Deposit Transactions by User
+```graphql
+getCoinpaymentDepositTxByUser(
+  showStatus: Int
+): [CoinpaymentDepositTransaction]
+```
+- `showStatus` (Int): The show status to filter by.
+
+#### Get Coinpayment Deposit Transactions by Admin
+```graphql
+getCoinpaymentDepositTxByAdmin(
+  userId: Int
+): [CoinpaymentDepositTransaction]
+```
+- `userId` (Int): The ID of the user.
+
+#### Get Coinpayment Deposit Transaction by ID
+```graphql
+getCoinpaymentDepositTxById(
+  id: Int
+): CoinpaymentDepositTransaction
+```
+- `id` (Int): The ID of the transaction.
+
+### Note
+
+Each query returns the relevant deposit transactions based on the specified parameters. The returned transaction objects include details such as `id`, `amount`, `status`, `createdAt`, `updatedAt`, and other relevant information.

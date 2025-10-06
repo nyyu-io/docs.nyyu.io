@@ -1,0 +1,137 @@
+---
+title: Statistics API Introduction
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+### Types
+
+#### RoundPerform1
+Represents performance metrics for a specific round.
+
+```graphql
+type RoundPerform1 {
+  roundNumber: Int!,
+  tokenPrice: Float!,
+  soldAmount: Float!
+}
+```
+
+##### Fields
+- `roundNumber` (Int): The round number.
+- `tokenPrice` (Float): The token price during the round.
+- `soldAmount` (Float): The amount of tokens sold during the round.
+
+#### RoundPerform2
+Represents additional performance metrics for a specific round.
+
+```graphql
+type RoundPerform2 {
+  roundNumber: Int!,
+  min: Float!,
+  max: Float!,
+  std: Float!
+}
+```
+
+##### Fields
+- `roundNumber` (Int): The round number.
+- `min` (Float): The minimum value of the metric.
+- `max` (Float): The maximum value of the metric.
+- `std` (Float): The standard deviation of the metric.
+
+#### RoundChance
+Represents the winning and failing rates for a specific round.
+
+```graphql
+type RoundChance {
+  roundNumber: Int!,
+  winRate: Float!,
+  failedRate: Float!
+}
+```
+
+##### Fields
+- `roundNumber` (Int): The round number.
+- `winRate` (Float): The winning rate for the round.
+- `failedRate` (Float): The failing rate for the round.
+
+### Queries
+
+#### getRoundPerform1
+Retrieves the performance metrics for all rounds (token price and sold amount).
+
+```graphql
+getRoundPerform1: [RoundPerform1]
+```
+
+##### Example Query
+
+```graphql
+query {
+  getRoundPerform1 {
+    roundNumber,
+    tokenPrice,
+    soldAmount
+  }
+}
+```
+
+##### Return
+Returns a list of `RoundPerform1` objects.
+
+#### getRoundPerform2
+Retrieves additional performance metrics for all rounds (min, max, and std).
+
+```graphql
+getRoundPerform2: [RoundPerform2]
+```
+
+##### Example Query
+
+```graphql
+query {
+  getRoundPerform2 {
+    roundNumber,
+    min,
+    max,
+    std
+  }
+}
+```
+
+##### Return
+Returns a list of `RoundPerform2` objects.
+
+#### getRoundChance
+Retrieves the winning and failing rates for all rounds.
+
+```graphql
+getRoundChance: [RoundChance]
+```
+
+##### Example Query
+
+```graphql
+query {
+  getRoundChance {
+    roundNumber,
+    winRate,
+    failedRate
+  }
+}
+```
+
+##### Return
+Returns a list of `RoundChance` objects.
+
+### Schema
+
+```graphql
+schema {
+  query: Query
+}
+```
+
+Defines the `Query` type that includes the `getRoundPerform1`, `getRoundPerform2`, and `getRoundChance` queries.

@@ -1,0 +1,38 @@
+---
+title: Request Email Change
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+The `requestEmailChange` mutation allows a user to request a change of their email address. After the request is made, a verification code will be sent to the current email address for confirmation.
+
+### Mutation: `requestEmailChange`
+
+#### Schema:
+```graphql
+requestEmailChange: String!
+```
+
+#### Parameters
+
+- None
+
+#### Return
+
+The mutation returns a string indicating the result of the email change request.
+
+- `"Success"`: Indicates that the request was successfully sent and a verification code has been sent to the current email.
+- `"Failed"`: Indicates that there was an error in processing the request.
+
+### Example Mutation
+
+The following is an example of how to use the `requestEmailChange` mutation to request an email change:
+
+```graphql
+mutation {
+  requestEmailChange
+}
+```
+
+In this example, the mutation sends a request to change the current user's email address. The backend will send a verification code to the current email address to confirm the change.

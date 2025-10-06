@@ -1,0 +1,15 @@
+{
+  "title": "Withdraw",
+  "pages": [
+    "Approve Fiat Withdrawal Request",
+    "Change Withdrawal Request Show Status",
+    "Confirm Crypto Withdrawal Request",
+    "Confirm PayPal Withdrawal Request",
+    "Crypto Withdrawal Request",
+    "Deny Bank Withdrawal Request",
+    "Fiat Withdrawal Request",
+    "Generate Withdraw Code",
+    "PayPal Withdraw Request",
+    "Send Withdraw Confirmation Code"
+  ]
+}

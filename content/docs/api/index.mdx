@@ -1,0 +1,292 @@
+---
+title: NYYU API Documentation
+description: Comprehensive API reference for NYYU platform integration
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+
+# NYYU API Documentation
+
+Welcome to the NYYU API documentation. Our comprehensive APIs provide everything you need to integrate with the NYYU platform.
+
+<Callout type="info">
+🚀 **Three Powerful APIs** - Core system, payment gateway, and multi-chain node services
+</Callout>
+
+## API Overview
+
+Our system consists of three main API services:
+
+<Cards>
+<Card
+  title="🔷 NYYU Core API"
+  description="Java Spring Boot & GraphQL - Main platform functionalities and business logic"
+  href="/docs/api/getting-started"
+/>
+<Card
+  title="💳 NYYU PAY"
+  description="Node.js & WebSocket - Cryptocurrency payment gateway similar to CoinPayments"
+/>
+<Card
+  title="🔗 NYYU NODE"
+  description="Node.js & WebSocket - Multi-chain support for ETH, BTC, BNB, SOLANA, Polygon"
+/>
+</Cards>
+
+## Quick Start
+
+<Steps>
+<Step>
+### Read the Documentation
+Familiarize yourself with our API structure and authentication methods
+</Step>
+
+<Step>
+### Get API Credentials
+Obtain your OAuth2 credentials from the NYYU dashboard
+</Step>
+
+<Step>
+### Make Your First Request
+Start with simple queries to understand the API flow
+</Step>
+
+<Step>
+### Build Your Integration
+Implement the full integration using our comprehensive endpoints
+</Step>
+</Steps>
+
+## API Categories
+
+<Tabs items={['User Management', 'Trading & Finance', 'Marketplace', 'System']}>
+<Tab value="User Management">
+
+### User & Profile APIs
+
+<Cards>
+<Card
+  title="👤 User"
+  description="User account management and authentication"
+  href="/docs/api/user"
+/>
+<Card
+  title="🎭 Avatar"
+  description="User avatar and profile customization"
+  href="/docs/api/avatar"
+/>
+<Card
+  title="📊 User Tier"
+  description="User tier and level management"
+  href="/docs/api/user-tier"
+/>
+<Card
+  title="👥 Profile"
+  description="User profile information and settings"
+  href="/docs/api/profile"
+/>
+</Cards>
+
+</Tab>
+<Tab value="Trading & Finance">
+
+### Trading & Financial APIs
+
+<Cards>
+<Card
+  title="🏛️ Auction"
+  description="Auction system for token sales and NFTs"
+  href="/docs/api/auction"
+/>
+<Card
+  title="💰 Bid"
+  description="Bidding system for auctions"
+  href="/docs/api/bid"
+/>
+<Card
+  title="🚀 Presale"
+  description="Token presale management"
+  href="/docs/api/presale"
+/>
+<Card
+  title="📦 Presale Orders"
+  description="Presale order processing"
+  href="/docs/api/presale-orders"
+/>
+<Card
+  title="💳 Presale Payment"
+  description="Payment processing for presales"
+  href="/docs/api/presale-payment"
+/>
+<Card
+  title="📥 Deposit"
+  description="Deposit management and tracking"
+  href="/docs/api/deposit"
+/>
+<Card
+  title="📤 Withdraw"
+  description="Withdrawal processing and management"
+  href="/docs/api/withdraw"
+/>
+</Cards>
+
+</Tab>
+<Tab value="Marketplace">
+
+### Marketplace & Registration
+
+<Cards>
+<Card
+  title="📝 Registration"
+  description="User and entity registration system"
+  href="/docs/api/registration"
+/>
+<Card
+  title="📊 Statistics"
+  description="Platform statistics and analytics"
+  href="/docs/api/statistics"
+/>
+<Card
+  title="🔔 Notifications"
+  description="User notification system"
+  href="/docs/api/notification"
+/>
+</Cards>
+
+</Tab>
+<Tab value="System">
+
+### System & Authentication
+
+<Cards>
+<Card
+  title="🔐 OAuth2"
+  description="Social login and authentication"
+  href="/docs/api/oauth2"
+/>
+<Card
+  title="📋 System Models"
+  description="Core system data models"
+  href="/docs/api/system-models"
+/>
+<Card
+  title="❓ FAQs"
+  description="Frequently asked questions"
+  href="/docs/api/faqs"
+/>
+</Cards>
+
+</Tab>
+</Tabs>
+
+## Authentication
+
+<Callout type="warn">
+🔒 **OAuth2 Authentication Required** - All API requests must include a valid OAuth2 token
+</Callout>
+
+### Getting Your API Token
+
+<Steps>
+<Step>
+### Register Your Application
+Create an OAuth2 application in your NYYU dashboard
+</Step>
+
+<Step>
+### Get Credentials
+Obtain your `client_id` and `client_secret`
+</Step>
+
+<Step>
+### Request Token
+Exchange credentials for an access token
+</Step>
+
+<Step>
+### Use Token
+Include token in `Authorization` header: `Bearer YOUR_TOKEN`
+</Step>
+</Steps>
+
+## API Endpoints
+
+<Cards>
+<Card
+  title="🔷 Core API"
+  description="https://api.nyyu.io/graphql"
+/>
+<Card
+  title="💳 NYYU PAY"
+  description="wss://api.pay.nyyu.io"
+/>
+<Card
+  title="🔗 NYYU NODE"
+  description="wss://api.node.nyyu.io"
+/>
+</Cards>
+
+## Best Practices
+
+<Callout type="tip">
+💡 **Follow these guidelines for optimal API integration**
+</Callout>
+
+<Cards>
+<Card
+  title="🔄 Handle Rate Limits"
+  description="Implement exponential backoff for rate-limited requests"
+/>
+<Card
+  title="⚠️ Error Handling"
+  description="Always check status codes and handle errors gracefully"
+/>
+<Card
+  title="🔐 Secure Credentials"
+  description="Never expose API keys in client-side code"
+/>
+<Card
+  title="📝 Log Requests"
+  description="Maintain logs for debugging and monitoring"
+/>
+<Card
+  title="🎯 Use Webhooks"
+  description="Implement webhooks for real-time event handling"
+/>
+<Card
+  title="📊 Monitor Usage"
+  description="Track your API usage and performance metrics"
+/>
+</Cards>
+
+## Need Help?
+
+<Cards>
+<Card
+  title="📚 API Reference"
+  description="Detailed endpoint documentation with examples"
+  href="/docs/api/getting-started"
+/>
+<Card
+  title="💬 Developer Support"
+  description="Get help from our developer community"
+  href="/docs/corporate/contact-us"
+/>
+<Card
+  title="📖 Tutorials"
+  description="Step-by-step integration guides"
+  href="/docs/tutorial"
+/>
+<Card
+  title="❓ FAQs"
+  description="Common questions and answers"
+  href="/docs/api/faqs"
+/>
+</Cards>
+
+<Callout type="info">
+Ready to start building? Check out our [Getting Started Guide](/docs/api/getting-started)
+</Callout>

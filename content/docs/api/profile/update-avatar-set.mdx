@@ -1,0 +1,55 @@
+---
+title: Update Avatar Set
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+## Update Avatar Set (User Role)
+
+The `updateAvatarSet` mutation allows a user to update their avatar components. This mutation is called when the user clicks the ‘Save’ button in the dress-up modal.
+
+### Mutation: `updateAvatarSet`
+
+#### Schema:
+```graphql
+updateAvatarSet(
+  components: [AvatarSetInput]!
+): [AvatarSet]
+```
+
+#### Parameters
+
+- `components` ([AvatarSetInput]): A list of avatar components to set. This field is mandatory.
+
+#### Return
+
+The mutation returns a list of `AvatarSet` objects representing the updated avatar components.
+
+### Example Mutation
+
+The following is an example of how to use the `updateAvatarSet` mutation to update avatar components:
+
+```graphql
+mutation {
+  updateAvatarSet(
+    components: [
+      {
+        groupId: "hair",
+        compId: "UUID1"
+      },
+      {
+        groupId: "other",
+        compId: "UUID2"
+      }
+    ]
+  ) {
+    groupId,
+    compId
+  }
+}
+```
+
+### Note
+
+In this example, the mutation updates the avatar components with the specified group IDs and component IDs. The return value is a list of the updated `AvatarSet` objects, each containing the `groupId` and `compId`.

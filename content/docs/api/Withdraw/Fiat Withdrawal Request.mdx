@@ -1,0 +1,96 @@
+---
+title: Fiat Withdrawal Request
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+The `bankWithdrawRequest` mutation allows a user to request a withdrawal of assets via bank transfer. This mutation sends a request to the admin to process the withdrawal. It does not create a real payout request but is used to notify the admin of the user's withdrawal request.
+
+### Mutation: `bankWithdrawRequest`
+
+#### Schema:
+```graphql
+bankWithdrawRequest(
+  targetCurrency: String!,
+  amount: Float!,
+  sourceToken: String!,
+  mode: Int!,
+  country: String!,
+  holderName: String!,
+  bankName: String!,
+  accNumber: String!,
+  metadata: String!,
+  address: String!,
+  postCode: String!,
+  code: String!
+): BankWithdrawRequest
+```
+
+#### Parameters
+
+- `targetCurrency` (String): The currency to receive. This field is mandatory.
+- `amount` (Float): The amount to withdraw. This field is mandatory.
+- `sourceToken` (String): The currency type to withdraw. This field is mandatory.
+- `mode` (Int): The mode of transfer. Possible values:
+  - `1`: International
+  - `2`: Domestic
+- `country` (String): The country of the bank. This field is mandatory.
+- `holderName` (String): The holder name of the bank account. This field is mandatory.
+- `bankName` (String): The name of the bank. This field is mandatory.
+- `accNumber` (String): The account number. This field is mandatory.
+- `metadata` (String): Metadata for sending funds via bank. This field is mandatory.
+- `address` (String): The address of the receiver. This field is mandatory.
+- `postCode` (String): The postal address. This field is mandatory.
+- `code` (String): The verification code received from the email. This field is mandatory.
+
+#### Return
+
+The mutation returns a `BankWithdrawRequest` object representing the withdrawal request.
+
+### Example Mutation
+
+The following is an example of how to use the `bankWithdrawRequest` mutation to request a withdrawal via bank transfer:
+
+```graphql
+mutation {
+  bankWithdrawRequest(
+    targetCurrency: "USD",
+    amount: 1000.0,
+    sourceToken: "BTC",
+    mode: 1,
+    country: "USA",
+    holderName: "John Doe",
+    bankName: "Bank of America",
+    accNumber: "123456789",
+    metadata: "For payment of services",
+    address: "123 Main St, Anytown, USA",
+    postCode: "12345",
+    code: "123456"
+  ) {
+    id,
+    userId,
+    targetCurrency,
+    amount,
+    sourceToken,
+    mode,
+    country,
+    holderName,
+    bankName,
+    accNumber,
+    metadata,
+    address,
+    postCode,
+    status,
+    createdAt,
+    updatedAt
+  }
+}
+```
+
+### Note
+
+- This mutation generates a request for the admin to process the withdrawal. It does not create a real payout request.
+- The `code` parameter is the verification code that the user received via email.
+
+In this example, the mutation requests a bank withdrawal of 1000 USD from the user's BTC wallet, sending the request to the admin for processing. The return value includes the details of the `BankWithdrawRequest`.

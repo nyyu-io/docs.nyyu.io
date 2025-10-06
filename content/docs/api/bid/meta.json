@@ -1,0 +1,16 @@
+{
+  "title": "Bid",
+  "pages": [
+    "bid-summary",
+    "close-bid",
+    "get-bid",
+    "get-bid-by-admin",
+    "get-bid-list-by-admin",
+    "get-bid-list-by-round-id",
+    "get-bid-list-by-round-number",
+    "get-bid-list-by-user",
+    "increase-an-existing-bid",
+    "place-a-new-bid",
+    "update-an-existing-bid"
+  ]
+}

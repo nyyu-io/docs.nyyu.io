@@ -1,0 +1,52 @@
+---
+title: Create PayPal Payment for Deposit Into the Wallet
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+The `paypalForDeposit` mutation allows a user to create a PayPal payment for a deposit into their wallet. It returns an order response with details needed to proceed with the PayPal checkout.
+
+### Mutation: `paypalForDeposit`
+
+#### Schema:
+```graphql
+paypalForDeposit(
+  amount: Float!,
+  currencyCode: String!,
+  cryptoType: String!
+): OrderResponseDTO
+```
+
+#### Parameters
+
+- `amount` (Float): The amount to deposit. This field is mandatory.
+- `currencyCode` (String): The type of currency (fiat) for the deposit. This field is mandatory.
+- `cryptoType` (String): The type of cryptocurrency (e.g., USDT) as a default value (currently not functional). This field is mandatory.
+
+#### Return
+
+The mutation returns an `OrderResponseDTO` object, which includes details needed to proceed with the PayPal checkout.
+
+### Example Mutation
+
+The following is an example of how to use the `paypalForDeposit` mutation to create a PayPal payment for a deposit into the wallet:
+
+```graphql
+mutation {
+  paypalForDeposit(
+    amount: 100.0,
+    currencyCode: "USD",
+    cryptoType: "USDT"
+  ) {
+    orderId,
+    redirectUrl
+  }
+}
+```
+
+### Return
+
+The example returns the `OrderResponseDTO` object with details such as `orderId` and `redirectUrl`.
+
+In this example, the mutation initiates a PayPal payment for a deposit of `100.0` USD. The return value includes the `OrderResponseDTO` details such as `orderId` and `redirectUrl`, which can be used to proceed with the PayPal checkout.

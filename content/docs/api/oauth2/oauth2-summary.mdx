@@ -1,0 +1,83 @@
+---
+title: OAuth2 API Introduction
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+The `OAuth2Registration` type represents the configuration for OAuth2 social login providers. This is used to handle OAuth2 authentication with various providers.
+ 
+### Type: `OAuth2Registration`
+
+#### Schema:
+```graphql
+type OAuth2Registration {
+  registrationId: String!,
+  clientId: String,
+  clientSecret: String,
+  clientAuthenticationMethod: String,
+  authorizationGrantType: String,
+  redirectUriTemplate: String,
+  scope: [String],
+  authorizationUri: String,
+  tokenUri: String,
+  userInfoUri: String,
+  userNameAttributeName: String,
+  jwkSetUri: String,
+  clientName: String,
+}
+```
+
+#### Fields
+
+- `registrationId` (String!): The unique identifier for the OAuth2 provider. This field is mandatory.
+- `clientId` (String): The client ID assigned to the application by the OAuth2 provider.
+- `clientSecret` (String): The client secret assigned to the application by the OAuth2 provider.
+- `clientAuthenticationMethod` (String): The method of client authentication, e.g., "BASIC".
+- `authorizationGrantType` (String): The type of grant used for authorization, e.g., "authorization_code".
+- `redirectUriTemplate` (String): The template for the redirect URI, often including placeholders such as `{baseUrl}/oauth2/callback/{registrationId}`.
+- `scope` ([String]): A list of scopes requested from the OAuth2 provider, e.g., ["openid", "profile", "email", "address", "phone"].
+- `authorizationUri` (String): The URI for the authorization endpoint.
+- `tokenUri` (String): The URI for the token endpoint.
+- `userInfoUri` (String): The URI for the user info endpoint.
+- `userNameAttributeName` (String): The attribute name in the user info endpoint response used as the username.
+- `jwkSetUri` (String): The URI for the JSON Web Key Set.
+- `clientName` (String): The name of the OAuth2 provider.
+
+### Example Value
+
+```graphql
+{
+  registrationId: "google",
+  clientId: "217015743019-arfgls5skjg3tehl67gf8sitbf0rq9k9.apps.googleusercontent.com",
+  clientSecret: "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",
+  clientAuthenticationMethod: "BASIC",
+  authorizationGrantType: "authorization_code",
+  redirectUriTemplate: "{baseUrl}/oauth2/callback/{registrationId}",
+  scope: ["openid", "profile", "email", "address", "phone"],
+  authorizationUri: "https://accounts.google.com/o/oauth2/v2/auth",
+  tokenUri: "https://www.googleapis.com/oauth2/v4/token",
+  userInfoUri: "https://www.googleapis.com/oauth2/v3/userinfo",
+  userNameAttributeName: "sub",
+  jwkSetUri: "https://www.googleapis.com/oauth2/v3/certs",
+  clientName: "Google"
+}
+```
+
+### Description
+
+- **registrationId**: Unique identifier for the OAuth2 provider (e.g., "google").
+- **clientId**: The client ID assigned to your application by the provider.
+- **clientSecret**: The client secret assigned to your application by the provider.
+- **clientAuthenticationMethod**: Method used to authenticate the client, usually "BASIC" or "POST".
+- **authorizationGrantType**: The grant type for obtaining authorization, such as "authorization_code".
+- **redirectUriTemplate**: Template for the redirect URI used after the provider grants authorization.
+- **scope**: The permissions being requested from the provider.
+- **authorizationUri**: The URI where the user is redirected for authorization.
+- **tokenUri**: The URI where the client exchanges the authorization grant for an access token.
+- **userInfoUri**: The URI where the client can fetch the user's profile information.
+- **userNameAttributeName**: The key used to extract the username from the user info response.
+- **jwkSetUri**: The URI to fetch the provider's public keys.
+- **clientName**: Friendly name for the OAuth2 provider.
+
+This type is used to configure and manage OAuth2 login integrations with various social providers, enabling the application to support social login functionalities.

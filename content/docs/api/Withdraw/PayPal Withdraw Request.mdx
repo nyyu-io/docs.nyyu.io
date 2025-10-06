@@ -1,0 +1,66 @@
+---
+title: Paypal Withdraw Request
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+The `paypalWithdrawRequest` mutation allows a user to request a withdrawal of assets via PayPal. This mutation sends a request to the admin to process the withdrawal. It does not create a real payout request but is used to notify the admin of the user's withdrawal request.
+
+### Mutation: `paypalWithdrawRequest`
+
+#### Schema:
+```graphql
+paypalWithdrawRequest(
+  email: String!,
+  target: String!,
+  amount: Float!,
+  sourceToken: String!,
+  code: String!
+): PaypalWithdraw
+```
+
+#### Parameters
+
+- `email` (String): The receiver's email address (PayPal account email). This field is mandatory.
+- `target` (String): The currency type that the user is going to send. This field is mandatory.
+- `amount` (Float): The amount to withdraw. This field is mandatory.
+- `sourceToken` (String): The cryptocurrency type to withdraw from the user's wallet. This field is mandatory.
+- `code` (String): The verification code received from the email. This field is mandatory.
+
+#### Return
+
+The mutation returns a `PaypalWithdraw` object representing the withdrawal request.
+
+### Example Mutation
+
+The following is an example of how to use the `paypalWithdrawRequest` mutation to request a withdrawal via PayPal:
+
+```graphql
+mutation {
+  paypalWithdrawRequest(
+    email: "user@example.com",
+    target: "USD",
+    amount: 100.0,
+    sourceToken: "BTC",
+    code: "123456"
+  ) {
+    id,
+    userId,
+    email,
+    target,
+    amount,
+    sourceToken,
+    status,
+    createdAt,
+    updatedAt
+  }
+}
+```
+
+### Note
+
+- This mutation generates a request for the admin to process the withdrawal. It does not create a real PayPal payout request.
+- The `code` parameter is the verification code that the user received via email.
+
+In this example, the mutation requests a PayPal withdrawal of 100 USD from the user's BTC wallet, sending the request to the admin for processing. The return value includes the details of the `PaypalWithdraw` request.

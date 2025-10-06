@@ -1,0 +1,14 @@
+{
+  "title": "Auction",
+  "pages": [
+    "auction-summary",
+    "check-rounds",
+    "create-new-auction-round",
+    "get-all-auction-rounds",
+    "get-auction-by-status",
+    "get-auction-round-by-id",
+    "get-auction-round-by-number",
+    "get-current-round",
+    "update-existing-auction-round"
+  ]
+}

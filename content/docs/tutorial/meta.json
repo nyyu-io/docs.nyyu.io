@@ -1,0 +1,15 @@
+{
+  "title": "Tutorial",
+  "pages": [
+    "index",
+    "wallet",
+    "trade",
+    "swap",
+    "save",
+    "loan",
+    "marketplace",
+    "invites",
+    "profile",
+    "price"
+  ]
+}
