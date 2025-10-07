@@ -3,8 +3,8 @@ title: Confirm 2FA Setting
 description: Verify and activate two-factor authentication configuration with confirmation code
 ---
 
-import { Callout } from 'fumadocs-ui/components/callout';
-import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Callout } from "fumadocs-ui/components/callout";
+import { Card, Cards } from "fumadocs-ui/components/card";
 
 <div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-600 p-8 shadow-2xl mb-8">
   <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
@@ -17,15 +17,19 @@ import { Card, Cards } from 'fumadocs-ui/components/card';
       </span>
       2FA CONFIRMATION
     </div>
-    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">Confirm 2FA Setting</h1>
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">
+      Confirm 2FA Setting
+    </h1>
     <p className="text-xl text-blue-100 leading-relaxed max-w-3xl">
-      Verify and activate two-factor authentication by confirming the setup with a valid verification code.
+      Verify and activate two-factor authentication by confirming the setup with
+      a valid verification code.
     </p>
   </div>
 </div>
 
 <Callout type="info" title="Final Setup Step">
-  This is the **last step** in 2FA configuration. After confirmation, 2FA will be active and required for all future logins.
+  This is the **last step** in 2FA configuration. After confirmation, 2FA will
+  be active and required for all future logins.
 </Callout>
 
 ## Overview
@@ -64,14 +68,26 @@ mutation {
     <p className="text-sm text-foreground">User's verified email address that is setting up 2FA.</p>
   </div>
 
-  <div className="rounded-lg border border-indigo-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
-    <div className="flex items-start justify-between mb-3">
-      <h3 className="font-bold text-lg">method</h3>
-      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700 dark:text-red-300">Required</span>
-    </div>
-    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-indigo-600 dark:text-indigo-400">String</span></p>
-    <p className="text-sm text-foreground">2FA method being confirmed: <code className="text-xs bg-muted px-1 py-0.5 rounded">app</code>, <code className="text-xs bg-muted px-1 py-0.5 rounded">email</code>, or <code className="text-xs bg-muted px-1 py-0.5 rounded">phone</code></p>
+{" "}
+<div className="rounded-lg border border-indigo-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+  <div className="flex items-start justify-between mb-3">
+    <h3 className="font-bold text-lg">method</h3>
+    <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700 dark:text-red-300">
+      Required
+    </span>
   </div>
+  <p className="text-sm text-muted-foreground mb-2">
+    <span className="font-mono text-indigo-600 dark:text-indigo-400">
+      String
+    </span>
+  </p>
+  <p className="text-sm text-foreground">
+    2FA method being confirmed:{" "}
+    <code className="text-xs bg-muted px-1 py-0.5 rounded">app</code>,{" "}
+    <code className="text-xs bg-muted px-1 py-0.5 rounded">email</code>, or{" "}
+    <code className="text-xs bg-muted px-1 py-0.5 rounded">phone</code>
+  </p>
+</div>
 
   <div className="rounded-lg border border-violet-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
     <div className="flex items-start justify-between mb-3">
@@ -117,22 +133,26 @@ mutation {
   <div className="rounded-lg border border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-yellow-500/5 p-6">
     <div className="flex items-center gap-3 mb-2">
       <span className="text-2xl">⚠️</span>
-      <code className="bg-amber-500/20 text-amber-700 dark:text-amber-300 px-3 py-1 rounded font-mono text-sm">Cannot find user by {email}</code>
+      <code className="bg-amber-500/20 text-amber-700 dark:text-amber-300 px-3 py-1 rounded font-mono text-sm">Cannot find user by &#123;email&#125;</code>
     </div>
     <p className="text-sm text-foreground">
       Email address is not registered in the system.
     </p>
   </div>
 
-  <div className="rounded-lg border border-orange-500/30 bg-gradient-to-br from-orange-500/10 to-amber-500/5 p-6">
-    <div className="flex items-center gap-3 mb-2">
-      <span className="text-2xl">📧</span>
-      <code className="bg-orange-500/20 text-orange-700 dark:text-orange-300 px-3 py-1 rounded font-mono text-sm">Your account is not verified</code>
-    </div>
-    <p className="text-sm text-foreground">
-      Email must be verified before 2FA can be configured. Complete email verification first.
-    </p>
+{" "}
+<div className="rounded-lg border border-orange-500/30 bg-gradient-to-br from-orange-500/10 to-amber-500/5 p-6">
+  <div className="flex items-center gap-3 mb-2">
+    <span className="text-2xl">📧</span>
+    <code className="bg-orange-500/20 text-orange-700 dark:text-orange-300 px-3 py-1 rounded font-mono text-sm">
+      Your account is not verified
+    </code>
   </div>
+  <p className="text-sm text-foreground">
+    Email must be verified before 2FA can be configured. Complete email
+    verification first.
+  </p>
+</div>
 
   <div className="rounded-lg border border-red-500/30 bg-gradient-to-br from-red-500/10 to-rose-500/5 p-6">
     <div className="flex items-center gap-3 mb-2">
@@ -153,11 +173,7 @@ mutation {
 
 ```graphql
 mutation Confirm2FA_App {
-  confirmRequest2FA(
-    email: "demouser@nyyu.io"
-    method: "app"
-    code: "123456"
-  )
+  confirmRequest2FA(email: "demouser@nyyu.io", method: "app", code: "123456")
 }
 ```
 
@@ -172,18 +188,15 @@ mutation Confirm2FA_App {
 ```
 
 <Callout type="info" title="2FA Activated">
-  Authenticator app 2FA is now active. You'll need to enter a code from your app on every sign-in.
+  Authenticator app 2FA is now active. You'll need to enter a code from your app
+  on every sign-in.
 </Callout>
 
 ### Confirm Email Method
 
 ```graphql
 mutation Confirm2FA_Email {
-  confirmRequest2FA(
-    email: "demouser@nyyu.io"
-    method: "email"
-    code: "550880"
-  )
+  confirmRequest2FA(email: "demouser@nyyu.io", method: "email", code: "550880")
 }
 ```
 
@@ -198,18 +211,15 @@ mutation Confirm2FA_Email {
 ```
 
 <Callout type="info" title="Email 2FA Active">
-  Email-based 2FA is now enabled. You'll receive a code via email for each sign-in attempt.
+  Email-based 2FA is now enabled. You'll receive a code via email for each
+  sign-in attempt.
 </Callout>
 
 ### Confirm SMS Method
 
 ```graphql
 mutation Confirm2FA_Phone {
-  confirmRequest2FA(
-    email: "demouser@nyyu.io"
-    method: "phone"
-    code: "789012"
-  )
+  confirmRequest2FA(email: "demouser@nyyu.io", method: "phone", code: "789012")
 }
 ```
 
@@ -224,7 +234,8 @@ mutation Confirm2FA_Phone {
 ```
 
 <Callout type="info" title="SMS 2FA Active">
-  SMS-based 2FA is now enabled. You'll receive a code via text message for each sign-in.
+  SMS-based 2FA is now enabled. You'll receive a code via text message for each
+  sign-in.
 </Callout>
 
 ### Failed Confirmation
@@ -238,7 +249,8 @@ mutation Confirm2FA_Phone {
 ```
 
 <Callout type="error" title="Invalid Code">
-  The verification code is incorrect or has expired. Please check the code and try again, or request a new one.
+  The verification code is incorrect or has expired. Please check the code and
+  try again, or request a new one.
 </Callout>
 
 ---
@@ -311,6 +323,7 @@ mutation Confirm2FA_Phone {
         </div>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -327,15 +340,19 @@ async function handleConfirm2FA(email, method, code) {
   try {
     const result = await graphqlClient.mutate({
       mutation: gql`
-        mutation ConfirmRequest2FA($email: String!, $method: String!, $code: String!) {
+        mutation ConfirmRequest2FA(
+          $email: String!
+          $method: String!
+          $code: String!
+        ) {
           confirmRequest2FA(email: $email, method: $method, code: $code)
         }
       `,
       variables: {
         email: email,
         method: method,
-        code: code
-      }
+        code: code,
+      },
     });
 
     const response = result.data.confirmRequest2FA;
@@ -345,12 +362,11 @@ async function handleConfirm2FA(email, method, code) {
       showSuccess(`2FA via ${method} is now active!`);
 
       // Store 2FA status
-      localStorage.setItem('2fa_enabled', 'true');
-      localStorage.setItem('2fa_method', method);
+      localStorage.setItem("2fa_enabled", "true");
+      localStorage.setItem("2fa_method", method);
 
       // Redirect to next step (e.g., avatar setup or dashboard)
-      router.push('/setup-avatar');
-
+      router.push("/setup-avatar");
     } else if (response === "Failed") {
       // Invalid or expired code
       showError("Invalid verification code. Please try again.");
@@ -358,20 +374,16 @@ async function handleConfirm2FA(email, method, code) {
       // Optionally offer to resend code
       showResendOption();
     }
-
   } catch (error) {
     if (error.message.includes("Your account is not verified")) {
       showError("Please verify your email first.");
-      router.push('/verify-email');
-
+      router.push("/verify-email");
     } else if (error.message.includes("There is no proper 2FA setting")) {
       showError("No 2FA setup in progress. Please start setup first.");
-      router.push('/setup-2fa');
-
+      router.push("/setup-2fa");
     } else if (error.message.includes("Cannot find user")) {
       showError("Account not found.");
-      router.push('/signup');
-
+      router.push("/signup");
     } else {
       console.error("2FA confirmation failed:", error);
       showError("Failed to confirm 2FA. Please try again.");
@@ -401,13 +413,13 @@ function showResendOption() {
     actions: [
       {
         label: "Try Again",
-        onClick: () => clearCodeInput()
+        onClick: () => clearCodeInput(),
       },
       {
         label: "Get New Code",
-        onClick: () => handleRequest2FA(email, method)
-      }
-    ]
+        onClick: () => handleRequest2FA(email, method),
+      },
+    ],
   });
 }
 ```
@@ -427,21 +439,23 @@ function showResendOption() {
     </p>
   </Card>
 
-  <Card className="p-6 hover:shadow-lg transition-shadow">
-    <div className="text-3xl mb-3">🔄</div>
-    <h3 className="font-bold mb-2">Method Verification</h3>
-    <p className="text-sm text-muted-foreground">
-      Confirming that new 2FA method works before disabling old method
-    </p>
-  </Card>
+{" "}
+<Card className="p-6 hover:shadow-lg transition-shadow">
+  <div className="text-3xl mb-3">🔄</div>
+  <h3 className="font-bold mb-2">Method Verification</h3>
+  <p className="text-sm text-muted-foreground">
+    Confirming that new 2FA method works before disabling old method
+  </p>
+</Card>
 
-  <Card className="p-6 hover:shadow-lg transition-shadow">
-    <div className="text-3xl mb-3">➕</div>
-    <h3 className="font-bold mb-2">Backup Method</h3>
-    <p className="text-sm text-muted-foreground">
-      Adding additional 2FA methods as backup options for account recovery
-    </p>
-  </Card>
+{" "}
+<Card className="p-6 hover:shadow-lg transition-shadow">
+  <div className="text-3xl mb-3">➕</div>
+  <h3 className="font-bold mb-2">Backup Method</h3>
+  <p className="text-sm text-muted-foreground">
+    Adding additional 2FA methods as backup options for account recovery
+  </p>
+</Card>
 
   <Card className="p-6 hover:shadow-lg transition-shadow">
     <div className="text-3xl mb-3">🛡️</div>
@@ -464,33 +478,47 @@ function showResendOption() {
     </p>
   </div>
 
-  <div className="rounded-lg border-l-4 border-indigo-500 bg-indigo-500/10 p-4">
-    <h4 className="font-bold text-indigo-700 dark:text-indigo-300 mb-1">⏱️ Code Expiration</h4>
-    <p className="text-sm text-indigo-900 dark:text-indigo-200">
-      Display countdown timer for email/SMS codes and offer easy resend option
-    </p>
-  </div>
+{" "}
+<div className="rounded-lg border-l-4 border-indigo-500 bg-indigo-500/10 p-4">
+  <h4 className="font-bold text-indigo-700 dark:text-indigo-300 mb-1">
+    ⏱️ Code Expiration
+  </h4>
+  <p className="text-sm text-indigo-900 dark:text-indigo-200">
+    Display countdown timer for email/SMS codes and offer easy resend option
+  </p>
+</div>
 
-  <div className="rounded-lg border-l-4 border-violet-500 bg-violet-500/10 p-4">
-    <h4 className="font-bold text-violet-700 dark:text-violet-300 mb-1">✅ Clear Feedback</h4>
-    <p className="text-sm text-violet-900 dark:text-violet-200">
-      Provide immediate visual feedback for success/failure with clear next steps
-    </p>
-  </div>
+{" "}
+<div className="rounded-lg border-l-4 border-violet-500 bg-violet-500/10 p-4">
+  <h4 className="font-bold text-violet-700 dark:text-violet-300 mb-1">
+    ✅ Clear Feedback
+  </h4>
+  <p className="text-sm text-violet-900 dark:text-violet-200">
+    Provide immediate visual feedback for success/failure with clear next steps
+  </p>
+</div>
 
-  <div className="rounded-lg border-l-4 border-blue-500 bg-blue-500/10 p-4">
-    <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-1">🔄 Error Handling</h4>
-    <p className="text-sm text-blue-900 dark:text-blue-200">
-      Offer to resend code or restart setup process if confirmation fails multiple times
-    </p>
-  </div>
+{" "}
+<div className="rounded-lg border-l-4 border-blue-500 bg-blue-500/10 p-4">
+  <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-1">
+    🔄 Error Handling
+  </h4>
+  <p className="text-sm text-blue-900 dark:text-blue-200">
+    Offer to resend code or restart setup process if confirmation fails multiple
+    times
+  </p>
+</div>
 
-  <div className="rounded-lg border-l-4 border-indigo-500 bg-indigo-500/10 p-4">
-    <h4 className="font-bold text-indigo-700 dark:text-indigo-300 mb-1">💾 Save Backup Codes</h4>
-    <p className="text-sm text-indigo-900 dark:text-indigo-200">
-      After successful 2FA setup, provide backup recovery codes for account access if 2FA method is lost
-    </p>
-  </div>
+{" "}
+<div className="rounded-lg border-l-4 border-indigo-500 bg-indigo-500/10 p-4">
+  <h4 className="font-bold text-indigo-700 dark:text-indigo-300 mb-1">
+    💾 Save Backup Codes
+  </h4>
+  <p className="text-sm text-indigo-900 dark:text-indigo-200">
+    After successful 2FA setup, provide backup recovery codes for account access
+    if 2FA method is lost
+  </p>
+</div>
 
   <div className="rounded-lg border-l-4 border-violet-500 bg-violet-500/10 p-4">
     <h4 className="font-bold text-violet-700 dark:text-violet-300 mb-1">📱 Test Before Activation</h4>
