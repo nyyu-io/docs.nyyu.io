@@ -1,0 +1,14 @@
+{
+  "title": "Deposit",
+  "pages": [
+    "change-show-status",
+    "confirm-bank-deposit-by-admin",
+    "confirm-paypal-checkout-order",
+    "create-bank-deposit-request",
+    "create-crypto-payment-for-deposit-into-the-wallet",
+    "create-paypal-payment-for-deposit-into-the-wallet",
+    "create-stripe-payment-for-deposit-into-the-wallet",
+    "create-stripe-payment-with-saved-card-for-deposit",
+    "viewing-deposit-transactions"
+  ]
+}

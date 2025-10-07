@@ -1,0 +1,519 @@
+---
+title: Sign In
+description: Authenticate users with email and password, initiating two-factor authentication flow
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-cyan-600 via-blue-600 to-indigo-600 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="relative">
+    <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm mb-4">
+      <span>🔓</span>
+      USER AUTHENTICATION
+    </div>
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">Sign In</h1>
+    <p className="text-xl text-cyan-100 leading-relaxed max-w-3xl">
+      Authenticate users with secure credential validation and initiate two-factor authentication verification.
+    </p>
+  </div>
+</div>
+
+<Callout type="info" title="Two-Step Process">
+  Sign-in is a **two-step process**: first authenticate with email/password, then verify with 2FA code.
+</Callout>
+
+## Overview
+
+The `signin` mutation authenticates users using their email and password credentials. Upon successful validation, the system sends a 2FA code via the user's configured method (app, email, or SMS) for additional security verification.
+
+---
+
+## GraphQL Schema
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-blue-500/5 p-6 mb-8">
+
+```graphql
+mutation {
+  signin(
+    email: String!
+    password: String!
+  ): Credentials!
+}
+
+type Credentials {
+  status: String
+  token: String
+  twoStep: [String]
+}
+```
+
+</div>
+
+---
+
+## Parameters
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <div className="rounded-lg border border-cyan-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">email</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700 dark:text-red-300">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-cyan-600 dark:text-cyan-400">String</span></p>
+    <p className="text-sm text-foreground">User's registered email address for account identification.</p>
+  </div>
+
+  <div className="rounded-lg border border-blue-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">password</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700 dark:text-red-300">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-blue-600 dark:text-blue-400">String</span></p>
+    <p className="text-sm text-foreground">User's account password for authentication.</p>
+  </div>
+</div>
+
+---
+
+## Return Type: Credentials
+
+<div className="rounded-xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 to-indigo-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📋</span>
+    <div>
+      <div className="font-bold text-lg">Credentials Object</div>
+      <div className="text-sm text-muted-foreground">Authentication response structure</div>
+    </div>
+  </div>
+
+  <div className="grid gap-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-1">
+        <code className="bg-indigo-500/20 text-indigo-500 px-2 py-0.5 rounded text-sm">status</code>
+        <span className="text-xs text-muted-foreground">String</span>
+      </div>
+      <div className="text-sm text-muted-foreground">
+        Authentication result: <code className="bg-muted px-1 rounded">"Success"</code> or <code className="bg-muted px-1 rounded">"Failed"</code>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-1">
+        <code className="bg-indigo-500/20 text-indigo-500 px-2 py-0.5 rounded text-sm">token</code>
+        <span className="text-xs text-muted-foreground">String</span>
+      </div>
+      <div className="text-sm text-muted-foreground">
+        Temporary token for 2FA step (not JWT). Contains error message if failed.
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-1">
+        <code className="bg-indigo-500/20 text-indigo-500 px-2 py-0.5 rounded text-sm">twoStep</code>
+        <span className="text-xs text-muted-foreground">[String]</span>
+      </div>
+      <div className="text-sm text-muted-foreground">
+        Array of configured 2FA methods: <code className="bg-muted px-1 rounded">['app', 'email']</code> or <code className="bg-muted px-1 rounded">['email', 'phone']</code>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Response States
+
+### Success Response
+
+<div className="rounded-lg border border-green-500/30 bg-gradient-to-br from-green-500/10 to-emerald-500/5 p-6 mb-4">
+  <div className="flex items-center gap-3 mb-2">
+    <span className="text-2xl">✅</span>
+    <code className="bg-green-500/20 text-green-700 dark:text-green-300 px-3 py-1 rounded font-mono text-sm">Success</code>
+  </div>
+  <p className="text-sm text-foreground mb-3">
+    Credentials validated successfully. 2FA code sent via configured method(s). Proceed to 2FA verification.
+  </p>
+  <div className="space-y-2">
+    <div className="flex items-center gap-2">
+      <span className="text-sm font-semibold">status:</span>
+      <code className="bg-green-500/10 px-2 py-0.5 rounded text-sm">"Success"</code>
+    </div>
+    <div className="flex items-center gap-2">
+      <span className="text-sm font-semibold">token:</span>
+      <code className="bg-green-500/10 px-2 py-0.5 rounded text-sm">Temporary 2FA token</code>
+    </div>
+    <div className="flex items-center gap-2">
+      <span className="text-sm font-semibold">twoStep:</span>
+      <code className="bg-green-500/10 px-2 py-0.5 rounded text-sm">["app", "email"]</code>
+    </div>
+  </div>
+</div>
+
+### Error Responses
+
+<div className="grid gap-4 my-6">
+  <div className="rounded-lg border border-red-500/30 bg-gradient-to-br from-red-500/10 to-red-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">❌</span>
+      <code className="bg-red-500/20 text-red-700 dark:text-red-300 px-3 py-1 rounded font-mono text-sm">password mismatch</code>
+    </div>
+    <p className="text-sm text-foreground">
+      Incorrect password provided. Status is "Failed" and token contains error message.
+    </p>
+  </div>
+
+  <div className="rounded-lg border border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-yellow-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">📧</span>
+      <code className="bg-amber-500/20 text-amber-700 dark:text-amber-300 px-3 py-1 rounded font-mono text-sm">please verify</code>
+    </div>
+    <p className="text-sm text-foreground">
+      Account exists but email not verified. User must complete email verification first.
+    </p>
+  </div>
+
+  <div className="rounded-lg border border-orange-500/30 bg-gradient-to-br from-orange-500/10 to-orange-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">🔐</span>
+      <code className="bg-orange-500/20 text-orange-700 dark:text-orange-300 px-3 py-1 rounded font-mono text-sm">Please set 2FA</code>
+    </div>
+    <p className="text-sm text-foreground">
+      Account verified but 2FA not configured. User must set up two-factor authentication.
+    </p>
+  </div>
+
+  <div className="rounded-lg border border-red-500/30 bg-gradient-to-br from-red-500/10 to-red-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">⚠️</span>
+      <code className="bg-red-500/20 text-red-700 dark:text-red-300 px-3 py-1 rounded font-mono text-sm">2FA Error</code>
+    </div>
+    <p className="text-sm text-foreground">
+      Error generating or sending 2FA code. Contact support if error persists.
+    </p>
+  </div>
+</div>
+
+---
+
+## Example Usage
+
+### Request
+
+```graphql
+mutation SignInUser {
+  signin(
+    email: "demouser@nyyu.io"
+    password: "38f@3n102du/qA!"
+  ) {
+    status
+    token
+    twoStep
+  }
+}
+```
+
+### Successful Response
+
+```json
+{
+  "data": {
+    "signin": {
+      "status": "Success",
+      "token": "temp_2fa_token_xyz123",
+      "twoStep": ["app", "email"]
+    }
+  }
+}
+```
+
+<Callout type="info" title="2FA Code Sent">
+  2FA codes have been sent via **app** and **email**. Proceed to the 2FA verification step.
+</Callout>
+
+### Password Mismatch
+
+```json
+{
+  "data": {
+    "signin": {
+      "status": "Failed",
+      "token": "password mismatch",
+      "twoStep": null
+    }
+  }
+}
+```
+
+<Callout type="error" title="Authentication Failed">
+  Incorrect password. Please verify your credentials and try again.
+</Callout>
+
+### Unverified Account
+
+```json
+{
+  "data": {
+    "signin": {
+      "status": "Failed",
+      "token": "please verify",
+      "twoStep": null
+    }
+  }
+}
+```
+
+<Callout type="warn" title="Verification Required">
+  Email not verified. Check your inbox for the verification code.
+</Callout>
+
+---
+
+## Authentication Flow
+
+<div className="rounded-lg border border-cyan-500/30 bg-background p-6 mb-6">
+  <h3 className="font-bold mb-4">Complete Sign-In Process</h3>
+
+  <div className="space-y-6">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-cyan-500/20 flex items-center justify-center text-2xl">
+        1️⃣
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Submit Credentials</h4>
+        <p className="text-sm text-muted-foreground mb-2">
+          User enters email and password through your sign-in form
+        </p>
+        <div className="rounded-lg border border-cyan-500/30 bg-cyan-500/5 p-3">
+          <code className="text-xs">mutation signin(email, password)</code>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center text-2xl">
+        2️⃣
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Receive 2FA Token</h4>
+        <p className="text-sm text-muted-foreground mb-2">
+          System validates credentials and returns temporary token with 2FA methods
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <span className="inline-flex items-center rounded-full bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-700 dark:text-blue-300">Temp token</span>
+          <span className="inline-flex items-center rounded-full bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-700 dark:text-blue-300">2FA methods</span>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-indigo-500/20 flex items-center justify-center text-2xl">
+        3️⃣
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">2FA Verification</h4>
+        <p className="text-sm text-muted-foreground mb-2">
+          Redirect user to 2FA page to enter code from their configured method
+        </p>
+        <div className="rounded-lg border border-indigo-500/30 bg-indigo-500/5 p-3">
+          <code className="text-xs">→ confirm2FA(email, token, code)</code>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-cyan-500/20 flex items-center justify-center text-2xl">
+        4️⃣
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Receive JWT Token</h4>
+        <p className="text-sm text-muted-foreground mb-2">
+          After successful 2FA, receive JWT token for authenticated API requests
+        </p>
+        <div className="rounded-lg border border-cyan-500/30 bg-cyan-500/5 p-3">
+          <code className="text-xs">JWT token → Store securely → Make authenticated requests</code>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Implementation Example
+
+<div className="rounded-xl border border-cyan-500/30 bg-background p-6 my-6">
+  <h3 className="font-bold mb-4">Frontend Integration</h3>
+
+```javascript
+// Example: Sign-in flow handler
+async function handleSignIn(credentials) {
+  try {
+    const result = await graphqlClient.mutate({
+      mutation: gql`
+        mutation SignIn($email: String!, $password: String!) {
+          signin(email: $email, password: $password) {
+            status
+            token
+            twoStep
+          }
+        }
+      `,
+      variables: {
+        email: credentials.email,
+        password: credentials.password
+      }
+    });
+
+    const { status, token, twoStep } = result.data.signin;
+
+    if (status === "Success") {
+      // Store temporary token and 2FA methods for next step
+      sessionStorage.setItem('temp2FAToken', token);
+      sessionStorage.setItem('twoStepMethods', JSON.stringify(twoStep));
+      sessionStorage.setItem('userEmail', credentials.email);
+
+      // Redirect to 2FA verification page
+      router.push('/verify-2fa');
+
+      showNotification(`2FA code sent via ${twoStep.join(' and ')}`);
+    } else {
+      // Handle various error states
+      handleSignInError(token);
+    }
+  } catch (error) {
+    console.error("Sign-in failed:", error);
+    showError("Authentication failed. Please try again.");
+  }
+}
+
+function handleSignInError(errorMessage) {
+  switch(errorMessage) {
+    case "password mismatch":
+      showError("Incorrect password. Please try again.");
+      break;
+    case "please verify":
+      showError("Please verify your email first.");
+      router.push('/verify-email');
+      break;
+    case "Please set 2FA":
+      showError("Please set up 2FA for your account.");
+      router.push('/setup-2fa');
+      break;
+    case "2FA Error":
+      showError("Error sending 2FA code. Please try again or contact support.");
+      break;
+    default:
+      showError("Sign-in failed. Please try again.");
+  }
+}
+```
+
+</div>
+
+---
+
+## Use Cases
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔓</div>
+    <h3 className="font-bold mb-2">User Authentication</h3>
+    <p className="text-sm text-muted-foreground">
+      Primary login method for verified users to access their accounts securely
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔐</div>
+    <h3 className="font-bold mb-2">Multi-Factor Auth</h3>
+    <p className="text-sm text-muted-foreground">
+      Initiate two-factor authentication flow for enhanced account security
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">📱</div>
+    <h3 className="font-bold mb-2">Multiple 2FA Methods</h3>
+    <p className="text-sm text-muted-foreground">
+      Support users with multiple configured 2FA options (app + email or email + phone)
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔄</div>
+    <h3 className="font-bold mb-2">Session Management</h3>
+    <p className="text-sm text-muted-foreground">
+      Obtain temporary token for 2FA verification before receiving final JWT token
+    </p>
+  </Card>
+</div>
+
+---
+
+## Best Practices
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-cyan-500 bg-cyan-500/10 p-4">
+    <h4 className="font-bold text-cyan-700 dark:text-cyan-300 mb-1">🔒 Token Handling</h4>
+    <p className="text-sm text-cyan-900 dark:text-cyan-200">
+      The initial token is temporary for 2FA verification only. Store it securely in session storage, not local storage
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-blue-500 bg-blue-500/10 p-4">
+    <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-1">🎯 Error Handling</h4>
+    <p className="text-sm text-blue-900 dark:text-blue-200">
+      Implement specific UI responses for each error state to guide users through resolution
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-indigo-500 bg-indigo-500/10 p-4">
+    <h4 className="font-bold text-indigo-700 dark:text-indigo-300 mb-1">📱 2FA Method Display</h4>
+    <p className="text-sm text-indigo-900 dark:text-indigo-200">
+      Show users which 2FA methods are available and let them choose their preferred verification method
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-cyan-500 bg-cyan-500/10 p-4">
+    <h4 className="font-bold text-cyan-700 dark:text-cyan-300 mb-1">🔐 Security First</h4>
+    <p className="text-sm text-cyan-900 dark:text-cyan-200">
+      Never store passwords client-side and always use HTTPS for credential transmission
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-blue-500 bg-blue-500/10 p-4">
+    <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-1">⏰ Token Expiry</h4>
+    <p className="text-sm text-blue-900 dark:text-blue-200">
+      The temporary 2FA token has limited validity. Prompt users to complete 2FA verification promptly
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-indigo-500 bg-indigo-500/10 p-4">
+    <h4 className="font-bold text-indigo-700 dark:text-indigo-300 mb-1">🚀 User Flow</h4>
+    <p className="text-sm text-indigo-900 dark:text-indigo-200">
+      Automatically redirect users based on status: unverified → verify page, no 2FA → setup page, success → 2FA page
+    </p>
+  </div>
+</div>
+
+---
+
+## Related Operations
+
+<Cards>
+  <Card title="2FA Verification" href="/docs/api/registration/sign-in-2fa-check">
+    Complete sign-in with 2FA code verification
+  </Card>
+  <Card title="Sign Up" href="/docs/api/registration/sign-up">
+    Create new user account
+  </Card>
+  <Card title="Request 2FA" href="/docs/api/registration/request-2fa">
+    Set up two-factor authentication
+  </Card>
+  <Card title="Forgot Password" href="/docs/api/registration/forgot-password">
+    Initiate password recovery process
+  </Card>
+</Cards>

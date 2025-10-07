@@ -1,0 +1,177 @@
+---
+title: Adding New Coin
+description: Admin functionality to add new supported cryptocurrencies
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-teal-500 via-cyan-600 to-blue-700 p-8 mb-8">
+  <div className="relative z-10">
+    <div className="flex items-center gap-3 mb-4">
+      <h1 className="text-4xl md:text-5xl font-bold text-white">
+        Add New Coin
+      </h1>
+      <span className="bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm font-semibold border border-red-500/30">ADMIN</span>
+    </div>
+    <p className="text-xl text-white/90 mb-6">
+      Add new cryptocurrencies to the platform's payment system
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+</div>
+
+## Mutation
+
+<div className="rounded-xl border border-teal-500/30 bg-gradient-to-br from-teal-500/10 to-teal-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">➕</span>
+    <div>
+      <div className="font-bold text-lg">addNewCoin</div>
+      <div className="text-sm text-muted-foreground">Add a new cryptocurrency to the system</div>
+    </div>
+  </div>
+
+  ### Schema
+
+  ```graphql
+  addNewCoin(
+    name: String!
+    symbol: String!
+  ): Coin
+  ```
+</div>
+
+## Parameters
+
+<div className="space-y-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-teal-500/20 text-teal-500 px-2 py-0.5 rounded font-mono text-sm">name</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String!</code></div>
+      <div className="text-muted-foreground">Full name of the cryptocurrency (e.g., "Bitcoin", "Bitcoin Cash")</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-teal-500/20 text-teal-500 px-2 py-0.5 rounded font-mono text-sm">symbol</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String!</code></div>
+      <div className="text-muted-foreground">Trading symbol or ticker (e.g., "BTC", "BCH")</div>
+    </div>
+  </div>
+</div>
+
+## Return Value
+
+<div className="p-5 rounded-lg border border-green-500/30 bg-green-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">📦</span>
+    <div className="font-bold">Returns Coin Object</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    The newly created coin with name and symbol
+  </div>
+</div>
+
+## Example
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">Usage Example</div>
+      <div className="text-xs text-muted-foreground">Add Bitcoin to supported coins</div>
+    </div>
+  </div>
+
+  ```graphql
+  mutation {
+    addNewCoin(
+      name: "Bitcoin"
+      symbol: "BTC"
+    ) {
+      name
+      symbol
+    }
+  }
+  ```
+</div>
+
+## Response Example
+
+<div className="rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/10 to-green-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📤</span>
+    <div>
+      <div className="font-bold">Sample Response</div>
+      <div className="text-xs text-muted-foreground">Successfully created coin</div>
+    </div>
+  </div>
+
+  ```json
+  {
+    "data": {
+      "addNewCoin": {
+        "name": "Bitcoin",
+        "symbol": "BTC"
+      }
+    }
+  }
+  ```
+</div>
+
+## Important Notes
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-red-500/30 bg-red-500/10">
+    <div className="text-xl mb-2">🔐</div>
+    <div className="font-bold mb-2">Admin Only</div>
+    <div className="text-sm text-muted-foreground">
+      This mutation requires administrator privileges and proper authentication
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-amber-500/30 bg-amber-500/10">
+    <div className="text-xl mb-2">⚠️</div>
+    <div className="font-bold mb-2">Unique Symbols</div>
+    <div className="text-sm text-muted-foreground">
+      Ensure the symbol doesn't already exist to avoid duplicates
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-blue-500/30 bg-blue-500/10">
+    <div className="text-xl mb-2">✅</div>
+    <div className="font-bold mb-2">Validation</div>
+    <div className="text-sm text-muted-foreground">
+      Validate cryptocurrency details before adding to ensure accuracy
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-green-500/30 bg-green-500/10">
+    <div className="text-xl mb-2">🔄</div>
+    <div className="font-bold mb-2">Immediate Effect</div>
+    <div className="text-sm text-muted-foreground">
+      Once added, the coin becomes available for payments immediately
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-teal-500/30 bg-gradient-to-r from-teal-500/10 to-cyan-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold">Best Practice</div>
+      <div className="text-sm text-muted-foreground">
+        Use official cryptocurrency names and symbols. Verify the coin exists on major exchanges before adding. Consider setting up price feeds and wallet integrations before enabling the coin for payments. Document the blockchain networks supported for each coin.
+      </div>
+    </div>
+  </div>
+</div>

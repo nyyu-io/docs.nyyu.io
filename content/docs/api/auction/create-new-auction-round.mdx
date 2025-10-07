@@ -1,0 +1,245 @@
+---
+title: Create New Auction Round
+description: Create and configure new auction rounds with admin privileges
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-500/10 via-cyan-500/5 to-background p-8 border border-blue-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Create Auction Round
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Initialize new auction rounds with custom parameters and avatar rewards
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl"></div>
+</div>
+
+<div className="p-4 rounded-lg border border-orange-500/30 bg-orange-500/10 my-6">
+  <div className="flex items-center gap-2">
+    <span className="text-lg">🔐</span>
+    <div className="font-bold">Admin Access Required</div>
+  </div>
+  <div className="text-sm text-muted-foreground mt-2">
+    This mutation is accessible only to users with ADMIN privileges
+  </div>
+</div>
+
+## Mutation
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">✨</span>
+    <div>
+      <div className="font-bold text-lg">createAuction</div>
+      <div className="text-sm text-muted-foreground">Create a new auction round with specified attributes</div>
+    </div>
+  </div>
+
+  ### Schema
+
+  ```graphql
+  createAuction(
+    round: Int!
+    startedAt: Float!
+    duration: Float!
+    totalToken: Float!
+    minPrice: Float!
+    avatar: [AvatarSetInput]
+    token: Float
+  ): Auction
+  ```
+</div>
+
+## Parameters
+
+<div className="space-y-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">round</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Int!</code></div>
+      <div className="text-muted-foreground">Auction round number (unique value). Backend validates uniqueness.</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">startedAt</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Float!</code></div>
+      <div className="text-muted-foreground">Start time in milliseconds (Unix timestamp)</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">duration</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Float!</code></div>
+      <div className="text-muted-foreground">Duration of the round in milliseconds</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">totalToken</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Float!</code></div>
+      <div className="text-muted-foreground">Total number of tokens assigned to this round</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">minPrice</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Float!</code></div>
+      <div className="text-muted-foreground">Minimum price per token in this round</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">avatar</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">[AvatarSetInput]</code></div>
+      <div className="text-muted-foreground">List of avatar components included in the auction</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">token</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Float</code></div>
+      <div className="text-muted-foreground">Extra tokens allocated for avatar matching users</div>
+    </div>
+  </div>
+</div>
+
+## Return Value
+
+<div className="p-5 rounded-lg border border-green-500/30 bg-green-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">📦</span>
+    <div className="font-bold">Returns Auction Object</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    The mutation returns the newly created <code className="bg-muted px-1 rounded">Auction</code> object if successful
+  </div>
+</div>
+
+## Example
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">Usage Example</div>
+      <div className="text-xs text-muted-foreground">Creating a new 24-hour auction round</div>
+    </div>
+  </div>
+
+  ```graphql
+  mutation {
+    createAuction(
+      round: 1
+      startedAt: 1625247600000.0
+      duration: 86400000.0  # 24 hours in milliseconds
+      totalToken: 1000.0
+      minPrice: 0.1
+      avatar: [
+        { groupId: "heroes", compId: 201 }
+        { groupId: "villains", compId: 301 }
+      ]
+      token: 500.0
+    ) {
+      id
+      round
+      startedAt
+      duration
+      totalToken
+      minPrice
+      avatar {
+        groupId
+        compId
+      }
+      token
+      status
+    }
+  }
+  ```
+</div>
+
+## Status Logic
+
+<div className="rounded-xl border border-orange-500/30 bg-gradient-to-br from-orange-500/10 to-orange-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🚦</span>
+    <div>
+      <div className="font-bold text-lg">Automatic Status Assignment</div>
+      <div className="text-sm text-muted-foreground">Status is automatically set based on round conditions</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
+      <div className="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-500 font-bold text-sm flex-shrink-0">1</div>
+      <div>
+        <div className="font-bold text-sm mb-1">No Existing Rounds</div>
+        <div className="text-xs text-muted-foreground">
+          If there are no existing rounds, status is set to <code className="bg-muted px-1 rounded">COUNTDOWN</code>. When countdown reaches 0, round starts automatically.
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
+      <div className="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-500 font-bold text-sm flex-shrink-0">2</div>
+      <div>
+        <div className="font-bold text-sm mb-1">Previous Round Started</div>
+        <div className="text-xs text-muted-foreground">
+          If previous round status is <code className="bg-muted px-1 rounded">STARTED</code>, new round gets <code className="bg-muted px-1 rounded">COUNTDOWN</code> status.
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
+      <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-500 font-bold text-sm flex-shrink-0">3</div>
+      <div>
+        <div className="font-bold text-sm mb-1">All Other Cases</div>
+        <div className="text-xs text-muted-foreground">
+          For all other scenarios, status is set to <code className="bg-muted px-1 rounded">PENDING</code>.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-cyan-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">📝</span>
+    <div>
+      <div className="font-bold">Important Note</div>
+      <div className="text-sm text-muted-foreground">Round numbers must be unique. Backend validates this constraint automatically.</div>
+    </div>
+  </div>
+</div>

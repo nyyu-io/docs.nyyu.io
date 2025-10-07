@@ -1,0 +1,248 @@
+---
+title: Getting Started
+description: Comprehensive guide to integrating with NYYU APIs
+---
+
+import { Callout } from "fumadocs-ui/components/callout";
+import { Card, Cards } from "fumadocs-ui/components/card";
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-500/10 via-cyan-500/5 to-background p-8 border border-blue-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      NYYU API Documentation
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Build powerful applications with our comprehensive API suite. From core banking to blockchain payments, integrate seamlessly with NYYU's infrastructure.
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl"></div>
+</div>
+
+## API Ecosystem
+
+Our platform provides three specialized APIs, each optimized for specific use cases:
+
+<div className="space-y-4 my-6">
+  <div className="flex gap-4 items-start p-4 rounded-lg border border-border bg-muted/50">
+    <div className="text-3xl">🔷</div>
+    <div className="flex-1">
+      <div className="font-bold text-lg mb-1">NYYU API</div>
+      <div className="text-sm text-muted-foreground">
+        Core system APIs based on Java Spring Boot and GraphQL. Handle user management, transactions, account operations, and real-time data processing.
+      </div>
+    </div>
+  </div>
+
+  <div className="flex gap-4 items-start p-4 rounded-lg border border-border bg-muted/50">
+    <div className="text-3xl">💳</div>
+    <div className="flex-1">
+      <div className="font-bold text-lg mb-1">NYYU PAY</div>
+      <div className="text-sm text-muted-foreground">
+        Payment service APIs based on Node.js and WebSocket, similar to CoinPayments. Process cryptocurrency payments with real-time updates and settlement.
+      </div>
+    </div>
+  </div>
+
+  <div className="flex gap-4 items-start p-4 rounded-lg border border-border bg-muted/50">
+    <div className="text-3xl">⛓️</div>
+    <div className="flex-1">
+      <div className="font-bold text-lg mb-1">NYYU NODE</div>
+      <div className="text-sm text-muted-foreground">
+        Multi-chain node service APIs based on Node.js and WebSocket. Support for ETH, BTC, BNB, Solana, and Polygon blockchain operations.
+      </div>
+    </div>
+  </div>
+</div>
+
+## System Architecture
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-3xl">🏗️</span>
+    <div>
+      <div className="font-bold text-lg">Modular & Scalable Architecture</div>
+      <div className="text-sm text-muted-foreground">Built on microservices for maximum flexibility and performance</div>
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-border bg-background p-4">
+    <iframe
+      width="100%"
+      height="432"
+      src="https://miro.com/app/live-embed/uXjVMDMnXHk=/?moveToViewport=-1462,-286,2144,1178&embedId=615495750250"
+      frameBorder="0"
+      scrolling="no"
+      allow="fullscreen; clipboard-read; clipboard-write"
+      allowFullScreen
+    ></iframe>
+  </div>
+</div>
+
+### Business Architecture of Real-Estate Marketplace
+
+<iframe
+  width="768"
+  height="432"
+  src="https://miro.com/app/live-embed/uXjVK0lo6DM=/?moveToViewport=-5582,-3561,13274,7294&embedId=662295510528"
+  frameborder="0"
+  scrolling="no"
+  allow="fullscreen; clipboard-read; clipboard-write"
+  allowfullscreen
+></iframe>
+
+### Listing Process of Real-Estate Marketplace
+
+<iframe
+  width="768"
+  height="432"
+  src="https://miro.com/app/live-embed/uXjVK0lpg4Q=/?moveToViewport=-8428,-4602,11556,6350&embedId=851756319324"
+  frameborder="0"
+  scrolling="no"
+  allow="fullscreen; clipboard-read; clipboard-write"
+  allowfullscreen
+></iframe>
+
+### APIs of the Real-Estate Marketplace
+
+<iframe
+  width="768"
+  height="432"
+  src="https://miro.com/app/live-embed/uXjVK0l2Rhw=/?moveToViewport=-14566,-8349,14288,7851&embedId=590741749731"
+  frameborder="0"
+  scrolling="no"
+  allow="fullscreen; clipboard-read; clipboard-write"
+  allowfullscreen
+></iframe>
+
+## Quick Start
+
+<div className="rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/10 to-green-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-3xl">🚀</span>
+    <div>
+      <div className="font-bold text-lg">Start Building in Minutes</div>
+      <div className="text-sm text-muted-foreground">Choose your API and begin integration</div>
+    </div>
+  </div>
+
+  ### NYYU API (GraphQL)
+
+  **Endpoint:** `/graphql`
+
+  ```graphql
+  query {
+    getUser(id: 1) {
+      id
+      name
+      email
+    }
+  }
+  ```
+
+  ### NYYU PAY (WebSocket)
+
+  **Endpoint:** `wss://api.pay.nyyu.com`
+
+  ```javascript
+  const WebSocket = require('ws');
+  const ws = new WebSocket('wss://api.pay.nyyu.com');
+
+  ws.on('open', function open() {
+    ws.send(JSON.stringify({
+      action: 'initiatePayment',
+      amount: 1.0,
+      currency: 'BTC'
+    }));
+  });
+
+  ws.on('message', function incoming(data) {
+    console.log(data);
+  });
+  ```
+
+  ### NYYU NODE (WebSocket)
+
+  **Endpoint:** `wss://api.node.nyyu.com`
+
+  ```javascript
+  const WebSocket = require('ws');
+  const ws = new WebSocket('wss://api.node.nyyu.com');
+
+  ws.on('open', function open() {
+    ws.send(JSON.stringify({
+      action: 'getBalance',
+      currency: 'ETH'
+    }));
+  });
+
+  ws.on('message', function incoming(data) {
+    console.log(data);
+  });
+  ```
+</div>
+
+## Authentication and Authorization
+
+<div className="rounded-xl border border-orange-500/30 bg-gradient-to-br from-orange-500/10 to-orange-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-3xl">🔐</span>
+    <div>
+      <div className="font-bold text-lg">OAuth2 Authentication</div>
+      <div className="text-sm text-muted-foreground">Secure your API requests with OAuth2 tokens</div>
+    </div>
+  </div>
+
+  All NYYU APIs use OAuth2 for authentication and authorization. Include your access token in the `Authorization` header:
+
+  **NYYU API:**
+  ```graphql
+  {
+    "Authorization": "Bearer YOUR_ACCESS_TOKEN"
+  }
+  ```
+
+  **NYYU PAY and NYYU NODE:**
+  ```javascript
+  ws.on('open', function open() {
+    ws.send(JSON.stringify({
+      token: 'YOUR_ACCESS_TOKEN',
+      action: 'initiatePayment',
+      amount: 1.0,
+      currency: 'BTC'
+    }));
+  });
+  ```
+</div>
+
+## Next Steps
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-4 rounded-lg border border-border bg-muted/50">
+    <div className="font-bold mb-2">📚 Explore API References</div>
+    <div className="text-sm text-muted-foreground">
+      Dive into detailed API documentation for each service
+    </div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50">
+    <div className="font-bold mb-2">🔧 Integration Guides</div>
+    <div className="text-sm text-muted-foreground">
+      Follow step-by-step guides for common integration scenarios
+    </div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50">
+    <div className="font-bold mb-2">💡 Code Examples</div>
+    <div className="text-sm text-muted-foreground">
+      Browse sample code and implementation patterns
+    </div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50">
+    <div className="font-bold mb-2">❓ FAQs & Support</div>
+    <div className="text-sm text-muted-foreground">
+      Get answers to common questions and access support
+    </div>
+  </div>
+</div>

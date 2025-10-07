@@ -1,0 +1,16 @@
+{
+  "title": "Withdraw",
+  "pages": [
+    "withdraw-summary",
+    "generate-withdraw-code",
+    "crypto-withdrawal-request",
+    "fiat-withdrawal-request",
+    "paypal-withdraw-request",
+    "change-withdrawal-request-show-status",
+    "send-withdraw-confirmation-code",
+    "confirm-crypto-withdrawal-request",
+    "confirm-paypal-withdrawal-request",
+    "approve-fiat-withdrawal-request",
+    "deny-bank-withdrawal-request"
+  ]
+}

@@ -1,0 +1,332 @@
+---
+title: Set Avatar
+description: Create unique user avatar identity during account registration with prefix and name combinations
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-purple-600 via-violet-600 to-indigo-600 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="relative">
+    <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm mb-4">
+      <span className="relative flex h-2 w-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-background"></span>
+      </span>
+      NEW USER SETUP
+    </div>
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">Set Avatar</h1>
+    <p className="text-xl text-purple-100 leading-relaxed max-w-3xl">
+      Create a unique avatar identity during account creation with customizable prefix and name combinations.
+    </p>
+  </div>
+</div>
+
+<Callout type="info" title="Registration Step">
+  This mutation is called during the **account setup flow** after completing 2FA authentication.
+</Callout>
+
+## Overview
+
+The `setAvatar` mutation allows new users to establish their avatar identity by choosing a prefix (avatar type) and name combination. This creates a unique identifier that represents the user throughout the platform.
+
+---
+
+## GraphQL Schema
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-violet-500/5 p-6 mb-8">
+
+```graphql
+mutation {
+  setAvatar(
+    prefix: String!
+    name: String!
+  ): String
+}
+```
+
+</div>
+
+---
+
+## Parameters
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <div className="rounded-lg border border-purple-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">prefix</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700 dark:text-red-300">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-purple-600 dark:text-purple-400">String</span></p>
+    <p className="text-sm text-foreground">The avatar short name or prefix that categorizes the avatar type (e.g., "Tesla", "Edison", "Curie").</p>
+  </div>
+
+  <div className="rounded-lg border border-purple-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">name</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700 dark:text-red-300">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-purple-600 dark:text-purple-400">String</span></p>
+    <p className="text-sm text-foreground">User-defined or auto-generated identifier number that makes the avatar unique when combined with the prefix.</p>
+  </div>
+</div>
+
+---
+
+## Return Values
+
+<div className="grid gap-4 my-6">
+  <div className="rounded-lg border border-green-500/30 bg-gradient-to-br from-green-500/10 to-emerald-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">✅</span>
+      <code className="bg-green-500/20 text-green-700 dark:text-green-300 px-3 py-1 rounded font-mono text-sm">Success</code>
+    </div>
+    <p className="text-sm text-foreground">
+      Avatar was successfully set and associated with the user's account. The user can now proceed to platform features.
+    </p>
+  </div>
+
+  <div className="rounded-lg border border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-yellow-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">⚠️</span>
+      <code className="bg-amber-500/20 text-amber-700 dark:text-amber-300 px-3 py-1 rounded font-mono text-sm">Already Exists</code>
+    </div>
+    <p className="text-sm text-foreground">
+      An avatar with the given prefix and name combination already exists. The user must choose a different name or prefix.
+    </p>
+  </div>
+</div>
+
+---
+
+## Example Usage
+
+### Request
+
+```graphql
+mutation SetUserAvatar {
+  setAvatar(
+    prefix: "Tesla"
+    name: "12"
+  )
+}
+```
+
+### Successful Response
+
+```json
+{
+  "data": {
+    "setAvatar": "Success"
+  }
+}
+```
+
+<Callout type="info" title="Avatar Created">
+  Avatar **Tesla#12** has been successfully created and linked to the user account.
+</Callout>
+
+### Duplicate Response
+
+```json
+{
+  "data": {
+    "setAvatar": "Already Exists"
+  }
+}
+```
+
+<Callout type="warn" title="Duplicate Avatar">
+  The combination **Tesla#12** is already taken. Please choose a different name or prefix.
+</Callout>
+
+---
+
+## Avatar Identity System
+
+<div className="rounded-lg border border-violet-500/30 bg-background p-6 mb-6">
+  <h3 className="font-bold mb-4">How Avatar Identities Work</h3>
+
+  <div className="space-y-6">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center text-2xl">
+        🏷️
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Prefix System</h4>
+        <p className="text-sm text-muted-foreground mb-2">
+          The prefix represents the avatar category or theme (e.g., scientist names, historical figures, mythological characters).
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <code className="bg-purple-500/20 text-purple-700 dark:text-purple-300 px-2 py-1 rounded text-xs">Tesla</code>
+          <code className="bg-purple-500/20 text-purple-700 dark:text-purple-300 px-2 py-1 rounded text-xs">Edison</code>
+          <code className="bg-purple-500/20 text-purple-700 dark:text-purple-300 px-2 py-1 rounded text-xs">Curie</code>
+          <code className="bg-purple-500/20 text-purple-700 dark:text-purple-300 px-2 py-1 rounded text-xs">Newton</code>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-violet-500/20 flex items-center justify-center text-2xl">
+        🔢
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Name Component</h4>
+        <p className="text-sm text-muted-foreground mb-2">
+          The name is typically a number or string that uniquely identifies each avatar within a prefix category.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <code className="bg-violet-500/20 text-violet-700 dark:text-violet-300 px-2 py-1 rounded text-xs">1</code>
+          <code className="bg-violet-500/20 text-violet-700 dark:text-violet-300 px-2 py-1 rounded text-xs">42</code>
+          <code className="bg-violet-500/20 text-violet-700 dark:text-violet-300 px-2 py-1 rounded text-xs">999</code>
+          <code className="bg-violet-500/20 text-violet-700 dark:text-violet-300 px-2 py-1 rounded text-xs">alpha</code>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-indigo-500/20 flex items-center justify-center text-2xl">
+        🎭
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Complete Identity</h4>
+        <p className="text-sm text-muted-foreground mb-2">
+          The combination creates a unique avatar identity displayed throughout the platform:
+        </p>
+        <div className="rounded-lg border border-indigo-500/30 bg-indigo-500/10 p-4">
+          <div className="font-mono text-lg font-bold text-indigo-700 dark:text-indigo-300">
+            Tesla#12 • Edison#7 • Curie#314
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Implementation Example
+
+<div className="rounded-xl border border-purple-500/30 bg-background p-6 my-6">
+  <h3 className="font-bold mb-4">Registration Flow Integration</h3>
+
+```javascript
+// Example: Avatar selection during registration
+async function completeRegistration(userId, selectedPrefix, selectedName) {
+  try {
+    const result = await graphqlClient.mutate({
+      mutation: gql`
+        mutation SetAvatar($prefix: String!, $name: String!) {
+          setAvatar(prefix: $prefix, name: $name)
+        }
+      `,
+      variables: {
+        prefix: selectedPrefix,
+        name: selectedName
+      }
+    });
+
+    if (result.data.setAvatar === "Success") {
+      // Avatar set successfully, proceed to dashboard
+      redirectToDashboard();
+    } else if (result.data.setAvatar === "Already Exists") {
+      // Show error and ask user to choose different combination
+      showError("This avatar name is already taken. Please choose another.");
+    }
+  } catch (error) {
+    console.error("Failed to set avatar:", error);
+  }
+}
+```
+
+</div>
+
+---
+
+## Use Cases
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🆕</div>
+    <h3 className="font-bold mb-2">New Account Setup</h3>
+    <p className="text-sm text-muted-foreground">
+      First-time users select their avatar identity immediately after completing 2FA setup during registration
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🎮</div>
+    <h3 className="font-bold mb-2">Gamification</h3>
+    <p className="text-sm text-muted-foreground">
+      Create unique player identities for leaderboards, achievements, and social features within the platform
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">👤</div>
+    <h3 className="font-bold mb-2">Profile Display</h3>
+    <p className="text-sm text-muted-foreground">
+      Display distinctive avatar identifiers across chat, comments, trading interfaces, and community features
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔒</div>
+    <h3 className="font-bold mb-2">Privacy Protection</h3>
+    <p className="text-sm text-muted-foreground">
+      Allow users to interact with platform features using avatar identity instead of real names
+    </p>
+  </Card>
+</div>
+
+---
+
+## Best Practices
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-purple-500 bg-purple-500/10 p-4">
+    <h4 className="font-bold text-purple-700 dark:text-purple-300 mb-1">✅ Uniqueness Validation</h4>
+    <p className="text-sm text-purple-900 dark:text-purple-200">
+      Always handle the "Already Exists" response and prompt users to select an alternative combination
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-violet-500 bg-violet-500/10 p-4">
+    <h4 className="font-bold text-violet-700 dark:text-violet-300 mb-1">🎯 Prefix Selection UI</h4>
+    <p className="text-sm text-violet-900 dark:text-violet-200">
+      Provide a curated list of available prefixes with visual previews to guide user selection
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-indigo-500 bg-indigo-500/10 p-4">
+    <h4 className="font-bold text-indigo-700 dark:text-indigo-300 mb-1">🔢 Name Generation</h4>
+    <p className="text-sm text-indigo-900 dark:text-indigo-200">
+      Offer auto-generated name suggestions based on available numbers for the selected prefix
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-purple-500 bg-purple-500/10 p-4">
+    <h4 className="font-bold text-purple-700 dark:text-purple-300 mb-1">⏰ One-Time Setup</h4>
+    <p className="text-sm text-purple-900 dark:text-purple-200">
+      Avatar identity is set once during registration and typically cannot be changed to maintain consistency
+    </p>
+  </div>
+</div>
+
+---
+
+## Related Operations
+
+<Cards>
+  <Card title="Update Avatar Set" href="/docs/api/profile/update-avatar-set">
+    Customize avatar appearance with components
+  </Card>
+  <Card title="Avatar Profiles" href="/docs/api/avatar/get-avatar-profiles">
+    View available avatar configurations
+  </Card>
+  <Card title="Sign Up" href="/docs/api/registration/sign-up">
+    Initial account registration process
+  </Card>
+</Cards>

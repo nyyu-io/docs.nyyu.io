@@ -1,0 +1,337 @@
+---
+title: Get Bid List by Round Number
+description: Retrieve all confirmed bids for a specific auction round by round number
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-500/10 via-yellow-500/5 to-background p-8 border border-amber-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Get Bid List by Round Number
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Retrieve all confirmed bids for a specific auction round using its number
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-yellow-500/5 rounded-full blur-3xl"></div>
+</div>
+
+<div className="p-5 rounded-lg border border-blue-500/30 bg-blue-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">ℹ️</span>
+    <div className="font-bold">Confirmed Bids Only</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    This query returns only confirmed bids. Unconfirmed or pending bids are not included in the results.
+  </div>
+</div>
+
+## Query
+
+<div className="rounded-xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-amber-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔢</span>
+    <div>
+      <div className="font-bold text-lg">getBidListByRound</div>
+      <div className="text-sm text-muted-foreground">Retrieve confirmed bids by round number</div>
+    </div>
+  </div>
+
+  ### Schema
+
+  ```graphql
+  getBidListByRound(
+    round: Int!
+  ): [Bid]
+  ```
+</div>
+
+## Parameters
+
+<div className="space-y-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">round</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Int!</code></div>
+      <div className="text-muted-foreground">The round number to retrieve confirmed bids from (e.g., 1, 2, 3, 12)</div>
+    </div>
+  </div>
+</div>
+
+## Return Value
+
+<div className="p-5 rounded-lg border border-green-500/30 bg-green-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">📦</span>
+    <div className="font-bold">Returns Array of Confirmed Bid Objects</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    The query returns an array of <code className="bg-muted px-1 rounded">Bid</code> objects that are confirmed for the specified round number
+  </div>
+</div>
+
+## Round Number vs Round ID
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔍</span>
+    <div>
+      <div className="font-bold text-lg">Understanding the Difference</div>
+      <div className="text-sm text-muted-foreground">Round Number vs Round ID</div>
+    </div>
+  </div>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="p-4 rounded-lg bg-background border border-blue-500/30">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-2xl">🔢</span>
+        <div className="font-bold">Round Number</div>
+      </div>
+      <div className="text-sm text-muted-foreground mb-3">
+        Sequential integer identifier
+      </div>
+      <div className="space-y-2 text-xs">
+        <div><span className="text-green-500">✓</span> Human-readable (1, 2, 3...)</div>
+        <div><span className="text-green-500">✓</span> Easy to reference</div>
+        <div><span className="text-green-500">✓</span> Sequential numbering</div>
+        <div className="pt-2 font-mono bg-blue-500/10 p-2 rounded">round: 12</div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-purple-500/30">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-2xl">🆔</span>
+        <div className="font-bold">Round ID</div>
+      </div>
+      <div className="text-sm text-muted-foreground mb-3">
+        Unique string identifier
+      </div>
+      <div className="space-y-2 text-xs">
+        <div><span className="text-green-500">✓</span> Unique across system</div>
+        <div><span className="text-green-500">✓</span> Database-friendly</div>
+        <div><span className="text-green-500">✓</span> Immutable reference</div>
+        <div className="pt-2 font-mono bg-purple-500/10 p-2 rounded">roundId: "abcd1234"</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Example
+
+<div className="rounded-xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 to-indigo-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">Usage Example</div>
+      <div className="text-xs text-muted-foreground">Retrieving confirmed bids for round 12</div>
+    </div>
+  </div>
+
+  ```graphql
+  query {
+    getBidListByRound(round: 12) {
+      userId
+      roundId
+      tokenAmount
+      totalPrice
+      tokenPrice
+      tempTokenAmount
+      tempTokenPrice
+      delta
+      pendingIncrease
+      holdings {
+        key
+        value {
+          crypto
+          usd
+        }
+      }
+      payType
+      cryptoType
+      placedAt
+      updatedAt
+      status
+    }
+  }
+  ```
+</div>
+
+## Response Example
+
+<div className="rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/10 to-green-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📤</span>
+    <div>
+      <div className="font-bold">Sample Response</div>
+      <div className="text-xs text-muted-foreground">Confirmed bids for round 12</div>
+    </div>
+  </div>
+
+  ```json
+  {
+    "data": {
+      "getBidListByRound": [
+        {
+          "userId": "user123",
+          "roundId": "round12",
+          "tokenAmount": 100.0,
+          "totalPrice": 50.0,
+          "tokenPrice": 0.5,
+          "tempTokenAmount": 0,
+          "tempTokenPrice": 0,
+          "delta": 0,
+          "pendingIncrease": false,
+          "holdings": [
+            {
+              "key": "BTC",
+              "value": {
+                "crypto": 0.0012,
+                "usd": 50.0
+              }
+            }
+          ],
+          "payType": 2,
+          "cryptoType": "BTC",
+          "placedAt": 1625247600000.0,
+          "updatedAt": 1625334000000.0,
+          "status": 0
+        },
+        {
+          "userId": "user456",
+          "roundId": "round12",
+          "tokenAmount": 200.0,
+          "totalPrice": 100.0,
+          "tokenPrice": 0.5,
+          "tempTokenAmount": 0,
+          "tempTokenPrice": 0,
+          "delta": 0,
+          "pendingIncrease": false,
+          "holdings": [
+            {
+              "key": "WALLET",
+              "value": {
+                "crypto": 0,
+                "usd": 100.0
+              }
+            }
+          ],
+          "payType": 3,
+          "cryptoType": null,
+          "placedAt": 1625251200000.0,
+          "updatedAt": 1625337600000.0,
+          "status": 0
+        }
+      ]
+    }
+  }
+  ```
+</div>
+
+## Use Cases
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🏆</div>
+    <div className="font-bold mb-2">Leaderboard Display</div>
+    <div className="text-sm text-muted-foreground">
+      Display confirmed bids on a leaderboard for a specific round
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📊</div>
+    <div className="font-bold mb-2">Round Statistics</div>
+    <div className="text-sm text-muted-foreground">
+      Calculate total participation and bid values for a round
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🎯</div>
+    <div className="font-bold mb-2">Competition Analysis</div>
+    <div className="text-sm text-muted-foreground">
+      Analyze confirmed competitive bids in a specific round
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📈</div>
+    <div className="font-bold mb-2">Historical Review</div>
+    <div className="text-sm text-muted-foreground">
+      Review confirmed bid patterns from past rounds
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">💰</div>
+    <div className="font-bold mb-2">Volume Tracking</div>
+    <div className="text-sm text-muted-foreground">
+      Track total confirmed bid volume per round
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🔔</div>
+    <div className="font-bold mb-2">Public Visibility</div>
+    <div className="text-sm text-muted-foreground">
+      Show confirmed bids publicly for transparency
+    </div>
+  </div>
+</div>
+
+## Confirmed vs All Bids
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔄</span>
+    <div>
+      <div className="font-bold text-lg">Query Behavior</div>
+      <div className="text-sm text-muted-foreground">Understanding what this query returns</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="p-4 rounded-lg bg-background border border-green-500/30">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-green-500 font-bold">✓</span>
+        <div className="font-semibold text-sm">Included: Confirmed Bids</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Bids that have been placed and confirmed for the specified round
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-red-500/30">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-red-500 font-bold">✗</span>
+        <div className="font-semibold text-sm">Excluded: Unconfirmed Bids</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Pending bids that are not yet confirmed are filtered out
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">Use Case Recommendation</div>
+      <div className="text-xs text-muted-foreground">
+        Use this query for public-facing features where only verified, confirmed bids should be displayed. For admin purposes requiring all bids, use <code className="bg-muted px-1 rounded">getBidListById</code> instead.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-amber-500/30 bg-gradient-to-r from-amber-500/10 to-yellow-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold">Tip</div>
+      <div className="text-sm text-muted-foreground">Use round numbers for user-friendly URLs and displays (e.g., /round/12). Round numbers are easier to reference and communicate than round IDs.</div>
+    </div>
+  </div>
+</div>

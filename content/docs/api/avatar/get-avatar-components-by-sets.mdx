@@ -1,0 +1,305 @@
+---
+title: Get Avatar Components By Sets
+description: Retrieve avatar components based on specific component sets
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-500/10 via-violet-500/5 to-background p-8 border border-indigo-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Get Components By Sets
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Retrieve avatar components based on a provided component set
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-violet-500/5 rounded-full blur-3xl"></div>
+</div>
+
+## Query
+
+<div className="rounded-xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 to-indigo-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🎯</span>
+    <div>
+      <div className="font-bold text-lg">getAvatarComponentsBySet</div>
+      <div className="text-sm text-muted-foreground">Retrieve components associated with a specific avatar profile set</div>
+    </div>
+  </div>
+
+  ### Schema
+
+  ```graphql
+  getAvatarComponentsBySet(
+    set: [AvatarSetInput]
+  ): [AvatarComponent]
+  ```
+</div>
+
+## Parameters
+
+<div className="space-y-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">set</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">[AvatarSetInput]</code></div>
+      <div className="text-muted-foreground mb-2">The list of components that the profile has. Each component includes:</div>
+      <div className="pl-4 space-y-1 text-xs">
+        <div>• <code className="bg-muted px-1 rounded">groupId</code> (String) - The group ID of the component</div>
+        <div>• <code className="bg-muted px-1 rounded">compId</code> (Int) - The component ID</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Return Value
+
+<div className="p-5 rounded-lg border border-green-500/30 bg-green-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">📦</span>
+    <div className="font-bold">Returns Array of AvatarComponent Objects</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    The query returns a list of <code className="bg-muted px-1 rounded">AvatarComponent</code> objects that match the provided set
+  </div>
+</div>
+
+## Example
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">Usage Example</div>
+      <div className="text-xs text-muted-foreground">Retrieving components for multiple sets</div>
+    </div>
+  </div>
+
+  ```graphql
+  query {
+    getAvatarComponentsBySet(
+      set: [
+        { groupId: "engineers", compId: 101 }
+        { groupId: "hats", compId: 5 }
+        { groupId: "accessories", compId: 12 }
+      ]
+    ) {
+      groupId
+      compId
+      tierLevel
+      price
+      limited
+      purchased
+      svg
+      width
+      top
+      left
+    }
+  }
+  ```
+</div>
+
+## Response Example
+
+<div className="rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/10 to-green-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📤</span>
+    <div>
+      <div className="font-bold">Sample Response</div>
+      <div className="text-xs text-muted-foreground">Example of returned component data</div>
+    </div>
+  </div>
+
+  ```json
+  {
+    "data": {
+      "getAvatarComponentsBySet": [
+        {
+          "groupId": "engineers",
+          "compId": 101,
+          "tierLevel": 2,
+          "price": 15.0,
+          "limited": 100,
+          "purchased": 45,
+          "svg": "<svg>...</svg>",
+          "width": 30,
+          "top": 10,
+          "left": 15
+        },
+        {
+          "groupId": "hats",
+          "compId": 5,
+          "tierLevel": 1,
+          "price": 8.0,
+          "limited": 200,
+          "purchased": 78,
+          "svg": "<svg>...</svg>",
+          "width": 35,
+          "top": 5,
+          "left": 12
+        },
+        {
+          "groupId": "accessories",
+          "compId": 12,
+          "tierLevel": 3,
+          "price": 20.0,
+          "limited": 50,
+          "purchased": 23,
+          "svg": "<svg>...</svg>",
+          "width": 25,
+          "top": 18,
+          "left": 8
+        }
+      ]
+    }
+  }
+  ```
+</div>
+
+## Use Cases
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🎨</div>
+    <div className="font-bold mb-2">Avatar Rendering</div>
+    <div className="text-sm text-muted-foreground">
+      Retrieve all components needed to render a complete avatar
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📊</div>
+    <div className="font-bold mb-2">Profile Analysis</div>
+    <div className="text-sm text-muted-foreground">
+      Analyze component combinations used by specific avatars
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">💎</div>
+    <div className="font-bold mb-2">Value Calculation</div>
+    <div className="text-sm text-muted-foreground">
+      Calculate total value of components in an avatar profile
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🔍</div>
+    <div className="font-bold mb-2">Component Validation</div>
+    <div className="text-sm text-muted-foreground">
+      Verify component existence and availability before assignment
+    </div>
+  </div>
+</div>
+
+## Query Behavior
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📋</span>
+    <div>
+      <div className="font-bold text-lg">How It Works</div>
+      <div className="text-sm text-muted-foreground">Understanding the query behavior</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Batch Lookup</div>
+      <div className="text-xs text-muted-foreground">
+        Retrieves full component details for multiple groupId/compId pairs at once
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Exact Matching</div>
+      <div className="text-xs text-muted-foreground">
+        Only returns components that exactly match the provided groupId and compId combinations
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Missing Components</div>
+      <div className="text-xs text-muted-foreground">
+        If a component in the set doesn't exist, it's simply excluded from results
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Order Preserved</div>
+      <div className="text-xs text-muted-foreground">
+        Results typically maintain the order of the input set
+      </div>
+    </div>
+  </div>
+</div>
+
+## Practical Example
+
+<div className="rounded-xl border border-orange-500/30 bg-gradient-to-br from-orange-500/10 to-orange-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🎯</span>
+    <div>
+      <div className="font-bold text-lg">Complete Avatar Workflow</div>
+      <div className="text-sm text-muted-foreground">Typical usage pattern</div>
+    </div>
+  </div>
+
+  <div className="space-y-3 text-sm">
+    <div className="flex items-start gap-2">
+      <div className="w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-500 font-bold text-xs flex-shrink-0">1</div>
+      <div>
+        <div className="font-semibold mb-1">Get Avatar Profile</div>
+        <div className="text-xs text-muted-foreground">
+          Query <code className="bg-muted px-1 rounded">getAvatar</code> to retrieve profile with <code className="bg-muted px-1 rounded">avatarSet</code> field
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-2">
+      <div className="w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-500 font-bold text-xs flex-shrink-0">2</div>
+      <div>
+        <div className="font-semibold mb-1">Extract Component References</div>
+        <div className="text-xs text-muted-foreground">
+          Pull groupId and compId values from avatarSet array
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-2">
+      <div className="w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-500 font-bold text-xs flex-shrink-0">3</div>
+      <div>
+        <div className="font-semibold mb-1">Fetch Full Component Details</div>
+        <div className="text-xs text-muted-foreground">
+          Use <code className="bg-muted px-1 rounded">getAvatarComponentsBySet</code> to get SVG, positioning, and metadata
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-2">
+      <div className="w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-500 font-bold text-xs flex-shrink-0">4</div>
+      <div>
+        <div className="font-semibold mb-1">Render Avatar</div>
+        <div className="text-xs text-muted-foreground">
+          Use SVG and positioning data to compose the complete avatar visual
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-indigo-500/30 bg-gradient-to-r from-indigo-500/10 to-violet-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold">Performance Tip</div>
+      <div className="text-sm text-muted-foreground">Use this query instead of multiple individual component queries to reduce API calls and improve performance</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,585 @@
+---
+title: Fiat Withdrawal Request
+description: Withdraw fiat currency via international or domestic bank transfer
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-rose-500/10 via-pink-500/5 to-background p-8 border border-rose-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-3xl md:text-4xl font-bold mb-4">
+      Fiat Withdrawal Request
+    </h1>
+    <p className="text-lg text-muted-foreground mb-4">
+      Withdraw fiat currency to bank accounts via international or domestic transfer
+    </p>
+    <div className="inline-block px-3 py-1 rounded-full bg-rose-500/20 border border-rose-500/30 text-rose-400 text-sm font-medium">
+      USER Operation
+    </div>
+  </div>
+  <div className="absolute top-0 right-0 w-48 h-48 bg-rose-500/5 rounded-full blur-3xl"></div>
+</div>
+
+## Overview
+
+The `bankWithdrawRequest` mutation allows users to request fiat currency withdrawals via bank transfer. This supports both international and domestic transfers with comprehensive banking details.
+
+<Callout type="warn" title="Manual Processing Required">
+This creates a withdrawal **request** that requires manual admin approval and bank transfer processing. It does not create automatic payouts.
+</Callout>
+
+## GraphQL Schema
+
+<div className="rounded-xl border border-rose-500/30 bg-gradient-to-br from-rose-500/10 to-rose-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🏦</span>
+    <div>
+      <div className="font-bold text-lg">Mutation Schema</div>
+      <div className="text-sm text-muted-foreground">Submit bank withdrawal request</div>
+    </div>
+  </div>
+
+  ```graphql
+  bankWithdrawRequest(
+    targetCurrency: String!,
+    amount: Float!,
+    sourceToken: String!,
+    mode: Int!,
+    country: String!,
+    holderName: String!,
+    bankName: String!,
+    accNumber: String!,
+    metadata: String!,
+    address: String!,
+    postCode: String!,
+    code: String!
+  ): BankWithdrawRequest
+  ```
+</div>
+
+## Parameters
+
+<div className="rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-blue-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📋</span>
+    <div>
+      <div className="font-bold text-lg">Required Parameters</div>
+      <div className="text-sm text-muted-foreground">All fields are mandatory</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center justify-between mb-2">
+        <code className="font-semibold">targetCurrency</code>
+        <span className="px-2 py-1 rounded bg-rose-500/20 border border-rose-500/30 text-rose-400 text-xs font-medium">String!</span>
+      </div>
+      <div className="text-sm text-muted-foreground mb-2">
+        The fiat currency to receive in your bank account
+      </div>
+      <div className="text-xs bg-muted px-3 py-2 rounded">
+        Examples: "USD", "EUR", "GBP", "JPY", "CAD", "AUD"
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center justify-between mb-2">
+        <code className="font-semibold">amount</code>
+        <span className="px-2 py-1 rounded bg-rose-500/20 border border-rose-500/30 text-rose-400 text-xs font-medium">Float!</span>
+      </div>
+      <div className="text-sm text-muted-foreground">
+        The amount to withdraw in target currency
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center justify-between mb-2">
+        <code className="font-semibold">sourceToken</code>
+        <span className="px-2 py-1 rounded bg-rose-500/20 border border-rose-500/30 text-rose-400 text-xs font-medium">String!</span>
+      </div>
+      <div className="text-sm text-muted-foreground mb-2">
+        The currency type to withdraw from your wallet (will be converted to target currency)
+      </div>
+      <div className="text-xs bg-muted px-3 py-2 rounded">
+        Examples: "BTC", "ETH", "USDT", "NYYU"
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center justify-between mb-2">
+        <code className="font-semibold">mode</code>
+        <span className="px-2 py-1 rounded bg-rose-500/20 border border-rose-500/30 text-rose-400 text-xs font-medium">Int!</span>
+      </div>
+      <div className="text-sm text-muted-foreground mb-2">
+        Transfer mode selection
+      </div>
+      <div className="grid grid-cols-2 gap-2 text-xs">
+        <div className="bg-muted px-3 py-2 rounded">
+          <span className="font-semibold">1:</span> International Transfer
+        </div>
+        <div className="bg-muted px-3 py-2 rounded">
+          <span className="font-semibold">2:</span> Domestic Transfer
+        </div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center justify-between mb-2">
+        <code className="font-semibold">country</code>
+        <span className="px-2 py-1 rounded bg-rose-500/20 border border-rose-500/30 text-rose-400 text-xs font-medium">String!</span>
+      </div>
+      <div className="text-sm text-muted-foreground">
+        Country where the bank is located
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center justify-between mb-2">
+        <code className="font-semibold">holderName</code>
+        <span className="px-2 py-1 rounded bg-rose-500/20 border border-rose-500/30 text-rose-400 text-xs font-medium">String!</span>
+      </div>
+      <div className="text-sm text-muted-foreground">
+        Full name of the bank account holder (must match bank records)
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center justify-between mb-2">
+        <code className="font-semibold">bankName</code>
+        <span className="px-2 py-1 rounded bg-rose-500/20 border border-rose-500/30 text-rose-400 text-xs font-medium">String!</span>
+      </div>
+      <div className="text-sm text-muted-foreground">
+        Official name of the bank institution
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center justify-between mb-2">
+        <code className="font-semibold">accNumber</code>
+        <span className="px-2 py-1 rounded bg-rose-500/20 border border-rose-500/30 text-rose-400 text-xs font-medium">String!</span>
+      </div>
+      <div className="text-sm text-muted-foreground">
+        Bank account number or IBAN
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center justify-between mb-2">
+        <code className="font-semibold">metadata</code>
+        <span className="px-2 py-1 rounded bg-rose-500/20 border border-rose-500/30 text-rose-400 text-xs font-medium">String!</span>
+      </div>
+      <div className="text-sm text-muted-foreground mb-2">
+        Additional banking information (SWIFT/BIC code, routing number, etc.)
+      </div>
+      <div className="text-xs bg-muted px-3 py-2 rounded">
+        Example: "SWIFT: CHASUS33, Routing: 021000021"
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center justify-between mb-2">
+        <code className="font-semibold">address</code>
+        <span className="px-2 py-1 rounded bg-rose-500/20 border border-rose-500/30 text-rose-400 text-xs font-medium">String!</span>
+      </div>
+      <div className="text-sm text-muted-foreground">
+        Physical address of the account holder
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center justify-between mb-2">
+        <code className="font-semibold">postCode</code>
+        <span className="px-2 py-1 rounded bg-rose-500/20 border border-rose-500/30 text-rose-400 text-xs font-medium">String!</span>
+      </div>
+      <div className="text-sm text-muted-foreground">
+        Postal/ZIP code of the address
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center justify-between mb-2">
+        <code className="font-semibold">code</code>
+        <span className="px-2 py-1 rounded bg-rose-500/20 border border-rose-500/30 text-rose-400 text-xs font-medium">String!</span>
+      </div>
+      <div className="text-sm text-muted-foreground">
+        Email verification code from <code className="bg-muted px-1 rounded">generateWithdraw</code> mutation
+      </div>
+    </div>
+  </div>
+</div>
+
+## Return Value
+
+<div className="rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/10 to-green-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">✅</span>
+    <div>
+      <div className="font-bold text-lg">BankWithdrawRequest Object</div>
+      <div className="text-sm text-muted-foreground">Bank withdrawal request details</div>
+    </div>
+  </div>
+
+  ```graphql
+  type BankWithdrawRequest {
+    id: Int!
+    userId: Int!
+    targetCurrency: String!
+    amount: Float!
+    sourceToken: String!
+    mode: Int!
+    country: String!
+    holderName: String!
+    bankName: String!
+    accNumber: String!
+    metadata: String
+    address: String!
+    postCode: String!
+    status: Int!
+    createdAt: Float
+    updatedAt: Float
+  }
+  ```
+</div>
+
+## Example Mutation
+
+<div className="my-6">
+  <div className="font-bold mb-3 flex items-center gap-2">
+    <span>💻</span>
+    <span>International Bank Withdrawal</span>
+  </div>
+
+  ```graphql
+  mutation {
+    bankWithdrawRequest(
+      targetCurrency: "USD",
+      amount: 1000.0,
+      sourceToken: "BTC",
+      mode: 1,
+      country: "USA",
+      holderName: "John Doe",
+      bankName: "Bank of America",
+      accNumber: "123456789",
+      metadata: "SWIFT: BOFAUS3N, Routing: 026009593",
+      address: "123 Main St, Anytown, CA",
+      postCode: "12345",
+      code: "123456"
+    ) {
+      id
+      userId
+      targetCurrency
+      amount
+      sourceToken
+      mode
+      status
+      createdAt
+    }
+  }
+  ```
+
+  <div className="mt-4 p-4 rounded-lg border border-border bg-muted/30">
+    <div className="font-semibold text-sm mb-2">Example Response</div>
+    ```json
+    {
+      "data": {
+        "bankWithdrawRequest": {
+          "id": 12345,
+          "userId": 789,
+          "targetCurrency": "USD",
+          "amount": 1000.0,
+          "sourceToken": "BTC",
+          "mode": 1,
+          "status": 0,
+          "createdAt": 1699564800000
+        }
+      }
+    }
+    ```
+  </div>
+</div>
+
+## Implementation Example
+
+<div className="my-6">
+  ```typescript
+  async function withdrawToBank(withdrawalDetails: BankWithdrawalParams) {
+    try {
+      // Step 1: Generate verification code
+      const codeResult = await client.request(gql`
+        mutation {
+          generateWithdraw
+        }
+      `);
+
+      if (codeResult.generateWithdraw !== 'Success') {
+        throw new Error('Failed to generate verification code');
+      }
+
+      // Step 2: Get verification code from user
+      const verificationCode = await promptUserForCode();
+
+      // Step 3: Submit bank withdrawal request
+      const withdrawal = await client.request(gql`
+        mutation BankWithdraw(
+          $targetCurrency: String!,
+          $amount: Float!,
+          $sourceToken: String!,
+          $mode: Int!,
+          $country: String!,
+          $holderName: String!,
+          $bankName: String!,
+          $accNumber: String!,
+          $metadata: String!,
+          $address: String!,
+          $postCode: String!,
+          $code: String!
+        ) {
+          bankWithdrawRequest(
+            targetCurrency: $targetCurrency,
+            amount: $amount,
+            sourceToken: $sourceToken,
+            mode: $mode,
+            country: $country,
+            holderName: $holderName,
+            bankName: $bankName,
+            accNumber: $accNumber,
+            metadata: $metadata,
+            address: $address,
+            postCode: $postCode,
+            code: $code
+          ) {
+            id
+            status
+            amount
+            targetCurrency
+            createdAt
+          }
+        }
+      `, {
+        ...withdrawalDetails,
+        code: verificationCode
+      });
+
+      console.log('✅ Bank withdrawal request submitted');
+      console.log('Request ID:', withdrawal.bankWithdrawRequest.id);
+
+      return withdrawal.bankWithdrawRequest;
+
+    } catch (error) {
+      console.error('❌ Bank withdrawal failed:', error);
+      throw error;
+    }
+  }
+  ```
+</div>
+
+## Transfer Modes
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5">
+    <div className="flex items-center gap-3 mb-3">
+      <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 font-bold">1</div>
+      <div className="font-bold text-lg">International Transfer</div>
+    </div>
+    <div className="text-sm text-muted-foreground mb-3">
+      For withdrawals to banks in different countries
+    </div>
+    <div className="space-y-2 text-xs">
+      <div className="flex items-start gap-2">
+        <span>✓</span>
+        <span>Requires SWIFT/BIC code</span>
+      </div>
+      <div className="flex items-start gap-2">
+        <span>✓</span>
+        <span>Longer processing time (3-5 business days)</span>
+      </div>
+      <div className="flex items-start gap-2">
+        <span>✓</span>
+        <span>May have higher fees</span>
+      </div>
+      <div className="flex items-start gap-2">
+        <span>✓</span>
+        <span>Currency conversion may apply</span>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5">
+    <div className="flex items-center gap-3 mb-3">
+      <div className="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold">2</div>
+      <div className="font-bold text-lg">Domestic Transfer</div>
+    </div>
+    <div className="text-sm text-muted-foreground mb-3">
+      For withdrawals within the same country
+    </div>
+    <div className="space-y-2 text-xs">
+      <div className="flex items-start gap-2">
+        <span>✓</span>
+        <span>Routing number (US) or sort code (UK)</span>
+      </div>
+      <div className="flex items-start gap-2">
+        <span>✓</span>
+        <span>Faster processing (1-2 business days)</span>
+      </div>
+      <div className="flex items-start gap-2">
+        <span>✓</span>
+        <span>Lower fees</span>
+      </div>
+      <div className="flex items-start gap-2">
+        <span>✓</span>
+        <span>No currency conversion</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Security Features
+
+<div className="rounded-xl border border-red-500/30 bg-gradient-to-br from-red-500/10 to-red-500/5 p-6 my-6">
+  <div className="font-bold text-lg mb-4 flex items-center gap-2">
+    <span>🔒</span>
+    <span>Security Measures</span>
+  </div>
+
+  <div className="space-y-3">
+    <div className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
+      <div className="text-xl">📧</div>
+      <div className="flex-1">
+        <div className="font-bold text-sm">Email Verification</div>
+        <div className="text-xs text-muted-foreground mt-1">
+          Verification code required from authenticated user's email
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
+      <div className="text-xl">👨‍💼</div>
+      <div className="flex-1">
+        <div className="font-bold text-sm">Manual Admin Review</div>
+        <div className="text-xs text-muted-foreground mt-1">
+          All bank withdrawals manually reviewed and approved by admins with 2FA
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
+      <div className="text-xl">✍️</div>
+      <div className="flex-1">
+        <div className="font-bold text-sm">Name Verification</div>
+        <div className="text-xs text-muted-foreground mt-1">
+          Account holder name must match verified user identity
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
+      <div className="text-xl">🏦</div>
+      <div className="flex-1">
+        <div className="font-bold text-sm">Banking Details Validation</div>
+        <div className="text-xs text-muted-foreground mt-1">
+          Bank account details verified for correctness and fraud prevention
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Best Practices
+
+<div className="space-y-3 my-6">
+  <div className="p-4 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-start gap-3">
+      <span className="text-lg">✅</span>
+      <div>
+        <div className="font-bold text-sm">Verify All Banking Details</div>
+        <div className="text-xs text-muted-foreground mt-1">
+          Double-check account number, routing/SWIFT codes, and account holder name for accuracy
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-start gap-3">
+      <span className="text-lg">✅</span>
+      <div>
+        <div className="font-bold text-sm">Choose Correct Transfer Mode</div>
+        <div className="text-xs text-muted-foreground mt-1">
+          Select mode 1 for international or mode 2 for domestic transfers
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-start gap-3">
+      <span className="text-lg">✅</span>
+      <div>
+        <div className="font-bold text-sm">Include Complete Metadata</div>
+        <div className="text-xs text-muted-foreground mt-1">
+          Provide all necessary routing codes (SWIFT, BIC, routing number) in metadata field
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-start gap-3">
+      <span className="text-lg">✅</span>
+      <div>
+        <div className="font-bold text-sm">Match Currency to Region</div>
+        <div className="text-xs text-muted-foreground mt-1">
+          Ensure target currency matches your bank's country (USD for US banks, EUR for European banks, etc.)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-start gap-3">
+      <span className="text-lg">⏱️</span>
+      <div>
+        <div className="font-bold text-sm">Allow Processing Time</div>
+        <div className="text-xs text-muted-foreground mt-1">
+          Bank transfers require manual processing - allow 3-7 business days for completion
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Related Operations
+
+<Cards>
+  <Card
+    title="Generate Withdraw Code"
+    href="/docs/api/Withdraw/generate-withdraw-code"
+    description="Generate verification code required for withdrawal"
+  />
+  <Card
+    title="Approve Fiat Withdrawal"
+    href="/docs/api/Withdraw/approve-fiat-withdrawal-request"
+    description="Admin approval after manual bank transfer (ADMIN)"
+  />
+  <Card
+    title="Deny Bank Withdrawal"
+    href="/docs/api/Withdraw/deny-bank-withdrawal-request"
+    description="Admin denial with reason (ADMIN)"
+  />
+  <Card
+    title="Withdrawal Overview"
+    href="/docs/api/Withdraw/withdraw-summary"
+    description="Complete withdrawal API documentation"
+  />
+</Cards>
+
+<div className="mt-8 p-6 rounded-xl border border-rose-500/30 bg-gradient-to-r from-rose-500/10 to-pink-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">🏦</span>
+    <div>
+      <div className="font-bold">Manual Processing Required</div>
+      <div className="text-sm text-muted-foreground">Bank withdrawals require manual admin verification and transfer - expect longer processing times than crypto withdrawals</div>
+    </div>
+  </div>
+</div>

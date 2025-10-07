@@ -1,0 +1,337 @@
+---
+title: Pay For Presale With Stripe
+description: Process presale payments using Stripe payment gateway with full 3D Secure support
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-500 via-teal-600 to-cyan-700 p-8 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+      Stripe Payment for Presale
+    </h1>
+    <p className="text-xl text-white/90 mb-6">
+      Process secure credit card payments with PCI-compliant Stripe integration
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+</div>
+
+## Mutation
+
+<div className="rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-blue-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💳</span>
+    <div>
+      <div className="font-bold text-lg">payStripeForPreSale</div>
+      <div className="text-sm text-muted-foreground">Process presale payment using Stripe payment gateway</div>
+    </div>
+  </div>
+
+  ### Schema
+
+  ```graphql
+  payStripeForPreSale(
+    id: Int
+    presaleId: Int!
+    orderId: Int!
+    amount: Float!
+    fiatAmount: Float!
+    fiatType: String!
+    paymentIntentId: String!
+    paymentMethodId: String!
+    isSaveCard: Boolean
+  ): PayResponse
+  ```
+</div>
+
+## Parameters
+
+<div className="space-y-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">id</code>
+      <span className="text-xs bg-muted text-muted-foreground px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Int</code></div>
+      <div className="text-muted-foreground">Payment ID. Set to <code className="bg-muted px-1 rounded">null</code> for the first call</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">presaleId</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Int!</code></div>
+      <div className="text-muted-foreground">The unique identifier of the presale round</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">orderId</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Int!</code></div>
+      <div className="text-muted-foreground">The ID of the presale order to pay for</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">amount</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Float!</code></div>
+      <div className="text-muted-foreground">The payment amount in USD</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">fiatAmount</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Float!</code></div>
+      <div className="text-muted-foreground">The amount in the payment currency (for currency conversion)</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">fiatType</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String!</code></div>
+      <div className="text-muted-foreground">The currency type (e.g., "USD", "EUR", "GBP")</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">paymentIntentId</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String!</code></div>
+      <div className="text-muted-foreground">
+        The payment intent ID from Stripe. See <a href="https://stripe.com/docs/api" className="text-blue-500 hover:underline" target="_blank">Stripe API docs</a>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">paymentMethodId</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String!</code></div>
+      <div className="text-muted-foreground">
+        The payment method ID from Stripe. See <a href="https://stripe.com/docs/api" className="text-blue-500 hover:underline" target="_blank">Stripe API docs</a>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">isSaveCard</code>
+      <span className="text-xs bg-muted text-muted-foreground px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Boolean</code></div>
+      <div className="text-muted-foreground">Set to <code className="bg-muted px-1 rounded">true</code> to save card for future payments, <code className="bg-muted px-1 rounded">false</code> for new card</div>
+    </div>
+  </div>
+</div>
+
+## Return Value
+
+<div className="p-5 rounded-lg border border-green-500/30 bg-green-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">📦</span>
+    <div className="font-bold">Returns PayResponse Object</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    Contains client secret and payment status for completing the Stripe payment flow
+  </div>
+</div>
+
+## Example
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">Usage Example</div>
+      <div className="text-xs text-muted-foreground">Process $500 payment for presale order</div>
+    </div>
+  </div>
+
+  ```graphql
+  mutation {
+    payStripeForPreSale(
+      id: null
+      presaleId: 1
+      orderId: 123
+      amount: 500.0
+      fiatAmount: 500.0
+      fiatType: "USD"
+      paymentIntentId: "pi_1Fxxxxx"
+      paymentMethodId: "pm_1Fxxxxx"
+      isSaveCard: false
+    ) {
+      clientSecret
+      paymentIntentId
+      requiresAction
+      error
+    }
+  }
+  ```
+</div>
+
+## Response Example
+
+<div className="rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/10 to-green-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📤</span>
+    <div>
+      <div className="font-bold">Sample Response</div>
+      <div className="text-xs text-muted-foreground">Successful payment initiation</div>
+    </div>
+  </div>
+
+  ```json
+  {
+    "data": {
+      "payStripeForPreSale": {
+        "clientSecret": "pi_1Fxxxxx_secret_xxxxx",
+        "paymentIntentId": "pi_1Fxxxxx",
+        "requiresAction": false,
+        "error": null
+      }
+    }
+  }
+  ```
+</div>
+
+## Integration Flow
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-8">
+  <div className="flex items-center gap-3 mb-6">
+    <span className="text-2xl">🔄</span>
+    <div>
+      <div className="font-bold text-lg">Stripe Payment Processing</div>
+      <div className="text-sm text-muted-foreground">Complete integration workflow</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-cyan-500 font-bold text-lg">1</span>
+        <div className="font-semibold text-sm">Initialize Stripe</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Load Stripe.js in your frontend and create a payment intent
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-cyan-500 font-bold text-lg">2</span>
+        <div className="font-semibold text-sm">Collect Card Details</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Use Stripe Elements to securely collect card information from the user
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-cyan-500 font-bold text-lg">3</span>
+        <div className="font-semibold text-sm">Get Stripe IDs</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Obtain paymentIntentId and paymentMethodId from Stripe API
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-cyan-500 font-bold text-lg">4</span>
+        <div className="font-semibold text-sm">Call payStripeForPreSale</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Submit payment with Stripe IDs to process the presale payment
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-cyan-500 font-bold text-lg">5</span>
+        <div className="font-semibold text-sm">Handle Response</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        If requiresAction is true, use clientSecret with Stripe's confirmCardPayment for 3D Secure
+      </div>
+    </div>
+  </div>
+</div>
+
+## Use Cases
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">💳</div>
+    <div className="font-bold mb-2">New Card Payments</div>
+    <div className="text-sm text-muted-foreground">
+      Accept one-time payments from new credit or debit cards with full PCI compliance
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">💾</div>
+    <div className="font-bold mb-2">Save Card Option</div>
+    <div className="text-sm text-muted-foreground">
+      Allow users to save their card details for faster future presale payments
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🔒</div>
+    <div className="font-bold mb-2">3D Secure Support</div>
+    <div className="text-sm text-muted-foreground">
+      Built-in support for 3D Secure authentication when required by the card issuer
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🌍</div>
+    <div className="font-bold mb-2">Multi-Currency</div>
+    <div className="text-sm text-muted-foreground">
+      Support for multiple fiat currencies with automatic conversion to USD
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-cyan-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold">Best Practice</div>
+      <div className="text-sm text-muted-foreground">
+        Always check the requiresAction flag in the response. When true, you must use Stripe's confirmCardPayment method with the clientSecret to complete 3D Secure authentication. This ensures compliance with Strong Customer Authentication (SCA) requirements.
+      </div>
+    </div>
+  </div>
+</div>

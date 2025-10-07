@@ -1,0 +1,256 @@
+---
+title: API FAQs
+description: Frequently asked questions about NYYU APIs
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-background p-8 border border-purple-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Frequently Asked Questions
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Find answers to common questions about NYYU APIs, authentication, and integration
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-pink-500/5 rounded-full blur-3xl"></div>
+</div>
+
+## Getting Started
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="font-bold mb-2 flex items-center gap-2">
+      <span className="text-blue-500">Q:</span>
+      <span>How do I get started with the NYYU API?</span>
+    </div>
+    <div className="text-sm text-muted-foreground pl-6">
+      Refer to our <a href="/docs/api/getting-started" className="text-blue-500 hover:underline">Getting Started</a> guide for detailed instructions on how to use our APIs. The guide covers authentication, making your first request, and best practices.
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="font-bold mb-2 flex items-center gap-2">
+      <span className="text-blue-500">Q:</span>
+      <span>What authentication method do you use?</span>
+    </div>
+    <div className="text-sm text-muted-foreground pl-6">
+      We use OAuth2 for authentication across all our APIs. You'll need to obtain an access token and include it in the Authorization header of your requests.
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="font-bold mb-2 flex items-center gap-2">
+      <span className="text-blue-500">Q:</span>
+      <span>What is the difference between NYYU API, NYYU PAY, and NYYU NODE?</span>
+    </div>
+    <div className="text-sm text-muted-foreground pl-6">
+      <div className="space-y-2">
+        <div><strong>NYYU API:</strong> Core system API based on Java Spring Boot and GraphQL for main platform functionalities</div>
+        <div><strong>NYYU PAY:</strong> Node.js-based payment service using WebSocket for cryptocurrency payment processing</div>
+        <div><strong>NYYU NODE:</strong> Node.js-based service supporting multiple cryptocurrencies via WebSocket (ETH, BTC, BNB, Solana, Polygon)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Authentication & Security
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="font-bold mb-2 flex items-center gap-2">
+      <span className="text-green-500">Q:</span>
+      <span>How do I authenticate with NYYU APIs?</span>
+    </div>
+    <div className="text-sm text-muted-foreground pl-6">
+      Obtain an OAuth2 token from your NYYU dashboard and include it in the <code className="bg-muted px-1 rounded">Authorization</code> header of your requests as <code className="bg-muted px-1 rounded">Bearer YOUR_TOKEN</code>. See the Authentication section for detailed steps.
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="font-bold mb-2 flex items-center gap-2">
+      <span className="text-green-500">Q:</span>
+      <span>What scopes are required for accessing NYYU APIs?</span>
+    </div>
+    <div className="text-sm text-muted-foreground pl-6">
+      Scopes depend on the specific API being accessed. Common scopes include "openid", "profile", and "email". Check the documentation for each endpoint to see required scopes.
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="font-bold mb-2 flex items-center gap-2">
+      <span className="text-green-500">Q:</span>
+      <span>How do I handle two-factor authentication (2FA) with NYYU API?</span>
+    </div>
+    <div className="text-sm text-muted-foreground pl-6">
+      Use the mutations for requesting and confirming 2FA setup. See <a href="/docs/api/registration/request-2fa" className="text-green-500 hover:underline">Two-Factor Authentication</a> documentation for implementation details.
+    </div>
+  </div>
+</div>
+
+## API Endpoints & Usage
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="font-bold mb-2 flex items-center gap-2">
+      <span className="text-cyan-500">Q:</span>
+      <span>What are the endpoints for NYYU PAY and NYYU NODE?</span>
+    </div>
+    <div className="text-sm text-muted-foreground pl-6">
+      <div className="space-y-1 mt-2">
+        <div><strong>NYYU PAY:</strong> <code className="bg-muted px-1 rounded">wss://api.pay.nyyu.io</code></div>
+        <div><strong>NYYU NODE:</strong> <code className="bg-muted px-1 rounded">wss://api.node.nyyu.io</code></div>
+        <div><strong>NYYU Core:</strong> <code className="bg-muted px-1 rounded">https://api.nyyu.io/graphql</code></div>
+      </div>
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="font-bold mb-2 flex items-center gap-2">
+      <span className="text-cyan-500">Q:</span>
+      <span>How do I initiate a payment using NYYU PAY?</span>
+    </div>
+    <div className="text-sm text-muted-foreground pl-6">
+      Connect to the WebSocket endpoint <code className="bg-muted px-1 rounded">wss://api.pay.nyyu.io</code> and send a JSON message with payment details including action, amount, and currency. See our payment integration guide for code examples.
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="font-bold mb-2 flex items-center gap-2">
+      <span className="text-cyan-500">Q:</span>
+      <span>How do I get the balance of a cryptocurrency using NYYU NODE?</span>
+    </div>
+    <div className="text-sm text-muted-foreground pl-6">
+      Connect to the WebSocket endpoint and send a message with action "getBalance" and specify the currency (ETH, BTC, etc.). The response will include the current balance.
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="font-bold mb-2 flex items-center gap-2">
+      <span className="text-cyan-500">Q:</span>
+      <span>What is the rate limit for NYYU APIs?</span>
+    </div>
+    <div className="text-sm text-muted-foreground pl-6">
+      Rate limits vary by endpoint and authentication tier. Implement exponential backoff for rate-limited requests and monitor response headers for limit information.
+    </div>
+  </div>
+</div>
+
+## User Management
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="font-bold mb-2 flex items-center gap-2">
+      <span className="text-orange-500">Q:</span>
+      <span>How do I update my user profile using NYYU API?</span>
+    </div>
+    <div className="text-sm text-muted-foreground pl-6">
+      Use the appropriate GraphQL mutation to update user profile details. See <a href="/docs/api/user/user-summary" className="text-orange-500 hover:underline">User Profile</a> documentation for available mutations and examples.
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="font-bold mb-2 flex items-center gap-2">
+      <span className="text-orange-500">Q:</span>
+      <span>How do I manage my avatar using NYYU API?</span>
+    </div>
+    <div className="text-sm text-muted-foreground pl-6">
+      Use the provided mutations for setting and updating avatar components. See <a href="/docs/api/avatar/avatar-summary" className="text-orange-500 hover:underline">Avatar Management</a> for detailed implementation.
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="font-bold mb-2 flex items-center gap-2">
+      <span className="text-orange-500">Q:</span>
+      <span>What is the process for verifying my account?</span>
+    </div>
+    <div className="text-sm text-muted-foreground pl-6">
+      Follow the steps outlined in the <a href="/docs/api/registration/verify-account" className="text-orange-500 hover:underline">Account Verification</a> section, which includes sending and confirming verification codes via email or SMS.
+    </div>
+  </div>
+</div>
+
+## Trading & Auctions
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="font-bold mb-2 flex items-center gap-2">
+      <span className="text-purple-500">Q:</span>
+      <span>How do I participate in an auction using NYYU API?</span>
+    </div>
+    <div className="text-sm text-muted-foreground pl-6">
+      Use the provided mutations for placing and increasing bids. See <a href="/docs/api/auction/auction-summary" className="text-purple-500 hover:underline">Auction Participation</a> for step-by-step examples and bid management.
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="font-bold mb-2 flex items-center gap-2">
+      <span className="text-purple-500">Q:</span>
+      <span>How do I retrieve notifications using NYYU API?</span>
+    </div>
+    <div className="text-sm text-muted-foreground pl-6">
+      Use the queries provided to fetch notifications with pagination support. See <a href="/docs/api/notification/notification-summary" className="text-purple-500 hover:underline">Notifications</a> for filtering and management options.
+    </div>
+  </div>
+</div>
+
+## Error Handling & Support
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="font-bold mb-2 flex items-center gap-2">
+      <span className="text-red-500">Q:</span>
+      <span>How do I handle errors returned by NYYU APIs?</span>
+    </div>
+    <div className="text-sm text-muted-foreground pl-6">
+      Errors are returned with appropriate HTTP status codes and error messages. Always check the response status and implement proper error handling with retry logic for transient errors.
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="font-bold mb-2 flex items-center gap-2">
+      <span className="text-red-500">Q:</span>
+      <span>What should I do if I encounter a problem with the NYYU API?</span>
+    </div>
+    <div className="text-sm text-muted-foreground pl-6">
+      Check our troubleshooting guide for common issues and solutions. If the problem persists, contact our developer support team with your API request details and error messages.
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="font-bold mb-2 flex items-center gap-2">
+      <span className="text-red-500">Q:</span>
+      <span>How do I get the latest updates and changes to NYYU APIs?</span>
+    </div>
+    <div className="text-sm text-muted-foreground pl-6">
+      Refer to the <a href="/docs/changelog" className="text-red-500 hover:underline">Changelog</a> section for the latest updates, changes, and deprecation notices for our APIs.
+    </div>
+  </div>
+</div>
+
+## Commercial Use
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="font-bold mb-2 flex items-center gap-2">
+      <span className="text-yellow-500">Q:</span>
+      <span>Can I use NYYU APIs for commercial applications?</span>
+    </div>
+    <div className="text-sm text-muted-foreground pl-6">
+      Yes, NYYU APIs are designed to support both personal and commercial applications. Review our terms of service and pricing plans for commercial usage details.
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-purple-500/30 bg-gradient-to-r from-purple-500/10 to-pink-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💬</span>
+    <div>
+      <div className="font-bold">Still have questions?</div>
+      <div className="text-sm text-muted-foreground">Contact our developer support team or join our community forum for help</div>
+    </div>
+  </div>
+</div>

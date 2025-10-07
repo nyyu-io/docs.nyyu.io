@@ -1,0 +1,20 @@
+{
+  "title": "Presale Payment",
+  "pages": [
+    "presale-payment-summary",
+    "place-presale-order",
+    "pay-with-stripe",
+    "pay-with-stripe-saved-card",
+    "pay-with-paypal",
+    "capture-paypal-order",
+    "pay-with-crypto",
+    "pay-with-wallet",
+    "get-crypto-price",
+    "get-coins",
+    "add-new-coin",
+    "delete-coin",
+    "get-crypto-transactions",
+    "get-paypal-transactions",
+    "get-stripe-transactions"
+  ]
+}

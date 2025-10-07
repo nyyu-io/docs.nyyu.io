@@ -1,0 +1,542 @@
+---
+title: Get Round Perform 2
+description: Retrieve statistical metrics including minimum, maximum, and standard deviation for all auction rounds
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-amber-600 via-amber-500 to-yellow-600 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="relative">
+    <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm mb-4">
+      <span className="relative flex h-2 w-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-background"></span>
+      </span>
+      STATISTICAL ANALYSIS
+    </div>
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">Round Performance 2</h1>
+    <p className="text-xl text-amber-100 leading-relaxed max-w-3xl">
+      Advanced statistical metrics with minimum, maximum, and standard deviation data for comprehensive auction round analysis.
+    </p>
+  </div>
+</div>
+
+<Callout type="info" title="Advanced Analytics">
+  This query provides **statistical distribution metrics** essential for variance analysis, outlier detection, and data quality monitoring.
+</Callout>
+
+## Overview
+
+The `getRoundPerform2` query retrieves advanced statistical metrics for each auction round, including **minimum value**, **maximum value**, and **standard deviation**. These metrics are crucial for understanding data distribution, identifying anomalies, and performing sophisticated analytics.
+
+---
+
+## GraphQL Schema
+
+<div className="rounded-xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-yellow-500/5 p-6 mb-8">
+
+```graphql
+query {
+  getRoundPerform2: [RoundPerform2]
+}
+```
+
+</div>
+
+---
+
+## Return Type
+
+<div className="rounded-lg border border-amber-500/30 bg-background p-6 mb-6">
+  <h3 className="font-bold mb-4">RoundPerform2 Object</h3>
+
+  <div className="space-y-4">
+    <div className="rounded-lg border border-border bg-muted/30 p-4">
+      <div className="flex items-start gap-3 mb-3">
+        <code className="bg-amber-500/20 text-amber-700 dark:text-amber-300 px-3 py-1 rounded text-sm font-mono">roundNumber</code>
+        <span className="inline-flex items-center rounded-full bg-blue-500/10 px-2 py-0.5 text-xs font-semibold text-blue-700 dark:text-blue-300">Int!</span>
+      </div>
+      <p className="text-sm text-muted-foreground">
+        The unique identifier for the auction round. Sequential numbering starting from 1.
+      </p>
+    </div>
+
+    <div className="rounded-lg border border-border bg-muted/30 p-4">
+      <div className="flex items-start gap-3 mb-3">
+        <code className="bg-amber-500/20 text-amber-700 dark:text-amber-300 px-3 py-1 rounded text-sm font-mono">min</code>
+        <span className="inline-flex items-center rounded-full bg-green-500/10 px-2 py-0.5 text-xs font-semibold text-green-700 dark:text-green-300">Float!</span>
+      </div>
+      <p className="text-sm text-muted-foreground">
+        The minimum value observed in the round. Useful for identifying lower bounds and potential outliers.
+      </p>
+    </div>
+
+    <div className="rounded-lg border border-border bg-muted/30 p-4">
+      <div className="flex items-start gap-3 mb-3">
+        <code className="bg-amber-500/20 text-amber-700 dark:text-amber-300 px-3 py-1 rounded text-sm font-mono">max</code>
+        <span className="inline-flex items-center rounded-full bg-green-500/10 px-2 py-0.5 text-xs font-semibold text-green-700 dark:text-green-300">Float!</span>
+      </div>
+      <p className="text-sm text-muted-foreground">
+        The maximum value observed in the round. Useful for identifying upper bounds and peak performance.
+      </p>
+    </div>
+
+    <div className="rounded-lg border border-border bg-muted/30 p-4">
+      <div className="flex items-start gap-3 mb-3">
+        <code className="bg-amber-500/20 text-amber-700 dark:text-amber-300 px-3 py-1 rounded text-sm font-mono">std</code>
+        <span className="inline-flex items-center rounded-full bg-green-500/10 px-2 py-0.5 text-xs font-semibold text-green-700 dark:text-green-300">Float!</span>
+      </div>
+      <p className="text-sm text-muted-foreground">
+        Standard deviation measuring data dispersion. Higher values indicate greater variability in round performance.
+      </p>
+    </div>
+  </div>
+</div>
+
+---
+
+## Example Usage
+
+### Query Request
+
+```graphql
+query GetStatisticalMetrics {
+  getRoundPerform2 {
+    roundNumber
+    min
+    max
+    std
+  }
+}
+```
+
+### Successful Response
+
+```json
+{
+  "data": {
+    "getRoundPerform2": [
+      {
+        "roundNumber": 1,
+        "min": 0.01,
+        "max": 0.12,
+        "std": 0.025
+      },
+      {
+        "roundNumber": 2,
+        "min": 0.03,
+        "max": 0.18,
+        "std": 0.032
+      },
+      {
+        "roundNumber": 3,
+        "min": 0.05,
+        "max": 0.25,
+        "std": 0.045
+      },
+      {
+        "roundNumber": 4,
+        "min": 0.08,
+        "max": 0.35,
+        "std": 0.058
+      },
+      {
+        "roundNumber": 5,
+        "min": 0.12,
+        "max": 0.50,
+        "std": 0.072
+      }
+    ]
+  }
+}
+```
+
+<Callout type="info" title="Statistical Insights">
+  The example demonstrates increasing **standard deviation** over rounds, indicating growing volatility and wider price ranges as the auction progresses.
+</Callout>
+
+---
+
+## Chart Integration Examples
+
+<div className="rounded-lg border border-yellow-500/30 bg-background p-6 mb-6">
+  <h3 className="font-bold mb-4">Statistical Visualization Techniques</h3>
+
+  <div className="space-y-6">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-amber-500/20 flex items-center justify-center text-2xl">
+        📊
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Box Plot / Candlestick Chart</h4>
+        <p className="text-sm text-muted-foreground mb-3">
+          Visualize min, max, and standard deviation using box plots to show statistical distribution and identify outliers.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <code className="bg-amber-500/20 text-amber-700 dark:text-amber-300 px-2 py-1 rounded text-xs">Recharts Candlestick</code>
+          <code className="bg-amber-500/20 text-amber-700 dark:text-amber-300 px-2 py-1 rounded text-xs">D3.js Box Plot</code>
+          <code className="bg-amber-500/20 text-amber-700 dark:text-amber-300 px-2 py-1 rounded text-xs">Plotly Box</code>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-yellow-500/20 flex items-center justify-center text-2xl">
+        📈
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Range Area Chart</h4>
+        <p className="text-sm text-muted-foreground mb-3">
+          Display min-max range as shaded areas to visualize the spread and volatility across rounds.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <code className="bg-yellow-500/20 text-yellow-700 dark:text-yellow-300 px-2 py-1 rounded text-xs">Recharts AreaChart</code>
+          <code className="bg-yellow-500/20 text-yellow-700 dark:text-yellow-300 px-2 py-1 rounded text-xs">Chart.js Fill</code>
+          <code className="bg-yellow-500/20 text-yellow-700 dark:text-yellow-300 px-2 py-1 rounded text-xs">ApexCharts Range</code>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-orange-500/20 flex items-center justify-center text-2xl">
+        🎯
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Standard Deviation Line Chart</h4>
+        <p className="text-sm text-muted-foreground mb-3">
+          Plot standard deviation progression to track volatility trends and data consistency over time.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <code className="bg-orange-500/20 text-orange-700 dark:text-orange-300 px-2 py-1 rounded text-xs">Chart.js Line</code>
+          <code className="bg-orange-500/20 text-orange-700 dark:text-orange-300 px-2 py-1 rounded text-xs">Recharts LineChart</code>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-amber-500/20 flex items-center justify-center text-2xl">
+        📉
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Error Bars Chart</h4>
+        <p className="text-sm text-muted-foreground mb-3">
+          Add error bars to show variance and confidence intervals based on standard deviation values.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <code className="bg-amber-500/20 text-amber-700 dark:text-amber-300 px-2 py-1 rounded text-xs">Recharts ErrorBar</code>
+          <code className="bg-amber-500/20 text-amber-700 dark:text-amber-300 px-2 py-1 rounded text-xs">Plotly Error Bars</code>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Implementation Examples
+
+<div className="rounded-xl border border-amber-500/30 bg-background p-6 my-6">
+  <h3 className="font-bold mb-4">React + Recharts Range Chart</h3>
+
+```javascript
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { useQuery, gql } from '@apollo/client';
+
+const GET_ROUND_PERFORM_2 = gql`
+  query GetStatisticalMetrics {
+    getRoundPerform2 {
+      roundNumber
+      min
+      max
+      std
+    }
+  }
+`;
+
+function StatisticalRangeChart() {
+  const { data, loading } = useQuery(GET_ROUND_PERFORM_2);
+
+  if (loading) return <div>Loading statistical data...</div>;
+
+  // Transform data to show range
+  const chartData = data.getRoundPerform2.map(round => ({
+    round: `Round ${round.roundNumber}`,
+    range: [round.min, round.max],
+    min: round.min,
+    max: round.max,
+    std: round.std
+  }));
+
+  return (
+    <AreaChart width={800} height={400} data={chartData}>
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="round" />
+      <YAxis label={{ value: 'Value Range', angle: -90, position: 'insideLeft' }} />
+      <Tooltip />
+      <Legend />
+      <Area
+        type="monotone"
+        dataKey="max"
+        stackId="1"
+        stroke="#f59e0b"
+        fill="#fef3c7"
+        name="Maximum"
+      />
+      <Area
+        type="monotone"
+        dataKey="min"
+        stackId="2"
+        stroke="#d97706"
+        fill="#fbbf24"
+        name="Minimum"
+      />
+    </AreaChart>
+  );
+}
+```
+
+</div>
+
+<div className="rounded-xl border border-yellow-500/30 bg-background p-6 my-6">
+  <h3 className="font-bold mb-4">Standard Deviation Volatility Chart</h3>
+
+```jsx
+import { Line } from 'react-chartjs-2';
+
+function VolatilityChart({ data }) {
+  const chartData = {
+    labels: data.getRoundPerform2.map(r => `Round ${r.roundNumber}`),
+    datasets: [
+      {
+        label: 'Standard Deviation (Volatility)',
+        data: data.getRoundPerform2.map(r => r.std),
+        borderColor: 'rgb(245, 158, 11)',
+        backgroundColor: 'rgba(245, 158, 11, 0.1)',
+        fill: true,
+        tension: 0.4,
+        pointRadius: 5,
+        pointHoverRadius: 7
+      }
+    ]
+  };
+
+  const options = {
+    responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: 'Round Volatility Trend (Standard Deviation)'
+      },
+      tooltip: {
+        callbacks: {
+          label: (context) => {
+            return `Std Dev: ${context.parsed.y.toFixed(4)}`;
+          }
+        }
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        title: {
+          display: true,
+          text: 'Standard Deviation'
+        }
+      }
+    }
+  };
+
+  return <Line data={chartData} options={options} />;
+}
+```
+
+</div>
+
+---
+
+## Statistical Analysis Use Cases
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔍</div>
+    <h3 className="font-bold mb-2">Outlier Detection</h3>
+    <p className="text-sm text-muted-foreground">
+      Use min/max values and standard deviation to identify unusual bidding patterns or anomalies requiring investigation
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">📊</div>
+    <h3 className="font-bold mb-2">Volatility Analysis</h3>
+    <p className="text-sm text-muted-foreground">
+      Track standard deviation trends to understand market stability and predict periods of high or low variability
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🎯</div>
+    <h3 className="font-bold mb-2">Quality Monitoring</h3>
+    <p className="text-sm text-muted-foreground">
+      Monitor data quality by detecting rounds with abnormally high standard deviation or unrealistic min/max ranges
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">📈</div>
+    <h3 className="font-bold mb-2">Risk Assessment</h3>
+    <p className="text-sm text-muted-foreground">
+      Evaluate investment risk based on price variance and volatility metrics for informed decision making
+    </p>
+  </Card>
+</div>
+
+---
+
+## Statistical Concepts Explained
+
+<div className="rounded-lg border border-amber-500/30 bg-background p-6 mb-6">
+  <h3 className="font-bold mb-4">Understanding the Metrics</h3>
+
+  <div className="space-y-4">
+    <div className="rounded-lg border border-border bg-muted/30 p-4">
+      <div className="flex items-center gap-3 mb-2">
+        <span className="text-2xl">📉</span>
+        <h4 className="font-bold">Minimum Value</h4>
+      </div>
+      <p className="text-sm text-muted-foreground mb-2">
+        The lowest observed value in the dataset. Important for:
+      </p>
+      <ul className="text-sm text-muted-foreground list-disc list-inside space-y-1">
+        <li>Establishing price floors or lower bounds</li>
+        <li>Identifying potential data entry errors</li>
+        <li>Understanding best-case scenario for buyers</li>
+      </ul>
+    </div>
+
+    <div className="rounded-lg border border-border bg-muted/30 p-4">
+      <div className="flex items-center gap-3 mb-2">
+        <span className="text-2xl">📈</span>
+        <h4 className="font-bold">Maximum Value</h4>
+      </div>
+      <p className="text-sm text-muted-foreground mb-2">
+        The highest observed value in the dataset. Important for:
+      </p>
+      <ul className="text-sm text-muted-foreground list-disc list-inside space-y-1">
+        <li>Establishing price ceilings or upper bounds</li>
+        <li>Identifying peak performance or outliers</li>
+        <li>Understanding worst-case scenario for buyers</li>
+      </ul>
+    </div>
+
+    <div className="rounded-lg border border-border bg-muted/30 p-4">
+      <div className="flex items-center gap-3 mb-2">
+        <span className="text-2xl">📊</span>
+        <h4 className="font-bold">Standard Deviation (σ)</h4>
+      </div>
+      <p className="text-sm text-muted-foreground mb-2">
+        Measures how spread out values are from the mean. Important for:
+      </p>
+      <ul className="text-sm text-muted-foreground list-disc list-inside space-y-1">
+        <li>Assessing data consistency and reliability</li>
+        <li>Quantifying volatility and risk levels</li>
+        <li>Comparing variability across different rounds</li>
+      </ul>
+      <div className="mt-3 p-3 rounded bg-amber-500/10 border border-amber-500/30">
+        <div className="text-xs text-amber-900 dark:text-amber-200 font-mono">
+          Low std (&lt;0.03) = Stable, predictable behavior<br/>
+          High std (&gt;0.07) = Volatile, unpredictable behavior
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Advanced Analytics Tips
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-amber-500 bg-amber-500/10 p-4">
+    <h4 className="font-bold text-amber-700 dark:text-amber-300 mb-1">📊 Range Calculation</h4>
+    <p className="text-sm text-amber-900 dark:text-amber-200">
+      Calculate range: <code className="bg-amber-500/20 px-2 py-0.5 rounded">range = max - min</code> to understand value spread
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-yellow-500 bg-yellow-500/10 p-4">
+    <h4 className="font-bold text-yellow-700 dark:text-yellow-300 mb-1">🎯 Coefficient of Variation</h4>
+    <p className="text-sm text-yellow-900 dark:text-yellow-200">
+      Normalize volatility: <code className="bg-yellow-500/20 px-2 py-0.5 rounded">CV = (std / mean) × 100</code> for relative comparison
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-orange-500 bg-orange-500/10 p-4">
+    <h4 className="font-bold text-orange-700 dark:text-orange-300 mb-1">🔔 Anomaly Detection</h4>
+    <p className="text-sm text-orange-900 dark:text-orange-200">
+      Flag outliers using: <code className="bg-orange-500/20 px-2 py-0.5 rounded">value &gt; mean + (2 × std)</code> for two-sigma rule
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-amber-500 bg-amber-500/10 p-4">
+    <h4 className="font-bold text-amber-700 dark:text-amber-300 mb-1">📈 Trend Analysis</h4>
+    <p className="text-sm text-amber-900 dark:text-amber-200">
+      Track how standard deviation changes over rounds to predict increasing or decreasing market stability
+    </p>
+  </div>
+</div>
+
+---
+
+## Best Practices
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-amber-500 bg-amber-500/10 p-4">
+    <h4 className="font-bold text-amber-700 dark:text-amber-300 mb-1">⚡ Combine with Other Metrics</h4>
+    <p className="text-sm text-amber-900 dark:text-amber-200">
+      Use alongside RoundPerform1 data (price/volume) for comprehensive analytics and correlation analysis
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-yellow-500 bg-yellow-500/10 p-4">
+    <h4 className="font-bold text-yellow-700 dark:text-yellow-300 mb-1">🎨 Visual Clarity</h4>
+    <p className="text-sm text-yellow-900 dark:text-yellow-200">
+      Use color gradients to represent volatility levels - green for low std, yellow for medium, red for high
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-orange-500 bg-orange-500/10 p-4">
+    <h4 className="font-bold text-orange-700 dark:text-orange-300 mb-1">📊 Context Matters</h4>
+    <p className="text-sm text-orange-900 dark:text-orange-200">
+      Always display statistical metrics with context - what the values represent and their significance
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-amber-500 bg-amber-500/10 p-4">
+    <h4 className="font-bold text-amber-700 dark:text-amber-300 mb-1">🔍 Data Validation</h4>
+    <p className="text-sm text-amber-900 dark:text-amber-200">
+      Verify that min ≤ max and std ≥ 0 to catch potential API errors or data corruption
+    </p>
+  </div>
+</div>
+
+---
+
+## Related Operations
+
+<Cards>
+  <Card title="Round Perform 1" href="/docs/api/statistics/get-round-perform-1">
+    Token price and sold amount performance metrics
+  </Card>
+  <Card title="Round Chance" href="/docs/api/statistics/get-round-chance">
+    Success rates and win/fail statistics
+  </Card>
+  <Card title="Auction Rounds" href="/docs/api/auction/get-all-auction-rounds">
+    Complete auction round information and configuration
+  </Card>
+  <Card title="Statistics Overview" href="/docs/api/statistics/statistics-summary">
+    All statistics queries and analytics features
+  </Card>
+</Cards>

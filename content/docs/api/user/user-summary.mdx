@@ -1,0 +1,356 @@
+---
+title: User API Overview
+description: Comprehensive user management API for profiles, authentication, roles, and administrative operations
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-teal-600 via-emerald-600 to-cyan-600 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="relative">
+    <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm mb-4">
+      <span>👥</span>
+      USER MANAGEMENT API
+    </div>
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">User API</h1>
+    <p className="text-xl text-teal-100 leading-relaxed max-w-3xl">
+      Complete user management system with profile operations, role-based access control, and administrative tools.
+    </p>
+  </div>
+</div>
+
+## Overview
+
+The User API provides comprehensive functionality for managing user accounts, profiles, authentication, and administrative operations. Access is role-based with separate endpoints for regular users and administrators.
+
+---
+
+## User Type Schema
+
+<div className="rounded-xl border border-teal-500/30 bg-gradient-to-br from-teal-500/10 to-emerald-500/5 p-6 mb-8">
+
+```graphql
+type User {
+  id: Int
+  regDate: Float
+  updateDate: Float
+  deleted: Int
+  email: String
+  name: String
+  country: String
+  phone: String
+  birthday: Float
+  lastLoginDate: Float
+  role: [String]
+  tierLevel: Int
+  tierPoint: Float
+  provider: String
+  providerId: String
+  notifySetting: Int
+  avatar: UserAvatar
+  security: [UserSecurity]
+  verify: UserVerify
+}
+```
+
+</div>
+
+### Core Fields
+
+<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 my-6">
+  <div className="rounded-lg border border-teal-500/30 bg-background p-4">
+    <code className="text-teal-600 dark:text-teal-400 font-bold">id</code>
+    <p className="text-xs text-muted-foreground mt-1">Unique user identifier</p>
+  </div>
+
+  <div className="rounded-lg border border-emerald-500/30 bg-background p-4">
+    <code className="text-emerald-600 dark:text-emerald-400 font-bold">email</code>
+    <p className="text-xs text-muted-foreground mt-1">User email address</p>
+  </div>
+
+  <div className="rounded-lg border border-cyan-500/30 bg-background p-4">
+    <code className="text-cyan-600 dark:text-cyan-400 font-bold">name</code>
+    <p className="text-xs text-muted-foreground mt-1">Full name or username</p>
+  </div>
+
+  <div className="rounded-lg border border-teal-500/30 bg-background p-4">
+    <code className="text-teal-600 dark:text-teal-400 font-bold">role</code>
+    <p className="text-xs text-muted-foreground mt-1">Array of assigned roles</p>
+  </div>
+
+  <div className="rounded-lg border border-emerald-500/30 bg-background p-4">
+    <code className="text-emerald-600 dark:text-emerald-400 font-bold">tierLevel</code>
+    <p className="text-xs text-muted-foreground mt-1">User tier/level status</p>
+  </div>
+
+  <div className="rounded-lg border border-cyan-500/30 bg-background p-4">
+    <code className="text-cyan-600 dark:text-cyan-400 font-bold">country</code>
+    <p className="text-xs text-muted-foreground mt-1">User country code</p>
+  </div>
+</div>
+
+---
+
+## Related Types
+
+### UserAvatar
+
+<div className="rounded-lg border border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-teal-500/5 p-6 mb-6">
+
+```graphql
+type UserAvatar {
+  id: Int
+  prefix: String
+  name: String
+  purchased: String
+  selected: String
+}
+```
+
+<p className="text-sm text-muted-foreground mt-3">
+  Avatar customization data including prefix, name, purchased components, and selected appearance.
+</p>
+
+</div>
+
+### UserSecurity
+
+<div className="rounded-lg border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-emerald-500/5 p-6 mb-6">
+
+```graphql
+type UserSecurity {
+  id: Int
+  type: String
+  value: String
+  verified: Int
+}
+```
+
+<p className="text-sm text-muted-foreground mt-3">
+  Security settings including 2FA methods (app, email, SMS) and verification status.
+</p>
+
+</div>
+
+### UserVerify
+
+<div className="rounded-lg border border-teal-500/30 bg-gradient-to-br from-teal-500/10 to-cyan-500/5 p-6 mb-6">
+
+```graphql
+type UserVerify {
+  id: Int
+  email: Int
+  identity: Int
+  address: Int
+  bank: Int
+}
+```
+
+<p className="text-sm text-muted-foreground mt-3">
+  Verification statuses for email, identity documents, address, and banking information.
+</p>
+
+</div>
+
+---
+
+## Available Operations
+
+### User Operations
+
+<Cards>
+  <Card title="Get User" href="/docs/api/user/get-user">
+    Get authenticated user's profile
+  </Card>
+  <Card title="Change Password" href="/docs/api/user/change-password-by-user">
+    Update user password
+  </Card>
+  <Card title="Request Email Change" href="/docs/api/user/request-email-change">
+    Request email address change
+  </Card>
+  <Card title="Confirm Email Change" href="/docs/api/user/confirm-email-change">
+    Verify new email address
+  </Card>
+  <Card title="Delete Account" href="/docs/api/user/delete-account">
+    Permanently delete user account
+  </Card>
+</Cards>
+
+### Admin Operations
+
+<Cards>
+  <Card title="Get User by ID" href="/docs/api/user/get-user-by-id">
+    Retrieve specific user by ID
+  </Card>
+  <Card title="Get Paginated Users" href="/docs/api/user/get-paginated-users">
+    List users with pagination
+  </Card>
+  <Card title="Get Users Count" href="/docs/api/user/get-users-count">
+    Get total user count
+  </Card>
+  <Card title="Create User" href="/docs/api/user/create-new-user-by-admin">
+    Create new user account
+  </Card>
+  <Card title="Reset Password" href="/docs/api/user/reset-password-by-admin">
+    Admin reset user password
+  </Card>
+  <Card title="Change Role" href="/docs/api/user/change-role">
+    Modify user roles
+  </Card>
+  <Card title="Suspend User" href="/docs/api/user/suspend-user-by-admin">
+    Suspend user account
+  </Card>
+  <Card title="Release User" href="/docs/api/user/release-user-by-admin">
+    Restore suspended account
+  </Card>
+  <Card title="Country Restrictions" href="/docs/api/user/add-disallowed-country">
+    Manage geographic restrictions
+  </Card>
+  <Card title="Location Access" href="/docs/api/user/make-allow-location">
+    Configure location permissions
+  </Card>
+</Cards>
+
+---
+
+## Role-Based Access
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <div className="rounded-lg border border-teal-500/30 bg-gradient-to-br from-teal-500/10 to-emerald-500/5 p-6">
+    <div className="flex items-center gap-2 mb-3">
+      <span className="inline-flex items-center rounded-full bg-teal-500/20 px-3 py-1 text-xs font-semibold text-teal-700 dark:text-teal-300">USER</span>
+      <h3 className="font-bold text-lg">User Role</h3>
+    </div>
+    <p className="text-sm text-muted-foreground mb-3">
+      Standard user operations for managing own profile and account settings
+    </p>
+    <div className="space-y-1 text-xs">
+      <div>• View own profile</div>
+      <div>• Update password & email</div>
+      <div>• Delete own account</div>
+      <div>• Manage avatar settings</div>
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-red-500/30 bg-gradient-to-br from-red-500/10 to-rose-500/5 p-6">
+    <div className="flex items-center gap-2 mb-3">
+      <span className="inline-flex items-center rounded-full bg-red-500/20 px-3 py-1 text-xs font-semibold text-red-700 dark:text-red-300">ADMIN</span>
+      <h3 className="font-bold text-lg">Admin Role</h3>
+    </div>
+    <p className="text-sm text-muted-foreground mb-3">
+      Administrative operations for managing all users and system settings
+    </p>
+    <div className="space-y-1 text-xs">
+      <div>• View any user profile</div>
+      <div>• Create & manage users</div>
+      <div>• Modify roles & permissions</div>
+      <div>• Suspend/restore accounts</div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Common Use Cases
+
+<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 my-6">
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">👤</div>
+    <h3 className="font-bold mb-2">Profile Management</h3>
+    <p className="text-sm text-muted-foreground">
+      Users view and update their personal information, preferences, and account settings
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔐</div>
+    <h3 className="font-bold mb-2">Security Settings</h3>
+    <p className="text-sm text-muted-foreground">
+      Manage passwords, 2FA methods, and email verification for account security
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">⚙️</div>
+    <h3 className="font-bold mb-2">Admin Dashboard</h3>
+    <p className="text-sm text-muted-foreground">
+      Administrative interface for user management, role assignment, and system monitoring
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">📊</div>
+    <h3 className="font-bold mb-2">User Analytics</h3>
+    <p className="text-sm text-muted-foreground">
+      Track user growth, activity patterns, tier distribution, and engagement metrics
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🌍</div>
+    <h3 className="font-bold mb-2">Geographic Control</h3>
+    <p className="text-sm text-muted-foreground">
+      Manage location-based access restrictions and country-specific permissions
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔄</div>
+    <h3 className="font-bold mb-2">Account Lifecycle</h3>
+    <p className="text-sm text-muted-foreground">
+      Handle account creation, suspension, restoration, and deletion workflows
+    </p>
+  </Card>
+</div>
+
+---
+
+## Best Practices
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-teal-500 bg-teal-500/10 p-4">
+    <h4 className="font-bold text-teal-700 dark:text-teal-300 mb-1">🔒 Authorization</h4>
+    <p className="text-sm text-teal-900 dark:text-teal-200">
+      Always verify user roles before allowing access to admin operations. Use JWT tokens with proper role claims.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-emerald-500 bg-emerald-500/10 p-4">
+    <h4 className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">📧 Email Verification</h4>
+    <p className="text-sm text-emerald-900 dark:text-emerald-200">
+      Require email verification before granting full access to platform features.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-cyan-500 bg-cyan-500/10 p-4">
+    <h4 className="font-bold text-cyan-700 dark:text-cyan-300 mb-1">🛡️ Security</h4>
+    <p className="text-sm text-cyan-900 dark:text-cyan-200">
+      Implement rate limiting on sensitive operations like password changes and user lookups.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-teal-500 bg-teal-500/10 p-4">
+    <h4 className="font-bold text-teal-700 dark:text-teal-300 mb-1">💾 Data Privacy</h4>
+    <p className="text-sm text-teal-900 dark:text-teal-200">
+      Only return necessary user data in responses. Filter sensitive fields based on requester's role.
+    </p>
+  </div>
+</div>
+
+---
+
+## Related APIs
+
+<Cards>
+  <Card title="Registration" href="/docs/api/registration/sign-up">
+    User signup and authentication
+  </Card>
+  <Card title="Profile" href="/docs/api/profile/profile-summary">
+    Avatar and profile customization
+  </Card>
+  <Card title="User Tiers" href="/docs/api/user-tier/user-tier-summary">
+    Tier levels and rewards
+  </Card>
+</Cards>

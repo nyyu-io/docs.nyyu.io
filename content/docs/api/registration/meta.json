@@ -1,0 +1,16 @@
+{
+  "title": "Registration",
+  "pages": [
+    "registration-summary",
+    "sign-up",
+    "verify-account",
+    "resend-verification-code",
+    "request-2fa",
+    "confirm-2fa-setting",
+    "sign-in",
+    "sign-in-2fa-check",
+    "disable-2fa",
+    "forgot-password",
+    "password-reset"
+  ]
+}

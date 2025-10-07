@@ -1,0 +1,592 @@
+---
+title: Request 2FA
+description: Setup two-factor authentication with authenticator app, email, or SMS for enhanced account security
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-indigo-600 via-blue-600 to-cyan-600 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="relative">
+    <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm mb-4">
+      <span className="relative flex h-2 w-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-background"></span>
+      </span>
+      2FA SETUP
+    </div>
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">Request 2FA</h1>
+    <p className="text-xl text-blue-100 leading-relaxed max-w-3xl">
+      Initiate two-factor authentication setup using authenticator apps, email verification, or SMS codes for enhanced account protection.
+    </p>
+  </div>
+</div>
+
+<Callout type="info" title="Account Verification Required">
+  Email must be **verified** before setting up 2FA. Complete email verification first if you haven't already.
+</Callout>
+
+## Overview
+
+The `request2FA` mutation initiates the two-factor authentication setup process. Users can choose between three methods: authenticator app (Google Authenticator, Authy), email codes, or SMS codes. This endpoint generates the necessary credentials for the chosen method.
+
+---
+
+## GraphQL Schema
+
+<div className="rounded-xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 to-blue-500/5 p-6 mb-8">
+
+```graphql
+mutation {
+  request2FA(
+    email: String!
+    method: String!
+    phone: String
+  ): String!
+}
+```
+
+</div>
+
+---
+
+## Parameters
+
+<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 my-6">
+  <div className="rounded-lg border border-indigo-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">email</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700 dark:text-red-300">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-indigo-600 dark:text-indigo-400">String</span></p>
+    <p className="text-sm text-foreground">User's verified email address. Account must already be verified before 2FA setup.</p>
+  </div>
+
+  <div className="rounded-lg border border-blue-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">method</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700 dark:text-red-300">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-blue-600 dark:text-blue-400">String</span></p>
+    <p className="text-sm text-foreground">2FA method: <code className="text-xs bg-muted px-1 py-0.5 rounded">app</code>, <code className="text-xs bg-muted px-1 py-0.5 rounded">email</code>, or <code className="text-xs bg-muted px-1 py-0.5 rounded">phone</code></p>
+  </div>
+
+  <div className="rounded-lg border border-cyan-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">phone</h3>
+      <span className="inline-flex items-center rounded-full bg-amber-500/10 px-3 py-1 text-xs font-semibold text-amber-700 dark:text-amber-300">Optional</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-cyan-600 dark:text-cyan-400">String</span></p>
+    <p className="text-sm text-foreground">Phone number with country code (e.g., "+14155551234"). Required only when method is <code className="text-xs bg-muted px-1 py-0.5 rounded">phone</code>.</p>
+  </div>
+</div>
+
+---
+
+## 2FA Methods
+
+<div className="grid gap-4 md:grid-cols-3 my-6">
+  <div className="rounded-lg border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 to-indigo-500/5 p-6">
+    <div className="flex items-center gap-3 mb-3">
+      <span className="text-3xl">📱</span>
+      <code className="bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 px-3 py-1 rounded font-mono text-sm">app</code>
+    </div>
+    <h4 className="font-bold mb-2">Authenticator App</h4>
+    <p className="text-sm text-foreground mb-3">
+      Returns a QR code image that can be scanned with Google Authenticator, Authy, or similar TOTP apps.
+    </p>
+    <div className="text-xs text-muted-foreground">
+      Most secure option with offline code generation
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-blue-500/5 p-6">
+    <div className="flex items-center gap-3 mb-3">
+      <span className="text-3xl">📧</span>
+      <code className="bg-blue-500/20 text-blue-700 dark:text-blue-300 px-3 py-1 rounded font-mono text-sm">email</code>
+    </div>
+    <h4 className="font-bold mb-2">Email Code</h4>
+    <p className="text-sm text-foreground mb-3">
+      Sends a 6-digit verification code to the registered email address for each login attempt.
+    </p>
+    <div className="text-xs text-muted-foreground">
+      Convenient option using existing email account
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6">
+    <div className="flex items-center gap-3 mb-3">
+      <span className="text-3xl">💬</span>
+      <code className="bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 px-3 py-1 rounded font-mono text-sm">phone</code>
+    </div>
+    <h4 className="font-bold mb-2">SMS Code</h4>
+    <p className="text-sm text-foreground mb-3">
+      Sends a 6-digit verification code via SMS to the provided phone number for each login.
+    </p>
+    <div className="text-xs text-muted-foreground">
+      Requires valid phone number with SMS capability
+    </div>
+  </div>
+</div>
+
+---
+
+## Return Values
+
+<div className="grid gap-4 my-6">
+  <div className="rounded-lg border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 to-violet-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">📱</span>
+      <span className="font-bold">Authenticator App Response</span>
+    </div>
+    <p className="text-sm text-foreground mb-2">
+      Returns a base64-encoded QR code image string when method is <code className="text-xs bg-muted px-1 py-0.5 rounded">app</code>
+    </p>
+    <code className="text-xs bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 px-2 py-1 rounded block mt-2">
+      data:image/png;base64,iVBORw0KGgoAAAANSUhEUg...
+    </code>
+  </div>
+
+  <div className="rounded-lg border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-cyan-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">📧</span>
+      <code className="bg-blue-500/20 text-blue-700 dark:text-blue-300 px-3 py-1 rounded font-mono text-sm">Sent verify code via email</code>
+    </div>
+    <p className="text-sm text-foreground">
+      Confirmation that a 6-digit verification code has been sent to the registered email address.
+    </p>
+  </div>
+
+  <div className="rounded-lg border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-blue-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">💬</span>
+      <code className="bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 px-3 py-1 rounded font-mono text-sm">Sent verify code via SMS</code>
+    </div>
+    <p className="text-sm text-foreground">
+      Confirmation that a 6-digit verification code has been sent via SMS to the provided phone number.
+    </p>
+  </div>
+
+  <div className="rounded-lg border border-red-500/30 bg-gradient-to-br from-red-500/10 to-rose-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">⚠️</span>
+      <code className="bg-red-500/20 text-red-700 dark:text-red-300 px-3 py-1 rounded font-mono text-sm">Not verified</code>
+    </div>
+    <p className="text-sm text-foreground">
+      Email account is not verified. User must complete email verification before setting up 2FA.
+    </p>
+  </div>
+</div>
+
+---
+
+## Example Usage
+
+### Authenticator App Setup
+
+```graphql
+mutation Setup2FA_App {
+  request2FA(
+    email: "demouser@nyyu.io"
+    method: "app"
+  )
+}
+```
+
+**Response:**
+
+```json
+{
+  "data": {
+    "request2FA": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51..."
+  }
+}
+```
+
+<Callout type="info" title="QR Code Received">
+  Display the QR code image for the user to scan with their authenticator app. Then call `confirmRequest2FA` with the code from the app.
+</Callout>
+
+### Email Code Setup
+
+```graphql
+mutation Setup2FA_Email {
+  request2FA(
+    email: "demouser@nyyu.io"
+    method: "email"
+  )
+}
+```
+
+**Response:**
+
+```json
+{
+  "data": {
+    "request2FA": "Sent verify code via email"
+  }
+}
+```
+
+<Callout type="info" title="Check Email">
+  A 6-digit verification code has been sent to **demouser@nyyu.io**. Use this code to confirm 2FA setup.
+</Callout>
+
+### SMS Code Setup
+
+```graphql
+mutation Setup2FA_Phone {
+  request2FA(
+    email: "demouser@nyyu.io"
+    method: "phone"
+    phone: "+14155551234"
+  )
+}
+```
+
+**Response:**
+
+```json
+{
+  "data": {
+    "request2FA": "Sent verify code via SMS"
+  }
+}
+```
+
+<Callout type="info" title="Check SMS">
+  A 6-digit verification code has been sent to **+14155551234**. Use this code to confirm 2FA setup.
+</Callout>
+
+### Error: Unverified Account
+
+```json
+{
+  "errors": [
+    {
+      "message": "Not verified"
+    }
+  ]
+}
+```
+
+<Callout type="error" title="Email Verification Required">
+  Complete email verification before setting up 2FA. Check your inbox for the verification code.
+</Callout>
+
+---
+
+## 2FA Setup Flow
+
+<div className="rounded-lg border border-indigo-500/30 bg-background p-6 mb-6">
+  <h3 className="font-bold mb-4">Complete 2FA Configuration Process</h3>
+
+  <div className="space-y-6">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-indigo-500/20 flex items-center justify-center text-2xl">
+        🔐
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Step 1: Choose Method</h4>
+        <p className="text-sm text-muted-foreground mb-2">
+          User selects preferred 2FA method: authenticator app, email, or SMS
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <span className="inline-flex items-center rounded-full bg-indigo-500/10 px-3 py-1 text-xs font-semibold text-indigo-700 dark:text-indigo-300">App (most secure)</span>
+          <span className="inline-flex items-center rounded-full bg-indigo-500/10 px-3 py-1 text-xs font-semibold text-indigo-700 dark:text-indigo-300">Email</span>
+          <span className="inline-flex items-center rounded-full bg-indigo-500/10 px-3 py-1 text-xs font-semibold text-indigo-700 dark:text-indigo-300">SMS</span>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center text-2xl">
+        📲
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Step 2: Receive Credentials</h4>
+        <p className="text-sm text-muted-foreground mb-2">
+          System sends QR code (app) or verification code (email/SMS)
+        </p>
+        <div className="rounded-lg border border-blue-500/30 bg-blue-500/5 p-3">
+          <code className="text-xs">mutation request2FA(email, method, phone?)</code>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-cyan-500/20 flex items-center justify-center text-2xl">
+        ✅
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Step 3: Confirm Setup</h4>
+        <p className="text-sm text-muted-foreground mb-2">
+          User enters verification code to confirm 2FA is working correctly
+        </p>
+        <div className="rounded-lg border border-cyan-500/30 bg-cyan-500/5 p-3">
+          <code className="text-xs">→ confirmRequest2FA(email, method, code)</code>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Implementation Example
+
+<div className="rounded-xl border border-indigo-500/30 bg-background p-6 my-6">
+  <h3 className="font-bold mb-4">Frontend Integration</h3>
+
+```javascript
+// Example: 2FA setup handler with multiple methods
+async function handleRequest2FA(email, method, phone = null) {
+  try {
+    const result = await graphqlClient.mutate({
+      mutation: gql`
+        mutation Request2FA($email: String!, $method: String!, $phone: String) {
+          request2FA(email: $email, method: $method, phone: $phone)
+        }
+      `,
+      variables: {
+        email: email,
+        method: method,
+        phone: phone
+      }
+    });
+
+    const response = result.data.request2FA;
+
+    if (method === "app") {
+      // Display QR code for authenticator app
+      const qrCodeImage = response; // base64 image string
+      displayQRCode(qrCodeImage);
+
+      showNotification(
+        "Scan this QR code with your authenticator app (Google Authenticator, Authy, etc.)"
+      );
+
+    } else if (method === "email") {
+      // Email code sent
+      showNotification("A verification code has been sent to your email.");
+      showCodeInputDialog();
+
+    } else if (method === "phone") {
+      // SMS code sent
+      showNotification(`A verification code has been sent to ${phone}`);
+      showCodeInputDialog();
+    }
+
+    // Move to confirmation step
+    setState({
+      twoFAMethod: method,
+      awaitingConfirmation: true
+    });
+
+  } catch (error) {
+    if (error.message.includes("Not verified")) {
+      showError("Please verify your email before setting up 2FA.");
+      router.push('/verify-email');
+    } else if (error.message.includes("Cannot find user")) {
+      showError("Email not found. Please sign up first.");
+      router.push('/signup');
+    } else {
+      console.error("2FA request failed:", error);
+      showError("Failed to setup 2FA. Please try again.");
+    }
+  }
+}
+
+// Display QR code for app method
+function displayQRCode(base64Image) {
+  const qrCodeElement = document.getElementById('qr-code');
+  qrCodeElement.src = base64Image;
+  qrCodeElement.style.display = 'block';
+
+  // Also provide manual entry option
+  const secret = extractSecretFromQR(base64Image);
+  document.getElementById('manual-secret').textContent = secret;
+}
+
+// Method selector component
+function TwoFAMethodSelector({ onSelect }) {
+  return (
+    <div className="grid gap-4 md:grid-cols-3">
+      <button onClick={() => onSelect('app')} className="method-card">
+        <span className="text-4xl">📱</span>
+        <h3>Authenticator App</h3>
+        <p>Most secure option</p>
+        <span className="badge">Recommended</span>
+      </button>
+
+      <button onClick={() => onSelect('email')} className="method-card">
+        <span className="text-4xl">📧</span>
+        <h3>Email Code</h3>
+        <p>Convenient and reliable</p>
+      </button>
+
+      <button onClick={() => onSelect('phone')} className="method-card">
+        <span className="text-4xl">💬</span>
+        <h3>SMS Code</h3>
+        <p>Requires phone number</p>
+      </button>
+    </div>
+  );
+}
+```
+
+</div>
+
+---
+
+## Use Cases
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔐</div>
+    <h3 className="font-bold mb-2">Initial 2FA Setup</h3>
+    <p className="text-sm text-muted-foreground">
+      New users setting up 2FA for the first time during account registration process
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔄</div>
+    <h3 className="font-bold mb-2">Method Change</h3>
+    <p className="text-sm text-muted-foreground">
+      Existing users switching from one 2FA method to another (e.g., email to app)
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">➕</div>
+    <h3 className="font-bold mb-2">Additional Methods</h3>
+    <p className="text-sm text-muted-foreground">
+      Users adding backup 2FA methods for redundancy and account recovery
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🛡️</div>
+    <h3 className="font-bold mb-2">Security Enhancement</h3>
+    <p className="text-sm text-muted-foreground">
+      Users upgrading from less secure methods (email/SMS) to authenticator app
+    </p>
+  </Card>
+</div>
+
+---
+
+## Best Practices
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-indigo-500 bg-indigo-500/10 p-4">
+    <h4 className="font-bold text-indigo-700 dark:text-indigo-300 mb-1">📱 Recommend App Method</h4>
+    <p className="text-sm text-indigo-900 dark:text-indigo-200">
+      Suggest authenticator apps as the most secure option with offline code generation and no dependency on email/SMS delivery
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-blue-500 bg-blue-500/10 p-4">
+    <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-1">🔐 QR Code Display</h4>
+    <p className="text-sm text-blue-900 dark:text-blue-200">
+      When showing QR codes, also provide manual entry option (secret key text) for users who can't scan the code
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-cyan-500 bg-cyan-500/10 p-4">
+    <h4 className="font-bold text-cyan-700 dark:text-cyan-300 mb-1">📞 Phone Validation</h4>
+    <p className="text-sm text-cyan-900 dark:text-cyan-200">
+      Validate phone numbers client-side and require international format (+country code) before submission
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-indigo-500 bg-indigo-500/10 p-4">
+    <h4 className="font-bold text-indigo-700 dark:text-indigo-300 mb-1">⚡ Clear Instructions</h4>
+    <p className="text-sm text-indigo-900 dark:text-indigo-200">
+      Provide step-by-step instructions for each method, especially for first-time users unfamiliar with 2FA
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-blue-500 bg-blue-500/10 p-4">
+    <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-1">✅ Multiple Methods</h4>
+    <p className="text-sm text-blue-900 dark:text-blue-200">
+      Allow users to configure multiple 2FA methods as backup options in case primary method is unavailable
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-cyan-500 bg-cyan-500/10 p-4">
+    <h4 className="font-bold text-cyan-700 dark:text-cyan-300 mb-1">🎯 Next Steps</h4>
+    <p className="text-sm text-cyan-900 dark:text-cyan-200">
+      Immediately guide users to confirmation step after successful request - don't leave them wondering what to do next
+    </p>
+  </div>
+</div>
+
+---
+
+## Authenticator App Recommendations
+
+<div className="rounded-lg border border-indigo-500/30 bg-background p-6 mb-6">
+  <h3 className="font-bold mb-4">Compatible Authenticator Applications</h3>
+
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="p-4 rounded-lg border border-border bg-muted/30">
+      <div className="flex items-center gap-3 mb-2">
+        <span className="text-2xl">🔵</span>
+        <h4 className="font-bold">Google Authenticator</h4>
+      </div>
+      <p className="text-xs text-muted-foreground mb-2">Official Google 2FA app with cloud backup</p>
+      <div className="flex gap-2">
+        <span className="inline-flex items-center rounded-full bg-blue-500/10 px-2 py-0.5 text-xs text-blue-700 dark:text-blue-300">iOS</span>
+        <span className="inline-flex items-center rounded-full bg-green-500/10 px-2 py-0.5 text-xs text-green-700 dark:text-green-300">Android</span>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg border border-border bg-muted/30">
+      <div className="flex items-center gap-3 mb-2">
+        <span className="text-2xl">🔴</span>
+        <h4 className="font-bold">Authy</h4>
+      </div>
+      <p className="text-xs text-muted-foreground mb-2">Multi-device sync with cloud backup</p>
+      <div className="flex gap-2">
+        <span className="inline-flex items-center rounded-full bg-blue-500/10 px-2 py-0.5 text-xs text-blue-700 dark:text-blue-300">iOS</span>
+        <span className="inline-flex items-center rounded-full bg-green-500/10 px-2 py-0.5 text-xs text-green-700 dark:text-green-300">Android</span>
+        <span className="inline-flex items-center rounded-full bg-purple-500/10 px-2 py-0.5 text-xs text-purple-700 dark:text-purple-300">Desktop</span>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg border border-border bg-muted/30">
+      <div className="flex items-center gap-3 mb-2">
+        <span className="text-2xl">🟣</span>
+        <h4 className="font-bold">Microsoft Authenticator</h4>
+      </div>
+      <p className="text-xs text-muted-foreground mb-2">Microsoft's official authenticator app</p>
+      <div className="flex gap-2">
+        <span className="inline-flex items-center rounded-full bg-blue-500/10 px-2 py-0.5 text-xs text-blue-700 dark:text-blue-300">iOS</span>
+        <span className="inline-flex items-center rounded-full bg-green-500/10 px-2 py-0.5 text-xs text-green-700 dark:text-green-300">Android</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Related Operations
+
+<Cards>
+  <Card title="Confirm 2FA" href="/docs/api/registration/confirm-2fa-setting">
+    Verify and activate 2FA configuration
+  </Card>
+  <Card title="Disable 2FA" href="/docs/api/registration/disable-2fa">
+    Turn off two-factor authentication
+  </Card>
+  <Card title="Sign In 2FA" href="/docs/api/registration/sign-in-2fa-check">
+    Complete sign-in with 2FA verification
+  </Card>
+  <Card title="Verify Account" href="/docs/api/registration/verify-account">
+    Complete email verification first
+  </Card>
+</Cards>

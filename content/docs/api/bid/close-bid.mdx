@@ -1,0 +1,40 @@
+---
+title: Close Bid
+description: Close or cancel an active bid in an auction round
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-red-500/10 via-orange-500/5 to-background p-8 border border-red-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Close Bid
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Cancel or withdraw your active bid from an auction round
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-red-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-500/5 rounded-full blur-3xl"></div>
+</div>
+
+<div className="p-5 rounded-lg border border-orange-500/30 bg-orange-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">⚠️</span>
+    <div className="font-bold">Important Notice</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    Closing a bid is typically irreversible. Ensure you want to withdraw from the auction before proceeding.
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-red-500/30 bg-gradient-to-r from-red-500/10 to-orange-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold">Note</div>
+      <div className="text-sm text-muted-foreground">Check auction round rules and terms before closing a bid, as some rounds may not allow bid cancellation</div>
+    </div>
+  </div>
+</div>

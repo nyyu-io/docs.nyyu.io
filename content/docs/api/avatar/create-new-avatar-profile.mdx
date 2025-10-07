@@ -1,0 +1,266 @@
+---
+title: Create New Avatar Profile
+description: Create complete avatar profiles with skills, components, and facts
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-background p-8 border border-purple-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Create Avatar Profile
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Build complete avatar profiles with skills, components, and personal details
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-pink-500/5 rounded-full blur-3xl"></div>
+</div>
+
+<div className="p-4 rounded-lg border border-orange-500/30 bg-orange-500/10 my-6">
+  <div className="flex items-center gap-2">
+    <span className="text-lg">🔐</span>
+    <div className="font-bold">Admin Access Required</div>
+  </div>
+  <div className="text-sm text-muted-foreground mt-2">
+    This mutation is accessible only to users with ADMIN privileges
+  </div>
+</div>
+
+## Mutation
+
+<div className="rounded-xl border border-pink-500/30 bg-gradient-to-br from-pink-500/10 to-pink-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">✨</span>
+    <div>
+      <div className="font-bold text-lg">createNewAvatar</div>
+      <div className="text-sm text-muted-foreground">Create a comprehensive avatar profile with metadata</div>
+    </div>
+  </div>
+
+  ### Schema
+
+  ```graphql
+  createNewAvatar(
+    fname: String!
+    surname: String!
+    skillSet: [SkillSetInput]!
+    avatarSet: [AvatarSetInput]
+    factsSet: [FactsInput]
+    hairColor: String
+    details: String
+  ): AvatarProfile
+  ```
+</div>
+
+## Parameters
+
+<div className="space-y-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">fname</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String!</code></div>
+      <div className="text-muted-foreground">The first name of the avatar profile</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">surname</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String!</code></div>
+      <div className="text-muted-foreground">The surname of the avatar profile</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">skillSet</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">[SkillSetInput]!</code></div>
+      <div className="text-muted-foreground mb-2">List of skills for the avatar profile. Each skill includes:</div>
+      <div className="pl-4 space-y-1 text-xs">
+        <div>• <code className="bg-muted px-1 rounded">name</code> (String) - The name of the skill</div>
+        <div>• <code className="bg-muted px-1 rounded">rate</code> (Int) - Star rating for the skill (1-5)</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">avatarSet</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">[AvatarSetInput]</code></div>
+      <div className="text-muted-foreground mb-2">List of avatar components. Each component includes:</div>
+      <div className="pl-4 space-y-1 text-xs">
+        <div>• <code className="bg-muted px-1 rounded">groupId</code> (String) - Component category</div>
+        <div>• <code className="bg-muted px-1 rounded">compId</code> (Int) - Component unique ID</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">factsSet</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">[FactsInput]</code></div>
+      <div className="text-muted-foreground mb-2">List of interesting facts about the avatar. Each fact includes:</div>
+      <div className="pl-4 space-y-1 text-xs">
+        <div>• <code className="bg-muted px-1 rounded">topic</code> (String) - The topic of the fact</div>
+        <div>• <code className="bg-muted px-1 rounded">detail</code> (String) - Detailed content</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">hairColor</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String</code></div>
+      <div className="text-muted-foreground">The hair color of the avatar</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">details</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String</code></div>
+      <div className="text-muted-foreground">Additional details and description about the avatar</div>
+    </div>
+  </div>
+</div>
+
+## Return Value
+
+<div className="p-5 rounded-lg border border-green-500/30 bg-green-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">📦</span>
+    <div className="font-bold">Returns AvatarProfile Object</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    The mutation returns the newly created <code className="bg-muted px-1 rounded">AvatarProfile</code> if successful, otherwise <code className="bg-muted px-1 rounded">null</code>
+  </div>
+</div>
+
+## Example
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">Usage Example</div>
+      <div className="text-xs text-muted-foreground">Creating a historical figure avatar profile</div>
+    </div>
+  </div>
+
+  ```graphql
+  mutation {
+    createNewAvatar(
+      fname: "Nicola"
+      surname: "Tesla"
+      skillSet: [
+        { name: "Inventing", rate: 5 }
+        { name: "Electrical Engineering", rate: 5 }
+      ]
+      avatarSet: [
+        { groupId: "engineers", compId: 101 }
+      ]
+      factsSet: [
+        {
+          topic: "Achievements",
+          detail: "Developed the modern AC electricity supply system"
+        }
+      ]
+      hairColor: "Black"
+      details: "A visionary inventor known for his contributions to the development of alternating current (AC) power systems."
+    ) {
+      id
+      fname
+      surname
+      skillSet {
+        name
+        rate
+      }
+      avatarSet {
+        groupId
+        compId
+      }
+      factsSet {
+        topic
+        detail
+      }
+      hairColor
+      details
+    }
+  }
+  ```
+</div>
+
+## Profile Components
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🎯</span>
+    <div>
+      <div className="font-bold text-lg">Profile Structure</div>
+      <div className="text-sm text-muted-foreground">Understanding avatar profile components</div>
+    </div>
+  </div>
+
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="text-sm font-semibold mb-2">Personal Info</div>
+      <div className="space-y-1 text-xs text-muted-foreground">
+        <div>• First & last name</div>
+        <div>• Physical attributes</div>
+        <div>• Biography details</div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="text-sm font-semibold mb-2">Skills & Abilities</div>
+      <div className="space-y-1 text-xs text-muted-foreground">
+        <div>• Skill name</div>
+        <div>• Star rating (1-5)</div>
+        <div>• Multiple skills</div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="text-sm font-semibold mb-2">Visual Elements</div>
+      <div className="space-y-1 text-xs text-muted-foreground">
+        <div>• Avatar components</div>
+        <div>• Hair color</div>
+        <div>• Custom accessories</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-purple-500/30 bg-gradient-to-r from-purple-500/10 to-pink-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold">Best Practices</div>
+      <div className="text-sm text-muted-foreground">Create meaningful skill sets that reflect the avatar's character and use facts to add depth and personality</div>
+    </div>
+  </div>
+</div>

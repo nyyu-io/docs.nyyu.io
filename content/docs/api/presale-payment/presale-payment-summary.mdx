@@ -1,0 +1,530 @@
+---
+title: Presale Payment API Overview
+description: Comprehensive payment processing system for presale orders with multiple payment methods
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-violet-500 via-purple-600 to-fuchsia-700 p-8 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+      Presale Payment API
+    </h1>
+    <p className="text-xl text-white/90 mb-6">
+      Complete payment processing solution with multiple payment gateways and cryptocurrency support
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+</div>
+
+## Overview
+
+<div className="p-6 rounded-xl border border-border bg-muted/50 my-6">
+  <p className="text-muted-foreground leading-relaxed">
+    The Presale Payment API provides a comprehensive payment processing system for presale orders.
+    It supports multiple payment methods including credit cards (Stripe), PayPal, cryptocurrency, and
+    internal wallet balances. This flexible system enables seamless integration with various payment
+    gateways while maintaining security and reliability.
+  </p>
+</div>
+
+## Payment Methods
+
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-8">
+  <div className="p-6 rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-blue-500/5">
+    <div className="text-3xl mb-3">💳</div>
+    <div className="font-bold text-lg mb-2">Stripe Payments</div>
+    <div className="text-sm text-muted-foreground mb-3">
+      Process credit and debit card payments with full PCI compliance
+    </div>
+    <div className="space-y-1 text-xs">
+      <div className="flex items-center gap-2">
+        <span className="text-green-500">✓</span>
+        <span className="text-muted-foreground">New card payments</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-green-500">✓</span>
+        <span className="text-muted-foreground">Saved card support</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-green-500">✓</span>
+        <span className="text-muted-foreground">3D Secure ready</span>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-6 rounded-xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-amber-500/5">
+    <div className="text-3xl mb-3">🅿️</div>
+    <div className="font-bold text-lg mb-2">PayPal</div>
+    <div className="text-sm text-muted-foreground mb-3">
+      Accept payments through PayPal checkout
+    </div>
+    <div className="space-y-1 text-xs">
+      <div className="flex items-center gap-2">
+        <span className="text-green-500">✓</span>
+        <span className="text-muted-foreground">Checkout redirect</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-green-500">✓</span>
+        <span className="text-muted-foreground">Order capture</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-green-500">✓</span>
+        <span className="text-muted-foreground">Multi-currency</span>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-6 rounded-xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-emerald-500/5">
+    <div className="text-3xl mb-3">₿</div>
+    <div className="font-bold text-lg mb-2">Cryptocurrency</div>
+    <div className="text-sm text-muted-foreground mb-3">
+      Accept multiple cryptocurrencies via deposit addresses
+    </div>
+    <div className="space-y-1 text-xs">
+      <div className="flex items-center gap-2">
+        <span className="text-green-500">✓</span>
+        <span className="text-muted-foreground">Bitcoin, Ethereum, USDT</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-green-500">✓</span>
+        <span className="text-muted-foreground">Network selection</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-green-500">✓</span>
+        <span className="text-muted-foreground">Real-time pricing</span>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-6 rounded-xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 to-indigo-500/5">
+    <div className="text-3xl mb-3">👛</div>
+    <div className="font-bold text-lg mb-2">NYYU Wallet</div>
+    <div className="text-sm text-muted-foreground mb-3">
+      Pay using internal wallet balances
+    </div>
+    <div className="space-y-1 text-xs">
+      <div className="flex items-center gap-2">
+        <span className="text-green-500">✓</span>
+        <span className="text-muted-foreground">Instant payments</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-green-500">✓</span>
+        <span className="text-muted-foreground">No fees</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-green-500">✓</span>
+        <span className="text-muted-foreground">Multi-crypto support</span>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-6 rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5">
+    <div className="text-3xl mb-3">💰</div>
+    <div className="font-bold text-lg mb-2">Price Discovery</div>
+    <div className="text-sm text-muted-foreground mb-3">
+      Real-time cryptocurrency pricing
+    </div>
+    <div className="space-y-1 text-xs">
+      <div className="flex items-center gap-2">
+        <span className="text-green-500">✓</span>
+        <span className="text-muted-foreground">Live market rates</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-green-500">✓</span>
+        <span className="text-muted-foreground">Multi-coin support</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-green-500">✓</span>
+        <span className="text-muted-foreground">Price API endpoint</span>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-6 rounded-xl border border-rose-500/30 bg-gradient-to-br from-rose-500/10 to-rose-500/5">
+    <div className="text-3xl mb-3">🛠️</div>
+    <div className="font-bold text-lg mb-2">Admin Tools</div>
+    <div className="text-sm text-muted-foreground mb-3">
+      Manage supported cryptocurrencies
+    </div>
+    <div className="space-y-1 text-xs">
+      <div className="flex items-center gap-2">
+        <span className="text-green-500">✓</span>
+        <span className="text-muted-foreground">Add new coins</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-green-500">✓</span>
+        <span className="text-muted-foreground">Remove coins</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-green-500">✓</span>
+        <span className="text-muted-foreground">Coin listings</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Data Models
+
+### Coin
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🪙</span>
+    <div>
+      <div className="font-bold text-lg">Coin Type</div>
+      <div className="text-sm text-muted-foreground">Represents a cryptocurrency coin</div>
+    </div>
+  </div>
+
+  ```graphql
+  type Coin {
+    name: String
+    symbol: String
+  }
+  ```
+
+  <div className="mt-4 space-y-2">
+    <div className="flex gap-2 text-sm">
+      <code className="bg-purple-500/20 text-purple-400 px-2 py-0.5 rounded font-mono">name</code>
+      <span className="text-muted-foreground">The full name of the cryptocurrency</span>
+    </div>
+    <div className="flex gap-2 text-sm">
+      <code className="bg-purple-500/20 text-purple-400 px-2 py-0.5 rounded font-mono">symbol</code>
+      <span className="text-muted-foreground">The trading symbol (e.g., BTC, ETH, USDT)</span>
+    </div>
+  </div>
+</div>
+
+### PayResponse
+
+<div className="rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-blue-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📦</span>
+    <div>
+      <div className="font-bold text-lg">PayResponse Type</div>
+      <div className="text-sm text-muted-foreground">Payment processing response from Stripe</div>
+    </div>
+  </div>
+
+  ```graphql
+  type PayResponse {
+    clientSecret: String
+    paymentIntentId: String
+    requiresAction: Boolean
+    error: String
+  }
+  ```
+
+  <div className="mt-4 space-y-2">
+    <div className="flex gap-2 text-sm">
+      <code className="bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded font-mono">clientSecret</code>
+      <span className="text-muted-foreground">Client secret for payment confirmation</span>
+    </div>
+    <div className="flex gap-2 text-sm">
+      <code className="bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded font-mono">paymentIntentId</code>
+      <span className="text-muted-foreground">Unique payment intent identifier</span>
+    </div>
+    <div className="flex gap-2 text-sm">
+      <code className="bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded font-mono">requiresAction</code>
+      <span className="text-muted-foreground">Indicates if 3D Secure authentication is needed</span>
+    </div>
+    <div className="flex gap-2 text-sm">
+      <code className="bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded font-mono">error</code>
+      <span className="text-muted-foreground">Error message if payment failed</span>
+    </div>
+  </div>
+</div>
+
+### StripeTransaction
+
+<div className="rounded-xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 to-indigo-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💳</span>
+    <div>
+      <div className="font-bold text-lg">StripeTransaction Type</div>
+      <div className="text-sm text-muted-foreground">Stripe payment transaction record</div>
+    </div>
+  </div>
+
+  ```graphql
+  type StripeTransaction {
+    roundId: String!
+    userId: String!
+    paymentIntentId: String
+    amount: Float
+    status: Int
+    createdAt: Float
+  }
+  ```
+
+  <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-2">
+    <div className="flex gap-2 text-sm">
+      <code className="bg-indigo-500/20 text-indigo-400 px-2 py-0.5 rounded font-mono">roundId</code>
+      <span className="text-muted-foreground">Presale round ID</span>
+    </div>
+    <div className="flex gap-2 text-sm">
+      <code className="bg-indigo-500/20 text-indigo-400 px-2 py-0.5 rounded font-mono">userId</code>
+      <span className="text-muted-foreground">User identifier</span>
+    </div>
+    <div className="flex gap-2 text-sm">
+      <code className="bg-indigo-500/20 text-indigo-400 px-2 py-0.5 rounded font-mono">paymentIntentId</code>
+      <span className="text-muted-foreground">Stripe payment ID</span>
+    </div>
+    <div className="flex gap-2 text-sm">
+      <code className="bg-indigo-500/20 text-indigo-400 px-2 py-0.5 rounded font-mono">amount</code>
+      <span className="text-muted-foreground">Payment amount</span>
+    </div>
+    <div className="flex gap-2 text-sm">
+      <code className="bg-indigo-500/20 text-indigo-400 px-2 py-0.5 rounded font-mono">status</code>
+      <span className="text-muted-foreground">Transaction status</span>
+    </div>
+    <div className="flex gap-2 text-sm">
+      <code className="bg-indigo-500/20 text-indigo-400 px-2 py-0.5 rounded font-mono">createdAt</code>
+      <span className="text-muted-foreground">Creation timestamp</span>
+    </div>
+  </div>
+</div>
+
+### CryptoTransaction
+
+<div className="rounded-xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-emerald-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">₿</span>
+    <div>
+      <div className="font-bold text-lg">CryptoTransaction Type</div>
+      <div className="text-sm text-muted-foreground">Cryptocurrency payment transaction</div>
+    </div>
+  </div>
+
+  ```graphql
+  type CryptoTransaction {
+    txnId: String!
+    roundId: String!
+    userId: String!
+    code: String!
+    amount: Float!
+    cryptoAmount: Float
+    cryptoType: String
+    status: Int
+    createdAt: String
+    updatedAt: String
+  }
+  ```
+
+  <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-2">
+    <div className="flex gap-2 text-sm">
+      <code className="bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-mono">txnId</code>
+      <span className="text-muted-foreground">Transaction ID</span>
+    </div>
+    <div className="flex gap-2 text-sm">
+      <code className="bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-mono">roundId</code>
+      <span className="text-muted-foreground">Presale round ID</span>
+    </div>
+    <div className="flex gap-2 text-sm">
+      <code className="bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-mono">userId</code>
+      <span className="text-muted-foreground">User identifier</span>
+    </div>
+    <div className="flex gap-2 text-sm">
+      <code className="bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-mono">code</code>
+      <span className="text-muted-foreground">Transaction code</span>
+    </div>
+    <div className="flex gap-2 text-sm">
+      <code className="bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-mono">amount</code>
+      <span className="text-muted-foreground">USD amount</span>
+    </div>
+    <div className="flex gap-2 text-sm">
+      <code className="bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-mono">cryptoAmount</code>
+      <span className="text-muted-foreground">Crypto amount</span>
+    </div>
+    <div className="flex gap-2 text-sm">
+      <code className="bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-mono">cryptoType</code>
+      <span className="text-muted-foreground">Cryptocurrency type</span>
+    </div>
+    <div className="flex gap-2 text-sm">
+      <code className="bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-mono">status</code>
+      <span className="text-muted-foreground">Payment status</span>
+    </div>
+  </div>
+</div>
+
+### CryptoPayload
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📮</span>
+    <div>
+      <div className="font-bold text-lg">CryptoPayload Type</div>
+      <div className="text-sm text-muted-foreground">Cryptocurrency payment details</div>
+    </div>
+  </div>
+
+  ```graphql
+  type CryptoPayload {
+    addresses: [AddressList]
+    pricing: [PricingList]
+  }
+
+  type AddressList {
+    key: String!
+    value: String!
+  }
+
+  type PricingList {
+    key: String!
+    value: CoinbasePricing!
+  }
+
+  type CoinbasePricing {
+    amount: String!
+    currency: String!
+  }
+  ```
+
+  <div className="mt-4 space-y-2">
+    <div className="flex gap-2 text-sm">
+      <code className="bg-cyan-500/20 text-cyan-400 px-2 py-0.5 rounded font-mono">addresses</code>
+      <span className="text-muted-foreground">List of deposit addresses by cryptocurrency</span>
+    </div>
+    <div className="flex gap-2 text-sm">
+      <code className="bg-cyan-500/20 text-cyan-400 px-2 py-0.5 rounded font-mono">pricing</code>
+      <span className="text-muted-foreground">Pricing information for each cryptocurrency</span>
+    </div>
+  </div>
+</div>
+
+## Payment Flow
+
+<div className="rounded-xl border border-violet-500/30 bg-gradient-to-br from-violet-500/10 to-violet-500/5 p-6 my-8">
+  <div className="flex items-center gap-3 mb-6">
+    <span className="text-2xl">🔄</span>
+    <div>
+      <div className="font-bold text-lg">Complete Payment Workflow</div>
+      <div className="text-sm text-muted-foreground">End-to-end presale payment process</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-violet-500 font-bold text-lg">1</span>
+        <div className="font-semibold text-sm">Create Presale Order</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Use <code className="bg-muted px-1 rounded">placePreSaleOrder</code> mutation to create an order with desired NDB amount and destination
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-violet-500 font-bold text-lg">2</span>
+        <div className="font-semibold text-sm">Select Payment Method</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Choose from Stripe, PayPal, cryptocurrency, or NYYU wallet based on user preference
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-violet-500 font-bold text-lg">3</span>
+        <div className="font-semibold text-sm">Process Payment</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Call the appropriate payment mutation with order details and payment information
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-violet-500 font-bold text-lg">4</span>
+        <div className="font-semibold text-sm">Confirm Payment</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        For PayPal, capture the order. For Stripe, handle 3D Secure if required. For crypto, wait for confirmations
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-violet-500 font-bold text-lg">5</span>
+        <div className="font-semibold text-sm">Order Fulfillment</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Once payment is confirmed, NDB tokens are allocated to the specified destination (internal wallet or external address)
+      </div>
+    </div>
+  </div>
+</div>
+
+## Integration Guides
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+  <div className="p-6 rounded-xl border border-border bg-muted/50">
+    <div className="flex items-center gap-2 mb-4">
+      <span className="text-2xl">💳</span>
+      <div className="font-bold text-lg">Stripe Integration</div>
+    </div>
+    <div className="space-y-2 text-sm text-muted-foreground">
+      <p>Initialize Stripe.js on your frontend and create payment intents. Use our mutations to process payments with full 3D Secure support.</p>
+      <div className="pt-2">
+        <a href="./pay-with-stripe" className="text-blue-500 hover:underline">View Stripe docs →</a>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-6 rounded-xl border border-border bg-muted/50">
+    <div className="flex items-center gap-2 mb-4">
+      <span className="text-2xl">🅿️</span>
+      <div className="font-bold text-lg">PayPal Integration</div>
+    </div>
+    <div className="space-y-2 text-sm text-muted-foreground">
+      <p>Create PayPal checkout orders and redirect users to PayPal. Capture orders upon successful payment completion.</p>
+      <div className="pt-2">
+        <a href="./pay-with-paypal" className="text-amber-500 hover:underline">View PayPal docs →</a>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-6 rounded-xl border border-border bg-muted/50">
+    <div className="flex items-center gap-2 mb-4">
+      <span className="text-2xl">₿</span>
+      <div className="font-bold text-lg">Crypto Integration</div>
+    </div>
+    <div className="space-y-2 text-sm text-muted-foreground">
+      <p>Generate deposit addresses for various cryptocurrencies. Monitor blockchain confirmations and update order status automatically.</p>
+      <div className="pt-2">
+        <a href="./pay-with-crypto" className="text-emerald-500 hover:underline">View Crypto docs →</a>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-6 rounded-xl border border-border bg-muted/50">
+    <div className="flex items-center gap-2 mb-4">
+      <span className="text-2xl">👛</span>
+      <div className="font-bold text-lg">Wallet Integration</div>
+    </div>
+    <div className="space-y-2 text-sm text-muted-foreground">
+      <p>Enable instant payments using users' internal NYYU wallet balances. No external gateways required for faster processing.</p>
+      <div className="pt-2">
+        <a href="./pay-with-wallet" className="text-indigo-500 hover:underline">View Wallet docs →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-amber-500/30 bg-gradient-to-r from-amber-500/10 to-orange-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold">Best Practices</div>
+      <div className="text-sm text-muted-foreground mt-1">
+        Always validate payment amounts on the backend. Implement proper error handling for failed transactions.
+        For cryptocurrency payments, wait for sufficient blockchain confirmations before fulfilling orders.
+        Store transaction IDs for reconciliation and customer support purposes.
+      </div>
+    </div>
+  </div>
+</div>

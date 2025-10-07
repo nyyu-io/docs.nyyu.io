@@ -1,0 +1,8 @@
+{
+  "title": "Presale",
+  "pages": [
+    "create-new-presale",
+    "get-presales",
+    "get-presales-by-status"
+  ]
+}

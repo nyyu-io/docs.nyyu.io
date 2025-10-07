@@ -1,0 +1,11 @@
+{
+  "title": "Notification",
+  "pages": [
+    "Add New Notification Type",
+    "Get All Notification Types",
+    "Get All Unread Notifications",
+    "Get Notifications with Offset and Limit",
+    "Set Notification Read",
+    "notification-summary"
+  ]
+}

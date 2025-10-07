@@ -1,0 +1,465 @@
+---
+title: User Tier API Overview
+description: Complete guide to NYYU user tier system and gamification structures
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-500/10 via-fuchsia-500/5 to-background p-8 border border-purple-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      User Tier API
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Build engaging gamification systems with tier levels, task rewards, and progression tracking
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-fuchsia-500/5 rounded-full blur-3xl"></div>
+</div>
+
+## Overview
+
+The User Tier API enables you to create and manage a comprehensive gamification system within the NYYU platform. Build tier-based progression with customizable task rewards that encourage user engagement and platform interaction.
+
+## Core Types
+
+### Tier
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🏆</span>
+    <div>
+      <div className="font-bold text-lg">Tier Type</div>
+      <div className="text-sm text-muted-foreground">Represents a user tier level in the gamification system</div>
+    </div>
+  </div>
+
+  ```graphql
+  type Tier {
+    level: Int!
+    name: String
+    point: Float
+    svg: String
+  }
+  ```
+
+  <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">Identification</div>
+      <div className="space-y-1 text-xs">
+        <div><code className="bg-muted px-1 rounded">level</code> - Unique tier identifier (1-5)</div>
+        <div><code className="bg-muted px-1 rounded">name</code> - Display name (e.g., Bronze, Gold)</div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">Requirements</div>
+      <div className="space-y-1 text-xs">
+        <div><code className="bg-muted px-1 rounded">point</code> - Points needed to reach tier</div>
+        <div><code className="bg-muted px-1 rounded">svg</code> - Visual badge/icon content</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Tier Level Examples
+
+<div className="rounded-xl border border-violet-500/30 bg-gradient-to-br from-violet-500/10 to-violet-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📊</span>
+    <div>
+      <div className="font-bold text-lg">Standard Tier Progression</div>
+      <div className="text-sm text-muted-foreground">Typical tier structure for user advancement</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
+      <div className="w-8 h-8 rounded-full bg-amber-700/20 flex items-center justify-center text-amber-700 font-bold flex-shrink-0">1</div>
+      <div className="flex-1">
+        <div className="font-bold text-sm">Bronze Tier</div>
+        <div className="text-xs text-muted-foreground">Entry level - 0-1000 points</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
+      <div className="w-8 h-8 rounded-full bg-gray-400/20 flex items-center justify-center text-gray-400 font-bold flex-shrink-0">2</div>
+      <div className="flex-1">
+        <div className="font-bold text-sm">Silver Tier</div>
+        <div className="text-xs text-muted-foreground">Intermediate - 1000-5000 points</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
+      <div className="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-500 font-bold flex-shrink-0">3</div>
+      <div className="flex-1">
+        <div className="font-bold text-sm">Gold Tier</div>
+        <div className="text-xs text-muted-foreground">Advanced - 5000-15000 points</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
+      <div className="w-8 h-8 rounded-full bg-cyan-400/20 flex items-center justify-center text-cyan-400 font-bold flex-shrink-0">4</div>
+      <div className="flex-1">
+        <div className="font-bold text-sm">Platinum Tier</div>
+        <div className="text-xs text-muted-foreground">Expert - 15000-50000 points</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
+      <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-500 font-bold flex-shrink-0">5</div>
+      <div className="flex-1">
+        <div className="font-bold text-sm">Diamond Tier</div>
+        <div className="text-xs text-muted-foreground">Elite - 50000+ points</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Task System Types
+
+### WalletTask
+
+<div className="rounded-xl border border-fuchsia-500/30 bg-gradient-to-br from-fuchsia-500/10 to-fuchsia-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💰</span>
+    <div>
+      <div className="font-bold">WalletTask Type</div>
+      <div className="text-xs text-muted-foreground">Deposit-based reward configuration</div>
+    </div>
+  </div>
+
+  ```graphql
+  type WalletTask {
+    amount: Int!
+    point: Float!
+  }
+  ```
+
+  <div className="mt-4 p-4 rounded-lg bg-background border border-border">
+    <div className="grid grid-cols-2 gap-4 text-xs">
+      <div>
+        <div className="font-semibold mb-1">amount</div>
+        <div className="text-muted-foreground">Deposit amount threshold (e.g., $100)</div>
+      </div>
+      <div>
+        <div className="font-semibold mb-1">point</div>
+        <div className="text-muted-foreground">Points awarded for this deposit</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### WalletTaskInput
+
+<div className="p-5 rounded-lg border border-border bg-muted/30 my-6">
+  <div className="font-bold mb-3 flex items-center gap-2">
+    <span className="text-lg">📝</span>
+    <span>WalletTaskInput (Input Type)</span>
+  </div>
+
+  ```graphql
+  input WalletTaskInput {
+    amount: Int!
+    point: Float!
+  }
+  ```
+
+  <div className="mt-3 text-sm text-muted-foreground">
+    Used when configuring wallet task rewards in task settings
+  </div>
+</div>
+
+### StakeTask
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔒</span>
+    <div>
+      <div className="font-bold">StakeTask Type</div>
+      <div className="text-xs text-muted-foreground">Staking-based reward configuration</div>
+    </div>
+  </div>
+
+  ```graphql
+  type StakeTask {
+    expiredTime: Int!
+    ratio: Float!
+  }
+  ```
+
+  <div className="mt-4 p-4 rounded-lg bg-background border border-border">
+    <div className="grid grid-cols-2 gap-4 text-xs">
+      <div>
+        <div className="font-semibold mb-1">expiredTime</div>
+        <div className="text-muted-foreground">Staking duration in days (e.g., 30)</div>
+      </div>
+      <div>
+        <div className="font-semibold mb-1">ratio</div>
+        <div className="text-muted-foreground">Point multiplier (e.g., 1.5x)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### StakeTaskInput
+
+<div className="p-5 rounded-lg border border-border bg-muted/30 my-6">
+  <div className="font-bold mb-3 flex items-center gap-2">
+    <span className="text-lg">📝</span>
+    <span>StakeTaskInput (Input Type)</span>
+  </div>
+
+  ```graphql
+  input StakeTaskInput {
+    expiredTime: Int!
+    ratio: Float!
+  }
+  ```
+
+  <div className="mt-3 text-sm text-muted-foreground">
+    Used when configuring staking task rewards in task settings
+  </div>
+</div>
+
+### TaskSetting
+
+<div className="rounded-xl border border-violet-500/30 bg-gradient-to-br from-violet-500/10 to-violet-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">⚙️</span>
+    <div>
+      <div className="font-bold text-lg">TaskSetting Type</div>
+      <div className="text-sm text-muted-foreground">Comprehensive task reward configuration</div>
+    </div>
+  </div>
+
+  ```graphql
+  type TaskSetting {
+    id: Int!
+    verification: Float
+    wallet: [WalletTask]
+    auction: Float
+    direct: Float
+    staking: [StakeTask]
+  }
+  ```
+
+  <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">One-time Tasks</div>
+      <div className="space-y-1 text-xs">
+        <div><code className="bg-muted px-1 rounded">verification</code> - Email/KYC verification points</div>
+        <div><code className="bg-muted px-1 rounded">auction</code> - Auction participation points</div>
+        <div><code className="bg-muted px-1 rounded">direct</code> - Direct purchase points</div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">Repeatable Tasks</div>
+      <div className="space-y-1 text-xs">
+        <div><code className="bg-muted px-1 rounded">wallet</code> - Deposit reward tiers</div>
+        <div><code className="bg-muted px-1 rounded">staking</code> - Staking reward multipliers</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### TaskSettingInput
+
+<div className="p-5 rounded-lg border border-border bg-muted/30 my-6">
+  <div className="font-bold mb-3 flex items-center gap-2">
+    <span className="text-lg">📝</span>
+    <span>TaskSettingInput (Input Type)</span>
+  </div>
+
+  ```graphql
+  input TaskSettingInput {
+    verification: Float!
+    wallet: [WalletTaskInput]!
+    auction: Float!
+    direct: Float!
+    staking: [StakeTaskInput]!
+  }
+  ```
+
+  <div className="mt-3 text-sm text-muted-foreground">
+    Used when creating or updating task reward settings
+  </div>
+</div>
+
+## Task Type Examples
+
+<div className="rounded-xl border border-fuchsia-500/30 bg-gradient-to-br from-fuchsia-500/10 to-fuchsia-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🎯</span>
+    <div>
+      <div className="font-bold text-lg">Sample Task Configuration</div>
+      <div className="text-sm text-muted-foreground">Common reward structures</div>
+    </div>
+  </div>
+
+  <div className="space-y-4">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-bold text-sm mb-2">Verification Tasks</div>
+      <div className="text-xs text-muted-foreground mb-2">One-time completion rewards</div>
+      <div className="space-y-1 text-xs">
+        <div>• Email verification: 10 points</div>
+        <div>• KYC completion: 50 points</div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-bold text-sm mb-2">Wallet Deposit Tiers</div>
+      <div className="text-xs text-muted-foreground mb-2">Graduated rewards for deposits</div>
+      <div className="space-y-1 text-xs">
+        <div>• $100 deposit: 10 points</div>
+        <div>• $500 deposit: 75 points</div>
+        <div>• $1000 deposit: 200 points</div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-bold text-sm mb-2">Trading Activities</div>
+      <div className="text-xs text-muted-foreground mb-2">Engagement rewards</div>
+      <div className="space-y-1 text-xs">
+        <div>• Auction participation: 5 points per bid</div>
+        <div>• Direct purchase: 2 points per transaction</div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-bold text-sm mb-2">Staking Bonuses</div>
+      <div className="text-xs text-muted-foreground mb-2">Time-based multipliers</div>
+      <div className="space-y-1 text-xs">
+        <div>• 30-day stake: 1.5x multiplier</div>
+        <div>• 90-day stake: 2.0x multiplier</div>
+        <div>• 180-day stake: 3.0x multiplier</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Key Features
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🎮</div>
+    <div className="font-bold mb-2">Gamification System</div>
+    <div className="text-sm text-muted-foreground">
+      Create engaging tier-based progression with customizable levels and rewards
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🎁</div>
+    <div className="font-bold mb-2">Flexible Rewards</div>
+    <div className="text-sm text-muted-foreground">
+      Configure points for various activities: deposits, trading, staking, and verification
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📈</div>
+    <div className="font-bold mb-2">User Progression</div>
+    <div className="text-sm text-muted-foreground">
+      Track user advancement through tier levels with point accumulation
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🏅</div>
+    <div className="font-bold mb-2">Visual Badges</div>
+    <div className="text-sm text-muted-foreground">
+      Display SVG badges for each tier level to showcase user achievements
+    </div>
+  </div>
+</div>
+
+## Use Cases
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold text-lg">Implementation Scenarios</div>
+      <div className="text-sm text-muted-foreground">Common ways to leverage the tier system</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-bold text-sm mb-1">User Retention</div>
+      <div className="text-xs text-muted-foreground">
+        Encourage continued platform usage with tiered benefits and exclusive features for higher tiers
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-bold text-sm mb-1">Behavioral Incentives</div>
+      <div className="text-xs text-muted-foreground">
+        Reward specific actions like deposits, trading, and staking to drive desired user behaviors
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-bold text-sm mb-1">Loyalty Programs</div>
+      <div className="text-xs text-muted-foreground">
+        Build long-term user loyalty with progressive rewards and tier-based privileges
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-bold text-sm mb-1">Community Engagement</div>
+      <div className="text-xs text-muted-foreground">
+        Foster competitive participation through visible tier rankings and achievement badges
+      </div>
+    </div>
+  </div>
+</div>
+
+## Related Operations
+
+<Cards>
+  <Card
+    title="Get User Tiers"
+    description="Retrieve all tier configurations"
+    href="/docs/api/user-tier/get-user-tiers"
+  />
+  <Card
+    title="Add New Tier"
+    description="Create new tier level (Admin)"
+    href="/docs/api/user-tier/add-new-tier"
+  />
+  <Card
+    title="Update User Tier"
+    description="Modify tier configuration (Admin)"
+    href="/docs/api/user-tier/update-user-tier"
+  />
+  <Card
+    title="Delete User Tier"
+    description="Remove tier level (Admin)"
+    href="/docs/api/user-tier/delete-user-tier"
+  />
+  <Card
+    title="Add Task Setting"
+    description="Create task reward settings (Admin)"
+    href="/docs/api/user-tier/add-new-task-setting"
+  />
+  <Card
+    title="Update Task Setting"
+    description="Modify task rewards (Admin)"
+    href="/docs/api/user-tier/update-task-setting"
+  />
+</Cards>
+
+<div className="mt-8 p-6 rounded-xl border border-purple-500/30 bg-gradient-to-r from-purple-500/10 to-fuchsia-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">🚀</span>
+    <div>
+      <div className="font-bold">Ready to build your gamification system?</div>
+      <div className="text-sm text-muted-foreground">Explore our tier and task management documentation to create engaging user progression</div>
+    </div>
+  </div>
+</div>

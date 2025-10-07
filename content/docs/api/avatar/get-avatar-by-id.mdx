@@ -1,0 +1,257 @@
+---
+title: Get Avatar By ID
+description: Retrieve avatar profiles by unique identifier
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-background p-8 border border-blue-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Get Avatar By ID
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Retrieve complete avatar profile information using a unique identifier
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl"></div>
+</div>
+
+## Query
+
+<div className="rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-blue-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔍</span>
+    <div>
+      <div className="font-bold text-lg">getAvatar</div>
+      <div className="text-sm text-muted-foreground">Retrieve an avatar profile by its unique ID</div>
+    </div>
+  </div>
+
+  ### Schema
+
+  ```graphql
+  getAvatar(
+    id: Int!
+  ): AvatarProfile
+  ```
+</div>
+
+## Parameters
+
+<div className="space-y-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">id</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Int!</code></div>
+      <div className="text-muted-foreground">The unique ID of the avatar profile to retrieve</div>
+    </div>
+  </div>
+</div>
+
+## Return Value
+
+<div className="p-5 rounded-lg border border-green-500/30 bg-green-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">📦</span>
+    <div className="font-bold">Returns AvatarProfile Object</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    The query returns an <code className="bg-muted px-1 rounded">AvatarProfile</code> object that corresponds to the specified ID
+  </div>
+</div>
+
+## AvatarProfile Fields
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📋</span>
+    <div>
+      <div className="font-bold text-lg">Available Fields</div>
+      <div className="text-sm text-muted-foreground">Fields you can query from the AvatarProfile</div>
+    </div>
+  </div>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">Basic Information</div>
+      <div className="space-y-1 text-xs">
+        <div><code className="bg-muted px-1 rounded">id</code> - Unique identifier</div>
+        <div><code className="bg-muted px-1 rounded">fname</code> - First name</div>
+        <div><code className="bg-muted px-1 rounded">surname</code> - Last name</div>
+        <div><code className="bg-muted px-1 rounded">details</code> - Profile description</div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">Timestamps</div>
+      <div className="space-y-1 text-xs">
+        <div><code className="bg-muted px-1 rounded">regDate</code> - Registration date</div>
+        <div><code className="bg-muted px-1 rounded">updateDate</code> - Last update</div>
+        <div><code className="bg-muted px-1 rounded">deleted</code> - Deletion flag</div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">Visual Components</div>
+      <div className="space-y-1 text-xs">
+        <div><code className="bg-muted px-1 rounded">hairColor</code> - Hair color</div>
+        <div><code className="bg-muted px-1 rounded">avatarSet</code> - Component array</div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">Metadata</div>
+      <div className="space-y-1 text-xs">
+        <div><code className="bg-muted px-1 rounded">skillSet</code> - Skills array</div>
+        <div><code className="bg-muted px-1 rounded">factsSet</code> - Facts array</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Example
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">Usage Example</div>
+      <div className="text-xs text-muted-foreground">Retrieving a complete avatar profile</div>
+    </div>
+  </div>
+
+  ```graphql
+  query {
+    getAvatar(id: 123) {
+      id
+      fname
+      surname
+      hairColor
+      details
+      skillSet {
+        id
+        name
+        rate
+      }
+      avatarSet {
+        id
+        groupId
+        compId
+      }
+      factsSet {
+        id
+        topic
+        detail
+      }
+      regDate
+      updateDate
+    }
+  }
+  ```
+</div>
+
+## Response Example
+
+<div className="rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/10 to-green-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📤</span>
+    <div>
+      <div className="font-bold">Sample Response</div>
+      <div className="text-xs text-muted-foreground">Example of returned AvatarProfile data</div>
+    </div>
+  </div>
+
+  ```json
+  {
+    "data": {
+      "getAvatar": {
+        "id": 123,
+        "fname": "Nicola",
+        "surname": "Tesla",
+        "hairColor": "Black",
+        "details": "A visionary inventor known for contributions to AC electricity",
+        "skillSet": [
+          {
+            "id": 1,
+            "name": "Inventing",
+            "rate": 5
+          },
+          {
+            "id": 2,
+            "name": "Electrical Engineering",
+            "rate": 5
+          }
+        ],
+        "avatarSet": [
+          {
+            "id": 10,
+            "groupId": "engineers",
+            "compId": 101
+          }
+        ],
+        "factsSet": [
+          {
+            "id": 1,
+            "topic": "Achievements",
+            "detail": "Developed the modern AC electricity supply system"
+          }
+        ],
+        "regDate": 1625247600000.0,
+        "updateDate": 1625334000000.0
+      }
+    }
+  }
+  ```
+</div>
+
+## Use Cases
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">👤</div>
+    <div className="font-bold mb-2">Profile Display</div>
+    <div className="text-sm text-muted-foreground">
+      Fetch complete user avatar information for profile pages and user interfaces
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🎨</div>
+    <div className="font-bold mb-2">Avatar Rendering</div>
+    <div className="text-sm text-muted-foreground">
+      Retrieve component sets to render the visual representation of the avatar
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">⭐</div>
+    <div className="font-bold mb-2">Skills Analysis</div>
+    <div className="text-sm text-muted-foreground">
+      Access skill ratings for gamification, achievements, or leaderboard features
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📊</div>
+    <div className="font-bold mb-2">Data Analytics</div>
+    <div className="text-sm text-muted-foreground">
+      Retrieve avatar metadata for analysis and reporting purposes
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold">Performance Tip</div>
+      <div className="text-sm text-muted-foreground">Only query the fields you need to optimize response size and query performance</div>
+    </div>
+  </div>
+</div>

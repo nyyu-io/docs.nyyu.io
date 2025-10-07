@@ -1,0 +1,196 @@
+---
+title: Get Crypto Transactions For Presale Orders
+description: Retrieve cryptocurrency payment transaction history
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-500 via-emerald-600 to-teal-700 p-8 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+      Crypto Transaction History
+    </h1>
+    <p className="text-xl text-white/90 mb-6">
+      View all cryptocurrency payment transactions for presale orders
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+</div>
+
+## Query
+
+<div className="rounded-xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-emerald-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📊</span>
+    <div>
+      <div className="font-bold text-lg">getCryptoTransactions</div>
+      <div className="text-sm text-muted-foreground">List all cryptocurrency transactions</div>
+    </div>
+  </div>
+
+  ### Schema
+
+  ```graphql
+  getCryptoTransactions: [CryptoTransaction]
+  ```
+</div>
+
+## Parameters
+
+<div className="p-5 rounded-lg border border-border bg-muted/30 my-6">
+  <div className="text-sm text-muted-foreground">
+    This query requires no parameters - returns all cryptocurrency transactions
+  </div>
+</div>
+
+## Return Value
+
+<div className="p-5 rounded-lg border border-green-500/30 bg-green-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">📦</span>
+    <div className="font-bold">Returns Array of CryptoTransaction Objects</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    List of all cryptocurrency payment transactions with complete details
+  </div>
+</div>
+
+## Example
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">Usage Example</div>
+      <div className="text-xs text-muted-foreground">Get all crypto transactions</div>
+    </div>
+  </div>
+
+  ```graphql
+  query {
+    getCryptoTransactions {
+      txnId
+      roundId
+      userId
+      code
+      amount
+      cryptoAmount
+      cryptoType
+      status
+      createdAt
+      updatedAt
+    }
+  }
+  ```
+</div>
+
+## Response Example
+
+<div className="rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/10 to-green-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📤</span>
+    <div>
+      <div className="font-bold">Sample Response</div>
+      <div className="text-xs text-muted-foreground">List of transactions</div>
+    </div>
+  </div>
+
+  ```json
+  {
+    "data": {
+      "getCryptoTransactions": [
+        {
+          "txnId": "TXN123456",
+          "roundId": "1",
+          "userId": "user_abc123",
+          "code": "ORD789",
+          "amount": 500.0,
+          "cryptoAmount": 0.011628,
+          "cryptoType": "BTC",
+          "status": 1,
+          "createdAt": "2024-01-15T10:30:00Z",
+          "updatedAt": "2024-01-15T10:45:00Z"
+        }
+      ]
+    }
+  }
+  ```
+</div>
+
+## Transaction Fields
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-3 my-6">
+  <div className="p-4 rounded-lg border border-border bg-muted/50">
+    <code className="text-sm font-mono">txnId</code>
+    <div className="text-xs text-muted-foreground mt-1">Unique transaction ID</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50">
+    <code className="text-sm font-mono">roundId</code>
+    <div className="text-xs text-muted-foreground mt-1">Presale round identifier</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50">
+    <code className="text-sm font-mono">userId</code>
+    <div className="text-xs text-muted-foreground mt-1">User who made payment</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50">
+    <code className="text-sm font-mono">code</code>
+    <div className="text-xs text-muted-foreground mt-1">Order/transaction code</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50">
+    <code className="text-sm font-mono">amount</code>
+    <div className="text-xs text-muted-foreground mt-1">USD value of payment</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50">
+    <code className="text-sm font-mono">cryptoAmount</code>
+    <div className="text-xs text-muted-foreground mt-1">Cryptocurrency amount paid</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50">
+    <code className="text-sm font-mono">cryptoType</code>
+    <div className="text-xs text-muted-foreground mt-1">Type of cryptocurrency used</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50">
+    <code className="text-sm font-mono">status</code>
+    <div className="text-xs text-muted-foreground mt-1">Transaction status code</div>
+  </div>
+</div>
+
+## Status Codes
+
+<div className="p-6 rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 my-6">
+  <div className="font-bold mb-3">Transaction Status Values</div>
+  <div className="space-y-2">
+    <div className="flex items-center gap-3">
+      <code className="bg-amber-500/20 text-amber-500 px-2 py-0.5 rounded font-mono text-sm">0</code>
+      <span className="text-sm text-muted-foreground">Pending - Waiting for blockchain confirmation</span>
+    </div>
+    <div className="flex items-center gap-3">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">1</code>
+      <span className="text-sm text-muted-foreground">Completed - Transaction confirmed and processed</span>
+    </div>
+    <div className="flex items-center gap-3">
+      <code className="bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-mono text-sm">-1</code>
+      <span className="text-sm text-muted-foreground">Failed - Transaction failed or rejected</span>
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 to-teal-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold">Best Practice</div>
+      <div className="text-sm text-muted-foreground">
+        Implement pagination for large transaction lists. Filter by userId for user-specific views. Use status field to identify pending transactions requiring attention. Store createdAt and updatedAt for auditing and reporting purposes.
+      </div>
+    </div>
+  </div>
+</div>

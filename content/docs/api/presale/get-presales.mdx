@@ -1,0 +1,295 @@
+---
+title: Get Presales
+description: Query to retrieve all presale rounds with comprehensive details
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-indigo-500 via-blue-600 to-cyan-700 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
+  <div className="relative">
+    <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm mb-4">
+      <span className="relative flex h-2 w-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-background"></span>
+      </span>
+      ADMIN ONLY
+    </div>
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">Get All Presales</h1>
+    <p className="text-xl text-indigo-100 leading-relaxed max-w-3xl">
+      Retrieve comprehensive information about all presale rounds, including timing, token details, and custom conditions.
+    </p>
+  </div>
+</div>
+
+<Callout type="warn" title="Admin Access Required">
+  This query is only accessible to users with **ADMIN** privileges. Standard users cannot view all presale rounds.
+</Callout>
+
+## Overview
+
+The `getPreSales` query allows administrators to retrieve a complete list of all presale rounds that have been created in the system, regardless of their status.
+
+---
+
+## GraphQL Schema
+
+<div className="rounded-xl border border-indigo-500/30 bg-muted/50 p-6 mb-8">
+
+```graphql
+query {
+  getPreSales: [PreSale]
+}
+```
+
+</div>
+
+---
+
+## Parameters
+
+<div className="rounded-lg border border-blue-500/30 bg-blue-500/10 p-6 mb-6">
+  <h3 className="font-bold mb-2 flex items-center gap-2">
+    <span className="text-2xl">📋</span>
+    No Parameters Required
+  </h3>
+  <p className="text-sm text-foreground">
+    This query does not require any parameters. It returns all presale rounds automatically.
+  </p>
+</div>
+
+---
+
+## Return Value
+
+<div className="rounded-lg border border-green-500/30 bg-green-500/10 p-6 mb-6">
+  <h3 className="font-bold mb-2 flex items-center gap-2">
+    <span className="text-2xl">✓</span>
+    Success Response
+  </h3>
+  <p className="text-sm text-foreground mb-3">
+    Returns an array of <span className="font-mono text-green-600">[PreSale]</span> objects, each containing:
+  </p>
+  <div className="space-y-2 text-sm">
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-indigo-600 min-w-32">id</span>
+      <span className="text-muted-foreground">Unique identifier for the presale round</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-indigo-600 min-w-32">startedAt</span>
+      <span className="text-muted-foreground">Start time in UNIX timestamp format</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-indigo-600 min-w-32">endedAt</span>
+      <span className="text-muted-foreground">End time in UNIX timestamp format</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-indigo-600 min-w-32">tokenAmount</span>
+      <span className="text-muted-foreground">Total tokens available in the presale</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-indigo-600 min-w-32">tokenPrice</span>
+      <span className="text-muted-foreground">Price per token during the presale</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-indigo-600 min-w-32">conditions</span>
+      <span className="text-muted-foreground">Array of custom conditions with name/value pairs</span>
+    </div>
+  </div>
+</div>
+
+---
+
+## Example Usage
+
+### Request
+
+```graphql
+query GetAllPresales {
+  getPreSales {
+    id
+    startedAt
+    endedAt
+    tokenAmount
+    tokenPrice
+    status
+    conditions {
+      name
+      value
+    }
+  }
+}
+```
+
+### Response
+
+```json
+{
+  "data": {
+    "getPreSales": [
+      {
+        "id": 12,
+        "startedAt": 1704067200.0,
+        "endedAt": 1706745600.0,
+        "tokenAmount": 1000000.0,
+        "tokenPrice": 0.5,
+        "status": 2,
+        "conditions": [
+          {
+            "name": "Minimum Purchase",
+            "value": "100 tokens"
+          },
+          {
+            "name": "Maximum Purchase",
+            "value": "10000 tokens"
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "startedAt": 1709337600.0,
+        "endedAt": 1712016000.0,
+        "tokenAmount": 500000.0,
+        "tokenPrice": 0.75,
+        "status": 1,
+        "conditions": [
+          {
+            "name": "Whitelist",
+            "value": "Required"
+          },
+          {
+            "name": "KYC",
+            "value": "Level 2 verification"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+<Callout type="info" title="Presale Rounds Retrieved">
+  The query successfully returned all presale rounds with their complete details, including conditions and status information.
+</Callout>
+
+---
+
+## Use Cases
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">📊</div>
+    <h3 className="font-bold mb-2">Dashboard Overview</h3>
+    <p className="text-sm text-muted-foreground">
+      Display all presale rounds in an admin dashboard for comprehensive management and monitoring.
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">📈</div>
+    <h3 className="font-bold mb-2">Analytics & Reporting</h3>
+    <p className="text-sm text-muted-foreground">
+      Analyze historical presale performance, token distribution, and pricing strategies across all rounds.
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔍</div>
+    <h3 className="font-bold mb-2">Audit & Compliance</h3>
+    <p className="text-sm text-muted-foreground">
+      Review all presale rounds for regulatory compliance, condition enforcement, and audit trails.
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🎯</div>
+    <h3 className="font-bold mb-2">Strategy Planning</h3>
+    <p className="text-sm text-muted-foreground">
+      Compare past presale rounds to inform future pricing, timing, and token allocation strategies.
+    </p>
+  </Card>
+</div>
+
+---
+
+## Status Values
+
+<div className="grid gap-4 md:grid-cols-3 my-6">
+  <div className="rounded-lg border border-yellow-500/30 bg-yellow-500/10 p-5">
+    <div className="flex items-center gap-2 mb-2">
+      <span className="text-2xl">⏳</span>
+      <h4 className="font-bold text-yellow-700 dark:text-yellow-300">Status: 1</h4>
+    </div>
+    <p className="text-sm text-yellow-800 font-semibold">Pending</p>
+    <p className="text-xs text-yellow-700 mt-1">Not yet started</p>
+  </div>
+
+  <div className="rounded-lg border border-green-500/30 bg-green-500/10 p-5">
+    <div className="flex items-center gap-2 mb-2">
+      <span className="text-2xl">🟢</span>
+      <h4 className="font-bold text-green-700 dark:text-green-300">Status: 2</h4>
+    </div>
+    <p className="text-sm text-green-800 font-semibold">Started</p>
+    <p className="text-xs text-green-700 mt-1">Currently active</p>
+  </div>
+
+  <div className="rounded-lg border border-border bg-muted/50 p-5">
+    <div className="flex items-center gap-2 mb-2">
+      <span className="text-2xl">🔴</span>
+      <h4 className="font-bold">Status: 3</h4>
+    </div>
+    <p className="text-sm font-semibold">Ended</p>
+    <p className="text-xs text-muted-foreground mt-1">Completed</p>
+  </div>
+</div>
+
+---
+
+## Best Practices
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-indigo-500 bg-indigo-500/10 p-4">
+    <h4 className="font-bold text-indigo-700 dark:text-indigo-300 mb-1">🔄 Regular Monitoring</h4>
+    <p className="text-sm text-indigo-800">
+      Query presale rounds regularly to monitor their status and track token sales progress.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-blue-500 bg-blue-500/10 p-4">
+    <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-1">📊 Data Analysis</h4>
+    <p className="text-sm text-blue-800">
+      Use the returned data to generate reports and visualizations for stakeholder presentations.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-cyan-500 bg-cyan-500/10 p-4">
+    <h4 className="font-bold text-cyan-700 dark:text-cyan-300 mb-1">🎯 Filter Client-Side</h4>
+    <p className="text-sm text-cyan-800">
+      For status-specific queries, consider using <code>getPreSaleByStatus</code> for more efficient filtering.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-indigo-500 bg-indigo-500/10 p-4">
+    <h4 className="font-bold text-indigo-700 dark:text-indigo-300 mb-1">💾 Caching Strategy</h4>
+    <p className="text-sm text-indigo-800">
+      Implement appropriate caching for this data as presale information changes infrequently.
+    </p>
+  </div>
+</div>
+
+---
+
+## Related Operations
+
+<Cards>
+  <Card title="Create New Presale" href="/docs/api/presale/create-new-presale">
+    Create new presale rounds
+  </Card>
+  <Card title="Get Presales by Status" href="/docs/api/presale/get-presales-by-status">
+    Filter presales by specific status
+  </Card>
+  <Card title="Get Presale Orders" href="/docs/api/presale-orders/get-orders-by-round">
+    View orders for specific presale rounds
+  </Card>
+</Cards>

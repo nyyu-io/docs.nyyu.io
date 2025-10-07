@@ -1,0 +1,430 @@
+---
+title: Get User by ID
+description: Admin operation to retrieve any user's profile information by their unique ID
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+
+<div className="relative overflow-hidden rounded-xl border bg-gradient-to-br from-teal-500/10 via-emerald-500/10 to-cyan-500/10 p-8 backdrop-blur-sm mb-8">
+  <div className="relative z-10">
+    <div className="flex items-center gap-3 mb-4">
+      <h1 className="text-3xl font-bold bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">
+        Get User by ID
+      </h1>
+      <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-500/20 text-red-400 border border-red-500/30">
+        ADMIN
+      </div>
+    </div>
+    <p className="text-muted-foreground max-w-2xl">
+      Administrative operation to retrieve any user's complete profile information by their unique identifier. Requires admin privileges.
+    </p>
+  </div>
+</div>
+
+## Query
+
+<div className="relative overflow-hidden rounded-lg border border-teal-500/20 bg-gradient-to-br from-teal-500/5 to-emerald-500/5 p-6 my-6">
+  <h3 className="text-lg font-semibold text-teal-400 mb-4">GraphQL Schema</h3>
+
+```graphql
+getUserById(userId: Int!): User
+```
+</div>
+
+### Parameters
+
+<div className="space-y-3 my-6">
+  <div className="rounded-lg border border-emerald-500/20 bg-card p-4">
+    <div className="flex items-start justify-between">
+      <div>
+        <code className="text-sm font-mono text-emerald-400">userId</code>
+        <span className="ml-2 text-xs text-muted-foreground">Int!</span>
+      </div>
+      <div className="text-xs px-2 py-1 rounded bg-red-500/20 text-red-400">Required</div>
+    </div>
+    <p className="text-sm text-muted-foreground mt-2">
+      The unique identifier of the user to retrieve. Must be a valid integer representing an existing user ID.
+    </p>
+  </div>
+</div>
+
+### Return Type
+
+Returns a complete `User` object for the specified user ID.
+
+## Example Usage
+
+<Tabs items={['Query', 'Response', 'TypeScript', 'Python']}>
+  <Tab value="Query">
+```graphql
+query {
+  getUserById(userId: 12345) {
+    id
+    email
+    name
+    country
+    role
+    tierLevel
+    regDate
+    lastLoginDate
+    verify {
+      emailVerified
+      phoneVerified
+      kycVerified
+      amlVerified
+    }
+    security {
+      tfaEnabled
+      authType
+    }
+  }
+}
+```
+  </Tab>
+
+  <Tab value="Response">
+```json
+{
+  "data": {
+    "getUserById": {
+      "id": 12345,
+      "email": "user@example.com",
+      "name": "John Doe",
+      "country": "USA",
+      "role": ["ROLE_USER"],
+      "tierLevel": 2,
+      "regDate": 1699564800000,
+      "lastLoginDate": 1699651200000,
+      "verify": {
+        "emailVerified": true,
+        "phoneVerified": true,
+        "kycVerified": false,
+        "amlVerified": false
+      },
+      "security": {
+        "tfaEnabled": true,
+        "authType": "password"
+      }
+    }
+  }
+}
+```
+  </Tab>
+
+  <Tab value="TypeScript">
+```typescript
+import { GraphQLClient } from 'graphql-request';
+
+const client = new GraphQLClient('https://api.nyyu.io/graphql', {
+  headers: {
+    authorization: `Bearer ${adminToken}`,
+  },
+});
+
+const query = `
+  query GetUserById($userId: Int!) {
+    getUserById(userId: $userId) {
+      id
+      email
+      name
+      role
+      tierLevel
+      verify {
+        emailVerified
+        kycVerified
+      }
+    }
+  }
+`;
+
+async function getUserById(userId: number) {
+  try {
+    const data = await client.request(query, { userId });
+    console.log('User details:', data.getUserById);
+    return data.getUserById;
+  } catch (error) {
+    console.error('Error fetching user:', error);
+    throw error;
+  }
+}
+
+// Usage
+const user = await getUserById(12345);
+```
+  </Tab>
+
+  <Tab value="Python">
+```python
+from gql import gql, Client
+from gql.transport.requests import RequestsHTTPTransport
+
+transport = RequestsHTTPTransport(
+    url='https://api.nyyu.io/graphql',
+    headers={'authorization': f'Bearer {admin_token}'},
+)
+
+client = Client(transport=transport)
+
+query = gql('''
+  query GetUserById($userId: Int!) {
+    getUserById(userId: $userId) {
+      id
+      email
+      name
+      role
+      tierLevel
+      verify {
+        emailVerified
+        kycVerified
+      }
+    }
+  }
+''')
+
+def get_user_by_id(user_id: int):
+    try:
+        result = client.execute(query, variable_values={'userId': user_id})
+        print(f"User details: {result['getUserById']}")
+        return result['getUserById']
+    except Exception as error:
+        print(f"Error fetching user: {error}")
+        raise
+
+# Usage
+user = get_user_by_id(12345)
+```
+  </Tab>
+</Tabs>
+
+## Use Cases
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="rounded-lg border border-teal-500/20 bg-gradient-to-br from-teal-500/5 to-emerald-500/5 p-6">
+    <h3 className="text-md font-semibold text-teal-400 mb-3">User Investigation</h3>
+    <p className="text-sm text-muted-foreground mb-3">
+      Admin dashboard for investigating user accounts, reviewing verification status, and checking account details.
+    </p>
+    <code className="text-xs text-teal-400">Support Tickets, Account Review</code>
+  </div>
+
+  <div className="rounded-lg border border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-cyan-500/5 p-6">
+    <h3 className="text-md font-semibold text-emerald-400 mb-3">Moderation Tools</h3>
+    <p className="text-sm text-muted-foreground mb-3">
+      Access user information before performing moderation actions like suspension, role changes, or account restrictions.
+    </p>
+    <code className="text-xs text-emerald-400">User Moderation, Compliance</code>
+  </div>
+
+  <div className="rounded-lg border border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-teal-500/5 p-6">
+    <h3 className="text-md font-semibold text-cyan-400 mb-3">Analytics & Reporting</h3>
+    <p className="text-sm text-muted-foreground mb-3">
+      Retrieve detailed user information for analytics, reporting, and data analysis purposes.
+    </p>
+    <code className="text-xs text-cyan-400">Admin Analytics, User Reports</code>
+  </div>
+
+  <div className="rounded-lg border border-teal-500/20 bg-gradient-to-br from-teal-500/5 via-emerald-500/5 to-cyan-500/5 p-6">
+    <h3 className="text-md font-semibold text-teal-400 mb-3">Customer Support</h3>
+    <p className="text-sm text-muted-foreground mb-3">
+      Support staff can look up user details to assist with customer inquiries and resolve issues effectively.
+    </p>
+    <code className="text-xs text-teal-400">Help Desk, Support Dashboard</code>
+  </div>
+</div>
+
+## Security Considerations
+
+<div className="space-y-4 my-6">
+  <Callout type="error" title="Admin Access Only">
+    This operation requires ROLE_ADMIN privileges. Unauthorized access attempts will be rejected with a 403 Forbidden error.
+  </Callout>
+
+  <Callout type="warn" title="Audit Logging">
+    All admin user lookups should be logged for security auditing. Track who accessed which user profiles and when.
+  </Callout>
+
+  <Callout type="info" title="Data Privacy Compliance">
+    Ensure admin access to user data complies with GDPR, CCPA, and other data privacy regulations. Only access user data when necessary.
+  </Callout>
+
+  <Callout type="warn" title="Sensitive Information">
+    The returned User object contains sensitive personal information. Handle this data securely and never expose it to unauthorized parties.
+  </Callout>
+</div>
+
+## Best Practices
+
+<div className="rounded-lg border border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-indigo-500/5 p-6 my-6">
+  <h3 className="text-lg font-semibold text-blue-400 mb-4">Implementation Guidelines</h3>
+
+  <div className="space-y-3">
+    <div className="flex items-start gap-3">
+      <div className="text-blue-400 mt-1">1.</div>
+      <div>
+        <div className="font-medium text-sm mb-1">Validate User ID</div>
+        <div className="text-sm text-muted-foreground">Always validate that the user ID is a positive integer before making the query. Handle non-existent user IDs gracefully.</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <div className="text-blue-400 mt-1">2.</div>
+      <div>
+        <div className="font-medium text-sm mb-1">Implement Audit Logs</div>
+        <div className="text-sm text-muted-foreground">Log every admin user lookup with timestamp, admin ID, and accessed user ID for compliance and security monitoring.</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <div className="text-blue-400 mt-1">3.</div>
+      <div>
+        <div className="font-medium text-sm mb-1">Request Only Needed Fields</div>
+        <div className="text-sm text-muted-foreground">Select only the fields required for your use case. Minimize data transfer and reduce security exposure.</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <div className="text-blue-400 mt-1">4.</div>
+      <div>
+        <div className="font-medium text-sm mb-1">Handle Deleted Users</div>
+        <div className="text-sm text-muted-foreground">Check the 'deleted' field to determine if a user account has been soft-deleted. Display appropriate messaging.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Error Handling
+
+<Tabs items={['Common Errors', 'Solutions']}>
+  <Tab value="Common Errors">
+    <div className="space-y-3 my-4">
+      <div className="rounded-lg border border-red-500/20 bg-card p-4">
+        <code className="text-sm text-red-400">403 Forbidden</code>
+        <p className="text-sm text-muted-foreground mt-2">Requester does not have ROLE_ADMIN privileges</p>
+      </div>
+
+      <div className="rounded-lg border border-red-500/20 bg-card p-4">
+        <code className="text-sm text-red-400">404 Not Found</code>
+        <p className="text-sm text-muted-foreground mt-2">No user exists with the specified ID</p>
+      </div>
+
+      <div className="rounded-lg border border-red-500/20 bg-card p-4">
+        <code className="text-sm text-red-400">400 Bad Request</code>
+        <p className="text-sm text-muted-foreground mt-2">Invalid user ID format (must be a positive integer)</p>
+      </div>
+
+      <div className="rounded-lg border border-red-500/20 bg-card p-4">
+        <code className="text-sm text-red-400">401 Unauthorized</code>
+        <p className="text-sm text-muted-foreground mt-2">Missing or invalid authentication token</p>
+      </div>
+    </div>
+  </Tab>
+
+  <Tab value="Solutions">
+    <div className="space-y-3 my-4">
+```typescript
+async function getUserByIdWithErrorHandling(userId: number) {
+  // Validate input
+  if (!userId || userId <= 0) {
+    throw new Error('Invalid user ID');
+  }
+
+  try {
+    const data = await client.request(query, { userId });
+
+    // Check if user is deleted
+    if (data.getUserById.deleted === 1) {
+      console.warn('User account has been deleted');
+    }
+
+    return data.getUserById;
+  } catch (error) {
+    if (error.response?.status === 403) {
+      // Not authorized - redirect to admin login
+      console.error('Admin privileges required');
+      throw new Error('Insufficient permissions');
+    } else if (error.response?.status === 404) {
+      // User not found
+      console.error(`User ${userId} not found`);
+      throw new Error('User not found');
+    } else if (error.response?.status === 400) {
+      // Bad request
+      console.error('Invalid request format');
+      throw new Error('Invalid user ID format');
+    } else {
+      // Other errors
+      console.error('Failed to fetch user:', error);
+      throw error;
+    }
+  }
+}
+```
+    </div>
+  </Tab>
+</Tabs>
+
+## Administrative Workflow
+
+<div className="rounded-lg border border-purple-500/20 bg-gradient-to-br from-purple-500/5 to-pink-500/5 p-6 my-6">
+  <h3 className="text-lg font-semibold text-purple-400 mb-4">Typical Admin Flow</h3>
+
+  <div className="space-y-4">
+    <div className="flex items-start gap-3">
+      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center text-xs font-medium mt-0.5">1</div>
+      <div>
+        <div className="font-medium text-sm mb-1">Search for User</div>
+        <div className="text-sm text-muted-foreground">Use getUserById with the user's ID from a support ticket or search result</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center text-xs font-medium mt-0.5">2</div>
+      <div>
+        <div className="font-medium text-sm mb-1">Review User Details</div>
+        <div className="text-sm text-muted-foreground">Check verification status, account age, tier level, and activity</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center text-xs font-medium mt-0.5">3</div>
+      <div>
+        <div className="font-medium text-sm mb-1">Take Action</div>
+        <div className="text-sm text-muted-foreground">Based on findings, perform necessary actions (suspend, verify, update role, etc.)</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center text-xs font-medium mt-0.5">4</div>
+      <div>
+        <div className="font-medium text-sm mb-1">Document Changes</div>
+        <div className="text-sm text-muted-foreground">Log all actions taken and reasons in the audit system</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Related Operations
+
+<Cards>
+  <Card
+    title="Get User"
+    description="Get the current authenticated user's profile"
+    href="/docs/api/user/get-user"
+  />
+  <Card
+    title="Get Paginated Users"
+    description="Retrieve a list of users with pagination"
+    href="/docs/api/user/get-paginated-users"
+  />
+  <Card
+    title="Suspend User"
+    description="Suspend a user account (admin only)"
+    href="/docs/api/user/suspend-user-by-admin"
+  />
+  <Card
+    title="Change Role"
+    description="Modify user roles and permissions"
+    href="/docs/api/user/change-role"
+  />
+</Cards>

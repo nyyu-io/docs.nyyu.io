@@ -1,0 +1,398 @@
+---
+title: Place New Presale Order
+description: Create a new presale order to purchase tokens from active presale rounds
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-cyan-500 via-sky-600 to-blue-700 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
+  <div className="relative">
+    <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm mb-4">
+      <span className="relative flex h-2 w-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-background"></span>
+      </span>
+      USER ACTION
+    </div>
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">Place New Presale Order</h1>
+    <p className="text-xl text-cyan-100 leading-relaxed max-w-3xl">
+      Create a new order to participate in active presale rounds and secure your token allocation.
+    </p>
+  </div>
+</div>
+
+<Callout type="info" title="Order Creation">
+  This mutation allows users to place presale orders. Orders must be confirmed with payment to complete the purchase.
+</Callout>
+
+## Overview
+
+The `placePreSaleOrder` mutation enables users to create presale orders with specified token amounts and delivery destinations (internal wallet or external address).
+
+---
+
+## GraphQL Schema
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-sky-500/5 p-6 mb-8">
+
+```graphql
+mutation {
+  placePreSaleOrder(
+    presaleId: Int!
+    ndbAmount: Float!
+    destination: Int!
+    extAddr: String
+  ): PreSaleOrder
+}
+```
+
+</div>
+
+---
+
+## Parameters
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <div className="rounded-lg border border-cyan-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">presaleId</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-cyan-600">Int</span></p>
+    <p className="text-sm text-foreground">The unique ID of the presale round you want to participate in.</p>
+  </div>
+
+  <div className="rounded-lg border border-cyan-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">ndbAmount</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-cyan-600">Float</span></p>
+    <p className="text-sm text-foreground">The amount of NDB tokens you wish to purchase in this order.</p>
+  </div>
+
+  <div className="rounded-lg border border-cyan-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">destination</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-cyan-600">Int</span></p>
+    <p className="text-sm text-foreground mb-3">Token delivery destination:</p>
+    <div className="space-y-2">
+      <div className="flex items-center gap-2 p-2 rounded bg-blue-500/10 border border-blue-500/30">
+        <span className="font-mono text-blue-700 font-bold">1</span>
+        <span className="text-sm text-blue-700 dark:text-blue-300">Internal (NYYU Wallet)</span>
+      </div>
+      <div className="flex items-center gap-2 p-2 rounded bg-purple-500/10 border border-purple-500/30">
+        <span className="font-mono text-purple-700 font-bold">2</span>
+        <span className="text-sm text-purple-700 dark:text-purple-300">External (External Wallet Address)</span>
+      </div>
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-cyan-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">extAddr</h3>
+      <span className="inline-flex items-center rounded-full bg-muted px-3 py-1 text-xs font-semibold text-foreground">Optional</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-cyan-600">String</span></p>
+    <p className="text-sm text-foreground">External wallet address to receive tokens. <strong>Required</strong> if <code>destination</code> is set to <code>2</code>.</p>
+  </div>
+</div>
+
+---
+
+## Return Value
+
+<div className="rounded-lg border border-green-500/30 bg-gradient-to-br from-green-500/10 to-emerald-500/5 p-6 mb-6">
+  <h3 className="font-bold mb-2 flex items-center gap-2">
+    <span className="text-2xl">✓</span>
+    Success Response
+  </h3>
+  <p className="text-sm text-foreground mb-3">
+    Returns a <span className="font-mono text-green-600">PreSaleOrder</span> object containing:
+  </p>
+  <div className="space-y-2 text-sm">
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-cyan-600 min-w-32">id</span>
+      <span className="text-muted-foreground">Unique order identifier</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-cyan-600 min-w-32">presaleId</span>
+      <span className="text-muted-foreground">Associated presale round ID</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-cyan-600 min-w-32">userId</span>
+      <span className="text-muted-foreground">User who placed the order</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-cyan-600 min-w-32">ndbAmount</span>
+      <span className="text-muted-foreground">Token amount ordered</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-cyan-600 min-w-32">destination</span>
+      <span className="text-muted-foreground">Delivery destination (1=Internal, 2=External)</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-cyan-600 min-w-32">extAddr</span>
+      <span className="text-muted-foreground">External address if applicable</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-cyan-600 min-w-32">status</span>
+      <span className="text-muted-foreground">Order status (0=Pending payment)</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-cyan-600 min-w-32">createdAt</span>
+      <span className="text-muted-foreground">Order creation timestamp</span>
+    </div>
+  </div>
+</div>
+
+---
+
+## Example Usage
+
+### Request - Internal Delivery
+
+```graphql
+mutation PlaceInternalOrder {
+  placePreSaleOrder(
+    presaleId: 12
+    ndbAmount: 1000.0
+    destination: 1
+  ) {
+    id
+    presaleId
+    userId
+    ndbAmount
+    destination
+    extAddr
+    status
+    createdAt
+    updatedAt
+  }
+}
+```
+
+### Response
+
+```json
+{
+  "data": {
+    "placePreSaleOrder": {
+      "id": 456,
+      "presaleId": 12,
+      "userId": 789,
+      "ndbAmount": 1000.0,
+      "destination": 1,
+      "extAddr": null,
+      "status": 0,
+      "createdAt": 1704067200,
+      "updatedAt": 1704067200
+    }
+  }
+}
+```
+
+### Request - External Delivery
+
+```graphql
+mutation PlaceExternalOrder {
+  placePreSaleOrder(
+    presaleId: 12
+    ndbAmount: 2500.0
+    destination: 2
+    extAddr: "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb"
+  ) {
+    id
+    presaleId
+    ndbAmount
+    destination
+    extAddr
+    status
+  }
+}
+```
+
+### Response
+
+```json
+{
+  "data": {
+    "placePreSaleOrder": {
+      "id": 457,
+      "presaleId": 12,
+      "ndbAmount": 2500.0,
+      "destination": 2,
+      "extAddr": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+      "status": 0
+    }
+  }
+}
+```
+
+<Callout type="warn" title="Payment Required">
+  Orders are created with status **0** (pending). You must complete payment using one of the payment methods to confirm your order.
+</Callout>
+
+---
+
+## Order Status Values
+
+<div className="grid gap-4 md:grid-cols-3 my-6">
+  <div className="rounded-lg border border-yellow-500/30 bg-yellow-500/10 p-5">
+    <div className="flex items-center gap-2 mb-2">
+      <span className="text-2xl">⏳</span>
+      <h4 className="font-bold text-yellow-700 dark:text-yellow-300">Status: 0</h4>
+    </div>
+    <p className="text-sm text-yellow-800 font-semibold">Pending Payment</p>
+    <p className="text-xs text-yellow-700 mt-1">Order created, awaiting payment</p>
+  </div>
+
+  <div className="rounded-lg border border-blue-500/30 bg-blue-500/10 p-5">
+    <div className="flex items-center gap-2 mb-2">
+      <span className="text-2xl">⏱️</span>
+      <h4 className="font-bold text-blue-700 dark:text-blue-300">Status: 1</h4>
+    </div>
+    <p className="text-sm text-blue-800 font-semibold">Processing</p>
+    <p className="text-xs text-blue-700 mt-1">Payment received, processing</p>
+  </div>
+
+  <div className="rounded-lg border border-green-500/30 bg-green-500/10 p-5">
+    <div className="flex items-center gap-2 mb-2">
+      <span className="text-2xl">✅</span>
+      <h4 className="font-bold text-green-700 dark:text-green-300">Status: 2</h4>
+    </div>
+    <p className="text-sm text-green-800 font-semibold">Completed</p>
+    <p className="text-xs text-green-700 mt-1">Order fulfilled</p>
+  </div>
+</div>
+
+---
+
+## Use Cases
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">💼</div>
+    <h3 className="font-bold mb-2">Investment Portfolio</h3>
+    <p className="text-sm text-muted-foreground">
+      Place orders to build your token portfolio during early presale rounds with favorable pricing.
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🎯</div>
+    <h3 className="font-bold mb-2">Strategic Allocation</h3>
+    <p className="text-sm text-muted-foreground">
+      Choose between internal wallet storage for trading or external delivery for cold storage security.
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔒</div>
+    <h3 className="font-bold mb-2">Secure Custody</h3>
+    <p className="text-sm text-muted-foreground">
+      Specify external addresses for direct delivery to hardware wallets or institutional custody solutions.
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">⚡</div>
+    <h3 className="font-bold mb-2">Quick Participation</h3>
+    <p className="text-sm text-muted-foreground">
+      Create orders quickly to secure your allocation before presale rounds reach capacity limits.
+    </p>
+  </Card>
+</div>
+
+---
+
+## Best Practices
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-cyan-500 bg-cyan-500/10 p-4">
+    <h4 className="font-bold text-cyan-700 dark:text-cyan-300 mb-1">✅ Verify Presale Status</h4>
+    <p className="text-sm text-cyan-800">
+      Ensure the presale round is active (status: 2) before placing orders to avoid rejected transactions.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-sky-500 bg-sky-500/10 p-4">
+    <h4 className="font-bold text-sky-700 dark:text-sky-300 mb-1">🔍 Validate External Addresses</h4>
+    <p className="text-sm text-sky-800">
+      Double-check external wallet addresses before submission - incorrect addresses may result in permanent token loss.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-blue-500 bg-blue-500/10 p-4">
+    <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-1">💰 Check Presale Conditions</h4>
+    <p className="text-sm text-blue-800">
+      Review minimum/maximum purchase amounts and other conditions defined in the presale round before ordering.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-cyan-500 bg-cyan-500/10 p-4">
+    <h4 className="font-bold text-cyan-700 dark:text-cyan-300 mb-1">⚡ Complete Payment Promptly</h4>
+    <p className="text-sm text-cyan-800">
+      Orders remain pending (status: 0) until payment is confirmed. Complete payment to secure your allocation.
+    </p>
+  </div>
+</div>
+
+---
+
+## Order Workflow
+
+<div className="rounded-lg border border-cyan-500/30 bg-background p-6 mb-6">
+  <h3 className="font-bold mb-4 flex items-center gap-2">
+    <span className="text-2xl">🔄</span>
+    Presale Order Lifecycle
+  </h3>
+  <div className="flex items-center justify-between gap-4">
+    <div className="flex-1 text-center">
+      <div className="w-16 h-16 rounded-full bg-cyan-500/20 border-2 border-cyan-500 flex items-center justify-center text-2xl mx-auto mb-2">
+        📝
+      </div>
+      <div className="font-bold text-cyan-700 dark:text-cyan-300">Create Order</div>
+      <div className="text-xs text-muted-foreground">Place order mutation</div>
+    </div>
+    <div className="text-2xl text-muted-foreground">→</div>
+    <div className="flex-1 text-center">
+      <div className="w-16 h-16 rounded-full bg-yellow-500/20 border-2 border-yellow-500 flex items-center justify-center text-2xl mx-auto mb-2">
+        💳
+      </div>
+      <div className="font-bold text-yellow-700 dark:text-yellow-300">Make Payment</div>
+      <div className="text-xs text-muted-foreground">Complete payment</div>
+    </div>
+    <div className="text-2xl text-muted-foreground">→</div>
+    <div className="flex-1 text-center">
+      <div className="w-16 h-16 rounded-full bg-green-500/20 border-2 border-green-500 flex items-center justify-center text-2xl mx-auto mb-2">
+        ✅
+      </div>
+      <div className="font-bold text-green-700 dark:text-green-300">Receive Tokens</div>
+      <div className="text-xs text-muted-foreground">Order completed</div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Related Operations
+
+<Cards>
+  <Card title="Get Presale Orders by User" href="/docs/api/presale-orders/get-orders-by-user">
+    View your presale order history
+  </Card>
+  <Card title="Pay with Stripe" href="/docs/api/presale-payment/pay-with-stripe">
+    Complete payment with credit card
+  </Card>
+  <Card title="Pay with Crypto" href="/docs/api/presale-payment/pay-with-crypto">
+    Pay with cryptocurrency
+  </Card>
+  <Card title="Get Order Transactions" href="/docs/api/presale-orders/get-order-transactions">
+    View payment transaction history
+  </Card>
+</Cards>

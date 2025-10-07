@@ -1,0 +1,284 @@
+---
+title: Get Order Transactions
+description: Retrieve complete payment transaction history for a specific presale order
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-violet-500 via-purple-600 to-fuchsia-700 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
+  <div className="relative">
+    <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm mb-4">
+      <span className="relative flex h-2 w-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-background"></span>
+      </span>
+      ADMIN ONLY
+    </div>
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">Get Order Transactions</h1>
+    <p className="text-xl text-violet-100 leading-relaxed max-w-3xl">
+      View complete payment transaction history including all attempts, methods, and statuses for any presale order.
+    </p>
+  </div>
+</div>
+
+<Callout type="warn" title="Admin Access Required">
+  This query is only accessible to users with **ADMIN** privileges for transaction monitoring and financial reconciliation.
+</Callout>
+
+## Overview
+
+The `getPresaleOrderTransactions` query allows administrators to retrieve the complete payment history for a specific presale order, including all payment attempts across different payment methods.
+
+---
+
+## GraphQL Schema
+
+<div className="rounded-xl border border-violet-500/30 bg-gradient-to-br from-violet-500/10 to-purple-500/5 p-6 mb-8">
+
+```graphql
+query {
+  getPresaleOrderTransactions(
+    orderId: Int!
+  ): [PresaleOrderPayments]
+}
+```
+
+</div>
+
+---
+
+## Parameters
+
+<div className="grid gap-4 my-6">
+  <div className="rounded-lg border border-violet-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">orderId</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-violet-600">Int</span></p>
+    <p className="text-sm text-foreground">The unique ID of the presale order to retrieve transaction history for.</p>
+  </div>
+</div>
+
+---
+
+## Return Value
+
+<div className="rounded-lg border border-green-500/30 bg-gradient-to-br from-green-500/10 to-emerald-500/5 p-6 mb-6">
+  <h3 className="font-bold mb-2 flex items-center gap-2">
+    <span className="text-2xl">✓</span>
+    Success Response
+  </h3>
+  <p className="text-sm text-foreground mb-3">
+    Returns an array of <span className="font-mono text-green-600">[PresaleOrderPayments]</span> objects, each containing:
+  </p>
+  <div className="space-y-2 text-sm">
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-violet-600 min-w-32">transactionId</span>
+      <span className="text-muted-foreground">Unique transaction identifier</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-violet-600 min-w-32">orderId</span>
+      <span className="text-muted-foreground">Associated order ID</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-violet-600 min-w-32">amount</span>
+      <span className="text-muted-foreground">Payment amount</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-violet-600 min-w-32">currency</span>
+      <span className="text-muted-foreground">Payment currency (USD, BTC, ETH, etc.)</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-violet-600 min-w-32">status</span>
+      <span className="text-muted-foreground">Transaction status (pending, completed, failed)</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-violet-600 min-w-32">createdAt</span>
+      <span className="text-muted-foreground">Transaction creation timestamp</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-violet-600 min-w-32">updatedAt</span>
+      <span className="text-muted-foreground">Last update timestamp</span>
+    </div>
+  </div>
+</div>
+
+---
+
+## Example Usage
+
+### Request
+
+```graphql
+query GetOrderPayments {
+  getPresaleOrderTransactions(orderId: 456) {
+    transactionId
+    orderId
+    amount
+    currency
+    status
+    createdAt
+    updatedAt
+  }
+}
+```
+
+### Response
+
+```json
+{
+  "data": {
+    "getPresaleOrderTransactions": [
+      {
+        "transactionId": "txn_1234567890",
+        "orderId": 456,
+        "amount": 500.00,
+        "currency": "USD",
+        "status": "completed",
+        "createdAt": 1704067200,
+        "updatedAt": 1704067260
+      },
+      {
+        "transactionId": "txn_0987654321",
+        "orderId": 456,
+        "amount": 450.00,
+        "currency": "USD",
+        "status": "failed",
+        "createdAt": 1704060000,
+        "updatedAt": 1704060120
+      }
+    ]
+  }
+}
+```
+
+<Callout type="info" title="Transactions Retrieved">
+  Retrieved transaction history for order **456** showing 1 successful payment and 1 failed attempt.
+</Callout>
+
+---
+
+## Use Cases
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">💳</div>
+    <h3 className="font-bold mb-2">Payment Verification</h3>
+    <p className="text-sm text-muted-foreground">
+      Verify payment status and troubleshoot issues when users report payment problems.
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔍</div>
+    <h3 className="font-bold mb-2">Financial Audit</h3>
+    <p className="text-sm text-muted-foreground">
+      Review all payment attempts and methods for financial reconciliation and audit trails.
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🛠️</div>
+    <h3 className="font-bold mb-2">Support Investigations</h3>
+    <p className="text-sm text-muted-foreground">
+      Investigate payment failures and provide detailed information to help resolve user issues.
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">📊</div>
+    <h3 className="font-bold mb-2">Payment Analytics</h3>
+    <p className="text-sm text-muted-foreground">
+      Analyze payment success rates, preferred methods, and failure patterns across orders.
+    </p>
+  </Card>
+</div>
+
+---
+
+## Transaction Status Values
+
+<div className="grid gap-4 md:grid-cols-3 my-6">
+  <div className="rounded-lg border border-yellow-500/30 bg-yellow-500/10 p-5">
+    <div className="flex items-center gap-2 mb-2">
+      <span className="text-2xl">⏳</span>
+      <h4 className="font-bold text-yellow-700 dark:text-yellow-300">Pending</h4>
+    </div>
+    <p className="text-sm text-yellow-800 font-semibold">In Progress</p>
+    <p className="text-xs text-yellow-700 mt-1">Transaction being processed</p>
+  </div>
+
+  <div className="rounded-lg border border-green-500/30 bg-green-500/10 p-5">
+    <div className="flex items-center gap-2 mb-2">
+      <span className="text-2xl">✅</span>
+      <h4 className="font-bold text-green-700 dark:text-green-300">Completed</h4>
+    </div>
+    <p className="text-sm text-green-800 font-semibold">Success</p>
+    <p className="text-xs text-green-700 mt-1">Payment confirmed</p>
+  </div>
+
+  <div className="rounded-lg border border-red-500/30 bg-red-500/10 p-5">
+    <div className="flex items-center gap-2 mb-2">
+      <span className="text-2xl">❌</span>
+      <h4 className="font-bold text-red-700 dark:text-red-300">Failed</h4>
+    </div>
+    <p className="text-sm text-red-800 font-semibold">Unsuccessful</p>
+    <p className="text-xs text-red-700 mt-1">Payment declined or error</p>
+  </div>
+</div>
+
+---
+
+## Best Practices
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-violet-500 bg-violet-500/10 p-4">
+    <h4 className="font-bold text-violet-700 dark:text-violet-300 mb-1">🔒 Data Security</h4>
+    <p className="text-sm text-violet-800">
+      Handle transaction data with care - avoid logging sensitive payment details in plaintext.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-purple-500 bg-purple-500/10 p-4">
+    <h4 className="font-bold text-purple-700 dark:text-purple-300 mb-1">📊 Complete History</h4>
+    <p className="text-sm text-purple-800">
+      Review all transactions, not just the latest, to understand the complete payment journey.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-fuchsia-500 bg-fuchsia-500/10 p-4">
+    <h4 className="font-bold text-fuchsia-700 dark:text-fuchsia-300 mb-1">🔍 Failure Analysis</h4>
+    <p className="text-sm text-fuchsia-800">
+      Track failed transactions to identify patterns and improve payment success rates.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-violet-500 bg-violet-500/10 p-4">
+    <h4 className="font-bold text-violet-700 dark:text-violet-300 mb-1">💰 Reconciliation</h4>
+    <p className="text-sm text-violet-800">
+      Use transaction IDs to reconcile payments with payment provider records for accounting.
+    </p>
+  </div>
+</div>
+
+---
+
+## Related Operations
+
+<Cards>
+  <Card title="Get Order by ID" href="/docs/api/presale-orders/get-order-by-id">
+    View presale order details
+  </Card>
+  <Card title="Get Crypto Transactions" href="/docs/api/presale-payment/get-crypto-transactions">
+    View crypto payment transactions
+  </Card>
+  <Card title="Get Stripe Transactions" href="/docs/api/presale-payment/get-stripe-transactions">
+    View Stripe payment transactions
+  </Card>
+  <Card title="Get PayPal Transactions" href="/docs/api/presale-payment/get-paypal-transactions">
+    View PayPal payment transactions
+  </Card>
+</Cards>

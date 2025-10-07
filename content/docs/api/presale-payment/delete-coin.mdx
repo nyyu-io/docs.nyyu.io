@@ -1,0 +1,156 @@
+---
+title: Delete A Coin
+description: Admin functionality to remove cryptocurrencies from the platform
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-red-500 via-rose-600 to-pink-700 p-8 mb-8">
+  <div className="relative z-10">
+    <div className="flex items-center gap-3 mb-4">
+      <h1 className="text-4xl md:text-5xl font-bold text-white">
+        Delete Coin
+      </h1>
+      <span className="bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm font-semibold border border-red-500/30">ADMIN</span>
+    </div>
+    <p className="text-xl text-white/90 mb-6">
+      Remove cryptocurrencies from the platform's payment system
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+</div>
+
+## Mutation
+
+<div className="rounded-xl border border-red-500/30 bg-gradient-to-br from-red-500/10 to-red-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🗑️</span>
+    <div>
+      <div className="font-bold text-lg">deleteCoin</div>
+      <div className="text-sm text-muted-foreground">Remove a cryptocurrency from the system</div>
+    </div>
+  </div>
+
+  ### Schema
+
+  ```graphql
+  deleteCoin(
+    symbol: String!
+  ): Boolean
+  ```
+</div>
+
+## Parameters
+
+<div className="space-y-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-mono text-sm">symbol</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String!</code></div>
+      <div className="text-muted-foreground">The symbol of the coin to delete (e.g., "BTC", "ETH")</div>
+    </div>
+  </div>
+</div>
+
+## Return Value
+
+<div className="p-5 rounded-lg border border-green-500/30 bg-green-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">📦</span>
+    <div className="font-bold">Returns Boolean</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    Returns <code className="bg-muted px-1 rounded">true</code> if deletion successful, <code className="bg-muted px-1 rounded">false</code> otherwise
+  </div>
+</div>
+
+## Example
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">Usage Example</div>
+      <div className="text-xs text-muted-foreground">Delete a coin by symbol</div>
+    </div>
+  </div>
+
+  ```graphql
+  mutation {
+    deleteCoin(symbol: "DOGE")
+  }
+  ```
+</div>
+
+## Response Example
+
+<div className="rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/10 to-green-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📤</span>
+    <div>
+      <div className="font-bold">Sample Response</div>
+      <div className="text-xs text-muted-foreground">Successful deletion</div>
+    </div>
+  </div>
+
+  ```json
+  {
+    "data": {
+      "deleteCoin": true
+    }
+  }
+  ```
+</div>
+
+## Important Notes
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-red-500/30 bg-red-500/10">
+    <div className="text-xl mb-2">🔐</div>
+    <div className="font-bold mb-2">Admin Only</div>
+    <div className="text-sm text-muted-foreground">
+      This mutation requires administrator privileges
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-amber-500/30 bg-amber-500/10">
+    <div className="text-xl mb-2">⚠️</div>
+    <div className="font-bold mb-2">Check Dependencies</div>
+    <div className="text-sm text-muted-foreground">
+      Ensure no active payments or pending orders use this coin
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-blue-500/30 bg-blue-500/10">
+    <div className="text-xl mb-2">🔄</div>
+    <div className="font-bold mb-2">Immediate Effect</div>
+    <div className="text-sm text-muted-foreground">
+      Coin is removed immediately and unavailable for new payments
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-purple-500/30 bg-purple-500/10">
+    <div className="text-xl mb-2">💾</div>
+    <div className="font-bold mb-2">Permanent Action</div>
+    <div className="text-sm text-muted-foreground">
+      This action cannot be undone. Historical data may be preserved
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-red-500/30 bg-gradient-to-r from-red-500/10 to-rose-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold">Best Practice</div>
+      <div className="text-sm text-muted-foreground">
+        Before deleting a coin, verify there are no pending transactions. Consider disabling the coin first and monitoring for a period before permanent deletion. Communicate with users about discontinuation of support. Archive transaction data before removal for compliance and auditing purposes.
+      </div>
+    </div>
+  </div>
+</div>

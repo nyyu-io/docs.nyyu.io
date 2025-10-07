@@ -1,0 +1,323 @@
+---
+title: Pay For Presale In Cryptocurrency
+description: Accept cryptocurrency payments via blockchain deposit addresses
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-lime-500 via-green-600 to-emerald-700 p-8 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+      Cryptocurrency Payment
+    </h1>
+    <p className="text-xl text-white/90 mb-6">
+      Accept Bitcoin, Ethereum, USDT and other cryptocurrencies for presale orders
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+</div>
+
+## Mutation
+
+<div className="rounded-xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-emerald-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">₿</span>
+    <div>
+      <div className="font-bold text-lg">createChargeForPresale</div>
+      <div className="text-sm text-muted-foreground">Generate deposit address for cryptocurrency payment</div>
+    </div>
+  </div>
+
+  ### Schema
+
+  ```graphql
+  createChargeForPresale(
+    presaleId: Int!
+    orderId: Int!
+    coin: String!
+    network: String!
+    cryptoType: String!
+  ): CoinpaymentDepositTransaction
+  ```
+</div>
+
+## Parameters
+
+<div className="space-y-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-emerald-500/20 text-emerald-500 px-2 py-0.5 rounded font-mono text-sm">presaleId</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Int!</code></div>
+      <div className="text-muted-foreground">The unique identifier of the presale round</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-emerald-500/20 text-emerald-500 px-2 py-0.5 rounded font-mono text-sm">orderId</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Int!</code></div>
+      <div className="text-muted-foreground">The ID of the presale order to pay for</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-emerald-500/20 text-emerald-500 px-2 py-0.5 rounded font-mono text-sm">coin</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String!</code></div>
+      <div className="text-muted-foreground">The cryptocurrency coin symbol (e.g., "BTC", "ETH", "USDT")</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-emerald-500/20 text-emerald-500 px-2 py-0.5 rounded font-mono text-sm">network</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String!</code></div>
+      <div className="text-muted-foreground">The blockchain network (e.g., "Bitcoin", "Ethereum", "BSC", "Polygon")</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-emerald-500/20 text-emerald-500 px-2 py-0.5 rounded font-mono text-sm">cryptoType</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String!</code></div>
+      <div className="text-muted-foreground">The cryptocurrency type identifier</div>
+    </div>
+  </div>
+</div>
+
+## Return Value
+
+<div className="p-5 rounded-lg border border-green-500/30 bg-green-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">📦</span>
+    <div className="font-bold">Returns CoinpaymentDepositTransaction Object</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    Contains deposit address and transaction details for cryptocurrency payment
+  </div>
+</div>
+
+## Example
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">Bitcoin Payment Example</div>
+      <div className="text-xs text-muted-foreground">Generate BTC deposit address</div>
+    </div>
+  </div>
+
+  ```graphql
+  mutation {
+    createChargeForPresale(
+      presaleId: 1
+      orderId: 123
+      coin: "BTC"
+      network: "Bitcoin"
+      cryptoType: "Bitcoin"
+    ) {
+      txnId
+      presaleId
+      orderId
+      userId
+      coin
+      network
+      cryptoType
+      depositAddress
+      status
+      createdAt
+      updatedAt
+    }
+  }
+  ```
+</div>
+
+## Response Example
+
+<div className="rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/10 to-green-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📤</span>
+    <div>
+      <div className="font-bold">Sample Response</div>
+      <div className="text-xs text-muted-foreground">Deposit address generated</div>
+    </div>
+  </div>
+
+  ```json
+  {
+    "data": {
+      "createChargeForPresale": {
+        "txnId": "TXN123456",
+        "presaleId": 1,
+        "orderId": 123,
+        "userId": "user_abc123",
+        "coin": "BTC",
+        "network": "Bitcoin",
+        "cryptoType": "Bitcoin",
+        "depositAddress": "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
+        "status": 0,
+        "createdAt": "2024-01-15T10:30:00Z",
+        "updatedAt": "2024-01-15T10:30:00Z"
+      }
+    }
+  }
+  ```
+</div>
+
+## Supported Cryptocurrencies
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">₿</div>
+    <div className="font-bold mb-2">Bitcoin (BTC)</div>
+    <div className="text-sm text-muted-foreground">
+      Network: Bitcoin
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">Ξ</div>
+    <div className="font-bold mb-2">Ethereum (ETH)</div>
+    <div className="text-sm text-muted-foreground">
+      Network: Ethereum
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">₮</div>
+    <div className="font-bold mb-2">Tether (USDT)</div>
+    <div className="text-sm text-muted-foreground">
+      Networks: Ethereum, BSC, Polygon, Tron
+    </div>
+  </div>
+</div>
+
+## Payment Flow
+
+<div className="rounded-xl border border-teal-500/30 bg-gradient-to-br from-teal-500/10 to-teal-500/5 p-6 my-8">
+  <div className="flex items-center gap-3 mb-6">
+    <span className="text-2xl">🔄</span>
+    <div>
+      <div className="font-bold text-lg">Cryptocurrency Payment Process</div>
+      <div className="text-sm text-muted-foreground">Complete blockchain payment workflow</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-teal-500 font-bold text-lg">1</span>
+        <div className="font-semibold text-sm">Generate Deposit Address</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Call createChargeForPresale to get a unique deposit address for the payment
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-teal-500 font-bold text-lg">2</span>
+        <div className="font-semibold text-sm">Display Address to User</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Show the deposit address and payment amount to the user with QR code
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-teal-500 font-bold text-lg">3</span>
+        <div className="font-semibold text-sm">User Sends Cryptocurrency</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        User transfers cryptocurrency from their wallet to the deposit address
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-teal-500 font-bold text-lg">4</span>
+        <div className="font-semibold text-sm">Blockchain Confirmation</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Transaction is confirmed on the blockchain (confirmations vary by network)
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-teal-500 font-bold text-lg">5</span>
+        <div className="font-semibold text-sm">Order Fulfillment</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Once confirmed, the presale order is updated and tokens are delivered
+      </div>
+    </div>
+  </div>
+</div>
+
+## Important Notes
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-amber-500/30 bg-amber-500/10">
+    <div className="text-xl mb-2">⏱️</div>
+    <div className="font-bold mb-2">Confirmation Time</div>
+    <div className="text-sm text-muted-foreground">
+      Bitcoin: ~10 min, Ethereum: ~1 min, BSC: ~3 sec. Wait for sufficient confirmations.
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-blue-500/30 bg-blue-500/10">
+    <div className="text-xl mb-2">🔐</div>
+    <div className="font-bold mb-2">Unique Address</div>
+    <div className="text-sm text-muted-foreground">
+      Each payment gets a unique deposit address for tracking and security
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-green-500/30 bg-green-500/10">
+    <div className="text-xl mb-2">✅</div>
+    <div className="font-bold mb-2">Network Selection</div>
+    <div className="text-sm text-muted-foreground">
+      Ensure users select the correct network to avoid loss of funds
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-purple-500/30 bg-purple-500/10">
+    <div className="text-xl mb-2">💰</div>
+    <div className="font-bold mb-2">Gas Fees</div>
+    <div className="text-sm text-muted-foreground">
+      Users pay blockchain gas fees. Consider network congestion and fees
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 to-teal-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold">Best Practice</div>
+      <div className="text-sm text-muted-foreground">
+        Display the deposit address as both text and QR code for easy scanning. Show real-time confirmation status to users. Implement webhook handlers to detect incoming transactions. Warn users about network selection and provide clear instructions. Set appropriate confirmation requirements based on payment amount.
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,404 @@
+---
+title: Add New Notification Type
+description: Create a new notification type in the system (Admin only)
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-rose-500/10 via-pink-500/5 to-background p-8 border border-rose-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Add New Notification Type
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Create new notification types to expand the notification system
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-rose-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-pink-500/5 rounded-full blur-3xl"></div>
+</div>
+
+<div className="rounded-xl border border-red-500/30 bg-gradient-to-br from-red-500/10 to-red-500/5 p-6 my-8">
+  <div className="flex items-center gap-3 mb-3">
+    <span className="text-2xl">🔒</span>
+    <div>
+      <div className="font-bold text-lg text-red-600 dark:text-red-400">Admin Access Required</div>
+      <div className="text-sm text-muted-foreground">This mutation is restricted to users with ADMIN privileges</div>
+    </div>
+  </div>
+  <div className="mt-3 p-4 rounded-lg bg-background border border-border">
+    <div className="text-sm space-y-2">
+      <p>Only administrators can create new notification types. Regular users attempting to call this mutation will receive an authorization error.</p>
+    </div>
+  </div>
+</div>
+
+## Mutation
+
+<div className="rounded-xl border border-rose-500/30 bg-gradient-to-br from-rose-500/10 to-rose-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">➕</span>
+    <div>
+      <div className="font-bold text-lg">addNewNotificationType2</div>
+      <div className="text-sm text-muted-foreground">Add a new notification type to the system</div>
+    </div>
+  </div>
+
+  ### Schema
+
+  ```graphql
+  addNewNotificationType2(
+    nType: Int!
+    tName: String!
+    broadcast: Boolean!
+  ): NotificationType2
+  ```
+</div>
+
+## Parameters
+
+<div className="space-y-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">nType</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Int!</code></div>
+      <div className="text-muted-foreground mb-2">Unique integer value to identify the notification type. This corresponds to the bit position in the binary settings value.</div>
+      <div className="p-3 rounded bg-muted/50 text-xs space-y-1">
+        <div className="font-semibold">Important:</div>
+        <div>• Must be unique across all notification types</div>
+        <div>• Typically starts from 0 and increments (0, 1, 2, 3, 4...)</div>
+        <div>• Value determines the bit position in user settings</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">tName</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String!</code></div>
+      <div className="text-muted-foreground mb-2">The human-readable name of the notification type.</div>
+      <div className="p-3 rounded bg-muted/50 text-xs space-y-1">
+        <div className="font-semibold">Naming Convention:</div>
+        <div>• Use uppercase with underscores</div>
+        <div>• Be descriptive and clear</div>
+        <div>• Examples: "BID RANKING UPDATED", "PAYMENT RESULT", "VERIFICATION RESULT"</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">broadcast</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Boolean!</code></div>
+      <div className="text-muted-foreground mb-2">Indicates if the notification is broadcast (sent to all users) or unicast (sent to specific users).</div>
+      <div className="p-3 rounded bg-amber-500/20 text-xs border border-amber-500/30">
+        <div className="font-semibold text-amber-700 dark:text-amber-400 mb-1">Note:</div>
+        <div className="text-amber-600 dark:text-amber-300">Currently not fully supported. Set to <code className="bg-muted px-1 rounded">false</code> for unicast notifications.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Return Value
+
+<div className="p-5 rounded-lg border border-rose-500/30 bg-rose-500/10 my-6">
+  <div className="flex items-center gap-2 mb-3">
+    <span className="text-lg">📦</span>
+    <div className="font-bold">Returns NotificationType2 Object</div>
+  </div>
+  <div className="text-sm text-muted-foreground mb-4">
+    The mutation returns the newly created <code className="bg-muted px-1 rounded">NotificationType2</code> object with a success message
+  </div>
+
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+    <div className="p-3 rounded-lg bg-background border border-border">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">nType</code>
+      <div className="text-xs text-muted-foreground mt-1">The type identifier value</div>
+    </div>
+    <div className="p-3 rounded-lg bg-background border border-border">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">tName</code>
+      <div className="text-xs text-muted-foreground mt-1">The type name</div>
+    </div>
+    <div className="p-3 rounded-lg bg-background border border-border">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">broadcast</code>
+      <div className="text-xs text-muted-foreground mt-1">Broadcast flag</div>
+    </div>
+  </div>
+
+  <div className="mt-4 p-3 rounded-lg bg-green-500/20 border border-green-500/30">
+    <div className="text-xs font-semibold text-green-700 dark:text-green-400">Success Message</div>
+    <div className="text-sm text-green-600 dark:text-green-300 mt-1">
+      "Notification Type created successfully!"
+    </div>
+  </div>
+</div>
+
+## Example
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">Usage Example</div>
+      <div className="text-xs text-muted-foreground">Creating a new notification type</div>
+    </div>
+  </div>
+
+  ### Mutation
+
+  ```graphql
+  mutation {
+    addNewNotificationType2(
+      nType: 5
+      tName: "WITHDRAWAL COMPLETED"
+      broadcast: false
+    ) {
+      nType
+      tName
+      broadcast
+    }
+  }
+  ```
+
+  ### Response
+
+  ```json
+  {
+    "data": {
+      "addNewNotificationType2": {
+        "nType": 5,
+        "tName": "WITHDRAWAL COMPLETED",
+        "broadcast": false
+      }
+    },
+    "message": "Notification Type created successfully!"
+  }
+  ```
+</div>
+
+## Use Cases
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🆕</div>
+    <div className="font-bold mb-2">New Feature Notifications</div>
+    <div className="text-sm text-muted-foreground">
+      Add notification types when introducing new features that require user alerts
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📊</div>
+    <div className="font-bold mb-2">System Events</div>
+    <div className="text-sm text-muted-foreground">
+      Create types for important system events users should be notified about
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">💰</div>
+    <div className="font-bold mb-2">Transaction Alerts</div>
+    <div className="text-sm text-muted-foreground">
+      Add specific notification types for different transaction events
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🔔</div>
+    <div className="font-bold mb-2">Custom Alerts</div>
+    <div className="text-sm text-muted-foreground">
+      Expand notification system with platform-specific alert types
+    </div>
+  </div>
+</div>
+
+## Important Notes
+
+<div className="rounded-xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-amber-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">⚠️</span>
+    <div>
+      <div className="font-bold text-lg">Critical Considerations</div>
+      <div className="text-sm text-muted-foreground">Important points to remember</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Unique nType Value</div>
+      <div className="text-xs text-muted-foreground">
+        The <code className="bg-muted px-1 rounded">nType</code> value must be unique. Attempting to create a type with an existing value will fail.
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Sequential Values Recommended</div>
+      <div className="text-xs text-muted-foreground">
+        Use sequential integer values (0, 1, 2, 3...) to maintain consistency with the binary settings system.
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Binary Settings Impact</div>
+      <div className="text-xs text-muted-foreground">
+        Each new type adds a new bit position to the user settings system. Plan carefully before adding many types.
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Name Convention</div>
+      <div className="text-xs text-muted-foreground">
+        Follow the existing naming pattern (uppercase with underscores) for consistency.
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">No Deletion</div>
+      <div className="text-xs text-muted-foreground">
+        There may not be a way to delete notification types. Consider this permanent and plan accordingly.
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">User Settings Update</div>
+      <div className="text-xs text-muted-foreground">
+        After adding a new type, existing users will have it disabled by default in their settings.
+      </div>
+    </div>
+  </div>
+</div>
+
+## Binary Settings Example
+
+<div className="rounded-xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 to-indigo-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔢</span>
+    <div>
+      <div className="font-bold text-lg">How nType Affects Settings</div>
+      <div className="text-sm text-muted-foreground">Understanding the relationship with binary storage</div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-lg bg-background border border-border">
+    <div className="text-sm space-y-3">
+      <div>
+        <div className="font-semibold mb-1">Example: Creating nType = 5</div>
+        <div className="text-muted-foreground text-xs">
+          When you create a notification type with <code className="bg-muted px-1 rounded">nType: 5</code>, it will occupy bit position 5 in the binary settings.
+        </div>
+      </div>
+
+      <div className="p-3 rounded bg-muted/50 font-mono text-xs space-y-1">
+        <div>Binary Position: 0010,0000b (bit 5)</div>
+        <div>Decimal Value: 2⁵ = 32</div>
+        <div>User enabling this: settings value increases by 32</div>
+      </div>
+
+      <div className="text-xs text-muted-foreground">
+        If a user has all types 0-5 enabled: 1 + 2 + 4 + 8 + 16 + 32 = 63
+      </div>
+    </div>
+  </div>
+</div>
+
+## Admin Workflow
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📝</span>
+    <div>
+      <div className="font-bold text-lg">Recommended Workflow</div>
+      <div className="text-sm text-muted-foreground">Steps for adding a new notification type</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="flex items-start gap-3">
+      <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-500 font-bold flex-shrink-0 text-sm">1</div>
+      <div className="flex-1">
+        <div className="font-semibold text-sm">Query Existing Types</div>
+        <div className="text-xs text-muted-foreground">Use <code className="bg-muted px-1 rounded">getNotificationTypes</code> to see current types and their indices</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center text-green-500 font-bold flex-shrink-0 text-sm">2</div>
+      <div className="flex-1">
+        <div className="font-semibold text-sm">Choose Next Index</div>
+        <div className="text-xs text-muted-foreground">Select the next available integer value for <code className="bg-muted px-1 rounded">nType</code></div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <div className="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-500 font-bold flex-shrink-0 text-sm">3</div>
+      <div className="flex-1">
+        <div className="font-semibold text-sm">Create Descriptive Name</div>
+        <div className="text-xs text-muted-foreground">Follow naming convention: uppercase with underscores</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <div className="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-500 font-bold flex-shrink-0 text-sm">4</div>
+      <div className="flex-1">
+        <div className="font-semibold text-sm">Execute Mutation</div>
+        <div className="text-xs text-muted-foreground">Run <code className="bg-muted px-1 rounded">addNewNotificationType2</code> with chosen values</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <div className="w-8 h-8 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-500 font-bold flex-shrink-0 text-sm">5</div>
+      <div className="flex-1">
+        <div className="font-semibold text-sm">Update Frontend</div>
+        <div className="text-xs text-muted-foreground">Modify UI to display the new notification type in user settings</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <div className="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-500 font-bold flex-shrink-0 text-sm">6</div>
+      <div className="flex-1">
+        <div className="font-semibold text-sm">Implement Backend Logic</div>
+        <div className="text-xs text-muted-foreground">Add code to send notifications of the new type when appropriate events occur</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Related Operations
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-gradient-to-br from-indigo-500/5 to-background">
+    <div className="font-bold mb-2">getNotificationTypes</div>
+    <div className="text-sm text-muted-foreground mb-3">
+      View all existing notification types before adding a new one
+    </div>
+    <code className="text-xs bg-muted px-2 py-1 rounded">query</code>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-gradient-to-br from-purple-500/5 to-background">
+    <div className="font-bold mb-2">Send Notifications</div>
+    <div className="text-sm text-muted-foreground mb-3">
+      Use the new type to send notifications to users
+    </div>
+    <code className="text-xs bg-muted px-2 py-1 rounded">mutation</code>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-rose-500/30 bg-gradient-to-r from-rose-500/10 to-pink-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">🔐</span>
+    <div>
+      <div className="font-bold">Admin Only</div>
+      <div className="text-sm text-muted-foreground">Remember: This is a powerful operation that affects the entire notification system. Only use when adding genuinely new notification categories.</div>
+    </div>
+  </div>
+</div>

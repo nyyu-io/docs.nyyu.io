@@ -1,0 +1,268 @@
+---
+title: Get Bid List By Round ID
+description: Retrieve all bids for a specific auction round using round ID
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-cyan-500/10 via-blue-500/5 to-background p-8 border border-cyan-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Get Bid List By Round ID
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Retrieve all bids submitted for a specific auction round using its unique ID
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
+</div>
+
+## Query
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📋</span>
+    <div>
+      <div className="font-bold text-lg">getBidListById</div>
+      <div className="text-sm text-muted-foreground">Retrieve all bids for a specific round by ID</div>
+    </div>
+  </div>
+
+  ### Schema
+
+  ```graphql
+  getBidListById(
+    roundId: String!
+  ): [Bid]
+  ```
+</div>
+
+## Parameters
+
+<div className="space-y-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">roundId</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String!</code></div>
+      <div className="text-muted-foreground">The unique ID of the auction round to retrieve bids from</div>
+    </div>
+  </div>
+</div>
+
+## Return Value
+
+<div className="p-5 rounded-lg border border-green-500/30 bg-green-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">📦</span>
+    <div className="font-bold">Returns Array of Bid Objects</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    The query returns an array of <code className="bg-muted px-1 rounded">Bid</code> objects representing all bids placed in the specified round
+  </div>
+</div>
+
+## Example
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">Usage Example</div>
+      <div className="text-xs text-muted-foreground">Retrieving all bids for round abcd1234</div>
+    </div>
+  </div>
+
+  ```graphql
+  query {
+    getBidListById(roundId: "abcd1234") {
+      userId
+      roundId
+      tokenAmount
+      totalPrice
+      tokenPrice
+      tempTokenAmount
+      tempTokenPrice
+      delta
+      pendingIncrease
+      holdings {
+        key
+        value {
+          crypto
+          usd
+        }
+      }
+      payType
+      cryptoType
+      placedAt
+      updatedAt
+      status
+    }
+  }
+  ```
+</div>
+
+## Response Example
+
+<div className="rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/10 to-green-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📤</span>
+    <div>
+      <div className="font-bold">Sample Response</div>
+      <div className="text-xs text-muted-foreground">Example bid list for round abcd1234</div>
+    </div>
+  </div>
+
+  ```json
+  {
+    "data": {
+      "getBidListById": [
+        {
+          "userId": "user123",
+          "roundId": "abcd1234",
+          "tokenAmount": 100.0,
+          "totalPrice": 50.0,
+          "tokenPrice": 0.5,
+          "tempTokenAmount": 0,
+          "tempTokenPrice": 0,
+          "delta": 0,
+          "pendingIncrease": false,
+          "holdings": [
+            {
+              "key": "BTC",
+              "value": {
+                "crypto": 0.0012,
+                "usd": 50.0
+              }
+            }
+          ],
+          "payType": 2,
+          "cryptoType": "BTC",
+          "placedAt": 1625247600000.0,
+          "updatedAt": 1625334000000.0,
+          "status": 0
+        },
+        {
+          "userId": "user456",
+          "roundId": "abcd1234",
+          "tokenAmount": 200.0,
+          "totalPrice": 100.0,
+          "tokenPrice": 0.5,
+          "tempTokenAmount": 0,
+          "tempTokenPrice": 0,
+          "delta": 0,
+          "pendingIncrease": false,
+          "holdings": [
+            {
+              "key": "ETH",
+              "value": {
+                "crypto": 0.035,
+                "usd": 100.0
+              }
+            }
+          ],
+          "payType": 2,
+          "cryptoType": "ETH",
+          "placedAt": 1625251200000.0,
+          "updatedAt": 1625337600000.0,
+          "status": 0
+        }
+      ]
+    }
+  }
+  ```
+</div>
+
+## Use Cases
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📊</div>
+    <div className="font-bold mb-2">Round Analytics</div>
+    <div className="text-sm text-muted-foreground">
+      Analyze all bids in a specific round for insights and statistics
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🏆</div>
+    <div className="font-bold mb-2">Competition Monitoring</div>
+    <div className="text-sm text-muted-foreground">
+      View all competing bids in a round to track auction activity
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">💰</div>
+    <div className="font-bold mb-2">Total Value Calculation</div>
+    <div className="text-sm text-muted-foreground">
+      Calculate total bid value and participation in a round
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📈</div>
+    <div className="font-bold mb-2">Payment Method Distribution</div>
+    <div className="text-sm text-muted-foreground">
+      Analyze payment methods and crypto types used in the round
+    </div>
+  </div>
+</div>
+
+## Returned Fields
+
+<div className="rounded-xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 to-indigo-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔍</span>
+    <div>
+      <div className="font-bold text-lg">Bid Object Fields</div>
+      <div className="text-sm text-muted-foreground">Each bid includes comprehensive details</div>
+    </div>
+  </div>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div className="p-3 rounded-lg bg-background border border-border">
+      <div className="text-xs font-semibold mb-1">User & Round Info</div>
+      <div className="text-xs text-muted-foreground">userId, roundId</div>
+    </div>
+
+    <div className="p-3 rounded-lg bg-background border border-border">
+      <div className="text-xs font-semibold mb-1">Token Details</div>
+      <div className="text-xs text-muted-foreground">tokenAmount, tokenPrice, totalPrice</div>
+    </div>
+
+    <div className="p-3 rounded-lg bg-background border border-border">
+      <div className="text-xs font-semibold mb-1">Pending Changes</div>
+      <div className="text-xs text-muted-foreground">tempTokenAmount, tempTokenPrice, delta, pendingIncrease</div>
+    </div>
+
+    <div className="p-3 rounded-lg bg-background border border-border">
+      <div className="text-xs font-semibold mb-1">Payment Info</div>
+      <div className="text-xs text-muted-foreground">payType, cryptoType, holdings</div>
+    </div>
+
+    <div className="p-3 rounded-lg bg-background border border-border">
+      <div className="text-xs font-semibold mb-1">Timestamps</div>
+      <div className="text-xs text-muted-foreground">placedAt, updatedAt</div>
+    </div>
+
+    <div className="p-3 rounded-lg bg-background border border-border">
+      <div className="text-xs font-semibold mb-1">Status</div>
+      <div className="text-xs text-muted-foreground">status (0: Not Confirmed, 1: Winner, 2: Failed)</div>
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-cyan-500/30 bg-gradient-to-r from-cyan-500/10 to-blue-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold">Tip</div>
+      <div className="text-sm text-muted-foreground">Use this query to display leaderboards, calculate total participation, or analyze bidding patterns for a specific round</div>
+    </div>
+  </div>
+</div>

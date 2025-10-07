@@ -1,0 +1,433 @@
+---
+title: Resend Verification Code
+description: Request a new email verification code when the original has expired or was not received
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-cyan-600 via-blue-600 to-indigo-600 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="relative">
+    <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm mb-4">
+      <span className="relative flex h-2 w-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-background"></span>
+      </span>
+      CODE RECOVERY
+    </div>
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">Resend Verification Code</h1>
+    <p className="text-xl text-blue-100 leading-relaxed max-w-3xl">
+      Request a new email verification code when the original code has expired or was not received during account registration.
+    </p>
+  </div>
+</div>
+
+<Callout type="info" title="Code Expiration">
+  Verification codes expire after **10 minutes** for security. Use this endpoint to request a fresh code.
+</Callout>
+
+## Overview
+
+The `resendVerifyCode` mutation sends a new verification code to the user's registered email address. This is helpful when the initial verification code has expired or was not received by the user during the signup process.
+
+---
+
+## GraphQL Schema
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-blue-500/5 p-6 mb-8">
+
+```graphql
+mutation {
+  resendVerifyCode(
+    email: String!
+  ): String!
+}
+```
+
+</div>
+
+---
+
+## Parameters
+
+<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 my-6">
+  <div className="rounded-lg border border-cyan-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">email</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700 dark:text-red-300">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-cyan-600 dark:text-cyan-400">String</span></p>
+    <p className="text-sm text-foreground">Email address that requires a new verification code. Must be a registered email.</p>
+  </div>
+</div>
+
+---
+
+## Return Values
+
+<div className="grid gap-4 my-6">
+  <div className="rounded-lg border border-green-500/30 bg-gradient-to-br from-green-500/10 to-emerald-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">📧</span>
+      <code className="bg-green-500/20 text-green-700 dark:text-green-300 px-3 py-1 rounded font-mono text-sm">Already exists, sent verify code</code>
+    </div>
+    <p className="text-sm text-foreground">
+      Email is registered but not yet verified. A new verification code has been sent to the email address (valid for 10 minutes).
+    </p>
+  </div>
+
+  <div className="rounded-lg border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-cyan-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">✅</span>
+      <code className="bg-blue-500/20 text-blue-700 dark:text-blue-300 px-3 py-1 rounded font-mono text-sm">Already verified</code>
+    </div>
+    <p className="text-sm text-foreground">
+      Email is already verified. User should proceed to sign in instead of completing verification again.
+    </p>
+  </div>
+
+  <div className="rounded-lg border border-red-500/30 bg-gradient-to-br from-red-500/10 to-rose-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">❌</span>
+      <code className="bg-red-500/20 text-red-700 dark:text-red-300 px-3 py-1 rounded font-mono text-sm">Cannot find user by {email}</code>
+    </div>
+    <p className="text-sm text-foreground">
+      Email address is not registered in the system. User should complete the signup process first.
+    </p>
+  </div>
+</div>
+
+---
+
+## Example Usage
+
+### Request
+
+```graphql
+mutation ResendCode {
+  resendVerifyCode(
+    email: "demouser@nyyu.io"
+  )
+}
+```
+
+### Successful Response (Code Sent)
+
+```json
+{
+  "data": {
+    "resendVerifyCode": "Already exists, sent verify code"
+  }
+}
+```
+
+<Callout type="info" title="Check Email">
+  A new 6-digit verification code has been sent to **demouser@nyyu.io**. The code expires in 10 minutes.
+</Callout>
+
+### Already Verified Response
+
+```json
+{
+  "data": {
+    "resendVerifyCode": "Already verified"
+  }
+}
+```
+
+<Callout type="warn" title="Account Already Active">
+  This email is already verified. Please proceed to the sign-in page instead.
+</Callout>
+
+### Error Response
+
+```json
+{
+  "errors": [
+    {
+      "message": "Cannot find user by demouser@nyyu.io"
+    }
+  ]
+}
+```
+
+<Callout type="error" title="Email Not Found">
+  This email is not registered. Please complete the signup process first.
+</Callout>
+
+---
+
+## Verification Flow
+
+<div className="rounded-lg border border-cyan-500/30 bg-background p-6 mb-6">
+  <h3 className="font-bold mb-4">Code Resend Process</h3>
+
+  <div className="space-y-6">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-cyan-500/20 flex items-center justify-center text-2xl">
+        ⏰
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Step 1: Code Expired</h4>
+        <p className="text-sm text-muted-foreground mb-2">
+          User realizes their original verification code has expired after 10 minutes
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <span className="inline-flex items-center rounded-full bg-cyan-500/10 px-3 py-1 text-xs font-semibold text-cyan-700 dark:text-cyan-300">10-min expiry</span>
+          <span className="inline-flex items-center rounded-full bg-cyan-500/10 px-3 py-1 text-xs font-semibold text-cyan-700 dark:text-cyan-300">Email not received</span>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center text-2xl">
+        📧
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Step 2: Request New Code</h4>
+        <p className="text-sm text-muted-foreground mb-2">
+          User clicks "Resend Code" button which calls this mutation
+        </p>
+        <div className="rounded-lg border border-blue-500/30 bg-blue-500/5 p-3">
+          <code className="text-xs">mutation resendVerifyCode(email)</code>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-indigo-500/20 flex items-center justify-center text-2xl">
+        ✅
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Step 3: Complete Verification</h4>
+        <p className="text-sm text-muted-foreground mb-2">
+          User enters the new code to verify their email ownership
+        </p>
+        <div className="rounded-lg border border-indigo-500/30 bg-indigo-500/5 p-3">
+          <code className="text-xs">→ verifyAccount(email, code)</code>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Implementation Example
+
+<div className="rounded-xl border border-cyan-500/30 bg-background p-6 my-6">
+  <h3 className="font-bold mb-4">Frontend Integration</h3>
+
+```javascript
+// Example: Resend verification code handler
+async function handleResendCode(email) {
+  try {
+    const result = await graphqlClient.mutate({
+      mutation: gql`
+        mutation ResendVerifyCode($email: String!) {
+          resendVerifyCode(email: $email)
+        }
+      `,
+      variables: {
+        email: email
+      }
+    });
+
+    const response = result.data.resendVerifyCode;
+
+    if (response === "Already exists, sent verify code") {
+      // New code sent successfully
+      showNotification("A new verification code has been sent to your email!");
+
+      // Start countdown timer (10 minutes)
+      startCountdownTimer(600); // 600 seconds = 10 minutes
+
+      // Disable resend button temporarily
+      setResendButtonDisabled(true);
+
+    } else if (response === "Already verified") {
+      // Account already verified
+      showInfo("Your account is already verified. Redirecting to sign in...");
+      setTimeout(() => router.push('/signin'), 2000);
+
+    }
+  } catch (error) {
+    if (error.message.includes("Cannot find user")) {
+      showError("Email not found. Please sign up first.");
+      router.push('/signup');
+    } else {
+      console.error("Resend code failed:", error);
+      showError("Failed to resend code. Please try again.");
+    }
+  }
+}
+
+// Countdown timer for code expiration
+function startCountdownTimer(seconds) {
+  let remaining = seconds;
+
+  const timer = setInterval(() => {
+    remaining--;
+    const minutes = Math.floor(remaining / 60);
+    const secs = remaining % 60;
+
+    updateTimerDisplay(`${minutes}:${secs.toString().padStart(2, '0')}`);
+
+    if (remaining <= 0) {
+      clearInterval(timer);
+      showWarning("Verification code has expired. Please request a new one.");
+      setResendButtonDisabled(false);
+    }
+  }, 1000);
+}
+```
+
+</div>
+
+---
+
+## Use Cases
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">⏰</div>
+    <h3 className="font-bold mb-2">Expired Code</h3>
+    <p className="text-sm text-muted-foreground">
+      User took longer than 10 minutes to enter verification code after signup
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">📭</div>
+    <h3 className="font-bold mb-2">Email Not Received</h3>
+    <p className="text-sm text-muted-foreground">
+      Original verification email went to spam folder or was not delivered
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔄</div>
+    <h3 className="font-bold mb-2">Lost Code</h3>
+    <p className="text-sm text-muted-foreground">
+      User accidentally deleted the email or lost the verification code
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">📱</div>
+    <h3 className="font-bold mb-2">Device Change</h3>
+    <p className="text-sm text-muted-foreground">
+      User switched devices and needs to access verification code on new device
+    </p>
+  </Card>
+</div>
+
+---
+
+## Best Practices
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-cyan-500 bg-cyan-500/10 p-4">
+    <h4 className="font-bold text-cyan-700 dark:text-cyan-300 mb-1">⏱️ Rate Limiting</h4>
+    <p className="text-sm text-cyan-900 dark:text-cyan-200">
+      Implement client-side rate limiting to prevent spam. Disable resend button for 60 seconds after each request
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-blue-500 bg-blue-500/10 p-4">
+    <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-1">⏰ Countdown Timer</h4>
+    <p className="text-sm text-blue-900 dark:text-blue-200">
+      Display a countdown timer showing when the verification code will expire (10 minutes from send time)
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-indigo-500 bg-indigo-500/10 p-4">
+    <h4 className="font-bold text-indigo-700 dark:text-indigo-300 mb-1">📧 Check Spam Folder</h4>
+    <p className="text-sm text-indigo-900 dark:text-indigo-200">
+      Remind users to check their spam/junk folder before requesting a new code
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-cyan-500 bg-cyan-500/10 p-4">
+    <h4 className="font-bold text-cyan-700 dark:text-cyan-300 mb-1">🔄 Clear Feedback</h4>
+    <p className="text-sm text-cyan-900 dark:text-cyan-200">
+      Provide clear visual feedback when code is sent, including email address confirmation
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-blue-500 bg-blue-500/10 p-4">
+    <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-1">✅ Handle All States</h4>
+    <p className="text-sm text-blue-900 dark:text-blue-200">
+      Implement different UI flows for: code sent, already verified, and email not found scenarios
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-indigo-500 bg-indigo-500/10 p-4">
+    <h4 className="font-bold text-indigo-700 dark:text-indigo-300 mb-1">🎯 Auto-Redirect</h4>
+    <p className="text-sm text-indigo-900 dark:text-indigo-200">
+      Automatically redirect already-verified users to sign-in page instead of showing error
+    </p>
+  </div>
+</div>
+
+---
+
+## Security Considerations
+
+<div className="rounded-lg border border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-yellow-500/5 p-6 mb-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔒</span>
+    <div>
+      <div className="font-bold text-lg">Important Security Notes</div>
+      <div className="text-sm text-muted-foreground">Protection mechanisms for code resend</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="flex gap-3 items-start">
+      <span className="text-green-600 dark:text-green-400 mt-0.5">✓</span>
+      <div className="text-sm">
+        <span className="font-semibold">10-Minute Expiration:</span> Each code automatically expires after 10 minutes to limit exposure window
+      </div>
+    </div>
+    <div className="flex gap-3 items-start">
+      <span className="text-green-600 dark:text-green-400 mt-0.5">✓</span>
+      <div className="text-sm">
+        <span className="font-semibold">Rate Limiting:</span> Server-side rate limiting prevents brute force attempts on verification codes
+      </div>
+    </div>
+    <div className="flex gap-3 items-start">
+      <span className="text-green-600 dark:text-green-400 mt-0.5">✓</span>
+      <div className="text-sm">
+        <span className="font-semibold">One Active Code:</span> Requesting new code invalidates previous codes for the same email
+      </div>
+    </div>
+    <div className="flex gap-3 items-start">
+      <span className="text-green-600 dark:text-green-400 mt-0.5">✓</span>
+      <div className="text-sm">
+        <span className="font-semibold">No Enumeration:</span> Response doesn't reveal whether email exists in system (except via error)
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Related Operations
+
+<Cards>
+  <Card title="Sign Up" href="/docs/api/registration/sign-up">
+    Create new account and receive initial verification code
+  </Card>
+  <Card title="Verify Account" href="/docs/api/registration/verify-account">
+    Complete email verification with code
+  </Card>
+  <Card title="Sign In" href="/docs/api/registration/sign-in">
+    Authenticate with verified account
+  </Card>
+  <Card title="Forgot Password" href="/docs/api/registration/forgot-password">
+    Request password reset code
+  </Card>
+</Cards>

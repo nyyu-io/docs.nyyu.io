@@ -1,0 +1,398 @@
+---
+title: Withdrawal API Overview
+description: Complete guide to NYYU withdrawal system with crypto, fiat, and PayPal support
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-rose-500/10 via-red-500/5 to-background p-8 border border-rose-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Withdrawal API
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Secure withdrawal system supporting cryptocurrency, fiat bank transfers, and PayPal with 2FA verification
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-rose-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-red-500/5 rounded-full blur-3xl"></div>
+</div>
+
+## Overview
+
+The Withdrawal API provides a comprehensive, secure system for users to withdraw funds from their NYYU wallets using multiple methods: cryptocurrency transfers, bank/fiat transfers, and PayPal payments. All withdrawal operations require verification codes for enhanced security.
+
+## Withdrawal Methods
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+  <div className="p-5 rounded-xl border border-orange-500/30 bg-gradient-to-br from-orange-500/10 to-orange-500/5">
+    <div className="text-3xl mb-3">₿</div>
+    <div className="font-bold text-lg mb-2">Cryptocurrency</div>
+    <div className="text-sm text-muted-foreground">
+      Withdraw crypto assets to external wallets via blockchain networks (BEP20, ERC20, etc.)
+    </div>
+  </div>
+
+  <div className="p-5 rounded-xl border border-rose-500/30 bg-gradient-to-br from-rose-500/10 to-rose-500/5">
+    <div className="text-3xl mb-3">🏦</div>
+    <div className="font-bold text-lg mb-2">Bank Transfer</div>
+    <div className="text-sm text-muted-foreground">
+      Withdraw fiat currency via international or domestic bank transfers
+    </div>
+  </div>
+
+  <div className="p-5 rounded-xl border border-pink-500/30 bg-gradient-to-br from-pink-500/10 to-pink-500/5">
+    <div className="text-3xl mb-3">💳</div>
+    <div className="font-bold text-lg mb-2">PayPal</div>
+    <div className="text-sm text-muted-foreground">
+      Fast withdrawals directly to your PayPal account email
+    </div>
+  </div>
+</div>
+
+## Core Types
+
+### CryptoWithdraw
+
+<div className="rounded-xl border border-orange-500/30 bg-gradient-to-br from-orange-500/10 to-orange-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">₿</span>
+    <div>
+      <div className="font-bold text-lg">CryptoWithdraw Type</div>
+      <div className="text-sm text-muted-foreground">Cryptocurrency withdrawal request details</div>
+    </div>
+  </div>
+
+  ```graphql
+  type CryptoWithdraw {
+    id: Int!
+    userId: Int!
+    amount: Float!
+    sourceToken: String!
+    network: String!
+    des: String!
+    status: Int!
+    createdAt: Float
+    updatedAt: Float
+    deniedReason: String
+  }
+  ```
+
+  <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">Transaction Details</div>
+      <div className="space-y-1 text-xs">
+        <div><code className="bg-muted px-1 rounded">amount</code> - Withdrawal amount</div>
+        <div><code className="bg-muted px-1 rounded">sourceToken</code> - Crypto type (BTC, ETH, etc.)</div>
+        <div><code className="bg-muted px-1 rounded">network</code> - Blockchain network</div>
+        <div><code className="bg-muted px-1 rounded">des</code> - Destination wallet address</div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">Status & Tracking</div>
+      <div className="space-y-1 text-xs">
+        <div><code className="bg-muted px-1 rounded">status</code> - Request status (0-2)</div>
+        <div><code className="bg-muted px-1 rounded">createdAt</code> - Request timestamp</div>
+        <div><code className="bg-muted px-1 rounded">updatedAt</code> - Last update timestamp</div>
+        <div><code className="bg-muted px-1 rounded">deniedReason</code> - Reason if denied</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### BankWithdrawRequest
+
+<div className="rounded-xl border border-rose-500/30 bg-gradient-to-br from-rose-500/10 to-rose-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🏦</span>
+    <div>
+      <div className="font-bold text-lg">BankWithdrawRequest Type</div>
+      <div className="text-sm text-muted-foreground">Fiat bank withdrawal request details</div>
+    </div>
+  </div>
+
+  ```graphql
+  type BankWithdrawRequest {
+    id: Int!
+    userId: Int!
+    targetCurrency: String!
+    amount: Float!
+    sourceToken: String!
+    mode: Int!
+    country: String!
+    holderName: String!
+    bankName: String!
+    accNumber: String!
+    metadata: String
+    address: String!
+    postCode: String!
+    status: Int!
+    createdAt: Float
+    updatedAt: Float
+  }
+  ```
+
+  <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">Banking Details</div>
+      <div className="space-y-1 text-xs">
+        <div><code className="bg-muted px-1 rounded">bankName</code> - Bank institution name</div>
+        <div><code className="bg-muted px-1 rounded">accNumber</code> - Account number</div>
+        <div><code className="bg-muted px-1 rounded">holderName</code> - Account holder name</div>
+        <div><code className="bg-muted px-1 rounded">mode</code> - Transfer mode (1: Intl, 2: Domestic)</div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">Transfer Details</div>
+      <div className="space-y-1 text-xs">
+        <div><code className="bg-muted px-1 rounded">targetCurrency</code> - Target fiat currency</div>
+        <div><code className="bg-muted px-1 rounded">amount</code> - Withdrawal amount</div>
+        <div><code className="bg-muted px-1 rounded">sourceToken</code> - Source wallet currency</div>
+        <div><code className="bg-muted px-1 rounded">country</code> - Bank country</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### PaypalWithdraw
+
+<div className="rounded-xl border border-pink-500/30 bg-gradient-to-br from-pink-500/10 to-pink-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💳</span>
+    <div>
+      <div className="font-bold text-lg">PaypalWithdraw Type</div>
+      <div className="text-sm text-muted-foreground">PayPal withdrawal request details</div>
+    </div>
+  </div>
+
+  ```graphql
+  type PaypalWithdraw {
+    id: Int!
+    userId: Int!
+    email: String!
+    target: String!
+    amount: Float!
+    sourceToken: String!
+    status: Int!
+    createdAt: Float
+    updatedAt: Float
+    deniedReason: String
+  }
+  ```
+
+  <div className="mt-4 p-4 rounded-lg bg-background border border-border">
+    <div className="grid grid-cols-2 gap-4 text-xs">
+      <div>
+        <div className="font-semibold mb-1">email</div>
+        <div className="text-muted-foreground">PayPal account email</div>
+      </div>
+      <div>
+        <div className="font-semibold mb-1">target</div>
+        <div className="text-muted-foreground">Target currency (USD, EUR, etc.)</div>
+      </div>
+      <div>
+        <div className="font-semibold mb-1">amount</div>
+        <div className="text-muted-foreground">Withdrawal amount</div>
+      </div>
+      <div>
+        <div className="font-semibold mb-1">sourceToken</div>
+        <div className="text-muted-foreground">Source crypto wallet</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Withdrawal Status
+
+<div className="rounded-xl border border-red-500/30 bg-gradient-to-br from-red-500/10 to-red-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🚦</span>
+    <div>
+      <div className="font-bold text-lg">Status Constants</div>
+      <div className="text-sm text-muted-foreground">Withdrawal request lifecycle states</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
+      <div className="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-500 font-bold flex-shrink-0">0</div>
+      <div className="flex-1">
+        <div className="font-bold text-sm">PENDING</div>
+        <div className="text-xs text-muted-foreground">Withdrawal request submitted, awaiting admin review</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
+      <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center text-green-500 font-bold flex-shrink-0">1</div>
+      <div className="flex-1">
+        <div className="font-bold text-sm">APPROVED</div>
+        <div className="text-xs text-muted-foreground">Withdrawal approved and processed successfully</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
+      <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center text-red-500 font-bold flex-shrink-0">2</div>
+      <div className="flex-1">
+        <div className="font-bold text-sm">DENIED</div>
+        <div className="text-xs text-muted-foreground">Withdrawal request denied, see deniedReason for details</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Security Features
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🔐</div>
+    <div className="font-bold mb-2">Email Verification</div>
+    <div className="text-sm text-muted-foreground">
+      All withdrawal requests require email verification codes to prevent unauthorized access
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📱</div>
+    <div className="font-bold mb-2">Admin 2FA SMS</div>
+    <div className="text-sm text-muted-foreground">
+      Admin approval operations require SMS 2FA codes for critical security
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">👨‍💼</div>
+    <div className="font-bold mb-2">Manual Review</div>
+    <div className="text-sm text-muted-foreground">
+      All withdrawal requests are manually reviewed by admins before processing
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📊</div>
+    <div className="font-bold mb-2">Audit Trail</div>
+    <div className="text-sm text-muted-foreground">
+      Complete timestamp tracking with creation and update logs for compliance
+    </div>
+  </div>
+</div>
+
+## Withdrawal Flow
+
+<div className="rounded-xl border border-rose-500/30 bg-gradient-to-br from-rose-500/10 to-rose-500/5 p-6 my-6">
+  <div className="font-bold text-lg mb-4">Standard Withdrawal Process</div>
+
+  <div className="space-y-4">
+    <div className="flex items-start gap-3">
+      <div className="w-8 h-8 rounded-full bg-rose-500/20 flex items-center justify-center text-rose-500 font-bold flex-shrink-0">1</div>
+      <div>
+        <div className="font-bold text-sm">Generate Verification Code</div>
+        <div className="text-xs text-muted-foreground mt-1">User calls <code className="bg-muted px-1 rounded">generateWithdraw</code> to receive email verification code</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <div className="w-8 h-8 rounded-full bg-rose-500/20 flex items-center justify-center text-rose-500 font-bold flex-shrink-0">2</div>
+      <div>
+        <div className="font-bold text-sm">Submit Withdrawal Request</div>
+        <div className="text-xs text-muted-foreground mt-1">User submits withdrawal with verification code via crypto/fiat/PayPal mutation</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <div className="w-8 h-8 rounded-full bg-rose-500/20 flex items-center justify-center text-rose-500 font-bold flex-shrink-0">3</div>
+      <div>
+        <div className="font-bold text-sm">Admin Requests 2FA Code</div>
+        <div className="text-xs text-muted-foreground mt-1">Admin calls <code className="bg-muted px-1 rounded">sendWithdrawConfirmCode</code> to receive SMS 2FA code</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <div className="w-8 h-8 rounded-full bg-rose-500/20 flex items-center justify-center text-rose-500 font-bold flex-shrink-0">4</div>
+      <div>
+        <div className="font-bold text-sm">Admin Reviews & Approves/Denies</div>
+        <div className="text-xs text-muted-foreground mt-1">Admin confirms or denies withdrawal with 2FA code and optional denial reason</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <div className="w-8 h-8 rounded-full bg-rose-500/20 flex items-center justify-center text-rose-500 font-bold flex-shrink-0">5</div>
+      <div>
+        <div className="font-bold text-sm">Funds Transferred</div>
+        <div className="text-xs text-muted-foreground mt-1">Upon approval, funds are transferred to the destination wallet/bank/PayPal</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## User Operations
+
+<Cards>
+  <Card
+    title="Generate Withdraw Code"
+    href="/docs/api/Withdraw/generate-withdraw-code"
+    description="Request email verification code for withdrawal operations"
+  />
+  <Card
+    title="Crypto Withdrawal"
+    href="/docs/api/Withdraw/crypto-withdrawal-request"
+    description="Withdraw cryptocurrency to external wallet addresses"
+  />
+  <Card
+    title="Fiat Withdrawal"
+    href="/docs/api/Withdraw/fiat-withdrawal-request"
+    description="Withdraw via international or domestic bank transfer"
+  />
+  <Card
+    title="PayPal Withdrawal"
+    href="/docs/api/Withdraw/paypal-withdraw-request"
+    description="Fast withdrawal to PayPal account"
+  />
+  <Card
+    title="Change Show Status"
+    href="/docs/api/Withdraw/change-withdrawal-request-show-status"
+    description="Hide or show withdrawal transactions on wallet page"
+  />
+</Cards>
+
+## Admin Operations
+
+<Cards>
+  <Card
+    title="Send Confirmation Code"
+    href="/docs/api/Withdraw/send-withdraw-confirmation-code"
+    description="Request SMS 2FA code for withdrawal approval (ADMIN)"
+  />
+  <Card
+    title="Confirm Crypto Withdrawal"
+    href="/docs/api/Withdraw/confirm-crypto-withdrawal-request"
+    description="Approve or deny cryptocurrency withdrawal requests (ADMIN)"
+  />
+  <Card
+    title="Confirm PayPal Withdrawal"
+    href="/docs/api/Withdraw/confirm-paypal-withdrawal-request"
+    description="Approve or deny PayPal withdrawal requests (ADMIN)"
+  />
+  <Card
+    title="Approve Fiat Withdrawal"
+    href="/docs/api/Withdraw/approve-fiat-withdrawal-request"
+    description="Approve bank withdrawal after manual fund transfer (ADMIN)"
+  />
+  <Card
+    title="Deny Bank Withdrawal"
+    href="/docs/api/Withdraw/deny-bank-withdrawal-request"
+    description="Deny bank withdrawal request with reason (ADMIN)"
+  />
+</Cards>
+
+<div className="mt-8 p-6 rounded-xl border border-rose-500/30 bg-gradient-to-r from-rose-500/10 to-red-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">🔒</span>
+    <div>
+      <div className="font-bold">Security First</div>
+      <div className="text-sm text-muted-foreground">All withdrawal operations require verification codes and admin approval for maximum security</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,456 @@
+---
+title: Add & Update Social Sites into DB
+description: Configure and manage OAuth2 provider registrations
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-background p-8 border border-emerald-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Add & Update OAuth2 Providers
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Configure and manage OAuth2 social login provider registrations in your system
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-teal-500/5 rounded-full blur-3xl"></div>
+</div>
+
+<div className="p-4 rounded-lg border border-orange-500/30 bg-orange-500/10 my-6">
+  <div className="flex items-center gap-2">
+    <span className="text-lg">🔐</span>
+    <div className="font-bold">Admin Access Required</div>
+  </div>
+  <div className="text-sm text-muted-foreground mt-2">
+    This mutation is accessible only to users with ADMIN privileges
+  </div>
+</div>
+
+## Mutation
+
+<div className="rounded-xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-emerald-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">⚙️</span>
+    <div>
+      <div className="font-bold text-lg">addOAuth2Registration</div>
+      <div className="text-sm text-muted-foreground">Add or update OAuth2 provider configuration</div>
+    </div>
+  </div>
+
+  ### Schema
+
+  ```graphql
+  addOAuth2Registration(
+    registrationId: String!
+    clientId: String
+    clientSecret: String
+    clientAuthenticationMethod: String
+    authorizationGrantType: String
+    redirectUriTemplate: String
+    scope: [String]
+    authorizationUri: String
+    tokenUri: String
+    userInfoUri: String
+    userNameAttributeName: String
+    jwkSetUri: String
+    clientName: String
+  ): OAuth2Registration
+  ```
+</div>
+
+## Parameters
+
+<div className="space-y-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">registrationId</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String!</code></div>
+      <div className="text-muted-foreground">Unique identifier for the OAuth2 provider (e.g., "google", "facebook", "github")</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">clientId</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String</code></div>
+      <div className="text-muted-foreground">The client ID assigned to your application by the OAuth2 provider</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">clientSecret</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String</code></div>
+      <div className="text-muted-foreground">The client secret assigned to your application by the OAuth2 provider</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">clientAuthenticationMethod</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String</code></div>
+      <div className="text-muted-foreground">Method used to authenticate the client (commonly "BASIC" or "POST")</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">authorizationGrantType</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String</code></div>
+      <div className="text-muted-foreground">Type of grant used for authorization (typically "authorization_code")</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">redirectUriTemplate</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String</code></div>
+      <div className="text-muted-foreground">Template for the redirect URI (e.g., "{baseUrl}/oauth2/callback/{registrationId}")</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">scope</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">[String]</code></div>
+      <div className="text-muted-foreground">List of permissions requested from the OAuth2 provider (e.g., ["openid", "profile", "email"])</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">authorizationUri</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String</code></div>
+      <div className="text-muted-foreground">URI for the authorization endpoint where users grant permissions</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">tokenUri</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String</code></div>
+      <div className="text-muted-foreground">URI for the token endpoint where authorization codes are exchanged</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">userInfoUri</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String</code></div>
+      <div className="text-muted-foreground">URI for the user info endpoint to retrieve user profile data</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">userNameAttributeName</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String</code></div>
+      <div className="text-muted-foreground">Attribute name in the user info response used as the username (e.g., "sub", "email")</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">jwkSetUri</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String</code></div>
+      <div className="text-muted-foreground">URI for the JSON Web Key Set to validate provider signatures</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">clientName</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String</code></div>
+      <div className="text-muted-foreground">Friendly name for the OAuth2 provider displayed to users</div>
+    </div>
+  </div>
+</div>
+
+## Return Value
+
+<div className="p-5 rounded-lg border border-green-500/30 bg-green-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">📦</span>
+    <div className="font-bold">Returns OAuth2Registration Object</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    The mutation returns the newly created or updated <code className="bg-muted px-1 rounded">OAuth2Registration</code> object with all configuration details
+  </div>
+</div>
+
+## Example
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">Usage Example</div>
+      <div className="text-xs text-muted-foreground">Configuring Google OAuth2 provider</div>
+    </div>
+  </div>
+
+  ```graphql
+  mutation {
+    addOAuth2Registration(
+      registrationId: "google"
+      clientId: "217015743019-arfgls5skjg3tehl67gf8sitbf0rq9k9.apps.googleusercontent.com"
+      clientSecret: "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"
+      clientAuthenticationMethod: "BASIC"
+      authorizationGrantType: "authorization_code"
+      redirectUriTemplate: "{baseUrl}/oauth2/callback/google"
+      scope: ["openid", "profile", "email"]
+      authorizationUri: "https://accounts.google.com/o/oauth2/v2/auth"
+      tokenUri: "https://www.googleapis.com/oauth2/v4/token"
+      userInfoUri: "https://www.googleapis.com/oauth2/v3/userinfo"
+      userNameAttributeName: "sub"
+      jwkSetUri: "https://www.googleapis.com/oauth2/v3/certs"
+      clientName: "Google"
+    ) {
+      registrationId
+      clientId
+      clientSecret
+      clientAuthenticationMethod
+      authorizationGrantType
+      redirectUriTemplate
+      scope
+      authorizationUri
+      tokenUri
+      userInfoUri
+      userNameAttributeName
+      jwkSetUri
+      clientName
+    }
+  }
+  ```
+</div>
+
+## Response Example
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📤</span>
+    <div>
+      <div className="font-bold">Sample Response</div>
+      <div className="text-xs text-muted-foreground">Successful registration response</div>
+    </div>
+  </div>
+
+  ```json
+  {
+    "data": {
+      "addOAuth2Registration": {
+        "registrationId": "google",
+        "clientId": "217015743019-arfgls5skjg3tehl67gf8sitbf0rq9k9.apps.googleusercontent.com",
+        "clientSecret": "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",
+        "clientAuthenticationMethod": "BASIC",
+        "authorizationGrantType": "authorization_code",
+        "redirectUriTemplate": "{baseUrl}/oauth2/callback/google",
+        "scope": ["openid", "profile", "email"],
+        "authorizationUri": "https://accounts.google.com/o/oauth2/v2/auth",
+        "tokenUri": "https://www.googleapis.com/oauth2/v4/token",
+        "userInfoUri": "https://www.googleapis.com/oauth2/v3/userinfo",
+        "userNameAttributeName": "sub",
+        "jwkSetUri": "https://www.googleapis.com/oauth2/v3/certs",
+        "clientName": "Google"
+      }
+    }
+  }
+  ```
+</div>
+
+## Provider Examples
+
+<div className="rounded-xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 to-indigo-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔧</span>
+    <div>
+      <div className="font-bold text-lg">Common Provider Configurations</div>
+      <div className="text-sm text-muted-foreground">Quick reference for popular OAuth2 providers</div>
+    </div>
+  </div>
+
+  ### Facebook
+
+  ```graphql
+  registrationId: "facebook"
+  authorizationUri: "https://www.facebook.com/v12.0/dialog/oauth"
+  tokenUri: "https://graph.facebook.com/v12.0/oauth/access_token"
+  userInfoUri: "https://graph.facebook.com/me?fields=id,name,email"
+  userNameAttributeName: "id"
+  scope: ["public_profile", "email"]
+  ```
+
+  ### GitHub
+
+  ```graphql
+  registrationId: "github"
+  authorizationUri: "https://github.com/login/oauth/authorize"
+  tokenUri: "https://github.com/login/oauth/access_token"
+  userInfoUri: "https://api.github.com/user"
+  userNameAttributeName: "id"
+  scope: ["read:user", "user:email"]
+  ```
+
+  ### Twitter / X
+
+  ```graphql
+  registrationId: "twitter"
+  authorizationUri: "https://twitter.com/i/oauth2/authorize"
+  tokenUri: "https://api.twitter.com/2/oauth2/token"
+  userInfoUri: "https://api.twitter.com/2/users/me"
+  userNameAttributeName: "id"
+  scope: ["tweet.read", "users.read"]
+  ```
+</div>
+
+## Configuration Steps
+
+<div className="rounded-xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-amber-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📋</span>
+    <div>
+      <div className="font-bold text-lg">Setup Workflow</div>
+      <div className="text-sm text-muted-foreground">Complete configuration process</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-emerald-500 font-bold text-lg">1</span>
+        <div className="font-semibold text-sm">Register Application</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Register your application with the OAuth2 provider's developer console
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-emerald-500 font-bold text-lg">2</span>
+        <div className="font-semibold text-sm">Obtain Credentials</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Get client ID and client secret from the provider
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-emerald-500 font-bold text-lg">3</span>
+        <div className="font-semibold text-sm">Configure Redirect URIs</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Set up authorized redirect URIs in the provider console
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-emerald-500 font-bold text-lg">4</span>
+        <div className="font-semibold text-sm">Add Registration</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Use this mutation to add the provider configuration to your system
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-emerald-500 font-bold text-lg">5</span>
+        <div className="font-semibold text-sm">Test Integration</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Verify the OAuth2 login flow works correctly with your configuration
+      </div>
+    </div>
+  </div>
+</div>
+
+## Use Cases
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🆕</div>
+    <div className="font-bold mb-2">Add New Provider</div>
+    <div className="text-sm text-muted-foreground">
+      Configure a new social login provider for your application
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🔄</div>
+    <div className="font-bold mb-2">Update Configuration</div>
+    <div className="text-sm text-muted-foreground">
+      Modify existing provider settings like client secrets or scopes
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🔑</div>
+    <div className="font-bold mb-2">Rotate Credentials</div>
+    <div className="text-sm text-muted-foreground">
+      Update client secrets during regular security rotations
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🌐</div>
+    <div className="font-bold mb-2">Multi-Environment Setup</div>
+    <div className="text-sm text-muted-foreground">
+      Configure different credentials for dev, staging, and production
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 to-teal-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold">Security Best Practice</div>
+      <div className="text-sm text-muted-foreground">Store client secrets securely and never expose them in frontend code. Rotate credentials regularly and use environment-specific configurations for different deployment stages.</div>
+    </div>
+  </div>
+</div>

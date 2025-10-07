@@ -1,0 +1,561 @@
+---
+title: Confirm 2FA Setting
+description: Verify and activate two-factor authentication configuration with confirmation code
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-600 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="relative">
+    <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm mb-4">
+      <span className="relative flex h-2 w-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-background"></span>
+      </span>
+      2FA CONFIRMATION
+    </div>
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">Confirm 2FA Setting</h1>
+    <p className="text-xl text-blue-100 leading-relaxed max-w-3xl">
+      Verify and activate two-factor authentication by confirming the setup with a valid verification code.
+    </p>
+  </div>
+</div>
+
+<Callout type="info" title="Final Setup Step">
+  This is the **last step** in 2FA configuration. After confirmation, 2FA will be active and required for all future logins.
+</Callout>
+
+## Overview
+
+The `confirmRequest2FA` mutation verifies that the 2FA method was properly configured by validating the verification code provided by the user. This confirms that the user can successfully generate or receive 2FA codes before activating the requirement.
+
+---
+
+## GraphQL Schema
+
+<div className="rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-indigo-500/5 p-6 mb-8">
+
+```graphql
+mutation {
+  confirmRequest2FA(
+    email: String!
+    method: String!
+    code: String!
+  ): String!
+}
+```
+
+</div>
+
+---
+
+## Parameters
+
+<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 my-6">
+  <div className="rounded-lg border border-blue-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">email</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700 dark:text-red-300">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-blue-600 dark:text-blue-400">String</span></p>
+    <p className="text-sm text-foreground">User's verified email address that is setting up 2FA.</p>
+  </div>
+
+  <div className="rounded-lg border border-indigo-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">method</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700 dark:text-red-300">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-indigo-600 dark:text-indigo-400">String</span></p>
+    <p className="text-sm text-foreground">2FA method being confirmed: <code className="text-xs bg-muted px-1 py-0.5 rounded">app</code>, <code className="text-xs bg-muted px-1 py-0.5 rounded">email</code>, or <code className="text-xs bg-muted px-1 py-0.5 rounded">phone</code></p>
+  </div>
+
+  <div className="rounded-lg border border-violet-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">code</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700 dark:text-red-300">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-violet-600 dark:text-violet-400">String</span></p>
+    <p className="text-sm text-foreground">6-digit verification code from authenticator app, email, or SMS.</p>
+  </div>
+</div>
+
+---
+
+## Return Values
+
+<div className="grid gap-4 my-6">
+  <div className="rounded-lg border border-green-500/30 bg-gradient-to-br from-green-500/10 to-emerald-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">✅</span>
+      <code className="bg-green-500/20 text-green-700 dark:text-green-300 px-3 py-1 rounded font-mono text-sm">Success</code>
+    </div>
+    <p className="text-sm text-foreground">
+      2FA setup confirmed successfully. The selected method is now active and will be required for all future sign-ins.
+    </p>
+  </div>
+
+  <div className="rounded-lg border border-red-500/30 bg-gradient-to-br from-red-500/10 to-rose-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">❌</span>
+      <code className="bg-red-500/20 text-red-700 dark:text-red-300 px-3 py-1 rounded font-mono text-sm">Failed</code>
+    </div>
+    <p className="text-sm text-foreground">
+      Verification code is incorrect or expired. User should request a new code or verify they entered it correctly.
+    </p>
+  </div>
+</div>
+
+---
+
+## Error Responses
+
+<div className="grid gap-4 my-6">
+  <div className="rounded-lg border border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-yellow-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">⚠️</span>
+      <code className="bg-amber-500/20 text-amber-700 dark:text-amber-300 px-3 py-1 rounded font-mono text-sm">Cannot find user by {email}</code>
+    </div>
+    <p className="text-sm text-foreground">
+      Email address is not registered in the system.
+    </p>
+  </div>
+
+  <div className="rounded-lg border border-orange-500/30 bg-gradient-to-br from-orange-500/10 to-amber-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">📧</span>
+      <code className="bg-orange-500/20 text-orange-700 dark:text-orange-300 px-3 py-1 rounded font-mono text-sm">Your account is not verified</code>
+    </div>
+    <p className="text-sm text-foreground">
+      Email must be verified before 2FA can be configured. Complete email verification first.
+    </p>
+  </div>
+
+  <div className="rounded-lg border border-red-500/30 bg-gradient-to-br from-red-500/10 to-rose-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">🔧</span>
+      <code className="bg-red-500/20 text-red-700 dark:text-red-300 px-3 py-1 rounded font-mono text-sm">There is no proper 2FA setting</code>
+    </div>
+    <p className="text-sm text-foreground">
+      No pending 2FA setup found. User must call `request2FA` first to initiate setup.
+    </p>
+  </div>
+</div>
+
+---
+
+## Example Usage
+
+### Confirm Authenticator App
+
+```graphql
+mutation Confirm2FA_App {
+  confirmRequest2FA(
+    email: "demouser@nyyu.io"
+    method: "app"
+    code: "123456"
+  )
+}
+```
+
+**Response:**
+
+```json
+{
+  "data": {
+    "confirmRequest2FA": "Success"
+  }
+}
+```
+
+<Callout type="info" title="2FA Activated">
+  Authenticator app 2FA is now active. You'll need to enter a code from your app on every sign-in.
+</Callout>
+
+### Confirm Email Method
+
+```graphql
+mutation Confirm2FA_Email {
+  confirmRequest2FA(
+    email: "demouser@nyyu.io"
+    method: "email"
+    code: "550880"
+  )
+}
+```
+
+**Response:**
+
+```json
+{
+  "data": {
+    "confirmRequest2FA": "Success"
+  }
+}
+```
+
+<Callout type="info" title="Email 2FA Active">
+  Email-based 2FA is now enabled. You'll receive a code via email for each sign-in attempt.
+</Callout>
+
+### Confirm SMS Method
+
+```graphql
+mutation Confirm2FA_Phone {
+  confirmRequest2FA(
+    email: "demouser@nyyu.io"
+    method: "phone"
+    code: "789012"
+  )
+}
+```
+
+**Response:**
+
+```json
+{
+  "data": {
+    "confirmRequest2FA": "Success"
+  }
+}
+```
+
+<Callout type="info" title="SMS 2FA Active">
+  SMS-based 2FA is now enabled. You'll receive a code via text message for each sign-in.
+</Callout>
+
+### Failed Confirmation
+
+```json
+{
+  "data": {
+    "confirmRequest2FA": "Failed"
+  }
+}
+```
+
+<Callout type="error" title="Invalid Code">
+  The verification code is incorrect or has expired. Please check the code and try again, or request a new one.
+</Callout>
+
+---
+
+## Confirmation Flow
+
+<div className="rounded-lg border border-blue-500/30 bg-background p-6 mb-6">
+  <h3 className="font-bold mb-4">2FA Confirmation Process</h3>
+
+  <div className="space-y-6">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center text-2xl">
+        📲
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Step 1: Receive Code</h4>
+        <p className="text-sm text-muted-foreground mb-2">
+          After calling `request2FA`, user receives QR code (app) or verification code (email/SMS)
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <span className="inline-flex items-center rounded-full bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-700 dark:text-blue-300">QR scan</span>
+          <span className="inline-flex items-center rounded-full bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-700 dark:text-blue-300">Email code</span>
+          <span className="inline-flex items-center rounded-full bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-700 dark:text-blue-300">SMS code</span>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-indigo-500/20 flex items-center justify-center text-2xl">
+        🔢
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Step 2: Generate/Enter Code</h4>
+        <p className="text-sm text-muted-foreground mb-2">
+          User generates code from app or receives it via email/SMS, then enters it
+        </p>
+        <div className="rounded-lg border border-indigo-500/30 bg-indigo-500/5 p-3">
+          <code className="text-xs">6-digit verification code</code>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-violet-500/20 flex items-center justify-center text-2xl">
+        ✅
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Step 3: Confirm Setup</h4>
+        <p className="text-sm text-muted-foreground mb-2">
+          System validates code and activates 2FA for the account
+        </p>
+        <div className="rounded-lg border border-violet-500/30 bg-violet-500/5 p-3">
+          <code className="text-xs">mutation confirmRequest2FA(email, method, code)</code>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-green-500/20 flex items-center justify-center text-2xl">
+        🔐
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Step 4: 2FA Active</h4>
+        <p className="text-sm text-muted-foreground mb-2">
+          2FA is now required for all future sign-ins to enhance account security
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <span className="inline-flex items-center rounded-full bg-green-500/10 px-3 py-1 text-xs font-semibold text-green-700 dark:text-green-300">Enhanced security</span>
+          <span className="inline-flex items-center rounded-full bg-green-500/10 px-3 py-1 text-xs font-semibold text-green-700 dark:text-green-300">Required on login</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Implementation Example
+
+<div className="rounded-xl border border-blue-500/30 bg-background p-6 my-6">
+  <h3 className="font-bold mb-4">Frontend Integration</h3>
+
+```javascript
+// Example: Confirm 2FA setup handler
+async function handleConfirm2FA(email, method, code) {
+  try {
+    const result = await graphqlClient.mutate({
+      mutation: gql`
+        mutation ConfirmRequest2FA($email: String!, $method: String!, $code: String!) {
+          confirmRequest2FA(email: $email, method: $method, code: $code)
+        }
+      `,
+      variables: {
+        email: email,
+        method: method,
+        code: code
+      }
+    });
+
+    const response = result.data.confirmRequest2FA;
+
+    if (response === "Success") {
+      // 2FA successfully activated
+      showSuccess(`2FA via ${method} is now active!`);
+
+      // Store 2FA status
+      localStorage.setItem('2fa_enabled', 'true');
+      localStorage.setItem('2fa_method', method);
+
+      // Redirect to next step (e.g., avatar setup or dashboard)
+      router.push('/setup-avatar');
+
+    } else if (response === "Failed") {
+      // Invalid or expired code
+      showError("Invalid verification code. Please try again.");
+
+      // Optionally offer to resend code
+      showResendOption();
+    }
+
+  } catch (error) {
+    if (error.message.includes("Your account is not verified")) {
+      showError("Please verify your email first.");
+      router.push('/verify-email');
+
+    } else if (error.message.includes("There is no proper 2FA setting")) {
+      showError("No 2FA setup in progress. Please start setup first.");
+      router.push('/setup-2fa');
+
+    } else if (error.message.includes("Cannot find user")) {
+      showError("Account not found.");
+      router.push('/signup');
+
+    } else {
+      console.error("2FA confirmation failed:", error);
+      showError("Failed to confirm 2FA. Please try again.");
+    }
+  }
+}
+
+// Code input validation
+function validateCode(code) {
+  // Must be exactly 6 digits
+  return /^\d{6}$/.test(code);
+}
+
+// Auto-submit when 6 digits entered
+function handleCodeInput(value, email, method) {
+  if (validateCode(value)) {
+    // Auto-submit when code is complete
+    handleConfirm2FA(email, method, value);
+  }
+}
+
+// Resend code option
+function showResendOption() {
+  showDialog({
+    title: "Invalid Code",
+    message: "The code you entered is incorrect or has expired.",
+    actions: [
+      {
+        label: "Try Again",
+        onClick: () => clearCodeInput()
+      },
+      {
+        label: "Get New Code",
+        onClick: () => handleRequest2FA(email, method)
+      }
+    ]
+  });
+}
+```
+
+</div>
+
+---
+
+## Use Cases
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔐</div>
+    <h3 className="font-bold mb-2">First-Time Setup</h3>
+    <p className="text-sm text-muted-foreground">
+      New users completing initial 2FA configuration during account registration
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔄</div>
+    <h3 className="font-bold mb-2">Method Verification</h3>
+    <p className="text-sm text-muted-foreground">
+      Confirming that new 2FA method works before disabling old method
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">➕</div>
+    <h3 className="font-bold mb-2">Backup Method</h3>
+    <p className="text-sm text-muted-foreground">
+      Adding additional 2FA methods as backup options for account recovery
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🛡️</div>
+    <h3 className="font-bold mb-2">Security Upgrade</h3>
+    <p className="text-sm text-muted-foreground">
+      Switching from less secure to more secure 2FA method (email → app)
+    </p>
+  </Card>
+</div>
+
+---
+
+## Best Practices
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-blue-500 bg-blue-500/10 p-4">
+    <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-1">🔢 Auto-Submit</h4>
+    <p className="text-sm text-blue-900 dark:text-blue-200">
+      Automatically submit the form when user enters 6 digits for seamless UX
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-indigo-500 bg-indigo-500/10 p-4">
+    <h4 className="font-bold text-indigo-700 dark:text-indigo-300 mb-1">⏱️ Code Expiration</h4>
+    <p className="text-sm text-indigo-900 dark:text-indigo-200">
+      Display countdown timer for email/SMS codes and offer easy resend option
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-violet-500 bg-violet-500/10 p-4">
+    <h4 className="font-bold text-violet-700 dark:text-violet-300 mb-1">✅ Clear Feedback</h4>
+    <p className="text-sm text-violet-900 dark:text-violet-200">
+      Provide immediate visual feedback for success/failure with clear next steps
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-blue-500 bg-blue-500/10 p-4">
+    <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-1">🔄 Error Handling</h4>
+    <p className="text-sm text-blue-900 dark:text-blue-200">
+      Offer to resend code or restart setup process if confirmation fails multiple times
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-indigo-500 bg-indigo-500/10 p-4">
+    <h4 className="font-bold text-indigo-700 dark:text-indigo-300 mb-1">💾 Save Backup Codes</h4>
+    <p className="text-sm text-indigo-900 dark:text-indigo-200">
+      After successful 2FA setup, provide backup recovery codes for account access if 2FA method is lost
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-violet-500 bg-violet-500/10 p-4">
+    <h4 className="font-bold text-violet-700 dark:text-violet-300 mb-1">📱 Test Before Activation</h4>
+    <p className="text-sm text-violet-900 dark:text-violet-200">
+      Explain that this confirmation ensures 2FA works before making it required for login
+    </p>
+  </div>
+</div>
+
+---
+
+## Security Notes
+
+<div className="rounded-lg border border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-yellow-500/5 p-6 mb-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔒</span>
+    <div>
+      <div className="font-bold text-lg">Important Security Considerations</div>
+      <div className="text-sm text-muted-foreground">Protect user accounts during 2FA setup</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="flex gap-3 items-start">
+      <span className="text-green-600 dark:text-green-400 mt-0.5">✓</span>
+      <div className="text-sm">
+        <span className="font-semibold">Immediate Activation:</span> 2FA becomes required immediately after confirmation to prevent security gaps
+      </div>
+    </div>
+    <div className="flex gap-3 items-start">
+      <span className="text-green-600 dark:text-green-400 mt-0.5">✓</span>
+      <div className="text-sm">
+        <span className="font-semibold">Backup Methods:</span> Encourage users to set up multiple 2FA methods for account recovery
+      </div>
+    </div>
+    <div className="flex gap-3 items-start">
+      <span className="text-green-600 dark:text-green-400 mt-0.5">✓</span>
+      <div className="text-sm">
+        <span className="font-semibold">Recovery Codes:</span> Generate and display one-time recovery codes after successful 2FA setup
+      </div>
+    </div>
+    <div className="flex gap-3 items-start">
+      <span className="text-green-600 dark:text-green-400 mt-0.5">✓</span>
+      <div className="text-sm">
+        <span className="font-semibold">Rate Limiting:</span> Limit confirmation attempts to prevent brute force attacks on verification codes
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Related Operations
+
+<Cards>
+  <Card title="Request 2FA" href="/docs/api/registration/request-2fa">
+    Initiate 2FA setup process
+  </Card>
+  <Card title="Disable 2FA" href="/docs/api/registration/disable-2fa">
+    Turn off two-factor authentication
+  </Card>
+  <Card title="Sign In 2FA" href="/docs/api/registration/sign-in-2fa-check">
+    Complete sign-in with 2FA verification
+  </Card>
+  <Card title="Verify Account" href="/docs/api/registration/verify-account">
+    Email verification required first
+  </Card>
+</Cards>

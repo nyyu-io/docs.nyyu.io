@@ -1,0 +1,356 @@
+---
+title: NYYU API Documentation
+description: Comprehensive API reference for NYYU platform integration
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-background p-8 border border-blue-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      NYYU API Documentation
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Build powerful financial applications with our comprehensive API suite. Seamless integration for payments, trading, and blockchain operations.
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl"></div>
+</div>
+
+## API Ecosystem
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+  <div className="group relative overflow-hidden rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-blue-500/5 p-6 transition-all hover:border-blue-500/50 hover:shadow-lg">
+    <div className="text-3xl mb-3">🔷</div>
+    <div className="font-bold text-lg mb-2">NYYU Core API</div>
+    <div className="text-sm text-muted-foreground mb-3">
+      Java Spring Boot & GraphQL
+    </div>
+    <div className="text-xs space-y-1">
+      <div>• Main platform functionalities</div>
+      <div>• Business logic operations</div>
+      <div>• User & account management</div>
+    </div>
+  </div>
+
+  <div className="group relative overflow-hidden rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 transition-all hover:border-cyan-500/50 hover:shadow-lg">
+    <div className="text-3xl mb-3">💳</div>
+    <div className="font-bold text-lg mb-2">NYYU PAY</div>
+    <div className="text-sm text-muted-foreground mb-3">
+      Node.js & WebSocket
+    </div>
+    <div className="text-xs space-y-1">
+      <div>• Cryptocurrency payments</div>
+      <div>• Real-time processing</div>
+      <div>• Payment gateway</div>
+    </div>
+  </div>
+
+  <div className="group relative overflow-hidden rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/10 to-green-500/5 p-6 transition-all hover:border-green-500/50 hover:shadow-lg">
+    <div className="text-3xl mb-3">⛓️</div>
+    <div className="font-bold text-lg mb-2">NYYU NODE</div>
+    <div className="text-sm text-muted-foreground mb-3">
+      Node.js & WebSocket
+    </div>
+    <div className="text-xs space-y-1">
+      <div>• Multi-chain support</div>
+      <div>• ETH, BTC, BNB, Solana</div>
+      <div>• Blockchain operations</div>
+    </div>
+  </div>
+</div>
+
+## Quick Start
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-8">
+  <div className="flex items-center gap-3 mb-6">
+    <span className="text-3xl">🚀</span>
+    <div>
+      <div className="font-bold text-lg">Get Started in 4 Steps</div>
+      <div className="text-sm text-muted-foreground">From setup to your first API call</div>
+    </div>
+  </div>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="relative rounded-lg border border-border bg-background p-4">
+      <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-sm shadow-lg">1</div>
+      <div className="mt-1">
+        <div className="font-bold mb-1">Read Documentation</div>
+        <div className="text-sm text-muted-foreground">Understand API structure and methods</div>
+      </div>
+    </div>
+
+    <div className="relative rounded-lg border border-border bg-background p-4">
+      <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-sm shadow-lg">2</div>
+      <div className="mt-1">
+        <div className="font-bold mb-1">Get API Credentials</div>
+        <div className="text-sm text-muted-foreground">OAuth2 from NYYU dashboard</div>
+      </div>
+    </div>
+
+    <div className="relative rounded-lg border border-border bg-background p-4">
+      <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-sm shadow-lg">3</div>
+      <div className="mt-1">
+        <div className="font-bold mb-1">Make First Request</div>
+        <div className="text-sm text-muted-foreground">Test with simple queries</div>
+      </div>
+    </div>
+
+    <div className="relative rounded-lg border border-border bg-background p-4">
+      <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-sm shadow-lg">4</div>
+      <div className="mt-1">
+        <div className="font-bold mb-1">Build Integration</div>
+        <div className="text-sm text-muted-foreground">Implement full endpoints</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## API Categories
+
+### User Management
+
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-6">
+  <div className="p-4 rounded-lg border border-border bg-muted/50 hover:bg-muted transition-colors">
+    <div className="text-2xl mb-2">👤</div>
+    <div className="font-bold text-sm mb-1">User</div>
+    <div className="text-xs text-muted-foreground">Account management</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50 hover:bg-muted transition-colors">
+    <div className="text-2xl mb-2">🎭</div>
+    <div className="font-bold text-sm mb-1">Avatar</div>
+    <div className="text-xs text-muted-foreground">Profile customization</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50 hover:bg-muted transition-colors">
+    <div className="text-2xl mb-2">📊</div>
+    <div className="font-bold text-sm mb-1">User Tier</div>
+    <div className="text-xs text-muted-foreground">Level management</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50 hover:bg-muted transition-colors">
+    <div className="text-2xl mb-2">👥</div>
+    <div className="font-bold text-sm mb-1">Profile</div>
+    <div className="text-xs text-muted-foreground">User settings</div>
+  </div>
+</div>
+
+### Trading & Finance
+
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-6">
+  <div className="p-4 rounded-lg border border-border bg-muted/50 hover:bg-muted transition-colors">
+    <div className="text-2xl mb-2">🏛️</div>
+    <div className="font-bold text-sm mb-1">Auction</div>
+    <div className="text-xs text-muted-foreground">Token sales & NFTs</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50 hover:bg-muted transition-colors">
+    <div className="text-2xl mb-2">💰</div>
+    <div className="font-bold text-sm mb-1">Bid</div>
+    <div className="text-xs text-muted-foreground">Bidding system</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50 hover:bg-muted transition-colors">
+    <div className="text-2xl mb-2">🚀</div>
+    <div className="font-bold text-sm mb-1">Presale</div>
+    <div className="text-xs text-muted-foreground">Token presales</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50 hover:bg-muted transition-colors">
+    <div className="text-2xl mb-2">📦</div>
+    <div className="font-bold text-sm mb-1">Orders</div>
+    <div className="text-xs text-muted-foreground">Order processing</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50 hover:bg-muted transition-colors">
+    <div className="text-2xl mb-2">💳</div>
+    <div className="font-bold text-sm mb-1">Payment</div>
+    <div className="text-xs text-muted-foreground">Payment processing</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50 hover:bg-muted transition-colors">
+    <div className="text-2xl mb-2">📥</div>
+    <div className="font-bold text-sm mb-1">Deposit</div>
+    <div className="text-xs text-muted-foreground">Deposit tracking</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50 hover:bg-muted transition-colors">
+    <div className="text-2xl mb-2">📤</div>
+    <div className="font-bold text-sm mb-1">Withdraw</div>
+    <div className="text-xs text-muted-foreground">Withdrawal management</div>
+  </div>
+</div>
+
+### System & Integration
+
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-6">
+  <div className="p-4 rounded-lg border border-border bg-muted/50 hover:bg-muted transition-colors">
+    <div className="text-2xl mb-2">📝</div>
+    <div className="font-bold text-sm mb-1">Registration</div>
+    <div className="text-xs text-muted-foreground">User registration</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50 hover:bg-muted transition-colors">
+    <div className="text-2xl mb-2">📊</div>
+    <div className="font-bold text-sm mb-1">Statistics</div>
+    <div className="text-xs text-muted-foreground">Analytics</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50 hover:bg-muted transition-colors">
+    <div className="text-2xl mb-2">🔔</div>
+    <div className="font-bold text-sm mb-1">Notifications</div>
+    <div className="text-xs text-muted-foreground">User notifications</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50 hover:bg-muted transition-colors">
+    <div className="text-2xl mb-2">🔐</div>
+    <div className="font-bold text-sm mb-1">OAuth2</div>
+    <div className="text-xs text-muted-foreground">Social authentication</div>
+  </div>
+</div>
+
+## Authentication
+
+<div className="rounded-xl border border-orange-500/30 bg-gradient-to-br from-orange-500/10 to-orange-500/5 p-6 my-8">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-3xl">🔐</span>
+    <div>
+      <div className="font-bold text-lg">OAuth2 Authentication</div>
+      <div className="text-sm text-muted-foreground">Secure API access with OAuth2 tokens</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="flex items-start gap-3">
+      <div className="w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-500 font-bold text-xs flex-shrink-0 mt-0.5">1</div>
+      <div>
+        <div className="font-semibold text-sm">Register Application</div>
+        <div className="text-xs text-muted-foreground">Create OAuth2 app in NYYU dashboard</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <div className="w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-500 font-bold text-xs flex-shrink-0 mt-0.5">2</div>
+      <div>
+        <div className="font-semibold text-sm">Get Credentials</div>
+        <div className="text-xs text-muted-foreground">Obtain client_id and client_secret</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <div className="w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-500 font-bold text-xs flex-shrink-0 mt-0.5">3</div>
+      <div>
+        <div className="font-semibold text-sm">Request Token</div>
+        <div className="text-xs text-muted-foreground">Exchange credentials for access token</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <div className="w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-500 font-bold text-xs flex-shrink-0 mt-0.5">4</div>
+      <div>
+        <div className="font-semibold text-sm">Use Token</div>
+        <div className="text-xs text-muted-foreground">Include in Authorization header: Bearer YOUR_TOKEN</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## API Endpoints
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+  <div className="p-4 rounded-lg border border-blue-500/30 bg-blue-500/5">
+    <div className="text-sm font-semibold mb-1">🔷 Core API</div>
+    <div className="font-mono text-xs text-muted-foreground">https://api.nyyu.io/graphql</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-cyan-500/30 bg-cyan-500/5">
+    <div className="text-sm font-semibold mb-1">💳 NYYU PAY</div>
+    <div className="font-mono text-xs text-muted-foreground">wss://api.pay.nyyu.io</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-green-500/30 bg-green-500/5">
+    <div className="text-sm font-semibold mb-1">⛓️ NYYU NODE</div>
+    <div className="font-mono text-xs text-muted-foreground">wss://api.node.nyyu.io</div>
+  </div>
+</div>
+
+## Best Practices
+
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-6">
+  <div className="p-4 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🔄</div>
+    <div className="font-bold text-sm mb-1">Handle Rate Limits</div>
+    <div className="text-xs text-muted-foreground">Implement exponential backoff</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">⚠️</div>
+    <div className="font-bold text-sm mb-1">Error Handling</div>
+    <div className="text-xs text-muted-foreground">Check status codes gracefully</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🔐</div>
+    <div className="font-bold text-sm mb-1">Secure Credentials</div>
+    <div className="text-xs text-muted-foreground">Never expose in client-side</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📝</div>
+    <div className="font-bold text-sm mb-1">Log Requests</div>
+    <div className="text-xs text-muted-foreground">Maintain debugging logs</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🎯</div>
+    <div className="font-bold text-sm mb-1">Use Webhooks</div>
+    <div className="text-xs text-muted-foreground">Real-time event handling</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📊</div>
+    <div className="font-bold text-sm mb-1">Monitor Usage</div>
+    <div className="text-xs text-muted-foreground">Track performance metrics</div>
+  </div>
+</div>
+
+## Resources
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50 hover:bg-muted transition-colors">
+    <div className="text-2xl mb-2">📚</div>
+    <div className="font-bold mb-1">API Reference</div>
+    <div className="text-sm text-muted-foreground">Detailed endpoint documentation with examples</div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50 hover:bg-muted transition-colors">
+    <div className="text-2xl mb-2">💬</div>
+    <div className="font-bold mb-1">Developer Support</div>
+    <div className="text-sm text-muted-foreground">Get help from our community</div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50 hover:bg-muted transition-colors">
+    <div className="text-2xl mb-2">📖</div>
+    <div className="font-bold mb-1">Tutorials</div>
+    <div className="text-sm text-muted-foreground">Step-by-step integration guides</div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50 hover:bg-muted transition-colors">
+    <div className="text-2xl mb-2">❓</div>
+    <div className="font-bold mb-1">FAQs</div>
+    <div className="text-sm text-muted-foreground">Common questions and answers</div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-cyan-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">🚀</span>
+    <div>
+      <div className="font-bold">Ready to start building?</div>
+      <div className="text-sm text-muted-foreground">Check out our Getting Started Guide to begin your integration journey</div>
+    </div>
+  </div>
+</div>

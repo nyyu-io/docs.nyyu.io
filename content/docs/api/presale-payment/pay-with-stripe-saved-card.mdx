@@ -1,0 +1,314 @@
+---
+title: Pay For Presale With Stripe Saved Card
+description: Process presale payments using previously saved credit card information
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-cyan-500 via-sky-600 to-blue-700 p-8 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+      Stripe Saved Card Payment
+    </h1>
+    <p className="text-xl text-white/90 mb-6">
+      Fast checkout with previously saved credit card information
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+</div>
+
+## Mutation
+
+<div className="rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-blue-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💾</span>
+    <div>
+      <div className="font-bold text-lg">payStripeForPreSaleWithSavedCard</div>
+      <div className="text-sm text-muted-foreground">Process payment using a saved card ID</div>
+    </div>
+  </div>
+
+  ### Schema
+
+  ```graphql
+  payStripeForPreSaleWithSavedCard(
+    id: Int
+    presaleId: Int!
+    orderId: Int!
+    amount: Float!
+    fiatAmount: Float!
+    fiatType: String!
+    cardId: Int!
+    paymentIntentId: String!
+  ): PayResponse
+  ```
+</div>
+
+## Parameters
+
+<div className="space-y-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">id</code>
+      <span className="text-xs bg-muted text-muted-foreground px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Int</code></div>
+      <div className="text-muted-foreground">Payment ID. Set to <code className="bg-muted px-1 rounded">null</code> for the first call</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">presaleId</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Int!</code></div>
+      <div className="text-muted-foreground">The unique identifier of the presale round</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">orderId</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Int!</code></div>
+      <div className="text-muted-foreground">The ID of the presale order to pay for</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">amount</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Float!</code></div>
+      <div className="text-muted-foreground">The payment amount in USD</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">fiatAmount</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Float!</code></div>
+      <div className="text-muted-foreground">The amount in the payment currency (for currency conversion)</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">fiatType</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String!</code></div>
+      <div className="text-muted-foreground">The currency type (e.g., "USD", "EUR", "GBP")</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">cardId</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Int!</code></div>
+      <div className="text-muted-foreground">The ID of the saved card to use for payment</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">paymentIntentId</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String!</code></div>
+      <div className="text-muted-foreground">The payment intent ID from Stripe</div>
+    </div>
+  </div>
+</div>
+
+## Return Value
+
+<div className="p-5 rounded-lg border border-green-500/30 bg-green-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">📦</span>
+    <div className="font-bold">Returns PayResponse Object</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    Contains client secret and payment status for completing the payment
+  </div>
+</div>
+
+## Example
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">Usage Example</div>
+      <div className="text-xs text-muted-foreground">Pay with saved card ID 456</div>
+    </div>
+  </div>
+
+  ```graphql
+  mutation {
+    payStripeForPreSaleWithSavedCard(
+      id: null
+      presaleId: 1
+      orderId: 123
+      amount: 500.0
+      fiatAmount: 500.0
+      fiatType: "USD"
+      cardId: 456
+      paymentIntentId: "pi_1Fxxxxx"
+    ) {
+      clientSecret
+      paymentIntentId
+      requiresAction
+      error
+    }
+  }
+  ```
+</div>
+
+## Response Example
+
+<div className="rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/10 to-green-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📤</span>
+    <div>
+      <div className="font-bold">Sample Response</div>
+      <div className="text-xs text-muted-foreground">Successful payment with saved card</div>
+    </div>
+  </div>
+
+  ```json
+  {
+    "data": {
+      "payStripeForPreSaleWithSavedCard": {
+        "clientSecret": "pi_1Fxxxxx_secret_xxxxx",
+        "paymentIntentId": "pi_1Fxxxxx",
+        "requiresAction": false,
+        "error": null
+      }
+    }
+  }
+  ```
+</div>
+
+## Key Differences
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-8">
+  <div className="flex items-center gap-3 mb-6">
+    <span className="text-2xl">🔄</span>
+    <div>
+      <div className="font-bold text-lg">Saved Card vs New Card</div>
+      <div className="text-sm text-muted-foreground">Understanding the differences</div>
+    </div>
+  </div>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2 text-green-500">Saved Card Payment</div>
+      <div className="space-y-2 text-xs text-muted-foreground">
+        <div className="flex items-center gap-2">
+          <span className="text-green-500">✓</span>
+          <span>Uses <code className="bg-muted px-1 rounded">cardId</code> parameter</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-green-500">✓</span>
+          <span>No <code className="bg-muted px-1 rounded">paymentMethodId</code> needed</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-green-500">✓</span>
+          <span>No <code className="bg-muted px-1 rounded">isSaveCard</code> flag</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-green-500">✓</span>
+          <span>Faster checkout experience</span>
+        </div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2 text-blue-500">New Card Payment</div>
+      <div className="space-y-2 text-xs text-muted-foreground">
+        <div className="flex items-center gap-2">
+          <span className="text-blue-500">✓</span>
+          <span>Uses <code className="bg-muted px-1 rounded">paymentMethodId</code></span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-blue-500">✓</span>
+          <span>Requires <code className="bg-muted px-1 rounded">isSaveCard</code> flag</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-blue-500">✓</span>
+          <span>Card details collected via Stripe Elements</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-blue-500">✓</span>
+          <span>Can save card for future use</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Benefits
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">⚡</div>
+    <div className="font-bold mb-2">Faster Checkout</div>
+    <div className="text-sm text-muted-foreground">
+      Skip card details entry by using previously saved payment methods
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🔒</div>
+    <div className="font-bold mb-2">Secure Storage</div>
+    <div className="text-sm text-muted-foreground">
+      Card details are securely stored by Stripe, never on your servers
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">✅</div>
+    <div className="font-bold mb-2">Better UX</div>
+    <div className="text-sm text-muted-foreground">
+      Improve conversion rates with one-click payment experience
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🔄</div>
+    <div className="font-bold mb-2">Recurring Purchases</div>
+    <div className="text-sm text-muted-foreground">
+      Perfect for users who make multiple presale purchases
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-cyan-500/30 bg-gradient-to-r from-cyan-500/10 to-sky-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold">Best Practice</div>
+      <div className="text-sm text-muted-foreground">
+        List saved cards to users before checkout and let them choose their preferred payment method. Always provide an option to add a new card. Validate that the cardId belongs to the authenticated user to prevent unauthorized charges.
+      </div>
+    </div>
+  </div>
+</div>

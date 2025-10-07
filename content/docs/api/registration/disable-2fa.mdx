@@ -1,0 +1,336 @@
+---
+title: Disable 2FA
+description: Turn off two-factor authentication for a specific method when no longer needed
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-red-600 via-rose-600 to-pink-600 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="relative">
+    <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm mb-4">
+      <span className="relative flex h-2 w-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-background"></span>
+      </span>
+      SECURITY MANAGEMENT
+    </div>
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">Disable 2FA</h1>
+    <p className="text-xl text-red-100 leading-relaxed max-w-3xl">
+      Disable a specific two-factor authentication method when it's no longer needed or switching to another method.
+    </p>
+  </div>
+</div>
+
+<Callout type="warn" title="Security Warning">
+  Disabling 2FA reduces account security. Ensure you have alternative security measures in place or are switching to another 2FA method.
+</Callout>
+
+## Overview
+
+The `disable2FA` mutation removes a specific two-factor authentication method from the user's account. This allows users to manage their 2FA settings by disabling methods they no longer wish to use.
+
+---
+
+## GraphQL Schema
+
+<div className="rounded-xl border border-red-500/30 bg-gradient-to-br from-red-500/10 to-rose-500/5 p-6 mb-8">
+
+```graphql
+mutation {
+  disable2FA(
+    method: String!
+  ): String!
+}
+```
+
+</div>
+
+---
+
+## Parameters
+
+<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 my-6">
+  <div className="rounded-lg border border-red-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">method</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700 dark:text-red-300">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-red-600 dark:text-red-400">String</span></p>
+    <p className="text-sm text-foreground">2FA method to disable: <code className="text-xs bg-muted px-1 py-0.5 rounded">app</code>, <code className="text-xs bg-muted px-1 py-0.5 rounded">email</code>, or <code className="text-xs bg-muted px-1 py-0.5 rounded">phone</code></p>
+  </div>
+</div>
+
+---
+
+## Return Values
+
+<div className="grid gap-4 my-6">
+  <div className="rounded-lg border border-green-500/30 bg-gradient-to-br from-green-500/10 to-emerald-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">✅</span>
+      <code className="bg-green-500/20 text-green-700 dark:text-green-300 px-3 py-1 rounded font-mono text-sm">Success</code>
+    </div>
+    <p className="text-sm text-foreground">
+      The specified 2FA method has been successfully disabled. Sign-in will no longer require this method.
+    </p>
+  </div>
+
+  <div className="rounded-lg border border-red-500/30 bg-gradient-to-br from-red-500/10 to-rose-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">❌</span>
+      <code className="bg-red-500/20 text-red-700 dark:text-red-300 px-3 py-1 rounded font-mono text-sm">Failed</code>
+    </div>
+    <p className="text-sm text-foreground">
+      Failed to disable 2FA method. The method may not be currently active or an internal error occurred.
+    </p>
+  </div>
+</div>
+
+---
+
+## Example Usage
+
+### Disable Authenticator App
+
+```graphql
+mutation Disable2FA_App {
+  disable2FA(method: "app")
+}
+```
+
+**Response:**
+
+```json
+{
+  "data": {
+    "disable2FA": "Success"
+  }
+}
+```
+
+<Callout type="info" title="2FA Disabled">
+  Authenticator app 2FA has been disabled. Sign-in will no longer require codes from your authenticator app.
+</Callout>
+
+### Disable Email 2FA
+
+```graphql
+mutation Disable2FA_Email {
+  disable2FA(method: "email")
+}
+```
+
+**Response:**
+
+```json
+{
+  "data": {
+    "disable2FA": "Success"
+  }
+}
+```
+
+### Disable SMS 2FA
+
+```graphql
+mutation Disable2FA_Phone {
+  disable2FA(method: "phone")
+}
+```
+
+**Response:**
+
+```json
+{
+  "data": {
+    "disable2FA": "Success"
+  }
+}
+```
+
+---
+
+## Implementation Example
+
+<div className="rounded-xl border border-red-500/30 bg-background p-6 my-6">
+  <h3 className="font-bold mb-4">Frontend Integration</h3>
+
+```javascript
+async function handleDisable2FA(method) {
+  // Show confirmation dialog first
+  const confirmed = await showConfirmDialog({
+    title: "Disable 2FA?",
+    message: `Are you sure you want to disable ${method} two-factor authentication? This will reduce your account security.`,
+    confirmText: "Disable",
+    cancelText: "Cancel",
+    type: "warning"
+  });
+
+  if (!confirmed) return;
+
+  try {
+    const result = await graphqlClient.mutate({
+      mutation: gql`
+        mutation Disable2FA($method: String!) {
+          disable2FA(method: $method)
+        }
+      `,
+      variables: {
+        method: method
+      }
+    });
+
+    const response = result.data.disable2FA;
+
+    if (response === "Success") {
+      showSuccess(`${method.toUpperCase()} 2FA has been disabled.`);
+
+      // Update local state
+      localStorage.removeItem(`2fa_${method}_enabled`);
+
+      // Refresh security settings
+      refreshSecuritySettings();
+
+      // Optionally suggest alternative security
+      if (!hasOther2FAMethods()) {
+        showWarning("Consider enabling another 2FA method to keep your account secure.");
+      }
+
+    } else {
+      showError("Failed to disable 2FA. Please try again.");
+    }
+
+  } catch (error) {
+    console.error("Disable 2FA failed:", error);
+    showError("An error occurred. Please try again later.");
+  }
+}
+```
+
+</div>
+
+---
+
+## Use Cases
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔄</div>
+    <h3 className="font-bold mb-2">Switching Methods</h3>
+    <p className="text-sm text-muted-foreground">
+      Disabling one 2FA method before enabling a different, more convenient one
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">📱</div>
+    <h3 className="font-bold mb-2">Lost Device</h3>
+    <p className="text-sm text-muted-foreground">
+      Disabling authenticator app 2FA after losing device with the app installed
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔧</div>
+    <h3 className="font-bold mb-2">Troubleshooting</h3>
+    <p className="text-sm text-muted-foreground">
+      Temporarily disabling 2FA to resolve access issues, then re-enabling
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">📞</div>
+    <h3 className="font-bold mb-2">Number Change</h3>
+    <p className="text-sm text-muted-foreground">
+      Disabling SMS 2FA when changing phone numbers, before setting up new number
+    </p>
+  </Card>
+</div>
+
+---
+
+## Best Practices
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-red-500 bg-red-500/10 p-4">
+    <h4 className="font-bold text-red-700 dark:text-red-300 mb-1">⚠️ Confirmation Required</h4>
+    <p className="text-sm text-red-900 dark:text-red-200">
+      Always show a confirmation dialog before disabling 2FA, explaining the security implications
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-orange-500 bg-orange-500/10 p-4">
+    <h4 className="font-bold text-orange-700 dark:text-orange-300 mb-1">🔐 Backup Methods</h4>
+    <p className="text-sm text-orange-900 dark:text-orange-200">
+      If disabling the only 2FA method, strongly encourage users to enable an alternative for security
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-amber-500 bg-amber-500/10 p-4">
+    <h4 className="font-bold text-amber-700 dark:text-amber-300 mb-1">📧 Email Notification</h4>
+    <p className="text-sm text-amber-900 dark:text-amber-200">
+      Send email notification when 2FA is disabled to alert user of security changes
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-red-500 bg-red-500/10 p-4">
+    <h4 className="font-bold text-red-700 dark:text-red-300 mb-1">🔄 Re-authentication</h4>
+    <p className="text-sm text-red-900 dark:text-red-200">
+      Consider requiring password re-entry or current 2FA code before allowing disable
+    </p>
+  </div>
+</div>
+
+---
+
+## Security Recommendations
+
+<div className="rounded-lg border border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-yellow-500/5 p-6 mb-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🛡️</span>
+    <div>
+      <div className="font-bold text-lg">After Disabling 2FA</div>
+      <div className="text-sm text-muted-foreground">Maintain account security</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="flex gap-3 items-start">
+      <span className="text-blue-600 dark:text-blue-400 mt-0.5">→</span>
+      <div className="text-sm">
+        <span className="font-semibold">Enable Alternative 2FA:</span> Set up a different 2FA method to maintain two-factor protection
+      </div>
+    </div>
+    <div className="flex gap-3 items-start">
+      <span className="text-blue-600 dark:text-blue-400 mt-0.5">→</span>
+      <div className="text-sm">
+        <span className="font-semibold">Strong Password:</span> Ensure password is strong and unique if 2FA is fully disabled
+      </div>
+    </div>
+    <div className="flex gap-3 items-start">
+      <span className="text-blue-600 dark:text-blue-400 mt-0.5">→</span>
+      <div className="text-sm">
+        <span className="font-semibold">Monitor Activity:</span> Regularly check account activity for any unauthorized access
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Related Operations
+
+<Cards>
+  <Card title="Request 2FA" href="/docs/api/registration/request-2fa">
+    Enable 2FA methods
+  </Card>
+  <Card title="Confirm 2FA" href="/docs/api/registration/confirm-2fa-setting">
+    Activate 2FA configuration
+  </Card>
+  <Card title="Sign In" href="/docs/api/registration/sign-in">
+    Authenticate with password
+  </Card>
+</Cards>

@@ -1,0 +1,250 @@
+---
+title: Create New Presale
+description: Admin mutation to create new presale rounds with token amounts, prices, and conditions
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-purple-500 via-violet-600 to-indigo-700 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
+  <div className="relative">
+    <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm mb-4">
+      <span className="relative flex h-2 w-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-background"></span>
+      </span>
+      ADMIN ONLY
+    </div>
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">Create New Presale Round</h1>
+    <p className="text-xl text-purple-100 leading-relaxed max-w-3xl">
+      Launch new presale rounds with customizable token amounts, pricing, and conditions for your token sale events.
+    </p>
+  </div>
+</div>
+
+<Callout type="warn" title="Admin Access Required">
+  This mutation is only accessible to users with **ADMIN** privileges. Standard users cannot create presale rounds.
+</Callout>
+
+## Overview
+
+The `createNewPresale` mutation enables administrators to launch new presale rounds with complete control over timing, token allocation, pricing, and custom conditions.
+
+---
+
+## GraphQL Schema
+
+<div className="rounded-xl border border-purple-500/30 bg-muted/50 p-6 mb-8">
+
+```graphql
+mutation {
+  createNewPresale(
+    startedAt: Float!
+    endedAt: Float!
+    tokenAmount: Float!
+    tokenPrice: Float!
+    conditions: [PreSaleConditionInput!]!
+  ): Int
+}
+```
+
+</div>
+
+---
+
+## Parameters
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <div className="rounded-lg border border-purple-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">startedAt</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-purple-600">Float</span></p>
+    <p className="text-sm text-foreground">The start time of the presale round in UNIX timestamp format.</p>
+  </div>
+
+  <div className="rounded-lg border border-purple-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">endedAt</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-purple-600">Float</span></p>
+    <p className="text-sm text-foreground">The end time of the presale round in UNIX timestamp format.</p>
+  </div>
+
+  <div className="rounded-lg border border-purple-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">tokenAmount</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-purple-600">Float</span></p>
+    <p className="text-sm text-foreground">The total amount of tokens available for purchase in this presale round.</p>
+  </div>
+
+  <div className="rounded-lg border border-purple-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">tokenPrice</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-purple-600">Float</span></p>
+    <p className="text-sm text-foreground">The price per token during this presale round.</p>
+  </div>
+
+  <div className="rounded-lg border border-purple-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow md:col-span-2">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">conditions</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-purple-600">[PreSaleConditionInput!]!</span></p>
+    <p className="text-sm text-foreground mb-3">An array of custom conditions for the presale. Each condition includes:</p>
+    <ul className="list-disc list-inside text-sm text-foreground space-y-1 ml-2">
+      <li><span className="font-mono text-purple-600">name</span> (String): The name of the condition</li>
+      <li><span className="font-mono text-purple-600">value</span> (String): The value or description of the condition</li>
+    </ul>
+  </div>
+</div>
+
+---
+
+## Return Value
+
+<div className="rounded-lg border border-green-500/30 bg-green-500/10 p-6 mb-6">
+  <h3 className="font-bold mb-2 flex items-center gap-2">
+    <span className="text-2xl">✓</span>
+    Success Response
+  </h3>
+  <p className="text-sm text-foreground mb-3">
+    Returns an <span className="font-mono text-green-600">Int</span> representing the unique ID of the newly created presale round.
+  </p>
+  <div className="rounded bg-background p-3 border border-green-500/30">
+    <code className="text-sm text-green-700">42</code>
+    <p className="text-xs text-muted-foreground mt-1">Example: Presale round ID</p>
+  </div>
+</div>
+
+---
+
+## Example Usage
+
+### Request
+
+```graphql
+mutation CreatePresaleRound {
+  createNewPresale(
+    startedAt: 1704067200.0
+    endedAt: 1706745600.0
+    tokenAmount: 1000000.0
+    tokenPrice: 0.5
+    conditions: [
+      { name: "Minimum Purchase", value: "100 tokens" }
+      { name: "Maximum Purchase", value: "10000 tokens" }
+      { name: "Whitelist", value: "Required for first 24 hours" }
+      { name: "KYC", value: "Level 2 verification required" }
+    ]
+  )
+}
+```
+
+### Response
+
+```json
+{
+  "data": {
+    "createNewPresale": 15
+  }
+}
+```
+
+<Callout type="info" title="Presale Round Created">
+  The presale round has been successfully created with ID **15**. This ID can be used to reference and manage this specific presale round.
+</Callout>
+
+---
+
+## Use Cases
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🚀</div>
+    <h3 className="font-bold mb-2">Token Launch Events</h3>
+    <p className="text-sm text-muted-foreground">
+      Create presale rounds for new token launches with specific pricing tiers and time windows.
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🎯</div>
+    <h3 className="font-bold mb-2">Tiered Presales</h3>
+    <p className="text-sm text-muted-foreground">
+      Set up multiple presale rounds with different prices and token allocations for early supporters.
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">📋</div>
+    <h3 className="font-bold mb-2">Custom Conditions</h3>
+    <p className="text-sm text-muted-foreground">
+      Define custom rules like minimum/maximum purchases, whitelist requirements, or KYC levels.
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">⏰</div>
+    <h3 className="font-bold mb-2">Time-Limited Sales</h3>
+    <p className="text-sm text-muted-foreground">
+      Schedule presale rounds with precise start and end times to create urgency and exclusivity.
+    </p>
+  </Card>
+</div>
+
+---
+
+## Best Practices
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-purple-500 bg-purple-500/10 p-4">
+    <h4 className="font-bold text-purple-700 dark:text-purple-300 mb-1">⏱️ Timing Validation</h4>
+    <p className="text-sm text-purple-800">
+      Ensure <code>endedAt</code> is greater than <code>startedAt</code> to prevent invalid presale periods.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-violet-500 bg-violet-500/10 p-4">
+    <h4 className="font-bold text-violet-700 dark:text-violet-300 mb-1">💰 Token Allocation</h4>
+    <p className="text-sm text-violet-800">
+      Set appropriate <code>tokenAmount</code> values based on your total token supply and presale strategy.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-indigo-500 bg-indigo-500/10 p-4">
+    <h4 className="font-bold text-indigo-700 dark:text-indigo-300 mb-1">📜 Clear Conditions</h4>
+    <p className="text-sm text-indigo-800">
+      Define clear and enforceable conditions that participants can easily understand and verify.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-purple-500 bg-purple-500/10 p-4">
+    <h4 className="font-bold text-purple-700 dark:text-purple-300 mb-1">🔐 Security First</h4>
+    <p className="text-sm text-purple-800">
+      Consider implementing KYC/AML requirements as conditions for regulatory compliance.
+    </p>
+  </div>
+</div>
+
+---
+
+## Related Operations
+
+<Cards>
+  <Card title="Get Presales" href="/docs/api/presale/get-presales">
+    Retrieve all presale rounds
+  </Card>
+  <Card title="Get Presales by Status" href="/docs/api/presale/get-presales-by-status">
+    Filter presales by their current status
+  </Card>
+  <Card title="Place Presale Order" href="/docs/api/presale-payment/place-presale-order">
+    Allow users to participate in presale rounds
+  </Card>
+</Cards>

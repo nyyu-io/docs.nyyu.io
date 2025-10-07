@@ -1,0 +1,386 @@
+---
+title: Get Notifications with Offset and Limit
+description: Retrieve paginated notifications for the authenticated user
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-cyan-500/10 via-sky-500/5 to-background p-8 border border-cyan-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Get Notifications with Pagination
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Retrieve notifications with offset and limit for efficient pagination
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-sky-500/5 rounded-full blur-3xl"></div>
+</div>
+
+## Query
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📄</span>
+    <div>
+      <div className="font-bold text-lg">getNotifications</div>
+      <div className="text-sm text-muted-foreground">Fetch paginated notifications with offset and limit</div>
+    </div>
+  </div>
+
+  ### Schema
+
+  ```graphql
+  getNotifications(
+    offset: Int
+    limit: Int
+  ): [Notification]
+  ```
+</div>
+
+## Parameters
+
+<div className="space-y-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">offset</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Int</code></div>
+      <div className="text-muted-foreground">The number of notifications to skip from the start. Defaults to 0 if not specified.</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">limit</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Int</code></div>
+      <div className="text-muted-foreground">The maximum number of notifications to retrieve. Should be specified to limit results.</div>
+    </div>
+  </div>
+</div>
+
+## Return Value
+
+<div className="p-5 rounded-lg border border-cyan-500/30 bg-cyan-500/10 my-6">
+  <div className="flex items-center gap-2 mb-3">
+    <span className="text-lg">📦</span>
+    <div className="font-bold">Returns Array of Notification</div>
+  </div>
+  <div className="text-sm text-muted-foreground mb-4">
+    The query returns a paginated array of <code className="bg-muted px-1 rounded">Notification</code> objects (both read and unread)
+  </div>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div className="p-3 rounded-lg bg-background border border-border">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">id</code>
+      <div className="text-xs text-muted-foreground mt-1">Unique notification identifier</div>
+    </div>
+    <div className="p-3 rounded-lg bg-background border border-border">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">userId</code>
+      <div className="text-xs text-muted-foreground mt-1">Recipient user ID</div>
+    </div>
+    <div className="p-3 rounded-lg bg-background border border-border">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">timeStamp</code>
+      <div className="text-xs text-muted-foreground mt-1">Unix timestamp when sent</div>
+    </div>
+    <div className="p-3 rounded-lg bg-background border border-border">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">nType</code>
+      <div className="text-xs text-muted-foreground mt-1">Notification type index</div>
+    </div>
+    <div className="p-3 rounded-lg bg-background border border-border">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">read</code>
+      <div className="text-xs text-muted-foreground mt-1">Read status (true/false)</div>
+    </div>
+    <div className="p-3 rounded-lg bg-background border border-border">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">title</code>
+      <div className="text-xs text-muted-foreground mt-1">Notification title</div>
+    </div>
+    <div className="p-3 rounded-lg bg-background border border-border col-span-full">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">msg</code>
+      <div className="text-xs text-muted-foreground mt-1">Notification message content</div>
+    </div>
+  </div>
+</div>
+
+## Example
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">Usage Example</div>
+      <div className="text-xs text-muted-foreground">Fetching the first 10 notifications</div>
+    </div>
+  </div>
+
+  ### Query
+
+  ```graphql
+  query {
+    getNotifications(
+      offset: 0
+      limit: 10
+    ) {
+      id
+      userId
+      timeStamp
+      nType
+      read
+      title
+      msg
+    }
+  }
+  ```
+
+  ### Response
+
+  ```json
+  {
+    "data": {
+      "getNotifications": [
+        {
+          "id": 1530,
+          "userId": 456,
+          "timeStamp": 1704171600000,
+          "nType": 2,
+          "read": true,
+          "title": "Round Finished",
+          "msg": "Auction Round #15 has concluded. Check your results!"
+        },
+        {
+          "id": 1525,
+          "userId": 456,
+          "timeStamp": 1704164400000,
+          "nType": 3,
+          "read": false,
+          "title": "Payment Successful",
+          "msg": "Your payment of $500 has been processed successfully."
+        },
+        {
+          "id": 1524,
+          "userId": 456,
+          "timeStamp": 1704160800000,
+          "nType": 1,
+          "read": false,
+          "title": "Bid Ranking Updated",
+          "msg": "Your bid ranking has changed in Round #15."
+        }
+      ]
+    }
+  }
+  ```
+</div>
+
+## Pagination Examples
+
+<div className="rounded-xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-emerald-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📚</span>
+    <div>
+      <div className="font-bold text-lg">Pagination Patterns</div>
+      <div className="text-sm text-muted-foreground">Common pagination use cases</div>
+    </div>
+  </div>
+
+  <div className="space-y-4 mt-4">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">First Page</div>
+      <code className="text-xs bg-muted px-2 py-1 rounded font-mono">offset: 0, limit: 20</code>
+      <div className="text-xs text-muted-foreground mt-2">Retrieves notifications 1-20</div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">Second Page</div>
+      <code className="text-xs bg-muted px-2 py-1 rounded font-mono">offset: 20, limit: 20</code>
+      <div className="text-xs text-muted-foreground mt-2">Retrieves notifications 21-40</div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">Third Page</div>
+      <code className="text-xs bg-muted px-2 py-1 rounded font-mono">offset: 40, limit: 20</code>
+      <div className="text-xs text-muted-foreground mt-2">Retrieves notifications 41-60</div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">Formula</div>
+      <code className="text-xs bg-muted px-2 py-1 rounded font-mono">offset = (page - 1) × limit</code>
+      <div className="text-xs text-muted-foreground mt-2">Calculate offset for any page number</div>
+    </div>
+  </div>
+</div>
+
+## Use Cases
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📜</div>
+    <div className="font-bold mb-2">Infinite Scroll</div>
+    <div className="text-sm text-muted-foreground">
+      Load more notifications as the user scrolls down
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📄</div>
+    <div className="font-bold mb-2">Page Navigation</div>
+    <div className="text-sm text-muted-foreground">
+      Implement traditional pagination with page numbers
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">⚡</div>
+    <div className="font-bold mb-2">Performance</div>
+    <div className="text-sm text-muted-foreground">
+      Efficiently handle users with thousands of notifications
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📊</div>
+    <div className="font-bold mb-2">Notification History</div>
+    <div className="text-sm text-muted-foreground">
+      View complete notification history with both read and unread
+    </div>
+  </div>
+</div>
+
+## Important Notes
+
+<div className="rounded-xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-amber-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold text-lg">Best Practices</div>
+      <div className="text-sm text-muted-foreground">Tips for effective pagination</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Limit Size</div>
+      <div className="text-xs text-muted-foreground">
+        Use reasonable limit values (10-50) for optimal performance. Avoid retrieving all notifications at once.
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Order</div>
+      <div className="text-xs text-muted-foreground">
+        Results are typically ordered by timestamp in descending order (newest first)
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Both Read and Unread</div>
+      <div className="text-xs text-muted-foreground">
+        This query returns all notifications regardless of read status. Filter on the client if needed.
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Authentication</div>
+      <div className="text-xs text-muted-foreground">
+        Requires valid user session. Only returns notifications for the authenticated user.
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Empty Results</div>
+      <div className="text-xs text-muted-foreground">
+        If offset exceeds total notifications, an empty array is returned. Use this to detect the end of data.
+      </div>
+    </div>
+  </div>
+</div>
+
+## Implementation Example
+
+<div className="rounded-xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 to-indigo-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔧</span>
+    <div>
+      <div className="font-bold text-lg">Infinite Scroll Implementation</div>
+      <div className="text-sm text-muted-foreground">Example pagination logic</div>
+    </div>
+  </div>
+
+  ```javascript
+  // Initialize
+  let currentOffset = 0;
+  const pageSize = 20;
+  let hasMore = true;
+
+  // Load first page
+  async function loadNotifications() {
+    const response = await fetchGraphQL(`
+      query {
+        getNotifications(offset: ${currentOffset}, limit: ${pageSize}) {
+          id
+          title
+          msg
+          timeStamp
+          read
+        }
+      }
+    `);
+
+    const notifications = response.data.getNotifications;
+
+    // Check if there are more notifications
+    if (notifications.length < pageSize) {
+      hasMore = false;
+    }
+
+    // Update offset for next page
+    currentOffset += notifications.length;
+
+    return notifications;
+  }
+
+  // Load more when user scrolls
+  async function loadMore() {
+    if (hasMore) {
+      const moreNotifications = await loadNotifications();
+      appendToUI(moreNotifications);
+    }
+  }
+  ```
+</div>
+
+## Related Queries
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-gradient-to-br from-emerald-500/5 to-background">
+    <div className="font-bold mb-2">getAllUnReadNotifications</div>
+    <div className="text-sm text-muted-foreground mb-3">
+      Get all unread notifications without pagination
+    </div>
+    <code className="text-xs bg-muted px-2 py-1 rounded">query</code>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-gradient-to-br from-purple-500/5 to-background">
+    <div className="font-bold mb-2">setNotificationReadFlag</div>
+    <div className="text-sm text-muted-foreground mb-3">
+      Mark a notification as read by its ID
+    </div>
+    <code className="text-xs bg-muted px-2 py-1 rounded">mutation</code>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-cyan-500/30 bg-gradient-to-r from-cyan-500/10 to-sky-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">📱</span>
+    <div>
+      <div className="font-bold">Building a notification feed?</div>
+      <div className="text-sm text-muted-foreground">Use this query for smooth infinite scrolling or page-based navigation in your notification center</div>
+    </div>
+  </div>
+</div>

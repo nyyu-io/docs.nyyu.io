@@ -1,0 +1,156 @@
+---
+title: Loan Services
+description: NYYU loan services with customizable terms
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-500/10 via-cyan-500/10 to-background p-12 border border-indigo-500/20 mb-8">
+  <div className="relative z-10">
+    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6">
+      <span className="text-sm font-medium text-indigo-400">Financial Service</span>
+    </div>
+    <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+      Loan Services
+    </h1>
+    <p className="text-xl text-muted-foreground max-w-3xl">
+      Access liquidity without selling your crypto assets. Borrow funds using your digital assets as collateral.
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+</div>
+
+<Callout type="info" title="Access Liquidity">
+Get up to 70% LTV on Bitcoin without selling your crypto assets!
+</Callout>
+
+## How It Works
+
+<Steps>
+<Step>
+### Choose Your Collateral
+Select the digital asset you wish to use as collateral.
+</Step>
+
+<Step>
+### Determine Loan Amount
+Decide how much you want to borrow based on the value of your collateral.
+</Step>
+
+<Step>
+### Receive Funds
+Get the loan amount in your preferred currency instantly.
+</Step>
+
+<Step>
+### Repay the Loan
+Repay the loan amount with interest over the agreed period.
+</Step>
+</Steps>
+
+## Loan Terms and Rates
+
+<div className="overflow-x-auto my-8">
+  <table className="w-full border-collapse">
+    <thead>
+      <tr className="border-b border-border">
+        <th className="text-left p-4 font-bold">Collateral</th>
+        <th className="text-left p-4 font-bold">Loan-to-Value (LTV)</th>
+        <th className="text-left p-4 font-bold">Interest Rate</th>
+        <th className="text-left p-4 font-bold">Term</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr className="border-b border-border/50 hover:bg-muted/30 transition-colors">
+        <td className="p-4">
+          <div className="flex items-center gap-2">
+            <span>₿</span>
+            <span className="font-semibold">Bitcoin (BTC)</span>
+          </div>
+        </td>
+        <td className="p-4">
+          <span className="px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 font-semibold text-sm">70%</span>
+        </td>
+        <td className="p-4 font-semibold">4%</td>
+        <td className="p-4">3 months</td>
+      </tr>
+      <tr className="border-b border-border/50 hover:bg-muted/30 transition-colors">
+        <td className="p-4">
+          <div className="flex items-center gap-2">
+            <span>💠</span>
+            <span className="font-semibold">Ethereum (ETH)</span>
+          </div>
+        </td>
+        <td className="p-4">
+          <span className="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-semibold text-sm">60%</span>
+        </td>
+        <td className="p-4 font-semibold">5%</td>
+        <td className="p-4">6 months</td>
+      </tr>
+      <tr className="border-b border-border/50 hover:bg-muted/30 transition-colors">
+        <td className="p-4">
+          <div className="flex items-center gap-2">
+            <span>💎</span>
+            <span className="font-semibold">NYYU Token</span>
+          </div>
+        </td>
+        <td className="p-4">
+          <span className="px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-semibold text-sm">50%</span>
+        </td>
+        <td className="p-4 font-semibold">6%</td>
+        <td className="p-4">12 months</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<Callout type="tip">
+Higher-value collateral assets like Bitcoin offer better loan-to-value ratios!
+</Callout>
+
+## Benefits of Crypto Loans
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+  <div className="text-center p-6 rounded-xl border border-indigo-500/20 bg-gradient-to-b from-indigo-500/5 to-background">
+    <div className="text-4xl mb-4">🔐</div>
+    <div className="font-bold text-lg mb-2">Retain Ownership</div>
+    <div className="text-sm text-muted-foreground">
+      Keep your digital assets while accessing liquidity
+    </div>
+  </div>
+
+  <div className="text-center p-6 rounded-xl border border-cyan-500/20 bg-gradient-to-b from-cyan-500/5 to-background">
+    <div className="text-4xl mb-4">⏱️</div>
+    <div className="font-bold text-lg mb-2">Flexible Terms</div>
+    <div className="text-sm text-muted-foreground">
+      Choose from various loan periods and repayment options
+    </div>
+  </div>
+
+  <div className="text-center p-6 rounded-xl border border-indigo-500/20 bg-gradient-to-b from-indigo-500/5 to-background">
+    <div className="text-4xl mb-4">💰</div>
+    <div className="font-bold text-lg mb-2">Competitive Rates</div>
+    <div className="text-sm text-muted-foreground">
+      Benefit from low-interest rates on your loan
+    </div>
+  </div>
+</div>
+
+<div className="mt-12 p-8 rounded-2xl border border-indigo-500/20 bg-gradient-to-br from-indigo-500/10 via-cyan-500/5 to-background relative overflow-hidden">
+  <div className="relative z-10 text-center">
+    <div className="text-3xl mb-3">💰</div>
+    <div className="font-bold text-2xl mb-2">Get a Loan Today</div>
+    <div className="text-muted-foreground mb-6">
+      Access liquidity without selling your crypto portfolio
+    </div>
+    <a href="https://nyyu.io/loan" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 hover:bg-indigo-500/20 transition-all font-medium">
+      Apply for Loan
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+      </svg>
+    </a>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl"></div>
+</div>

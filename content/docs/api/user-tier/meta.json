@@ -1,0 +1,12 @@
+{
+  "title": "User Tier",
+  "pages": [
+    "user-tier-summary",
+    "get-user-tiers",
+    "add-new-tier",
+    "update-user-tier",
+    "delete-user-tier",
+    "add-new-task-setting",
+    "update-task-setting"
+  ]
+}

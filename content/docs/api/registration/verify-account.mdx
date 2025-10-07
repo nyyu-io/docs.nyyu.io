@@ -1,0 +1,309 @@
+---
+title: Verify Account
+description: Activate user accounts with email verification code sent during registration
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-indigo-600 via-violet-600 to-purple-600 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="relative">
+    <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm mb-4">
+      <span>✉️</span>
+      EMAIL VERIFICATION
+    </div>
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">Verify Account</h1>
+    <p className="text-xl text-indigo-100 leading-relaxed max-w-3xl">
+      Confirm email ownership and activate user accounts with secure 6-digit verification codes.
+    </p>
+  </div>
+</div>
+
+<Callout type="info" title="Registration Step 2">
+  This is the **second step** after signup. Users must verify their email before proceeding to 2FA setup.
+</Callout>
+
+## Overview
+
+The `verifyAccount` mutation validates the 6-digit code sent to the user's email during registration. Successful verification activates the account and allows the user to proceed with 2FA setup.
+
+---
+
+## GraphQL Schema
+
+<div className="rounded-xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 to-violet-500/5 p-6 mb-8">
+
+```graphql
+mutation {
+  verifyAccount(
+    email: String!
+    code: String!
+  ): String!
+}
+```
+
+</div>
+
+---
+
+## Parameters
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <div className="rounded-lg border border-indigo-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">email</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700 dark:text-red-300">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-indigo-600 dark:text-indigo-400">String</span></p>
+    <p className="text-sm text-foreground">Email address being verified. Must match the signup email.</p>
+  </div>
+
+  <div className="rounded-lg border border-violet-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">code</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700 dark:text-red-300">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-violet-600 dark:text-violet-400">String</span></p>
+    <p className="text-sm text-foreground">6-digit verification code from email. Valid for 10 minutes.</p>
+  </div>
+</div>
+
+---
+
+## Return Values
+
+<div className="grid gap-4 my-6">
+  <div className="rounded-lg border border-green-500/30 bg-gradient-to-br from-green-500/10 to-emerald-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">✅</span>
+      <code className="bg-green-500/20 text-green-700 dark:text-green-300 px-3 py-1 rounded font-mono text-sm">Success</code>
+    </div>
+    <p className="text-sm text-foreground">
+      Email successfully verified. Account activated. Proceed to 2FA setup.
+    </p>
+  </div>
+
+  <div className="rounded-lg border border-red-500/30 bg-gradient-to-br from-red-500/10 to-red-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">❌</span>
+      <code className="bg-red-500/20 text-red-700 dark:text-red-300 px-3 py-1 rounded font-mono text-sm">Failed</code>
+    </div>
+    <p className="text-sm text-foreground">
+      Incorrect or expired code (codes expire after 10 minutes). Request new code.
+    </p>
+  </div>
+
+  <div className="rounded-lg border border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-yellow-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">⚠️</span>
+      <code className="bg-amber-500/20 text-amber-700 dark:text-amber-300 px-3 py-1 rounded font-mono text-sm">Cannot find user</code>
+    </div>
+    <p className="text-sm text-foreground">
+      Email not registered. Exception thrown with message: "Cannot find user by {email}"
+    </p>
+  </div>
+</div>
+
+---
+
+## Example Usage
+
+### Request
+
+```graphql
+mutation VerifyEmail {
+  verifyAccount(
+    email: "demouser@nyyu.io"
+    code: "794221"
+  )
+}
+```
+
+### Successful Response
+
+```json
+{
+  "data": {
+    "verifyAccount": "Success"
+  }
+}
+```
+
+<Callout type="info" title="Account Verified">
+  Email **demouser@nyyu.io** successfully verified. Proceed to set up two-factor authentication.
+</Callout>
+
+### Failed Verification
+
+```json
+{
+  "data": {
+    "verifyAccount": "Failed"
+  }
+}
+```
+
+<Callout type="error" title="Verification Failed">
+  Invalid or expired code. Please request a new verification code.
+</Callout>
+
+---
+
+## Implementation Example
+
+<div className="rounded-xl border border-indigo-500/30 bg-background p-6 my-6">
+  <h3 className="font-bold mb-4">Verification Flow Integration</h3>
+
+```javascript
+// Example: Email verification handler
+async function handleVerifyEmail(email, code) {
+  try {
+    const result = await graphqlClient.mutate({
+      mutation: gql`
+        mutation VerifyAccount($email: String!, $code: String!) {
+          verifyAccount(email: $email, code: $code)
+        }
+      `,
+      variables: {
+        email: email,
+        code: code
+      }
+    });
+
+    if (result.data.verifyAccount === "Success") {
+      // Email verified successfully
+      showSuccess("Email verified! Setting up 2FA...");
+      
+      // Clear pending email from storage
+      sessionStorage.removeItem('pendingEmail');
+      
+      // Redirect to 2FA setup page
+      router.push('/setup-2fa');
+    } else {
+      // Verification failed
+      showError("Invalid or expired code. Please try again.");
+      
+      // Optionally show resend button
+      showResendOption(email);
+    }
+  } catch (error) {
+    if (error.message.includes("Cannot find user")) {
+      showError("Email not found. Please sign up first.");
+      router.push('/signup');
+    } else {
+      showError("Verification failed. Please try again.");
+    }
+  }
+}
+
+// Auto-resend after expiration (10 minutes)
+function setupExpiryTimer() {
+  const expiryTime = 10 * 60 * 1000; // 10 minutes
+  setTimeout(() => {
+    showWarning("Code expired. Click to request a new one.");
+    enableResendButton();
+  }, expiryTime);
+}
+```
+
+</div>
+
+---
+
+## Use Cases
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">📧</div>
+    <h3 className="font-bold mb-2">Email Ownership</h3>
+    <p className="text-sm text-muted-foreground">
+      Confirm user has access to the email address provided during registration
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔐</div>
+    <h3 className="font-bold mb-2">Account Activation</h3>
+    <p className="text-sm text-muted-foreground">
+      Activate newly registered accounts before allowing 2FA setup and platform access
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🛡️</div>
+    <h3 className="font-bold mb-2">Security Validation</h3>
+    <p className="text-sm text-muted-foreground">
+      Prevent fraudulent signups and ensure legitimate email addresses
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">⏱️</div>
+    <h3 className="font-bold mb-2">Time-Limited Codes</h3>
+    <p className="text-sm text-muted-foreground">
+      10-minute expiry ensures codes cannot be used after extended periods
+    </p>
+  </Card>
+</div>
+
+---
+
+## Best Practices
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-indigo-500 bg-indigo-500/10 p-4">
+    <h4 className="font-bold text-indigo-700 dark:text-indigo-300 mb-1">⏰ Code Expiry Warning</h4>
+    <p className="text-sm text-indigo-900 dark:text-indigo-200">
+      Display countdown timer showing remaining time before code expires (10 minutes)
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-violet-500 bg-violet-500/10 p-4">
+    <h4 className="font-bold text-violet-700 dark:text-violet-300 mb-1">🔄 Easy Resend</h4>
+    <p className="text-sm text-violet-900 dark:text-violet-200">
+      Provide prominent "Resend Code" button for expired or un-received codes
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-purple-500 bg-purple-500/10 p-4">
+    <h4 className="font-bold text-purple-700 dark:text-purple-300 mb-1">📧 Email Pre-fill</h4>
+    <p className="text-sm text-purple-900 dark:text-purple-200">
+      Auto-populate email field from signup step to reduce user input errors
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-indigo-500 bg-indigo-500/10 p-4">
+    <h4 className="font-bold text-indigo-700 dark:text-indigo-300 mb-1">🎯 Input Validation</h4>
+    <p className="text-sm text-indigo-900 dark:text-indigo-200">
+      Validate code format (6 digits) client-side before API call to reduce errors
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-violet-500 bg-violet-500/10 p-4">
+    <h4 className="font-bold text-violet-700 dark:text-violet-300 mb-1">📱 Mobile Optimization</h4>
+    <p className="text-sm text-violet-900 dark:text-violet-200">
+      Use numeric keyboard on mobile devices and consider auto-fill from SMS
+    </p>
+  </div>
+</div>
+
+---
+
+## Related Operations
+
+<Cards>
+  <Card title="Sign Up" href="/docs/api/registration/sign-up">
+    Initial account registration
+  </Card>
+  <Card title="Resend Verification" href="/docs/api/registration/resend-verification-code">
+    Request new verification code
+  </Card>
+  <Card title="Request 2FA" href="/docs/api/registration/request-2fa">
+    Next step: Set up 2FA
+  </Card>
+  <Card title="Sign In" href="/docs/api/registration/sign-in">
+    Authenticate after verification
+  </Card>
+</Cards>
