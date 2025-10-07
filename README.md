@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![NYYU Banner](https://via.placeholder.com/1200x300/0a0a0a/10b981?text=NYYU+Documentation)
+![NYYU Banner](https://docs.nyyu.io/img/logo_dark.svg)
 
 **Official documentation for NYYU - The Decentralized Investment Banking Platform**
 
