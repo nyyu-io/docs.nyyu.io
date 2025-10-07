@@ -1,0 +1,463 @@
+---
+title: Registration & Authentication Overview
+description: Comprehensive guide to user registration, authentication, and account security API endpoints
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-blue-600 via-cyan-600 to-indigo-600 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="relative">
+    <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm mb-4">
+      <span>🔐</span>
+      AUTHENTICATION API
+    </div>
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">Registration & Authentication</h1>
+    <p className="text-xl text-blue-100 leading-relaxed max-w-3xl">
+      Secure user registration, multi-factor authentication, and comprehensive account security management with industry-standard protocols.
+    </p>
+  </div>
+</div>
+
+## Overview
+
+The Registration API provides a complete authentication system including user signup, email verification, two-factor authentication (2FA), secure sign-in, and password management. Built with security-first principles to protect user accounts and data.
+
+---
+
+## Key Features
+
+<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 my-8">
+  <div className="rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-cyan-500/5 p-6">
+    <div className="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center text-2xl mb-4">
+      📝
+    </div>
+    <h3 className="font-bold text-lg mb-2">Account Registration</h3>
+    <p className="text-sm text-muted-foreground">
+      Complete signup flow with email verification and country-based compliance
+    </p>
+  </div>
+
+  <div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-indigo-500/5 p-6">
+    <div className="w-12 h-12 rounded-lg bg-cyan-500/20 flex items-center justify-center text-2xl mb-4">
+      🔐
+    </div>
+    <h3 className="font-bold text-lg mb-2">Two-Factor Auth</h3>
+    <p className="text-sm text-muted-foreground">
+      Multi-method 2FA support including authenticator apps, email, and SMS
+    </p>
+  </div>
+
+  <div className="rounded-xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 to-blue-500/5 p-6">
+    <div className="w-12 h-12 rounded-lg bg-indigo-500/20 flex items-center justify-center text-2xl mb-4">
+      ✅
+    </div>
+    <h3 className="font-bold text-lg mb-2">Secure Sign-In</h3>
+    <p className="text-sm text-muted-foreground">
+      Protected authentication with 2FA validation and session management
+    </p>
+  </div>
+
+  <div className="rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-cyan-500/5 p-6">
+    <div className="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center text-2xl mb-4">
+      📧
+    </div>
+    <h3 className="font-bold text-lg mb-2">Email Verification</h3>
+    <p className="text-sm text-muted-foreground">
+      Time-limited verification codes with resend capability for account activation
+    </p>
+  </div>
+
+  <div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-indigo-500/5 p-6">
+    <div className="w-12 h-12 rounded-lg bg-cyan-500/20 flex items-center justify-center text-2xl mb-4">
+      🔑
+    </div>
+    <h3 className="font-bold text-lg mb-2">Password Recovery</h3>
+    <p className="text-sm text-muted-foreground">
+      Secure password reset flow with code verification and new password setup
+    </p>
+  </div>
+
+  <div className="rounded-xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 to-blue-500/5 p-6">
+    <div className="w-12 h-12 rounded-lg bg-indigo-500/20 flex items-center justify-center text-2xl mb-4">
+      🛡️
+    </div>
+    <h3 className="font-bold text-lg mb-2">Security Management</h3>
+    <p className="text-sm text-muted-foreground">
+      Enable, disable, and manage 2FA settings for account protection
+    </p>
+  </div>
+</div>
+
+---
+
+## Available Operations
+
+### Account Creation
+
+<Cards>
+  <Card title="Sign Up" href="/docs/api/registration/sign-up">
+    Register new user account with email, password, and country
+  </Card>
+  <Card title="Verify Account" href="/docs/api/registration/verify-account">
+    Activate account with email verification code
+  </Card>
+  <Card title="Resend Verification" href="/docs/api/registration/resend-verification-code">
+    Request new verification code for account activation
+  </Card>
+</Cards>
+
+### Authentication
+
+<Cards>
+  <Card title="Sign In" href="/docs/api/registration/sign-in">
+    Authenticate user with email and password
+  </Card>
+  <Card title="2FA Verification" href="/docs/api/registration/sign-in-2fa-check">
+    Complete sign-in with two-factor authentication
+  </Card>
+</Cards>
+
+### Two-Factor Authentication
+
+<Cards>
+  <Card title="Request 2FA" href="/docs/api/registration/request-2fa">
+    Setup 2FA with app, email, or SMS method
+  </Card>
+  <Card title="Confirm 2FA" href="/docs/api/registration/confirm-2fa-setting">
+    Verify and activate 2FA configuration
+  </Card>
+  <Card title="Disable 2FA" href="/docs/api/registration/disable-2fa">
+    Turn off two-factor authentication
+  </Card>
+</Cards>
+
+### Password Management
+
+<Cards>
+  <Card title="Forgot Password" href="/docs/api/registration/forgot-password">
+    Request password reset code via email
+  </Card>
+  <Card title="Reset Password" href="/docs/api/registration/password-reset">
+    Set new password with verification code
+  </Card>
+</Cards>
+
+---
+
+## Registration Flow Architecture
+
+<div className="rounded-lg border border-blue-500/30 bg-background p-6 mb-6">
+  <h3 className="font-bold mb-4 text-lg">Complete Registration Process</h3>
+
+  <div className="space-y-4">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center font-bold text-blue-700 dark:text-blue-300">1</div>
+      <div className="flex-1">
+        <h4 className="font-bold mb-1">Initial Signup</h4>
+        <p className="text-sm text-muted-foreground">
+          User provides email, password, and country. System sends verification code to email (valid 10 minutes)
+        </p>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center font-bold text-cyan-700 dark:text-cyan-300">2</div>
+      <div className="flex-1">
+        <h4 className="font-bold mb-1">Email Verification</h4>
+        <p className="text-sm text-muted-foreground">
+          User enters 6-digit code to verify email ownership. Can request resend if code expired
+        </p>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center font-bold text-indigo-700 dark:text-indigo-300">3</div>
+      <div className="flex-1">
+        <h4 className="font-bold mb-1">2FA Setup</h4>
+        <p className="text-sm text-muted-foreground">
+          User chooses 2FA method (app/email/SMS), receives code or QR, and confirms setup
+        </p>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center font-bold text-blue-700 dark:text-blue-300">4</div>
+      <div className="flex-1">
+        <h4 className="font-bold mb-1">Avatar Creation</h4>
+        <p className="text-sm text-muted-foreground">
+          User sets unique avatar identity with prefix and name (e.g., Tesla#42)
+        </p>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center font-bold text-cyan-700 dark:text-cyan-300">5</div>
+      <div className="flex-1">
+        <h4 className="font-bold mb-1">Account Active</h4>
+        <p className="text-sm text-muted-foreground">
+          User can now sign in and access platform features with full account privileges
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Authentication Methods
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔐</span>
+    <div>
+      <div className="font-bold text-lg">2FA Options</div>
+      <div className="text-sm text-muted-foreground">Available two-factor authentication methods</div>
+    </div>
+  </div>
+
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-2xl">📱</span>
+        <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded text-sm">app</code>
+      </div>
+      <div className="font-semibold mb-1 text-sm">Authenticator App</div>
+      <div className="text-xs text-muted-foreground">Time-based OTP via Google Authenticator or similar apps</div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-2xl">📧</span>
+        <code className="bg-cyan-500/20 text-cyan-500 px-2 py-0.5 rounded text-sm">email</code>
+      </div>
+      <div className="font-semibold mb-1 text-sm">Email Code</div>
+      <div className="text-xs text-muted-foreground">6-digit code sent to registered email address</div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-2xl">💬</span>
+        <code className="bg-indigo-500/20 text-indigo-500 px-2 py-0.5 rounded text-sm">phone</code>
+      </div>
+      <div className="font-semibold mb-1 text-sm">SMS Code</div>
+      <div className="text-xs text-muted-foreground">6-digit code sent via SMS to verified phone number</div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Common Use Cases
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🆕</div>
+    <h3 className="font-bold mb-2">New User Onboarding</h3>
+    <p className="text-sm text-muted-foreground">
+      Complete registration flow from initial signup through 2FA setup to full account activation
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔒</div>
+    <h3 className="font-bold mb-2">Secure Login</h3>
+    <p className="text-sm text-muted-foreground">
+      Multi-step authentication with password and 2FA verification for enhanced security
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔑</div>
+    <h3 className="font-bold mb-2">Password Recovery</h3>
+    <p className="text-sm text-muted-foreground">
+      Self-service password reset with email verification for users who forget credentials
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🛡️</div>
+    <h3 className="font-bold mb-2">Security Management</h3>
+    <p className="text-sm text-muted-foreground">
+      Enable or disable 2FA and manage authentication preferences for account security
+    </p>
+  </Card>
+</div>
+
+---
+
+## Integration Flow
+
+<div className="rounded-xl border border-indigo-500/30 bg-background p-6 my-6">
+  <h3 className="font-bold mb-6">Typical Sign-In Process</h3>
+
+  <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+    <div className="flex-1 text-center">
+      <div className="w-16 h-16 rounded-full bg-blue-500/20 border-2 border-blue-500 flex items-center justify-center text-2xl mx-auto mb-2">
+        📧
+      </div>
+      <div className="font-bold text-blue-700 dark:text-blue-300">Enter Credentials</div>
+      <div className="text-xs text-muted-foreground">Email & password</div>
+    </div>
+    <div className="text-2xl text-muted-foreground">→</div>
+    <div className="flex-1 text-center">
+      <div className="w-16 h-16 rounded-full bg-cyan-500/20 border-2 border-cyan-500 flex items-center justify-center text-2xl mx-auto mb-2">
+        🔐
+      </div>
+      <div className="font-bold text-cyan-700 dark:text-cyan-300">2FA Code Sent</div>
+      <div className="text-xs text-muted-foreground">Via app/email/SMS</div>
+    </div>
+    <div className="text-2xl text-muted-foreground">→</div>
+    <div className="flex-1 text-center">
+      <div className="w-16 h-16 rounded-full bg-indigo-500/20 border-2 border-indigo-500 flex items-center justify-center text-2xl mx-auto mb-2">
+        ✅
+      </div>
+      <div className="font-bold text-indigo-700 dark:text-indigo-300">Verify 2FA</div>
+      <div className="text-xs text-muted-foreground">Enter code</div>
+    </div>
+    <div className="text-2xl text-muted-foreground">→</div>
+    <div className="flex-1 text-center">
+      <div className="w-16 h-16 rounded-full bg-blue-500/20 border-2 border-blue-500 flex items-center justify-center text-2xl mx-auto mb-2">
+        🎉
+      </div>
+      <div className="font-bold text-blue-700 dark:text-blue-300">Authenticated</div>
+      <div className="text-xs text-muted-foreground">Receive JWT token</div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Best Practices
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-blue-500 bg-blue-500/10 p-4">
+    <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-1">✅ Password Security</h4>
+    <p className="text-sm text-blue-900 dark:text-blue-200">
+      Enforce strong password requirements and validate against common password lists before acceptance
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-cyan-500 bg-cyan-500/10 p-4">
+    <h4 className="font-bold text-cyan-700 dark:text-cyan-300 mb-1">⏰ Code Expiration</h4>
+    <p className="text-sm text-cyan-900 dark:text-cyan-200">
+      Verification codes expire after 10 minutes. Implement clear UI feedback and easy resend options
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-indigo-500 bg-indigo-500/10 p-4">
+    <h4 className="font-bold text-indigo-700 dark:text-indigo-300 mb-1">🔐 2FA Enforcement</h4>
+    <p className="text-sm text-indigo-900 dark:text-indigo-200">
+      Require 2FA setup before allowing full platform access to ensure account security
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-blue-500 bg-blue-500/10 p-4">
+    <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-1">🌍 Country Compliance</h4>
+    <p className="text-sm text-blue-900 dark:text-blue-200">
+      Use ISO 3166-1 alpha-3 country codes (e.g., USA, GBR, CAN) for regulatory compliance tracking
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-cyan-500 bg-cyan-500/10 p-4">
+    <h4 className="font-bold text-cyan-700 dark:text-cyan-300 mb-1">🔒 Token Security</h4>
+    <p className="text-sm text-cyan-900 dark:text-cyan-200">
+      Store JWT tokens securely, use HTTPS only, and implement proper token refresh mechanisms
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-indigo-500 bg-indigo-500/10 p-4">
+    <h4 className="font-bold text-indigo-700 dark:text-indigo-300 mb-1">📱 Multiple 2FA Methods</h4>
+    <p className="text-sm text-indigo-900 dark:text-indigo-200">
+      Allow users to configure multiple 2FA methods as backup options for account recovery
+    </p>
+  </div>
+</div>
+
+---
+
+## Security Features
+
+<div className="rounded-lg border border-blue-500/30 bg-background p-6 mb-6">
+  <h3 className="font-bold mb-4">Built-in Protection Mechanisms</h3>
+
+  <div className="grid gap-3 md:grid-cols-2">
+    <div className="p-4 rounded-lg border border-border bg-muted/30">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-xl">🔐</span>
+        <h4 className="font-semibold text-sm">Password Encryption</h4>
+      </div>
+      <p className="text-xs text-muted-foreground">
+        Passwords are hashed using industry-standard algorithms before storage
+      </p>
+    </div>
+
+    <div className="p-4 rounded-lg border border-border bg-muted/30">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-xl">⏱️</span>
+        <h4 className="font-semibold text-sm">Code Expiration</h4>
+      </div>
+      <p className="text-xs text-muted-foreground">
+        Verification codes automatically expire after 10 minutes for security
+      </p>
+    </div>
+
+    <div className="p-4 rounded-lg border border-border bg-muted/30">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-xl">🚫</span>
+        <h4 className="font-semibold text-sm">Rate Limiting</h4>
+      </div>
+      <p className="text-xs text-muted-foreground">
+        Automatic throttling prevents brute force attacks on authentication
+      </p>
+    </div>
+
+    <div className="p-4 rounded-lg border border-border bg-muted/30">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-xl">📧</span>
+        <h4 className="font-semibold text-sm">Email Verification</h4>
+      </div>
+      <p className="text-xs text-muted-foreground">
+        Mandatory email confirmation ensures account ownership validation
+      </p>
+    </div>
+
+    <div className="p-4 rounded-lg border border-border bg-muted/30">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-xl">🔑</span>
+        <h4 className="font-semibold text-sm">JWT Authentication</h4>
+      </div>
+      <p className="text-xs text-muted-foreground">
+        Secure token-based sessions with automatic expiration and refresh
+      </p>
+    </div>
+
+    <div className="p-4 rounded-lg border border-border bg-muted/30">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-xl">🌍</span>
+        <h4 className="font-semibold text-sm">Geographic Tracking</h4>
+      </div>
+      <p className="text-xs text-muted-foreground">
+        Country-based compliance and regulatory requirement enforcement
+      </p>
+    </div>
+  </div>
+</div>
+
+---
+
+## Related APIs
+
+<Cards>
+  <Card title="Profile Management" href="/docs/api/profile/profile-summary">
+    User profile and avatar customization
+  </Card>
+  <Card title="User Operations" href="/docs/api/user/user-summary">
+    Account management and user administration
+  </Card>
+  <Card title="OAuth2 Integration" href="/docs/api/oauth2/oauth2-summary">
+    Social login and third-party authentication
+  </Card>
+</Cards>

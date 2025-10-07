@@ -1,43 +1,93 @@
 ---
-title: Make Allow Location
+title: Allow Location
+description: Admin operation to allow specific locations for user access
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-:::note
-The functions described is accessible only to users with ADMIN privileges.
-:::
+<div className="relative overflow-hidden rounded-xl border bg-gradient-to-br from-teal-500/10 via-emerald-500/10 to-cyan-500/10 p-8 backdrop-blur-sm mb-8">
+  <div className="relative z-10">
+    <div className="flex items-center gap-3 mb-4">
+      <h1 className="text-3xl font-bold bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">
+        Allow Location
+      </h1>
+      <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-500/20 text-red-400 border border-red-500/30">
+        ADMIN
+      </div>
+    </div>
+    <p className="text-muted-foreground max-w-2xl">
+      Administrative operation to explicitly allow specific geographic locations for user access.
+    </p>
+  </div>
+</div>
 
-The `makeAllow` mutation allows an admin to remove a previously disallowed country from the disallowed list, permitting users from that country to access the system again.
+## Mutation
 
-### Mutation: `makeAllow`
+<div className="relative overflow-hidden rounded-lg border border-teal-500/20 bg-gradient-to-br from-teal-500/5 to-emerald-500/5 p-6 my-6">
+  <h3 className="text-lg font-semibold text-teal-400 mb-4">GraphQL Schema</h3>
 
-#### Schema:
 ```graphql
-makeAllow(
-  locationId: Int!
-): Int
+makeAllowLocation(email: String!, location: String!): String
 ```
+</div>
 
-#### Parameters
+### Parameters
 
-- `locationId` (Int): The unique ID of the disallowed location to be allowed. This field is mandatory.
+<div className="space-y-3 my-6">
+  <div className="rounded-lg border border-emerald-500/20 bg-card p-4">
+    <div className="flex items-start justify-between">
+      <div>
+        <code className="text-sm font-mono text-emerald-400">email</code>
+        <span className="ml-2 text-xs text-muted-foreground">String!</span>
+      </div>
+      <div className="text-xs px-2 py-1 rounded bg-red-500/20 text-red-400">Required</div>
+    </div>
+    <p className="text-sm text-muted-foreground mt-2">
+      Email address of the user to grant location access
+    </p>
+  </div>
 
-#### Return
+  <div className="rounded-lg border border-emerald-500/20 bg-card p-4">
+    <div className="flex items-start justify-between">
+      <div>
+        <code className="text-sm font-mono text-emerald-400">location</code>
+        <span className="ml-2 text-xs text-muted-foreground">String!</span>
+      </div>
+      <div className="text-xs px-2 py-1 rounded bg-red-500/20 text-red-400">Required</div>
+    </div>
+    <p className="text-sm text-muted-foreground mt-2">
+      Location/country code to allow for this user
+    </p>
+  </div>
+</div>
 
-The mutation returns an integer representing the ID of the location that has been allowed.
-
-### Example Mutation
-
-The following is an example of how to use the `makeAllow` mutation to allow a previously disallowed location:
+## Example Usage
 
 ```graphql
 mutation {
-  makeAllow(
-    locationId: 123
+  makeAllowLocation(
+    email: "user@example.com"
+    location: "US"
   )
 }
 ```
 
-In this example, the mutation allows the location with the ID `123`, removing it from the disallowed list. The return value will be the ID of the allowed location.
+## Security Considerations
+
+<div className="space-y-4 my-6">
+  <Callout type="error" title="Admin Access Only">
+    This operation requires ROLE_ADMIN privileges.
+  </Callout>
+
+  <Callout type="info" title="Override Restrictions">
+    This operation can override global country restrictions for specific users.
+  </Callout>
+</div>
+
+## Related Operations
+
+<Cards>
+  <Card title="Add Disallowed Country" href="/docs/api/user/add-disallowed-country" />
+  <Card title="Get User by ID" href="/docs/api/user/get-user-by-id" />
+</Cards>

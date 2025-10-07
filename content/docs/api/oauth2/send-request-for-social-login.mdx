@@ -1,0 +1,411 @@
+---
+title: Send Request for Social Login
+description: Initiate OAuth2 authorization flow with social login providers
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-violet-500/10 via-fuchsia-500/5 to-background p-8 border border-violet-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Send Request for Social Login
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Construct authorization URLs to initiate social login flows with OAuth2 providers
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-violet-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-fuchsia-500/5 rounded-full blur-3xl"></div>
+</div>
+
+## Overview
+
+To initiate a social login request, you construct an authorization URL that redirects users to the OAuth2 provider's authorization page. The URL includes your redirect URI where users will be sent after authorization.
+
+## URL Structure
+
+<div className="rounded-xl border border-violet-500/30 bg-gradient-to-br from-violet-500/10 to-violet-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔗</span>
+    <div>
+      <div className="font-bold text-lg">Authorization URL Format</div>
+      <div className="text-sm text-muted-foreground">Template for constructing OAuth2 authorization requests</div>
+    </div>
+  </div>
+
+  ```plaintext
+  {API_BASE_URL}/oauth2/authorize/{provider}?redirect_uri={OAUTH2_REDIRECT_URI}
+  ```
+
+  <div className="mt-4 space-y-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">URL Components</div>
+      <div className="space-y-2 text-xs">
+        <div className="flex gap-2">
+          <code className="bg-muted px-2 py-0.5 rounded">API_BASE_URL</code>
+          <span className="text-muted-foreground">Your API server base URL</span>
+        </div>
+        <div className="flex gap-2">
+          <code className="bg-muted px-2 py-0.5 rounded">provider</code>
+          <span className="text-muted-foreground">OAuth2 provider identifier (e.g., google, facebook, github)</span>
+        </div>
+        <div className="flex gap-2">
+          <code className="bg-muted px-2 py-0.5 rounded">OAUTH2_REDIRECT_URI</code>
+          <span className="text-muted-foreground">Frontend callback URL after authorization</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Example URLs
+
+### Development Environment
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔧</span>
+    <div>
+      <div className="font-bold">Local Development</div>
+      <div className="text-xs text-muted-foreground">Example for localhost testing</div>
+    </div>
+  </div>
+
+  ```plaintext
+  http://localhost:8080/oauth2/authorize/google?redirect_uri=http://localhost:3000/oauth2/redirect
+  ```
+
+  <div className="mt-3 text-sm">
+    <div className="font-semibold mb-2">Configuration:</div>
+    <div className="space-y-1 text-xs text-muted-foreground">
+      <div>• API Base: <code className="bg-muted px-1 rounded">http://localhost:8080</code></div>
+      <div>• Provider: <code className="bg-muted px-1 rounded">google</code></div>
+      <div>• Redirect: <code className="bg-muted px-1 rounded">http://localhost:3000/oauth2/redirect</code></div>
+    </div>
+  </div>
+</div>
+
+### Production Environment
+
+<div className="rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/10 to-green-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🌐</span>
+    <div>
+      <div className="font-bold">Production Deployment</div>
+      <div className="text-xs text-muted-foreground">Example for production environment</div>
+    </div>
+  </div>
+
+  ```plaintext
+  https://api.yourdomain.com/oauth2/authorize/google?redirect_uri=https://app.yourdomain.com/oauth2/redirect
+  ```
+
+  <div className="mt-3 text-sm">
+    <div className="font-semibold mb-2">Configuration:</div>
+    <div className="space-y-1 text-xs text-muted-foreground">
+      <div>• API Base: <code className="bg-muted px-1 rounded">https://api.yourdomain.com</code></div>
+      <div>• Provider: <code className="bg-muted px-1 rounded">google</code></div>
+      <div>• Redirect: <code className="bg-muted px-1 rounded">https://app.yourdomain.com/oauth2/redirect</code></div>
+    </div>
+  </div>
+</div>
+
+## Supported Providers
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">G</div>
+    <div className="font-bold mb-2">Google</div>
+    <div className="text-sm text-muted-foreground mb-2">
+      OAuth2 provider identifier: <code className="bg-muted px-1 rounded">google</code>
+    </div>
+    <div className="text-xs">
+      ```plaintext
+      /oauth2/authorize/google?redirect_uri=...
+      ```
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">F</div>
+    <div className="font-bold mb-2">Facebook</div>
+    <div className="text-sm text-muted-foreground mb-2">
+      OAuth2 provider identifier: <code className="bg-muted px-1 rounded">facebook</code>
+    </div>
+    <div className="text-xs">
+      ```plaintext
+      /oauth2/authorize/facebook?redirect_uri=...
+      ```
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">Gh</div>
+    <div className="font-bold mb-2">GitHub</div>
+    <div className="text-sm text-muted-foreground mb-2">
+      OAuth2 provider identifier: <code className="bg-muted px-1 rounded">github</code>
+    </div>
+    <div className="text-xs">
+      ```plaintext
+      /oauth2/authorize/github?redirect_uri=...
+      ```
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">T</div>
+    <div className="font-bold mb-2">Twitter / X</div>
+    <div className="text-sm text-muted-foreground mb-2">
+      OAuth2 provider identifier: <code className="bg-muted px-1 rounded">twitter</code>
+    </div>
+    <div className="text-xs">
+      ```plaintext
+      /oauth2/authorize/twitter?redirect_uri=...
+      ```
+    </div>
+  </div>
+</div>
+
+## Implementation Steps
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📋</span>
+    <div>
+      <div className="font-bold text-lg">Integration Workflow</div>
+      <div className="text-sm text-muted-foreground">Step-by-step implementation guide</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-violet-500 font-bold text-lg">1</span>
+        <div className="font-semibold text-sm">Construct Authorization URL</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Replace <code className="bg-muted px-1 rounded">API_BASE_URL</code> and <code className="bg-muted px-1 rounded">OAUTH2_REDIRECT_URI</code> with your actual values
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-violet-500 font-bold text-lg">2</span>
+        <div className="font-semibold text-sm">Redirect User</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        When user clicks social login button, redirect them to the constructed URL
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-violet-500 font-bold text-lg">3</span>
+        <div className="font-semibold text-sm">User Authorization</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Provider displays authorization page where user grants permissions
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-violet-500 font-bold text-lg">4</span>
+        <div className="font-semibold text-sm">Handle Redirect</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Provider redirects to <code className="bg-muted px-1 rounded">OAUTH2_REDIRECT_URI</code> with authorization code or error
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-violet-500 font-bold text-lg">5</span>
+        <div className="font-semibold text-sm">Complete Login</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Backend exchanges authorization code for access token and completes login
+      </div>
+    </div>
+  </div>
+</div>
+
+## Frontend Implementation
+
+<div className="rounded-xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-amber-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">JavaScript Example</div>
+      <div className="text-xs text-muted-foreground">Client-side integration</div>
+    </div>
+  </div>
+
+  ```javascript
+  // Configuration
+  const API_BASE_URL = 'https://api.yourdomain.com';
+  const REDIRECT_URI = 'https://app.yourdomain.com/oauth2/redirect';
+
+  // Function to initiate social login
+  function loginWithGoogle() {
+    const authUrl = `${API_BASE_URL}/oauth2/authorize/google?redirect_uri=${encodeURIComponent(REDIRECT_URI)}`;
+    window.location.href = authUrl;
+  }
+
+  function loginWithFacebook() {
+    const authUrl = `${API_BASE_URL}/oauth2/authorize/facebook?redirect_uri=${encodeURIComponent(REDIRECT_URI)}`;
+    window.location.href = authUrl;
+  }
+
+  function loginWithGitHub() {
+    const authUrl = `${API_BASE_URL}/oauth2/authorize/github?redirect_uri=${encodeURIComponent(REDIRECT_URI)}`;
+    window.location.href = authUrl;
+  }
+  ```
+</div>
+
+## Redirect Handler
+
+<div className="rounded-xl border border-rose-500/30 bg-gradient-to-br from-rose-500/10 to-rose-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔄</span>
+    <div>
+      <div className="font-bold">Handle Callback</div>
+      <div className="text-xs text-muted-foreground">Process OAuth2 redirect response</div>
+    </div>
+  </div>
+
+  ```javascript
+  // At your redirect URI endpoint (e.g., /oauth2/redirect)
+  function handleOAuth2Callback() {
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Check for authorization code
+    const code = urlParams.get('code');
+    if (code) {
+      // Success - authorization code received
+      console.log('Authorization successful');
+      // Send code to your backend for token exchange
+      exchangeCodeForToken(code);
+    }
+
+    // Check for errors
+    const error = urlParams.get('error');
+    if (error) {
+      console.error('Authorization failed:', error);
+      const errorDescription = urlParams.get('error_description');
+      // Handle error (show user message, redirect to login, etc.)
+    }
+  }
+
+  function exchangeCodeForToken(code) {
+    // Your backend handles the actual token exchange
+    fetch('/api/auth/callback', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code })
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Handle successful authentication
+      if (data.token) {
+        // Store token and redirect to dashboard
+        localStorage.setItem('authToken', data.token);
+        window.location.href = '/dashboard';
+      }
+    })
+    .catch(error => {
+      console.error('Token exchange failed:', error);
+    });
+  }
+  ```
+</div>
+
+## Security Considerations
+
+<div className="rounded-xl border border-orange-500/30 bg-gradient-to-br from-orange-500/10 to-orange-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔒</span>
+    <div>
+      <div className="font-bold text-lg">Security Best Practices</div>
+      <div className="text-sm text-muted-foreground">Important security considerations</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Use HTTPS in Production</div>
+      <div className="text-xs text-muted-foreground">
+        Always use HTTPS for production URLs to prevent man-in-the-middle attacks
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Validate Redirect URI</div>
+      <div className="text-xs text-muted-foreground">
+        Ensure redirect URIs are registered with OAuth2 providers and match exactly
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">State Parameter</div>
+      <div className="text-xs text-muted-foreground">
+        Consider adding a state parameter to prevent CSRF attacks
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Handle Errors Gracefully</div>
+      <div className="text-xs text-muted-foreground">
+        Always check for error parameters in the redirect response
+      </div>
+    </div>
+  </div>
+</div>
+
+## Use Cases
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🚀</div>
+    <div className="font-bold mb-2">Quick Registration</div>
+    <div className="text-sm text-muted-foreground">
+      Allow users to register instantly using their existing social accounts
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🔐</div>
+    <div className="font-bold mb-2">Secure Login</div>
+    <div className="text-sm text-muted-foreground">
+      Enable secure authentication without managing passwords
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">👤</div>
+    <div className="font-bold mb-2">Profile Integration</div>
+    <div className="text-sm text-muted-foreground">
+      Auto-fill user profiles with information from social accounts
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🌐</div>
+    <div className="font-bold mb-2">Multi-Platform Access</div>
+    <div className="text-sm text-muted-foreground">
+      Support login from multiple social platforms simultaneously
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-violet-500/30 bg-gradient-to-r from-violet-500/10 to-fuchsia-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold">Pro Tip</div>
+      <div className="text-sm text-muted-foreground">Always URL-encode the redirect URI parameter to ensure special characters are handled correctly. Test with multiple providers to ensure consistent behavior.</div>
+    </div>
+  </div>
+</div>

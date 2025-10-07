@@ -1,0 +1,199 @@
+---
+title: Get Cryptocurrency Price
+description: Retrieve real-time cryptocurrency market prices
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-fuchsia-500 via-purple-600 to-violet-700 p-8 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+      Get Cryptocurrency Price
+    </h1>
+    <p className="text-xl text-white/90 mb-6">
+      Fetch live market prices for supported cryptocurrencies
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+</div>
+
+## Query
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💰</span>
+    <div>
+      <div className="font-bold text-lg">getCryptoPrice</div>
+      <div className="text-sm text-muted-foreground">Get current market price for a cryptocurrency</div>
+    </div>
+  </div>
+
+  ### Schema
+
+  ```graphql
+  getCryptoPrice(
+    symbol: String!
+  ): Float
+  ```
+</div>
+
+## Parameters
+
+<div className="space-y-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-purple-500/20 text-purple-500 px-2 py-0.5 rounded font-mono text-sm">symbol</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String!</code></div>
+      <div className="text-muted-foreground">The cryptocurrency symbol (e.g., "BTC", "ETH", "USDT")</div>
+    </div>
+  </div>
+</div>
+
+## Return Value
+
+<div className="p-5 rounded-lg border border-green-500/30 bg-green-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">📦</span>
+    <div className="font-bold">Returns Float</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    Current price in USD as a floating-point number
+  </div>
+</div>
+
+## Examples
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-blue-500/5 p-6">
+    <div className="flex items-center gap-3 mb-4">
+      <span className="text-2xl">💻</span>
+      <div>
+        <div className="font-bold">Bitcoin Price</div>
+        <div className="text-xs text-muted-foreground">Get BTC price in USD</div>
+      </div>
+    </div>
+
+    ```graphql
+    query {
+      getCryptoPrice(symbol: "BTC")
+    }
+    ```
+  </div>
+
+  <div className="rounded-xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-emerald-500/5 p-6">
+    <div className="flex items-center gap-3 mb-4">
+      <span className="text-2xl">💻</span>
+      <div>
+        <div className="font-bold">Ethereum Price</div>
+        <div className="text-xs text-muted-foreground">Get ETH price in USD</div>
+      </div>
+    </div>
+
+    ```graphql
+    query {
+      getCryptoPrice(symbol: "ETH")
+    }
+    ```
+  </div>
+</div>
+
+## Response Example
+
+<div className="rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/10 to-green-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📤</span>
+    <div>
+      <div className="font-bold">Sample Response</div>
+      <div className="text-xs text-muted-foreground">Bitcoin price response</div>
+    </div>
+  </div>
+
+  ```json
+  {
+    "data": {
+      "getCryptoPrice": 43250.75
+    }
+  }
+  ```
+</div>
+
+## Supported Cryptocurrencies
+
+<div className="grid grid-cols-2 md:grid-cols-4 gap-3 my-6">
+  <div className="p-4 rounded-lg border border-border bg-muted/50 text-center">
+    <div className="text-2xl mb-2">₿</div>
+    <div className="font-bold text-sm">BTC</div>
+    <div className="text-xs text-muted-foreground">Bitcoin</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50 text-center">
+    <div className="text-2xl mb-2">Ξ</div>
+    <div className="font-bold text-sm">ETH</div>
+    <div className="text-xs text-muted-foreground">Ethereum</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50 text-center">
+    <div className="text-2xl mb-2">₮</div>
+    <div className="font-bold text-sm">USDT</div>
+    <div className="text-xs text-muted-foreground">Tether</div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/50 text-center">
+    <div className="text-2xl mb-2">💵</div>
+    <div className="font-bold text-sm">USDC</div>
+    <div className="text-xs text-muted-foreground">USD Coin</div>
+  </div>
+</div>
+
+## Use Cases
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📊</div>
+    <div className="font-bold mb-2">Price Display</div>
+    <div className="text-sm text-muted-foreground">
+      Show real-time cryptocurrency prices to users on your platform
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">💱</div>
+    <div className="font-bold mb-2">Currency Conversion</div>
+    <div className="text-sm text-muted-foreground">
+      Calculate equivalent amounts for payment processing
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🔔</div>
+    <div className="font-bold mb-2">Price Alerts</div>
+    <div className="text-sm text-muted-foreground">
+      Monitor prices for triggering notifications or automated actions
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📈</div>
+    <div className="font-bold mb-2">Market Analysis</div>
+    <div className="text-sm text-muted-foreground">
+      Track price trends for analytics and reporting features
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-purple-500/30 bg-gradient-to-r from-purple-500/10 to-fuchsia-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold">Best Practice</div>
+      <div className="text-sm text-muted-foreground">
+        Implement caching to reduce API calls for frequently requested prices. Consider polling intervals of 30-60 seconds for real-time displays. Always validate the symbol parameter before making requests. Handle cases where the symbol might not be found or price data is unavailable.
+      </div>
+    </div>
+  </div>
+</div>

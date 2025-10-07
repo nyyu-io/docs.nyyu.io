@@ -1,46 +1,81 @@
 ---
 title: Suspend User by Admin
+description: Admin operation to suspend a user account
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-:::note
-The functions described is accessible only to users with ADMIN privileges.
-:::
+<div className="relative overflow-hidden rounded-xl border bg-gradient-to-br from-teal-500/10 via-emerald-500/10 to-cyan-500/10 p-8 backdrop-blur-sm mb-8">
+  <div className="relative z-10">
+    <div className="flex items-center gap-3 mb-4">
+      <h1 className="text-3xl font-bold bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">
+        Suspend User
+      </h1>
+      <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-500/20 text-red-400 border border-red-500/30">
+        ADMIN
+      </div>
+    </div>
+    <p className="text-muted-foreground max-w-2xl">
+      Administrative operation to temporarily suspend a user account and revoke access.
+    </p>
+  </div>
+</div>
 
-The `suspendUserByAdmin` mutation allows an admin to suspend a user's account. This can be used to temporarily disable a user's access to the system.
+## Mutation
 
-### Mutation: `suspendUserByAdmin`
+<div className="relative overflow-hidden rounded-lg border border-teal-500/20 bg-gradient-to-br from-teal-500/5 to-emerald-500/5 p-6 my-6">
+  <h3 className="text-lg font-semibold text-teal-400 mb-4">GraphQL Schema</h3>
 
-#### Schema:
 ```graphql
-suspendUserByAdmin(
-  email: String!
-): String
+suspendUserByAdmin(email: String!): String
 ```
+</div>
 
-#### Parameters
+### Parameters
 
-- `email` (String): The email address of the user to be suspended. This field is mandatory.
+<div className="space-y-3 my-6">
+  <div className="rounded-lg border border-emerald-500/20 bg-card p-4">
+    <div className="flex items-start justify-between">
+      <div>
+        <code className="text-sm font-mono text-emerald-400">email</code>
+        <span className="ml-2 text-xs text-muted-foreground">String!</span>
+      </div>
+      <div className="text-xs px-2 py-1 rounded bg-red-500/20 text-red-400">Required</div>
+    </div>
+    <p className="text-sm text-muted-foreground mt-2">
+      Email address of the user to be suspended
+    </p>
+  </div>
+</div>
 
-#### Return
-
-The mutation returns a string indicating the result of the suspension attempt.
-
-- `"Success"`: Indicates that the user's account has been successfully suspended.
-- `"Failed"`: Indicates that there was an error in processing the request, such as the user not being found.
-
-### Example Mutation
-
-The following is an example of how to use the `suspendUserByAdmin` mutation to suspend a user's account:
+## Example Usage
 
 ```graphql
 mutation {
-  suspendUserByAdmin(
-    email: "user@example.com"
-  )
+  suspendUserByAdmin(email: "user@example.com")
 }
 ```
 
-In this example, the mutation attempts to suspend the user with the email address `user@example.com`. The return value will indicate whether the suspension was successful.
+## Security Considerations
+
+<div className="space-y-4 my-6">
+  <Callout type="error" title="Admin Access Only">
+    This operation requires ROLE_ADMIN privileges.
+  </Callout>
+
+  <Callout type="warn" title="Session Invalidation">
+    Suspending a user will immediately invalidate all their active sessions.
+  </Callout>
+
+  <Callout type="info" title="Reversible Action">
+    Suspended accounts can be restored using the releaseUserByAdmin mutation.
+  </Callout>
+</div>
+
+## Related Operations
+
+<Cards>
+  <Card title="Release User" href="/docs/api/user/release-user-by-admin" />
+  <Card title="Delete Account" href="/docs/api/user/delete-account" />
+</Cards>

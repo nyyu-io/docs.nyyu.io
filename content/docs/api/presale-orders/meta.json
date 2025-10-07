@@ -1,11 +1,11 @@
 {
   "title": "Presale Orders",
   "pages": [
-    "Get All Newly Placed Orders In A Presale Round",
-    "Get All Presale Orders In A Specific Presale Round",
-    "Get Presale Order By ID",
-    "Get Presale Order Transactions",
-    "Get Presale Orders By User",
-    "Place A New Presale Order"
+    "place-new-order",
+    "get-order-by-id",
+    "get-orders-by-user",
+    "get-orders-by-round",
+    "get-newly-placed-orders",
+    "get-order-transactions"
   ]
 }

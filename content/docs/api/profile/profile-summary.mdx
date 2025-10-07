@@ -1,0 +1,237 @@
+---
+title: Profile Overview
+description: Comprehensive guide to profile and avatar customization API endpoints
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-purple-600 via-pink-600 to-rose-600 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="relative">
+    <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm mb-4">
+      <span>✨</span>
+      PROFILE API
+    </div>
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">Profile & Avatar Management</h1>
+    <p className="text-xl text-purple-100 leading-relaxed max-w-3xl">
+      Powerful API endpoints for managing user profiles and customizable avatar systems with component-based design.
+    </p>
+  </div>
+</div>
+
+## Overview
+
+The Profile API provides essential functionality for user profile customization and avatar management. Create unique user identities through a flexible avatar system with customizable components and sets.
+
+---
+
+## Key Features
+
+<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 my-8">
+  <div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-pink-500/5 p-6">
+    <div className="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center text-2xl mb-4">
+      🎭
+    </div>
+    <h3 className="font-bold text-lg mb-2">Avatar Creation</h3>
+    <p className="text-sm text-muted-foreground">
+      Set unique avatars during account setup with prefix and name combinations
+    </p>
+  </div>
+
+  <div className="rounded-xl border border-pink-500/30 bg-gradient-to-br from-pink-500/10 to-rose-500/5 p-6">
+    <div className="w-12 h-12 rounded-lg bg-pink-500/20 flex items-center justify-center text-2xl mb-4">
+      🎨
+    </div>
+    <h3 className="font-bold text-lg mb-2">Component System</h3>
+    <p className="text-sm text-muted-foreground">
+      Update avatar appearance with modular components organized by groups
+    </p>
+  </div>
+
+  <div className="rounded-xl border border-rose-500/30 bg-gradient-to-br from-rose-500/10 to-pink-500/5 p-6">
+    <div className="w-12 h-12 rounded-lg bg-rose-500/20 flex items-center justify-center text-2xl mb-4">
+      ⚡
+    </div>
+    <h3 className="font-bold text-lg mb-2">Real-time Updates</h3>
+    <p className="text-sm text-muted-foreground">
+      Instant avatar customization with live preview and save functionality
+    </p>
+  </div>
+</div>
+
+---
+
+## Available Operations
+
+<Cards>
+  <Card title="Set Avatar" href="/docs/api/profile/set-avatar">
+    Create initial avatar during account registration with prefix and name
+  </Card>
+  <Card title="Update Avatar Set" href="/docs/api/profile/update-avatar-set">
+    Customize avatar appearance with component-based updates
+  </Card>
+</Cards>
+
+---
+
+## Avatar System Architecture
+
+<div className="rounded-lg border border-purple-500/30 bg-background p-6 mb-6">
+  <h3 className="font-bold mb-4 text-lg">Component-Based Design</h3>
+
+  <div className="space-y-4">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center font-bold text-purple-700 dark:text-purple-300">1</div>
+      <div className="flex-1">
+        <h4 className="font-bold mb-1">Avatar Identity</h4>
+        <p className="text-sm text-muted-foreground">
+          Each user has a unique avatar identified by a <code className="bg-purple-500/20 text-purple-700 dark:text-purple-300 px-2 py-0.5 rounded text-xs">prefix</code> and <code className="bg-purple-500/20 text-purple-700 dark:text-purple-300 px-2 py-0.5 rounded text-xs">name</code> combination set during registration
+        </p>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-pink-500/20 flex items-center justify-center font-bold text-pink-700 dark:text-pink-300">2</div>
+      <div className="flex-1">
+        <h4 className="font-bold mb-1">Component Groups</h4>
+        <p className="text-sm text-muted-foreground">
+          Avatar components are organized by groups (e.g., hair, accessories, clothing) for systematic customization
+        </p>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-rose-500/20 flex items-center justify-center font-bold text-rose-700 dark:text-rose-300">3</div>
+      <div className="flex-1">
+        <h4 className="font-bold mb-1">Avatar Sets</h4>
+        <p className="text-sm text-muted-foreground">
+          Complete avatar appearance is managed through sets that combine multiple component selections
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Common Use Cases
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🆕</div>
+    <h3 className="font-bold mb-2">Account Creation</h3>
+    <p className="text-sm text-muted-foreground">
+      Set initial avatar during user registration flow after 2FA setup for personalized account identity
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🎨</div>
+    <h3 className="font-bold mb-2">Avatar Customization</h3>
+    <p className="text-sm text-muted-foreground">
+      Allow users to personalize their avatar appearance through the dress-up interface with live previews
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">👤</div>
+    <h3 className="font-bold mb-2">Profile Display</h3>
+    <p className="text-sm text-muted-foreground">
+      Render unique user avatars across platform interfaces including dashboards, chat, and leaderboards
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔄</div>
+    <h3 className="font-bold mb-2">Component Updates</h3>
+    <p className="text-sm text-muted-foreground">
+      Update individual avatar components or entire sets for seasonal events or unlockable rewards
+    </p>
+  </Card>
+</div>
+
+---
+
+## Integration Flow
+
+<div className="rounded-xl border border-pink-500/30 bg-background p-6 my-6">
+  <h3 className="font-bold mb-6">Typical Avatar Setup Process</h3>
+
+  <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+    <div className="flex-1 text-center">
+      <div className="w-16 h-16 rounded-full bg-purple-500/20 border-2 border-purple-500 flex items-center justify-center text-2xl mx-auto mb-2">
+        📝
+      </div>
+      <div className="font-bold text-purple-700 dark:text-purple-300">User Registration</div>
+      <div className="text-xs text-muted-foreground">Complete sign-up & 2FA</div>
+    </div>
+    <div className="text-2xl text-muted-foreground">→</div>
+    <div className="flex-1 text-center">
+      <div className="w-16 h-16 rounded-full bg-pink-500/20 border-2 border-pink-500 flex items-center justify-center text-2xl mx-auto mb-2">
+        🎭
+      </div>
+      <div className="font-bold text-pink-700 dark:text-pink-300">Set Avatar</div>
+      <div className="text-xs text-muted-foreground">Choose prefix & name</div>
+    </div>
+    <div className="text-2xl text-muted-foreground">→</div>
+    <div className="flex-1 text-center">
+      <div className="w-16 h-16 rounded-full bg-rose-500/20 border-2 border-rose-500 flex items-center justify-center text-2xl mx-auto mb-2">
+        🎨
+      </div>
+      <div className="font-bold text-rose-700 dark:text-rose-300">Customize</div>
+      <div className="text-xs text-muted-foreground">Update components</div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Best Practices
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-purple-500 bg-purple-500/10 p-4">
+    <h4 className="font-bold text-purple-700 dark:text-purple-300 mb-1">✅ Unique Identifiers</h4>
+    <p className="text-sm text-purple-900 dark:text-purple-200">
+      Ensure prefix + name combinations are unique to prevent conflicts during avatar creation
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-pink-500 bg-pink-500/10 p-4">
+    <h4 className="font-bold text-pink-700 dark:text-pink-300 mb-1">🎯 Validation</h4>
+    <p className="text-sm text-pink-900 dark:text-pink-200">
+      Validate component IDs and group IDs before updates to ensure they exist in the avatar system
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-rose-500 bg-rose-500/10 p-4">
+    <h4 className="font-bold text-rose-700 dark:text-rose-300 mb-1">💾 Batch Updates</h4>
+    <p className="text-sm text-rose-900 dark:text-rose-200">
+      Update multiple avatar components in a single mutation to reduce API calls and improve performance
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-purple-500 bg-purple-500/10 p-4">
+    <h4 className="font-bold text-purple-700 dark:text-purple-300 mb-1">🔒 User Context</h4>
+    <p className="text-sm text-purple-900 dark:text-purple-200">
+      These operations are user-scoped and automatically apply to the authenticated user's profile
+    </p>
+  </div>
+</div>
+
+---
+
+## Related APIs
+
+<Cards>
+  <Card title="Avatar Management" href="/docs/api/avatar/avatar-summary">
+    Manage avatar components, profiles, and groups
+  </Card>
+  <Card title="User Management" href="/docs/api/user/user-summary">
+    Complete user profile and account operations
+  </Card>
+  <Card title="Registration" href="/docs/api/registration/sign-up">
+    User registration and authentication flow
+  </Card>
+</Cards>

@@ -4,20 +4,27 @@ description: Staking services with flexible terms and competitive yields
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
-import { Card, Cards } from 'fumadocs-ui/components/card';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 
-# Staking Services on NYYU
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-500/10 via-indigo-500/10 to-background p-12 border border-blue-500/20 mb-8">
+  <div className="relative z-10">
+    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
+      <span className="text-sm font-medium text-blue-400">Financial Service</span>
+    </div>
+    <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+      Staking Services
+    </h1>
+    <p className="text-xl text-muted-foreground max-w-3xl">
+      Earn passive income by staking your digital assets. Support network security while generating competitive yields.
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl"></div>
+</div>
 
-At NYYU, we offer comprehensive staking services that allow users to earn rewards by participating in the network's consensus mechanism. By staking your digital assets, you contribute to the security and efficiency of the network while earning passive income.
-
-<Callout type="tip">
-💰 Earn up to 8% annual yield on your digital assets through our staking services!
+<Callout type="tip" title="Earn Passive Income">
+Earn up to 8% annual yield on your digital assets through our staking services!
 </Callout>
-
-## What is Staking?
-
-Staking involves locking up your digital assets to support the operations of a blockchain network. In return, you earn rewards based on the amount staked and the network's overall performance.
 
 ## How It Works
 
@@ -38,55 +45,100 @@ Receive rewards based on the staking duration and network performance.
 </Step>
 </Steps>
 
-## Benefits of Staking
+## Staking Rewards (APY)
 
-<Cards>
-<Card
-  title="💵 Earn Passive Income"
-  description="Generate income from your idle digital assets"
-/>
-<Card
-  title="🛡️ Support the Network"
-  description="Contribute to the stability and security of the blockchain network"
-/>
-<Card
-  title="⏱️ Flexible Terms"
-  description="Choose from various staking periods to suit your investment strategy"
-/>
-</Cards>
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
+  <div className="p-6 rounded-xl border border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-background">
+    <div className="text-3xl mb-3">💎</div>
+    <div className="font-bold text-lg mb-2">NYYU Token</div>
+    <div className="text-4xl font-bold text-blue-400 mb-2">8%</div>
+    <div className="text-sm text-muted-foreground">Annual Percentage Yield</div>
+  </div>
 
-## Staking Rewards
+  <div className="p-6 rounded-xl border border-indigo-500/20 bg-gradient-to-br from-indigo-500/5 to-background">
+    <div className="text-3xl mb-3">💠</div>
+    <div className="font-bold text-lg mb-2">Ethereum (ETH)</div>
+    <div className="text-4xl font-bold text-indigo-400 mb-2">5%</div>
+    <div className="text-sm text-muted-foreground">Annual Percentage Yield</div>
+  </div>
+
+  <div className="p-6 rounded-xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-background">
+    <div className="text-3xl mb-3">₿</div>
+    <div className="font-bold text-lg mb-2">Bitcoin (BTC)</div>
+    <div className="text-4xl font-bold text-cyan-400 mb-2">4%</div>
+    <div className="text-sm text-muted-foreground">Annual Percentage Yield</div>
+  </div>
+</div>
 
 <Callout type="info">
 Annual percentage yields (APY) are subject to network performance and may vary.
 </Callout>
 
-| Asset         | Annual Yield (%) |
-|---------------|------------------|
-| NYYU Token    | **8%**           |
-| Ethereum (ETH)| **5%**           |
-| Bitcoin (BTC) | **4%**           |
+## Benefits of Staking
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+  <div className="text-center p-6 rounded-xl border border-blue-500/20 bg-gradient-to-b from-blue-500/5 to-background">
+    <div className="text-4xl mb-4">💵</div>
+    <div className="font-bold text-lg mb-2">Passive Income</div>
+    <div className="text-sm text-muted-foreground">
+      Generate income from your idle digital assets without active trading
+    </div>
+  </div>
+
+  <div className="text-center p-6 rounded-xl border border-indigo-500/20 bg-gradient-to-b from-indigo-500/5 to-background">
+    <div className="text-4xl mb-4">🛡️</div>
+    <div className="font-bold text-lg mb-2">Support the Network</div>
+    <div className="text-sm text-muted-foreground">
+      Contribute to blockchain stability and security while earning rewards
+    </div>
+  </div>
+
+  <div className="text-center p-6 rounded-xl border border-cyan-500/20 bg-gradient-to-b from-cyan-500/5 to-background">
+    <div className="text-4xl mb-4">⏱️</div>
+    <div className="font-bold text-lg mb-2">Flexible Terms</div>
+    <div className="text-sm text-muted-foreground">
+      Choose from various staking periods to suit your investment strategy
+    </div>
+  </div>
+</div>
 
 ## How to Stake
 
 <Steps>
 <Step>
 ### Log in to Your Account
-Access your NYYU account.
+Access your NYYU account and navigate to the staking section.
 </Step>
 
 <Step>
-### Select Staking
-Navigate to the staking section.
+### Select Asset and Amount
+Choose the asset you wish to stake and the amount.
 </Step>
 
 <Step>
-### Choose Asset and Amount
-Select the asset you wish to stake and the amount.
+### Choose Staking Period
+Select your preferred staking duration (30, 60, 90, or 180 days).
 </Step>
 
 <Step>
 ### Confirm and Stake
-Confirm your selection and start earning rewards.
+Confirm your selection and start earning rewards immediately.
 </Step>
 </Steps>
+
+<div className="mt-12 p-8 rounded-2xl border border-blue-500/20 bg-gradient-to-br from-blue-500/10 via-indigo-500/5 to-background relative overflow-hidden">
+  <div className="relative z-10 text-center">
+    <div className="text-3xl mb-3">💎</div>
+    <div className="font-bold text-2xl mb-2">Start Earning Today</div>
+    <div className="text-muted-foreground mb-6">
+      Put your assets to work and earn competitive yields through staking
+    </div>
+    <a href="https://nyyu.io/staking" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-400 hover:bg-blue-500/20 transition-all font-medium">
+      Start Staking
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+      </svg>
+    </a>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
+</div>

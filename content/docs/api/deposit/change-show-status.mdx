@@ -1,34 +1,88 @@
 ---
-title: Change Show Status
+title: Change Deposit Show Status
+description: Toggle visibility of deposit transactions across PayPal, Stripe, and Bank deposit types
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-These mutations allow a user to change the show status of different types of deposit transactions (PayPal, Stripe, Bank) to either hide or show them.
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-violet-500 via-fuchsia-500 to-pink-500 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10"></div>
+  <div className="relative">
+    <div className="flex items-center gap-3 mb-4">
+      <div className="p-3 bg-white/20 backdrop-blur-sm rounded-xl">
+        <span className="text-4xl">👁️</span>
+      </div>
+      <div>
+        <h1 className="text-3xl font-bold text-white mb-2">Change Deposit Show Status</h1>
+        <p className="text-violet-50 text-lg">Toggle visibility of deposit transactions across PayPal, Stripe, and Bank deposit types</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-### Change PayPal Deposit Show Status
+## Overview
 
-#### Mutation: `changePayPalDepositShowStatus`
+These mutations allow users to change the show status of their deposit transactions across different payment methods (PayPal, Stripe, and Bank). This feature enables users to organize their transaction history by hiding or showing specific deposits without permanently deleting them.
 
-##### Schema:
+<div className="mt-8 p-6 bg-gradient-to-br from-violet-50 to-fuchsia-50 dark:from-violet-950/30 dark:to-fuchsia-950/30 rounded-xl border border-violet-200 dark:border-violet-800">
+  <h2 className="text-xl font-semibold mb-4 text-violet-900 dark:text-violet-100 flex items-center gap-2">
+    <span>📋</span> Available Mutations
+  </h2>
+  <p className="text-gray-700 dark:text-gray-300">Three mutations are available, one for each deposit transaction type:</p>
+  <ul className="mt-3 space-y-2 text-gray-700 dark:text-gray-300">
+    <li className="flex items-center gap-2">
+      <span className="text-violet-500">•</span> <code>changePayPalDepositShowStatus</code> - For PayPal deposits
+    </li>
+    <li className="flex items-center gap-2">
+      <span className="text-violet-500">•</span> <code>changeStripeDepositShowStatus</code> - For Stripe deposits
+    </li>
+    <li className="flex items-center gap-2">
+      <span className="text-violet-500">•</span> <code>changeBankDepositShowStatus</code> - For Bank deposits
+    </li>
+  </ul>
+</div>
+
+---
+
+## PayPal Deposit Show Status
+
+<div className="mt-8 p-6 bg-gradient-to-br from-violet-50 to-fuchsia-50 dark:from-violet-950/30 dark:to-fuchsia-950/30 rounded-xl border border-violet-200 dark:border-violet-800">
+  <h3 className="text-lg font-semibold mb-4 text-violet-900 dark:text-violet-100 flex items-center gap-2">
+    <span>🔧</span> Mutation Schema
+  </h3>
+
 ```graphql
 changePayPalDepositShowStatus(
   id: Int!,
   showStatus: Int!
 ): Int
 ```
+</div>
 
-##### Parameters
+### Parameters
 
-- `id` (Int): The ID of the PayPal deposit transaction. This field is mandatory.
-- `showStatus` (Int): The new show status (e.g., 0 for hide, 1 for show). This field is mandatory.
+<div className="grid gap-4 mt-6">
+  <div className="p-5 bg-white dark:bg-gray-950 rounded-lg border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-2">
+      <code className="text-lg font-semibold text-gray-900 dark:text-gray-100">id</code>
+      <span className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full text-xs font-medium">Required</span>
+    </div>
+    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2"><strong>Type:</strong> Int</p>
+    <p className="text-gray-700 dark:text-gray-300">The ID of the PayPal deposit transaction to update.</p>
+  </div>
 
-##### Return
+  <div className="p-5 bg-white dark:bg-gray-950 rounded-lg border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-2">
+      <code className="text-lg font-semibold text-gray-900 dark:text-gray-100">showStatus</code>
+      <span className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full text-xs font-medium">Required</span>
+    </div>
+    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2"><strong>Type:</strong> Int</p>
+    <p className="text-gray-700 dark:text-gray-300">The new show status: <code>0</code> to hide, <code>1</code> to show.</p>
+  </div>
+</div>
 
-The mutation returns an integer indicating the updated show status.
-
-##### Example Mutation
+### Example Usage
 
 ```graphql
 mutation {
@@ -39,28 +93,56 @@ mutation {
 }
 ```
 
-### Change Stripe Deposit Show Status
+### Example Response
 
-#### Mutation: `changeStripeDepositShowStatus`
+```json
+{
+  "data": {
+    "changePayPalDepositShowStatus": 1
+  }
+}
+```
 
-##### Schema:
+---
+
+## Stripe Deposit Show Status
+
+<div className="mt-8 p-6 bg-gradient-to-br from-violet-50 to-fuchsia-50 dark:from-violet-950/30 dark:to-fuchsia-950/30 rounded-xl border border-violet-200 dark:border-violet-800">
+  <h3 className="text-lg font-semibold mb-4 text-violet-900 dark:text-violet-100 flex items-center gap-2">
+    <span>🔧</span> Mutation Schema
+  </h3>
+
 ```graphql
 changeStripeDepositShowStatus(
   id: Int!,
   showStatus: Int!
 ): Int
 ```
+</div>
 
-##### Parameters
+### Parameters
 
-- `id` (Int): The ID of the Stripe deposit transaction. This field is mandatory.
-- `showStatus` (Int): The new show status (e.g., 0 for hide, 1 for show). This field is mandatory.
+<div className="grid gap-4 mt-6">
+  <div className="p-5 bg-white dark:bg-gray-950 rounded-lg border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-2">
+      <code className="text-lg font-semibold text-gray-900 dark:text-gray-100">id</code>
+      <span className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full text-xs font-medium">Required</span>
+    </div>
+    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2"><strong>Type:</strong> Int</p>
+    <p className="text-gray-700 dark:text-gray-300">The ID of the Stripe deposit transaction to update.</p>
+  </div>
 
-##### Return
+  <div className="p-5 bg-white dark:bg-gray-950 rounded-lg border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-2">
+      <code className="text-lg font-semibold text-gray-900 dark:text-gray-100">showStatus</code>
+      <span className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full text-xs font-medium">Required</span>
+    </div>
+    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2"><strong>Type:</strong> Int</p>
+    <p className="text-gray-700 dark:text-gray-300">The new show status: <code>0</code> to hide, <code>1</code> to show.</p>
+  </div>
+</div>
 
-The mutation returns an integer indicating the updated show status.
-
-##### Example Mutation
+### Example Usage
 
 ```graphql
 mutation {
@@ -71,28 +153,56 @@ mutation {
 }
 ```
 
-### Change Bank Deposit Show Status
+### Example Response
 
-#### Mutation: `changeBankDepositShowStatus`
+```json
+{
+  "data": {
+    "changeStripeDepositShowStatus": 0
+  }
+}
+```
 
-##### Schema:
+---
+
+## Bank Deposit Show Status
+
+<div className="mt-8 p-6 bg-gradient-to-br from-violet-50 to-fuchsia-50 dark:from-violet-950/30 dark:to-fuchsia-950/30 rounded-xl border border-violet-200 dark:border-violet-800">
+  <h3 className="text-lg font-semibold mb-4 text-violet-900 dark:text-violet-100 flex items-center gap-2">
+    <span>🔧</span> Mutation Schema
+  </h3>
+
 ```graphql
 changeBankDepositShowStatus(
   id: Int!,
   showStatus: Int!
 ): Int
 ```
+</div>
 
-##### Parameters
+### Parameters
 
-- `id` (Int): The ID of the bank deposit transaction. This field is mandatory.
-- `showStatus` (Int): The new show status (e.g., 0 for hide, 1 for show). This field is mandatory.
+<div className="grid gap-4 mt-6">
+  <div className="p-5 bg-white dark:bg-gray-950 rounded-lg border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-2">
+      <code className="text-lg font-semibold text-gray-900 dark:text-gray-100">id</code>
+      <span className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full text-xs font-medium">Required</span>
+    </div>
+    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2"><strong>Type:</strong> Int</p>
+    <p className="text-gray-700 dark:text-gray-300">The ID of the bank deposit transaction to update.</p>
+  </div>
 
-##### Return
+  <div className="p-5 bg-white dark:bg-gray-950 rounded-lg border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-2">
+      <code className="text-lg font-semibold text-gray-900 dark:text-gray-100">showStatus</code>
+      <span className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full text-xs font-medium">Required</span>
+    </div>
+    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2"><strong>Type:</strong> Int</p>
+    <p className="text-gray-700 dark:text-gray-300">The new show status: <code>0</code> to hide, <code>1</code> to show.</p>
+  </div>
+</div>
 
-The mutation returns an integer indicating the updated show status.
-
-##### Example Mutation
+### Example Usage
 
 ```graphql
 mutation {
@@ -103,6 +213,169 @@ mutation {
 }
 ```
 
-### Note
+### Example Response
 
-In each example, the mutation changes the show status of the specified deposit transaction. The return value indicates the updated show status.
+```json
+{
+  "data": {
+    "changeBankDepositShowStatus": 1
+  }
+}
+```
+
+---
+
+## Show Status Values
+
+<div className="mt-6 p-6 bg-gradient-to-br from-violet-50 to-fuchsia-50 dark:from-violet-950/30 dark:to-fuchsia-950/30 rounded-xl border border-violet-200 dark:border-violet-800">
+  <h3 className="text-lg font-semibold mb-4 text-violet-900 dark:text-violet-100">Status Value Reference</h3>
+
+  <div className="grid md:grid-cols-2 gap-4">
+    <div className="p-4 bg-white dark:bg-gray-950 rounded-lg border border-violet-200 dark:border-violet-800">
+      <div className="flex items-center gap-3 mb-2">
+        <div className="w-10 h-10 bg-violet-500 text-white rounded-full flex items-center justify-center font-bold">0</div>
+        <div>
+          <div className="font-semibold text-violet-700 dark:text-violet-400">Hidden</div>
+          <p className="text-sm text-gray-600 dark:text-gray-400">Transaction is hidden from view</p>
+        </div>
+      </div>
+    </div>
+
+    <div className="p-4 bg-white dark:bg-gray-950 rounded-lg border border-violet-200 dark:border-violet-800">
+      <div className="flex items-center gap-3 mb-2">
+        <div className="w-10 h-10 bg-fuchsia-500 text-white rounded-full flex items-center justify-center font-bold">1</div>
+        <div>
+          <div className="font-semibold text-fuchsia-700 dark:text-fuchsia-400">Visible</div>
+          <p className="text-sm text-gray-600 dark:text-gray-400">Transaction is visible in queries</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Use Cases
+
+<div className="grid md:grid-cols-2 gap-4 mt-6">
+  <div className="p-5 bg-gradient-to-br from-violet-50 to-fuchsia-50 dark:from-violet-950/20 dark:to-fuchsia-950/20 rounded-xl border border-violet-200 dark:border-violet-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">🗂️</div>
+    <h3 className="font-semibold text-lg mb-2 text-violet-900 dark:text-violet-100">Transaction Organization</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Allow users to organize their transaction history by hiding old or irrelevant deposits.</p>
+  </div>
+
+  <div className="p-5 bg-gradient-to-br from-violet-50 to-fuchsia-50 dark:from-violet-950/20 dark:to-fuchsia-950/20 rounded-xl border border-violet-200 dark:border-violet-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">🧹</div>
+    <h3 className="font-semibold text-lg mb-2 text-violet-900 dark:text-violet-100">Clean Interface</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Reduce clutter in transaction lists while preserving data for future reference.</p>
+  </div>
+
+  <div className="p-5 bg-gradient-to-br from-violet-50 to-fuchsia-50 dark:from-violet-950/20 dark:to-fuchsia-950/20 rounded-xl border border-violet-200 dark:border-violet-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">🔍</div>
+    <h3 className="font-semibold text-lg mb-2 text-violet-900 dark:text-violet-100">Privacy Control</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Give users control over which transactions are visible in their transaction history.</p>
+  </div>
+
+  <div className="p-5 bg-gradient-to-br from-violet-50 to-fuchsia-50 dark:from-violet-950/20 dark:to-fuchsia-950/20 rounded-xl border border-violet-200 dark:border-violet-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">↩️</div>
+    <h3 className="font-semibold text-lg mb-2 text-violet-900 dark:text-violet-100">Reversible Hiding</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Unlike deletion, hidden transactions can be easily restored by changing the status back to visible.</p>
+  </div>
+</div>
+
+## Important Notes
+
+<Callout title="Non-Destructive Operation" type="info">
+Changing the show status does not delete the transaction. Hidden transactions are still stored in the database and can be retrieved by setting the showStatus back to 1. This is useful for temporary organization without losing transaction history.
+</Callout>
+
+<Callout title="Query Filtering" type="warn">
+When querying transactions, you'll need to specify the `showStatus` parameter to retrieve hidden transactions. By default, queries typically return only visible transactions (showStatus = 1).
+</Callout>
+
+## Integration Example
+
+<div className="mt-6 p-6 bg-gradient-to-br from-violet-50 to-fuchsia-50 dark:from-violet-950/30 dark:to-fuchsia-950/30 rounded-xl border border-violet-200 dark:border-violet-800">
+  <h3 className="text-lg font-semibold mb-4 text-violet-900 dark:text-violet-100">Complete Workflow Example</h3>
+
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Step 1: Hide a Transaction</h4>
+      <div className="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+        <pre className="text-sm text-gray-100"><code>{`mutation {
+  changePayPalDepositShowStatus(id: 123, showStatus: 0)
+}`}</code></pre>
+      </div>
+    </div>
+
+    <div>
+      <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Step 2: Query Visible Transactions (Hidden transaction won't appear)</h4>
+      <div className="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+        <pre className="text-sm text-gray-100"><code>{`query {
+  getPaypalDepositTxnsByUser(showStatus: 1) {
+    id
+    amount
+    status
+  }
+}`}</code></pre>
+      </div>
+    </div>
+
+    <div>
+      <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Step 3: Restore the Transaction</h4>
+      <div className="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+        <pre className="text-sm text-gray-100"><code>{`mutation {
+  changePayPalDepositShowStatus(id: 123, showStatus: 1)
+}`}</code></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div className="mt-6 p-5 bg-gradient-to-r from-violet-50 to-fuchsia-50 dark:from-violet-950/20 dark:to-fuchsia-950/20 border-l-4 border-violet-500 rounded-r-xl">
+  <h3 className="font-semibold text-violet-900 dark:text-violet-100 mb-2 flex items-center gap-2">
+    <span>💡</span> Best Practices
+  </h3>
+  <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+    <li className="flex items-start gap-2">
+      <span className="text-violet-500 mt-1">•</span>
+      <span>Provide a clear UI toggle for users to easily hide/show transactions</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-violet-500 mt-1">•</span>
+      <span>Consider adding a "Hidden Transactions" view where users can manage hidden items</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-violet-500 mt-1">•</span>
+      <span>Show a confirmation dialog before hiding transactions to prevent accidental hiding</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-violet-500 mt-1">•</span>
+      <span>Display a counter or indicator showing how many transactions are currently hidden</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-violet-500 mt-1">•</span>
+      <span>Implement batch operations to hide/show multiple transactions at once</span>
+    </li>
+  </ul>
+</div>
+
+## Related Queries
+
+<div className="mt-6 grid md:grid-cols-3 gap-4">
+  <div className="p-4 bg-white dark:bg-gray-950 rounded-lg border border-gray-200 dark:border-gray-800">
+    <h4 className="font-semibold text-violet-700 dark:text-violet-400 mb-2">PayPal Transactions</h4>
+    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Query PayPal deposits with status filter</p>
+    <code className="text-xs text-gray-500">getPaypalDepositTxnsByUser</code>
+  </div>
+
+  <div className="p-4 bg-white dark:bg-gray-950 rounded-lg border border-gray-200 dark:border-gray-800">
+    <h4 className="font-semibold text-violet-700 dark:text-violet-400 mb-2">Stripe Transactions</h4>
+    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Query Stripe deposits with status filter</p>
+    <code className="text-xs text-gray-500">getStripeDepositTxnsByUser</code>
+  </div>
+
+  <div className="p-4 bg-white dark:bg-gray-950 rounded-lg border border-gray-200 dark:border-gray-800">
+    <h4 className="font-semibold text-violet-700 dark:text-violet-400 mb-2">Bank Transactions</h4>
+    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Query bank deposits with status filter</p>
+    <code className="text-xs text-gray-500">getBankDepositTxnsByUser</code>
+  </div>
+</div>

@@ -1,22 +1,39 @@
 ---
 title: Confirm Bank Deposit by Admin
+description: Admin-only endpoint to verify and approve bank deposit transactions with SMS authentication
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-:::note
-The functions described is accessible only to users with ADMIN privileges.
-:::
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-violet-500 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10"></div>
+  <div className="relative">
+    <div className="flex items-center gap-3 mb-4">
+      <div className="p-3 bg-white/20 backdrop-blur-sm rounded-xl">
+        <span className="text-4xl">👨‍💼</span>
+      </div>
+      <div>
+        <h1 className="text-3xl font-bold text-white mb-2">Confirm Bank Deposit by Admin</h1>
+        <p className="text-indigo-50 text-lg">Admin-only endpoint to verify and approve bank deposit transactions with SMS authentication</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-```markdown
-## Confirm Bank Deposit by Admin (Admin Role)
+<Callout title="Admin Access Required" type="warn">
+This endpoint is accessible only to users with ADMIN privileges. Regular users cannot access this mutation.
+</Callout>
 
-The `confirmBankDeposit` mutation allows an admin to confirm a bank deposit transaction. This involves verifying the deposit details and updating the transaction status.
+## Overview
 
-### Mutation: `confirmBankDeposit`
+The `confirmBankDeposit` mutation allows administrators to confirm and approve bank deposit transactions initiated by users. This endpoint verifies the bank transfer details, validates the admin's identity through SMS verification, and credits the deposited funds to the user's wallet upon successful confirmation.
 
-#### Schema:
+<div className="mt-8 p-6 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/30 dark:to-purple-950/30 rounded-xl border border-indigo-200 dark:border-indigo-800">
+  <h2 className="text-xl font-semibold mb-4 text-indigo-900 dark:text-indigo-100 flex items-center gap-2">
+    <span>🔧</span> Mutation Schema
+  </h2>
+
 ```graphql
 confirmBankDeposit(
   id: Int!,
@@ -26,22 +43,104 @@ confirmBankDeposit(
   code: String!
 ): BankDepositTransaction
 ```
+</div>
 
-#### Parameters
+## Parameters
 
-- `id` (Int): The ID of the bank deposit transaction to confirm. This field is mandatory.
-- `currencyCode` (String): The currency that the user paid in. This field is mandatory.
-- `amount` (Float): The amount to be paid. This field is mandatory.
-- `cryptoType` (String): The type of cryptocurrency (e.g., USDT) as a default value (currently not functional). This field is mandatory.
-- `code` (String): The admin SMS verification code. This field is mandatory.
+<div className="grid gap-4 mt-6">
+  <div className="p-5 bg-white dark:bg-gray-950 rounded-lg border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-2">
+      <code className="text-lg font-semibold text-gray-900 dark:text-gray-100">id</code>
+      <span className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full text-xs font-medium">Required</span>
+    </div>
+    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2"><strong>Type:</strong> Int</p>
+    <p className="text-gray-700 dark:text-gray-300">The unique identifier of the bank deposit transaction to confirm. This ID is obtained from the deposit transaction list.</p>
+  </div>
 
-#### Return
+  <div className="p-5 bg-white dark:bg-gray-950 rounded-lg border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-2">
+      <code className="text-lg font-semibold text-gray-900 dark:text-gray-100">currencyCode</code>
+      <span className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full text-xs font-medium">Required</span>
+    </div>
+    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2"><strong>Type:</strong> String</p>
+    <p className="text-gray-700 dark:text-gray-300">The fiat currency code that the user paid in (e.g., "USD", "EUR", "GBP"). This should match the currency received in the bank account.</p>
+  </div>
 
-The mutation returns a `BankDepositTransaction` object representing the confirmed bank deposit transaction.
+  <div className="p-5 bg-white dark:bg-gray-950 rounded-lg border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-2">
+      <code className="text-lg font-semibold text-gray-900 dark:text-gray-100">amount</code>
+      <span className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full text-xs font-medium">Required</span>
+    </div>
+    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2"><strong>Type:</strong> Float</p>
+    <p className="text-gray-700 dark:text-gray-300">The amount that was deposited by the user. This should match the exact amount received in the bank transfer.</p>
+  </div>
 
-### Example Mutation
+  <div className="p-5 bg-white dark:bg-gray-950 rounded-lg border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-2">
+      <code className="text-lg font-semibold text-gray-900 dark:text-gray-100">cryptoType</code>
+      <span className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full text-xs font-medium">Required</span>
+    </div>
+    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2"><strong>Type:</strong> String</p>
+    <p className="text-gray-700 dark:text-gray-300">The type of cryptocurrency to be credited to the user's wallet (e.g., "USDT"). Note: This is currently a placeholder and may not be functional.</p>
+  </div>
 
-The following is an example of how to use the `confirmBankDeposit` mutation to confirm a bank deposit transaction:
+  <div className="p-5 bg-white dark:bg-gray-950 rounded-lg border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-2">
+      <code className="text-lg font-semibold text-gray-900 dark:text-gray-100">code</code>
+      <span className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full text-xs font-medium">Required</span>
+    </div>
+    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2"><strong>Type:</strong> String</p>
+    <p className="text-gray-700 dark:text-gray-300">The admin SMS verification code sent to the admin's registered phone number. This provides an additional layer of security for deposit confirmations.</p>
+  </div>
+</div>
+
+## Return Value
+
+<div className="mt-6 p-6 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 rounded-xl border border-gray-200 dark:border-gray-800">
+  <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-gray-100">BankDepositTransaction</h3>
+  <p className="text-gray-700 dark:text-gray-300 mb-4">The mutation returns a <code>BankDepositTransaction</code> object with the following fields:</p>
+
+  <div className="space-y-3">
+    <div className="flex items-start gap-3 p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <code className="text-sm font-mono text-indigo-600 dark:text-indigo-400">transactionId</code>
+      <span className="text-sm text-gray-600 dark:text-gray-400">Unique transaction identifier</span>
+    </div>
+    <div className="flex items-start gap-3 p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <code className="text-sm font-mono text-indigo-600 dark:text-indigo-400">userId</code>
+      <span className="text-sm text-gray-600 dark:text-gray-400">The ID of the user who made the deposit</span>
+    </div>
+    <div className="flex items-start gap-3 p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <code className="text-sm font-mono text-indigo-600 dark:text-indigo-400">currencyCode</code>
+      <span className="text-sm text-gray-600 dark:text-gray-400">The currency code of the deposit</span>
+    </div>
+    <div className="flex items-start gap-3 p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <code className="text-sm font-mono text-indigo-600 dark:text-indigo-400">amount</code>
+      <span className="text-sm text-gray-600 dark:text-gray-400">The confirmed deposit amount</span>
+    </div>
+    <div className="flex items-start gap-3 p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <code className="text-sm font-mono text-indigo-600 dark:text-indigo-400">cryptoType</code>
+      <span className="text-sm text-gray-600 dark:text-gray-400">The cryptocurrency type credited</span>
+    </div>
+    <div className="flex items-start gap-3 p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <code className="text-sm font-mono text-indigo-600 dark:text-indigo-400">status</code>
+      <span className="text-sm text-gray-600 dark:text-gray-400">Updated transaction status (e.g., "confirmed")</span>
+    </div>
+    <div className="flex items-start gap-3 p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <code className="text-sm font-mono text-indigo-600 dark:text-indigo-400">createdAt</code>
+      <span className="text-sm text-gray-600 dark:text-gray-400">Timestamp when the deposit was created</span>
+    </div>
+    <div className="flex items-start gap-3 p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <code className="text-sm font-mono text-indigo-600 dark:text-indigo-400">updatedAt</code>
+      <span className="text-sm text-gray-600 dark:text-gray-400">Timestamp of the confirmation</span>
+    </div>
+  </div>
+</div>
+
+## Example Usage
+
+<Callout title="Example Mutation" type="info">
+The following example demonstrates how an admin can confirm a bank deposit transaction:
+</Callout>
 
 ```graphql
 mutation {
@@ -52,20 +151,191 @@ mutation {
     cryptoType: "USDT",
     code: "123456"
   ) {
-    transactionId,
-    userId,
-    currencyCode,
-    amount,
-    cryptoType,
-    status,
-    createdAt,
+    transactionId
+    userId
+    currencyCode
+    amount
+    cryptoType
+    status
+    createdAt
     updatedAt
   }
 }
 ```
 
-### Return
+### Example Response
 
-The example returns the `BankDepositTransaction` object with details such as `transactionId`, `userId`, `currencyCode`, `amount`, `cryptoType`, `status`, `createdAt`, and `updatedAt`.
+```json
+{
+  "data": {
+    "confirmBankDeposit": {
+      "transactionId": "BDT_123",
+      "userId": 456,
+      "currencyCode": "USD",
+      "amount": 1000.0,
+      "cryptoType": "USDT",
+      "status": "confirmed",
+      "createdAt": "2024-01-15T10:30:00Z",
+      "updatedAt": "2024-01-15T14:45:00Z"
+    }
+  }
+}
+```
 
-In this example, the mutation confirms the bank deposit transaction with ID `123`, specifying the currency code as USD, the amount as `1000.0`, and using USDT as the default crypto type. The admin verification code is provided as `123456`. The return value includes the details of the confirmed `BankDepositTransaction`.
+## Confirmation Workflow
+
+<div className="mt-6 p-6 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/30 dark:to-purple-950/30 rounded-xl border border-indigo-200 dark:border-indigo-800">
+  <h3 className="text-lg font-semibold mb-4 text-indigo-900 dark:text-indigo-100">Admin Confirmation Process</h3>
+
+  <div className="space-y-4">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-8 h-8 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold">1</div>
+      <div>
+        <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Review Pending Deposits</div>
+        <p className="text-sm text-gray-600 dark:text-gray-400">Admin queries unconfirmed bank deposit transactions using <code>getUnconfirmedBankDepositTxns</code></p>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-8 h-8 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold">2</div>
+      <div>
+        <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Verify Bank Transfer</div>
+        <p className="text-sm text-gray-600 dark:text-gray-400">Admin checks the bank account to verify the transfer was received with the correct amount</p>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-8 h-8 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold">3</div>
+      <div>
+        <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Request SMS Code</div>
+        <p className="text-sm text-gray-600 dark:text-gray-400">Admin requests an SMS verification code to their registered phone number</p>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-8 h-8 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold">4</div>
+      <div>
+        <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Confirm Deposit</div>
+        <p className="text-sm text-gray-600 dark:text-gray-400">Admin calls this mutation with the transaction details and SMS code</p>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-8 h-8 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold">5</div>
+      <div>
+        <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Funds Credited</div>
+        <p className="text-sm text-gray-600 dark:text-gray-400">System credits the funds to the user's wallet and updates the transaction status</p>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-8 h-8 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold">6</div>
+      <div>
+        <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">User Notification</div>
+        <p className="text-sm text-gray-600 dark:text-gray-400">User receives notification that their deposit has been confirmed and credited</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Use Cases
+
+<div className="grid md:grid-cols-2 gap-4 mt-6">
+  <div className="p-5 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/20 dark:to-purple-950/20 rounded-xl border border-indigo-200 dark:border-indigo-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">✅</div>
+    <h3 className="font-semibold text-lg mb-2 text-indigo-900 dark:text-indigo-100">Manual Verification</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Verify bank transfers manually to ensure compliance and prevent fraudulent deposits.</p>
+  </div>
+
+  <div className="p-5 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/20 dark:to-purple-950/20 rounded-xl border border-indigo-200 dark:border-indigo-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">📊</div>
+    <h3 className="font-semibold text-lg mb-2 text-indigo-900 dark:text-indigo-100">Reconciliation</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Match user deposit requests with actual bank transfers received in the company account.</p>
+  </div>
+
+  <div className="p-5 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/20 dark:to-purple-950/20 rounded-xl border border-indigo-200 dark:border-indigo-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">🔐</div>
+    <h3 className="font-semibold text-lg mb-2 text-indigo-900 dark:text-indigo-100">Secure Approval</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Use SMS verification to ensure only authorized admins can approve deposit transactions.</p>
+  </div>
+
+  <div className="p-5 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/20 dark:to-purple-950/20 rounded-xl border border-indigo-200 dark:border-indigo-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">📝</div>
+    <h3 className="font-semibold text-lg mb-2 text-indigo-900 dark:text-indigo-100">Audit Trail</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Create comprehensive records of who approved each deposit and when it was confirmed.</p>
+  </div>
+</div>
+
+## Important Notes
+
+<Callout title="SMS Verification Required" type="warn">
+Each confirmation requires a valid SMS verification code. The admin must request and receive this code before attempting to confirm the deposit. Codes typically expire after a few minutes for security.
+</Callout>
+
+<Callout title="Amount Verification" type="error">
+Always verify that the amount parameter matches exactly what was received in the bank transfer. Mismatched amounts could lead to user disputes or financial discrepancies.
+</Callout>
+
+<Callout title="Transaction Finality" type="info">
+Once a bank deposit is confirmed, the transaction cannot be easily reversed. Ensure all details are verified before confirming the deposit.
+</Callout>
+
+<div className="mt-6 p-5 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-950/20 dark:to-purple-950/20 border-l-4 border-indigo-500 rounded-r-xl">
+  <h3 className="font-semibold text-indigo-900 dark:text-indigo-100 mb-2 flex items-center gap-2">
+    <span>💡</span> Best Practices
+  </h3>
+  <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+    <li className="flex items-start gap-2">
+      <span className="text-indigo-500 mt-1">•</span>
+      <span>Always cross-reference the transaction ID with the bank transfer reference number</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-indigo-500 mt-1">•</span>
+      <span>Verify the amount matches exactly, including any bank fees that may have been deducted</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-indigo-500 mt-1">•</span>
+      <span>Check the user's identity and account status before confirming large deposits</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-indigo-500 mt-1">•</span>
+      <span>Keep records of all bank statements and transfer confirmations for audit purposes</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-indigo-500 mt-1">•</span>
+      <span>Process deposit confirmations within 24 hours to maintain good user experience</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-indigo-500 mt-1">•</span>
+      <span>Implement a dual-approval system for deposits above a certain threshold</span>
+    </li>
+  </ul>
+</div>
+
+## Related Endpoints
+
+<div className="mt-6 grid md:grid-cols-2 gap-4">
+  <div className="p-4 bg-white dark:bg-gray-950 rounded-lg border border-gray-200 dark:border-gray-800">
+    <h4 className="font-semibold text-indigo-700 dark:text-indigo-400 mb-2">Get Unconfirmed Deposits</h4>
+    <p className="text-sm text-gray-600 dark:text-gray-400">Retrieve all pending bank deposit transactions awaiting confirmation</p>
+    <code className="text-xs text-gray-500 mt-2 block">getUnconfirmedBankDepositTxns</code>
+  </div>
+
+  <div className="p-4 bg-white dark:bg-gray-950 rounded-lg border border-gray-200 dark:border-gray-800">
+    <h4 className="font-semibold text-indigo-700 dark:text-indigo-400 mb-2">Create Bank Deposit</h4>
+    <p className="text-sm text-gray-600 dark:text-gray-400">User endpoint to initiate a bank deposit request</p>
+    <code className="text-xs text-gray-500 mt-2 block">bankForDeposit</code>
+  </div>
+
+  <div className="p-4 bg-white dark:bg-gray-950 rounded-lg border border-gray-200 dark:border-gray-800">
+    <h4 className="font-semibold text-indigo-700 dark:text-indigo-400 mb-2">Get Deposit by ID</h4>
+    <p className="text-sm text-gray-600 dark:text-gray-400">Retrieve detailed information about a specific deposit transaction</p>
+    <code className="text-xs text-gray-500 mt-2 block">getBankDepositTxnByIdByAdmin</code>
+  </div>
+
+  <div className="p-4 bg-white dark:bg-gray-950 rounded-lg border border-gray-200 dark:border-gray-800">
+    <h4 className="font-semibold text-indigo-700 dark:text-indigo-400 mb-2">Deny Deposit</h4>
+    <p className="text-sm text-gray-600 dark:text-gray-400">Reject a bank deposit transaction if verification fails</p>
+    <code className="text-xs text-gray-500 mt-2 block">denyBankWithdrawalRequest</code>
+  </div>
+</div>

@@ -6,166 +6,252 @@ description: NYYU Bug Bounty Program on BugCrowd
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 
-# NYYU Bug Bounty Program
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-background p-12 border border-purple-500/20 mb-8">
+  <div className="relative z-10">
+    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 mb-6">
+      <span className="text-sm font-medium text-purple-400">Platform Program</span>
+    </div>
+    <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+      Bug Bounty Program
+    </h1>
+    <p className="text-xl text-muted-foreground max-w-3xl">
+      Help us make NYYU more secure and earn rewards. Report security vulnerabilities through our BugCrowd program.
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl"></div>
+</div>
 
-## Overview
-
-Dear Users, we are excited to announce the launch of our new bug bounty program on **BugCrowd**, one of the leading cybersecurity platforms. To ensure a secure environment for our users as we continue to grow, we are enlisting the expertise of the community to enhance the security of the [NYYU platform](https://nyyu.io).
-
-<Callout type="info">
-Help us make NYYU more secure and earn rewards for your contributions!
+<Callout type="info" title="Security First">
+Help us maintain the highest security standards. All reports are reviewed by our security team.
 </Callout>
 
 ## Reward Structure
 
-Rewards are divided into five tiers, depending on their severity. Each tier has different rewards (in USD).
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-8">
+  <div className="p-6 rounded-xl border border-red-500/20 bg-gradient-to-br from-red-500/5 to-background">
+    <div className="text-3xl mb-3">🔴</div>
+    <div className="font-bold text-lg mb-2">Extreme</div>
+    <div className="text-4xl font-bold text-red-400 mb-2">$10,000</div>
+    <div className="text-sm text-muted-foreground">Critical vulnerabilities affecting platform integrity</div>
+  </div>
 
-| Severity  | Reward          |
-|-----------|------------------|
-| 🔴 Extreme   | **$10,000 USD**       |
-| 🟠 Critical  | **$3,000 - $5,000 USD**|
-| 🟡 High      | **$1,000 - $2,000 USD**|
-| 🟢 Medium    | **$200 - $400 USD**    |
-| 🔵 Low       | **$50 - $100 USD**     |
+  <div className="p-6 rounded-xl border border-orange-500/20 bg-gradient-to-br from-orange-500/5 to-background">
+    <div className="text-3xl mb-3">🟠</div>
+    <div className="font-bold text-lg mb-2">Critical</div>
+    <div className="text-4xl font-bold text-orange-400 mb-2">$3-5K</div>
+    <div className="text-sm text-muted-foreground">High-impact security issues</div>
+  </div>
+
+  <div className="p-6 rounded-xl border border-yellow-500/20 bg-gradient-to-br from-yellow-500/5 to-background">
+    <div className="text-3xl mb-3">🟡</div>
+    <div className="font-bold text-lg mb-2">High</div>
+    <div className="text-4xl font-bold text-yellow-400 mb-2">$1-2K</div>
+    <div className="text-sm text-muted-foreground">Significant vulnerabilities</div>
+  </div>
+
+  <div className="p-6 rounded-xl border border-green-500/20 bg-gradient-to-br from-green-500/5 to-background">
+    <div className="text-3xl mb-3">🟢</div>
+    <div className="font-bold text-lg mb-2">Medium</div>
+    <div className="text-4xl font-bold text-green-400 mb-2">$200-400</div>
+    <div className="text-sm text-muted-foreground">Moderate security concerns</div>
+  </div>
+
+  <div className="p-6 rounded-xl border border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-background">
+    <div className="text-3xl mb-3">🔵</div>
+    <div className="font-bold text-lg mb-2">Low</div>
+    <div className="text-4xl font-bold text-blue-400 mb-2">$50-100</div>
+    <div className="text-sm text-muted-foreground">Minor issues and improvements</div>
+  </div>
+</div>
 
 <Callout type="tip">
-If we accept your bug/vulnerability report, we will pay you the reward in **USDT**.
+All accepted reports are paid in USDT. The threat level is determined by NYYU security staff.
 </Callout>
 
-<Callout type="warn">
-The threat level will be determined by NYYU security staff, and NYYU has the sole discretion in deciding whether a report meets the reward criteria.
-</Callout>
-
-## Scope of Vulnerabilities
+## Scope
 
 <Tabs items={['In-Scope', 'Out-of-Scope']}>
 <Tab value="In-Scope">
 ### In-Scope Targets
 
-| Target Type                    | Type       |
-|--------------------------------|------------|
-| `*.nyyu.io`                    | Web        |
-| NYYU Mobile Application for Android | Android    |
-| NYYU Mobile Application for iOS    | iOS        |
+<div className="space-y-3 my-6">
+  <div className="p-4 rounded-lg border border-purple-500/20 bg-gradient-to-r from-purple-500/5 to-background">
+    <div className="flex items-center gap-3">
+      <span className="text-2xl">🌐</span>
+      <div>
+        <div className="font-bold">*.nyyu.io (Web)</div>
+        <div className="text-sm text-muted-foreground">All NYYU web properties</div>
+      </div>
+    </div>
+  </div>
 
+  <div className="p-4 rounded-lg border border-pink-500/20 bg-gradient-to-r from-pink-500/5 to-background">
+    <div className="flex items-center gap-3">
+      <span className="text-2xl">📱</span>
+      <div>
+        <div className="font-bold">NYYU Mobile App (Android & iOS)</div>
+        <div className="text-sm text-muted-foreground">Official mobile applications</div>
+      </div>
+    </div>
+  </div>
+</div>
 </Tab>
 <Tab value="Out-of-Scope">
 ### Out-of-Scope Targets
 
-| Target                         | Type       |
-|--------------------------------|------------|
-| `cert.nyyu.io`                 | Web        |
-| Zendesk                        | Web        |
-| SandBox                        | Web        |
-| NYYU store                     | Web        |
-| API docs                       | Web        |
-| `intro.nyyu.io`                | Web        |
-| `passport.nyyu.io`             | Web        |
-| `sandbox-*.nyyu.io`            | Web        |
-| `*-sdb.nyyu.io`                | Web        |
-| `*-sandbox.nyyu.io`            | Web        |
-
+<div className="space-y-2 my-6 text-sm">
+  <div className="p-3 rounded-lg bg-muted/30 border border-border flex items-center gap-2">
+    <span className="text-muted-foreground">•</span>
+    <span>cert.nyyu.io, Zendesk, SandBox</span>
+  </div>
+  <div className="p-3 rounded-lg bg-muted/30 border border-border flex items-center gap-2">
+    <span className="text-muted-foreground">•</span>
+    <span>NYYU store, API docs, intro.nyyu.io</span>
+  </div>
+  <div className="p-3 rounded-lg bg-muted/30 border border-border flex items-center gap-2">
+    <span className="text-muted-foreground">•</span>
+    <span>passport.nyyu.io, sandbox-*.nyyu.io</span>
+  </div>
+</div>
 </Tab>
 </Tabs>
 
-## Vulnerability Criteria
+## Priority Vulnerabilities
 
-We are mostly interested in the following vulnerabilities:
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+  <div className="p-6 rounded-xl border border-purple-500/20 bg-gradient-to-br from-purple-500/5 to-background">
+    <div className="text-3xl mb-3">🌐</div>
+    <div className="font-bold text-lg mb-2">Web Module</div>
+    <ul className="space-y-2 text-sm text-muted-foreground">
+      <li className="flex items-start gap-2">
+        <span className="text-purple-400">•</span>
+        <span>Business logic issues affecting user assets</span>
+      </li>
+      <li className="flex items-start gap-2">
+        <span className="text-purple-400">•</span>
+        <span>Payment manipulation vulnerabilities</span>
+      </li>
+      <li className="flex items-start gap-2">
+        <span className="text-purple-400">•</span>
+        <span>Remote code execution (RCE)</span>
+      </li>
+      <li className="flex items-start gap-2">
+        <span className="text-purple-400">•</span>
+        <span>Sensitive information leakage</span>
+      </li>
+      <li className="flex items-start gap-2">
+        <span className="text-purple-400">•</span>
+        <span>Critical OWASP issues (XSS, CSRF, SQLi, SSRF, IDOR)</span>
+      </li>
+    </ul>
+  </div>
 
-<Tabs items={['Web Module', 'Mobile Module']}>
-<Tab value="Web Module">
-### Web Module Vulnerabilities
+  <div className="p-6 rounded-xl border border-pink-500/20 bg-gradient-to-br from-pink-500/5 to-background">
+    <div className="text-3xl mb-3">📱</div>
+    <div className="font-bold text-lg mb-2">Mobile Module</div>
+    <ul className="space-y-2 text-sm text-muted-foreground">
+      <li className="flex items-start gap-2">
+        <span className="text-pink-400">•</span>
+        <span>Functions accessing unsafe external links</span>
+      </li>
+      <li className="flex items-start gap-2">
+        <span className="text-pink-400">•</span>
+        <span>Jsbridge/javascriptinterface vulnerabilities</span>
+      </li>
+      <li className="flex items-start gap-2">
+        <span className="text-pink-400">•</span>
+        <span>Vulnerabilities causing potential user loss</span>
+      </li>
+    </ul>
+  </div>
+</div>
 
-- ⚠️ Problems with business logic that may result in the loss of user assets
-- 💳 Payment manipulation
-- 🔥 Remote code execution (RCE)
-- 🔐 Leakage of sensitive information
-- 🛡️ Critical OWASP issues such as XSS, CSRF, SQLi, SSRF, IDOR, and others
-- ⚡ Other vulnerabilities that may result in potential loss
+## Severity Levels
 
-</Tab>
-<Tab value="Mobile Module">
-### Mobile Module Vulnerabilities
+<div className="space-y-4 my-8">
+  <div className="p-6 rounded-xl border border-red-500/20 bg-gradient-to-r from-red-500/5 to-background">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center font-bold">P0</div>
+      <div className="flex-1">
+        <div className="font-bold text-lg mb-2">Extreme - $10,000</div>
+        <div className="text-sm text-muted-foreground">
+          Vulnerabilities affecting critical assets: access to hot/cold wallet assets, funds, or private keys.
+        </div>
+      </div>
+    </div>
+  </div>
 
-- 🔗 Functions that can access unsafe external links
-- 🌉 Jsbridge/javascriptinterface that can be called to harm users
-- ⚡ Other vulnerabilities that may result in potential loss
+  <div className="p-6 rounded-xl border border-orange-500/20 bg-gradient-to-r from-orange-500/5 to-background">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-orange-500/10 border border-orange-500/20 flex items-center justify-center font-bold">P1</div>
+      <div className="flex-1">
+        <div className="font-bold text-lg mb-2">Critical - $3,000-5,000</div>
+        <div className="text-sm text-muted-foreground">
+          Vulnerabilities compromising user or business funds, including direct system access or core business compromise.
+        </div>
+      </div>
+    </div>
+  </div>
 
-</Tab>
-</Tabs>
+  <div className="p-6 rounded-xl border border-yellow-500/20 bg-gradient-to-r from-yellow-500/5 to-background">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center font-bold">P2</div>
+      <div className="flex-1">
+        <div className="font-bold text-lg mb-2">High - $1,000-2,000</div>
+        <div className="text-sm text-muted-foreground">
+          Similar impact to P1 but with preconditions: unauthorized access, serious SQL injections, high-risk data leaks.
+        </div>
+      </div>
+    </div>
+  </div>
 
-### Out-of-Scope Vulnerabilities
+  <div className="p-6 rounded-xl border border-green-500/20 bg-gradient-to-r from-green-500/5 to-background">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center font-bold">P3</div>
+      <div className="flex-1">
+        <div className="font-bold text-lg mb-2">Medium - $200-400</div>
+        <div className="text-sm text-muted-foreground">
+          Issues affecting certain users, resulting in access and modification of user information.
+        </div>
+      </div>
+    </div>
+  </div>
 
-#### Web Module
+  <div className="p-6 rounded-xl border border-blue-500/20 bg-gradient-to-r from-blue-500/5 to-background">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center font-bold">P4</div>
+      <div className="flex-1">
+        <div className="font-bold text-lg mb-2">Low - $50-100</div>
+        <div className="text-sm text-muted-foreground">
+          SMS spam, leakage of non-sensitive information, and minor security concerns.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-- Theoretical loopholes that are not actually proven.
-- Email verification code flaws, expired password reset links, and issues with password complexity policies.
-- Records with invalid or missing sender information.
-- Clickjacking and UI redirection with only minor security impact.
-- Vulnerabilities in third-party applications.
-- Zero-day exploits that are less than 30 days old.
-- Social engineering, phishing, and other forms of deception.
-- Denial of service (DoS) attacks.
-- Email/phone number information enumeration (e.g., resetting passwords to verify emails or phone numbers).
-- Data leaks with minor security impact (e.g., stack tracing, path exposure, directory listing, and log information).
-- Known issues, duplicate submissions, or security issues that have already been disclosed.
-- Physical attacks.
-- XSS for PCs.
-- Vulnerabilities that can only be exploited on older versions of browsers or platforms.
-- Vulnerabilities in auto-filling web forms.
-- Using known codebase vulnerabilities without actual proof.
-- Lack of security flags in cookies.
-- Issues related to insecure SSL/TLS socket or protocol versions.
-- Content-based deception.
-- Issues related to cache management.
-- Internal IP or domain name leakages.
-- Missing security headers that cannot be directly exploited.
-- CSRF issues with negligible impact (such as add to favorites, add to cart, subscribe, etc.)
-- Issues with no security impact.
-- Assets that do not belong to NYYU.
-- Behavior that disrupts the normal operation of the business (DoS/DDoS).
-- Issues with installation path permissions.
-- Automated tools or scanned reports.
-- Links to invalid or expired pages will only be accepted if you can prove that the currently submitted link is still in normal use. Issues found through past announcements or blogs will not be accepted.
+<Callout type="warn" title="Important Rules">
+- **No** penetration testing that damages the platform or affects normal operations
+- **No** database modification or data destruction
+- **No** automated scanning tools
+- **No** testing on accounts other than your own
+- NYYU reserves the right to final interpretation
+</Callout>
 
-#### Mobile Module
-
-- Vulnerabilities that require Root/Jailbreak permissions.
-- Physical vulnerabilities that require manipulation of the user's device.
-- Vulnerabilities that require a lot of user interaction.
-- Issues that only expose non-sensitive device information.
-- Only static analysis performed on binary files with missing POC business logic.
-- Lack of fuzzing, binary protection, or root (jailbreak) detection.
-- Bypassing of device certificate detection.
-- Missing Exp such as PIE, ARC, or stack exploits.
-- Leakage of sensitive information in TLS-protected URLs or Requests.
-- Binary path leaks.
-- Hardcoded OAuth and APP keys present in APK and IPA.
-- Scan reports for automated tools.
-- Information leakage caused by sensitive information being stored in clear text on the user device.
-- Crashes caused by sending malformed URL Schemes or components to receivers such as external Activity/Service/Broadcast (the leakage of sensitive data obtained by exploiting these schemes is within the scope of acceptable vulnerabilities).
-- Shared link leaks via clipboard.
-- API key leaks with no security implications (such as Google Map API keys).
-- Other content outlined in the out-of-scope Web Module vulnerabilities.
-
-## Report Evaluation Criteria
-
-- **P0 - 10,000 USD**: Vulnerabilities that affect critical assets that could cause serious business disruption, such as access to NYYU-owned hot/cold wallet assets, funds, and/or wallet private keys.
-- **P1 - 3,000 - 5,000 USD**: Vulnerabilities that could compromise the security of any user or business funds, including direct access to the system or core business, and other potential for significant damage.
-- **P2 - 1,000 - 2,000 USD**: Vulnerabilities with similar impact as P1, but with the preconditions of exploitation and the impact of malicious exploitation, including unauthorized access, serious SQL injections, and high-risk data leaks.
-- **P3 - 200 - 400 USD**: Issues that affect certain users, result in the access and modification of user information, etc.
-- **P4 - 50 - 100 USD**: SMS spam, leakage of non-sensitive information.
-
-## Feedback Channel
-
-You can provide us with feedback through the following channels:
-
-Submit a report to us via BugCrowd when status change to public.
-
-## Event Statement
-
-- It is strictly forbidden to use penetration testing as an excuse to exploit vulnerabilities and threat intelligence to damage the interests of users, affect normal business operations, or steal user data.
-- Modification of the NYYU database or destruction of data through the use of identified bugs or vulnerabilities is strictly prohibited.
-- Automated testing using scanning tools is strictly prohibited.
-- Testing on accounts other than those you own is strictly prohibited.
-- [NYYU platform](https://nyyu.io) reserves the right to the final interpretation of the event.
+<div className="mt-12 p-8 rounded-2xl border border-purple-500/20 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-background relative overflow-hidden">
+  <div className="relative z-10 text-center">
+    <div className="text-3xl mb-3">🛡️</div>
+    <div className="font-bold text-2xl mb-2">Help Us Stay Secure</div>
+    <div className="text-muted-foreground mb-6">
+      Submit your findings through BugCrowd when the program status changes to public
+    </div>
+    <a href="https://bugcrowd.com/nyyu" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-purple-500/10 border border-purple-500/30 text-purple-400 hover:bg-purple-500/20 transition-all font-medium">
+      Submit Report
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+      </svg>
+    </a>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"></div>
+</div>

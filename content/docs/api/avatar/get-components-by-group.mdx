@@ -1,44 +1,339 @@
 ---
 title: Get Components By Group
+description: Retrieve all avatar components within a specific category
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-The `getAvatarComponentsByGroup` query is used to retrieve a list of avatar components based on a specific group ID. This query allows users to get all components associated with a particular group.
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-background p-8 border border-emerald-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Get Components By Group
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Retrieve all avatar components within a specific group category
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-teal-500/5 rounded-full blur-3xl"></div>
+</div>
 
-### Query: `getAvatarComponentsByGroup`
+## Query
 
-#### Schema:
-```graphql
-getAvatarComponentsByGroup(
-  groupId: String!
-): [AvatarComponent]
-```
+<div className="rounded-xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-emerald-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📂</span>
+    <div>
+      <div className="font-bold text-lg">getAvatarComponentsByGroup</div>
+      <div className="text-sm text-muted-foreground">Retrieve all components in a specific category</div>
+    </div>
+  </div>
 
-#### Parameters
+  ### Schema
 
-- `groupId` (String): The name of the required components group. This field is mandatory.
-
-#### Return
-
-The query returns a list of `AvatarComponent` objects that belong to the specified group.
-
-### Example Query
-
-The following is an example of how to use the `getAvatarComponentsByGroup` query to retrieve avatar components by group:
-
-```graphql
-query {
+  ```graphql
   getAvatarComponentsByGroup(
-    groupId: "engineers"
-  ) {
-    id,
-    name,
-    description,
-    imageUrl
-  }
-}
-```
+    groupId: String!
+  ): [AvatarComponent]
+  ```
+</div>
 
-In this example, the query retrieves the avatar components associated with the group ID `engineers`. The returned `AvatarComponent` objects include `id`, `name`, `description`, and `imageUrl` of the components.
+## Parameters
+
+<div className="space-y-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">groupId</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String!</code></div>
+      <div className="text-muted-foreground">The name of the required components group (e.g., "hats", "accessories", "clothing")</div>
+    </div>
+  </div>
+</div>
+
+## Return Value
+
+<div className="p-5 rounded-lg border border-green-500/30 bg-green-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">📦</span>
+    <div className="font-bold">Returns Array of AvatarComponent Objects</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    The query returns a list of all <code className="bg-muted px-1 rounded">AvatarComponent</code> objects belonging to the specified group
+  </div>
+</div>
+
+## Common Group IDs
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🎨</span>
+    <div>
+      <div className="font-bold text-lg">Popular Component Categories</div>
+      <div className="text-sm text-muted-foreground">Common groupId values</div>
+    </div>
+  </div>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">hats</div>
+      <div className="text-xs text-muted-foreground">Headwear and hats</div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">hairColor</div>
+      <div className="text-xs text-muted-foreground">Hair color options</div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">facial_features</div>
+      <div className="text-xs text-muted-foreground">Eyes, nose, mouth</div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">accessories</div>
+      <div className="text-xs text-muted-foreground">Glasses, jewelry</div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">clothing</div>
+      <div className="text-xs text-muted-foreground">Outfits and shirts</div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">backgrounds</div>
+      <div className="text-xs text-muted-foreground">Avatar backgrounds</div>
+    </div>
+  </div>
+</div>
+
+## Example
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">Usage Example</div>
+      <div className="text-xs text-muted-foreground">Retrieving all hat components</div>
+    </div>
+  </div>
+
+  ```graphql
+  query {
+    getAvatarComponentsByGroup(groupId: "hats") {
+      groupId
+      compId
+      tierLevel
+      price
+      limited
+      purchased
+      svg
+      width
+      top
+      left
+    }
+  }
+  ```
+</div>
+
+## Response Example
+
+<div className="rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/10 to-green-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📤</span>
+    <div>
+      <div className="font-bold">Sample Response</div>
+      <div className="text-xs text-muted-foreground">Example of returned hat components</div>
+    </div>
+  </div>
+
+  ```json
+  {
+    "data": {
+      "getAvatarComponentsByGroup": [
+        {
+          "groupId": "hats",
+          "compId": 1,
+          "tierLevel": 1,
+          "price": 5.0,
+          "limited": 100,
+          "purchased": 45,
+          "svg": "<svg>...</svg>",
+          "width": 30,
+          "top": 5,
+          "left": 10
+        },
+        {
+          "groupId": "hats",
+          "compId": 2,
+          "tierLevel": 2,
+          "price": 10.0,
+          "limited": 50,
+          "purchased": 12,
+          "svg": "<svg>...</svg>",
+          "width": 35,
+          "top": 3,
+          "left": 8
+        },
+        {
+          "groupId": "hats",
+          "compId": 3,
+          "tierLevel": 3,
+          "price": 20.0,
+          "limited": 25,
+          "purchased": 8,
+          "svg": "<svg>...</svg>",
+          "width": 32,
+          "top": 6,
+          "left": 12
+        }
+      ]
+    }
+  }
+  ```
+</div>
+
+## Use Cases
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🛍️</div>
+    <div className="font-bold mb-2">Category Browsing</div>
+    <div className="text-sm text-muted-foreground">
+      Display all available components in a specific category for shopping
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🎨</div>
+    <div className="font-bold mb-2">Customization UI</div>
+    <div className="text-sm text-muted-foreground">
+      Build category-based navigation in avatar customization tools
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📊</div>
+    <div className="font-bold mb-2">Category Analytics</div>
+    <div className="text-sm text-muted-foreground">
+      Analyze component availability and sales within categories
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🔄</div>
+    <div className="font-bold mb-2">Component Swapping</div>
+    <div className="text-sm text-muted-foreground">
+      Allow users to switch between components in the same category
+    </div>
+  </div>
+</div>
+
+## Filtering Tips
+
+<div className="rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-blue-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔧</span>
+    <div>
+      <div className="font-bold text-lg">Client-Side Filtering</div>
+      <div className="text-sm text-muted-foreground">Common filtering patterns after fetching</div>
+    </div>
+  </div>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">By Tier Level</div>
+      <div className="text-xs text-muted-foreground">
+        Show only components accessible to user's tier
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">By Availability</div>
+      <div className="text-xs text-muted-foreground">
+        Filter where <code className="bg-muted px-1 rounded">purchased &lt; limited</code>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">By Price Range</div>
+      <div className="text-xs text-muted-foreground">
+        Filter components within budget
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Sort by Popularity</div>
+      <div className="text-xs text-muted-foreground">
+        Order by <code className="bg-muted px-1 rounded">purchased</code> count
+      </div>
+    </div>
+  </div>
+</div>
+
+## Typical Workflow
+
+<div className="rounded-xl border border-orange-500/30 bg-gradient-to-br from-orange-500/10 to-orange-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📝</span>
+    <div>
+      <div className="font-bold text-lg">Category-Based Customization</div>
+      <div className="text-sm text-muted-foreground">Step-by-step user flow</div>
+    </div>
+  </div>
+
+  <div className="space-y-3 text-sm">
+    <div className="flex items-start gap-2">
+      <div className="w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-500 font-bold text-xs flex-shrink-0">1</div>
+      <div>
+        <div className="font-semibold mb-1">Select Category</div>
+        <div className="text-xs text-muted-foreground">
+          User clicks on "Hats" category in avatar builder
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-2">
+      <div className="w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-500 font-bold text-xs flex-shrink-0">2</div>
+      <div>
+        <div className="font-semibold mb-1">Fetch Components</div>
+        <div className="text-xs text-muted-foreground">
+          Query <code className="bg-muted px-1 rounded">getAvatarComponentsByGroup(groupId: "hats")</code>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-2">
+      <div className="w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-500 font-bold text-xs flex-shrink-0">3</div>
+      <div>
+        <div className="font-semibold mb-1">Display Options</div>
+        <div className="text-xs text-muted-foreground">
+          Show all hats with pricing, tier requirements, and availability
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-2">
+      <div className="w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-500 font-bold text-xs flex-shrink-0">4</div>
+      <div>
+        <div className="font-semibold mb-1">User Selection</div>
+        <div className="text-xs text-muted-foreground">
+          User selects desired hat component for their avatar
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 to-teal-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold">Best Practice</div>
+      <div className="text-sm text-muted-foreground">Cache category results to minimize API calls when users browse between different categories</div>
+    </div>
+  </div>
+</div>

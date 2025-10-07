@@ -1,21 +1,21 @@
 {
   "title": "User",
   "pages": [
-    "add-disallowed-country",
-    "change-password-by-user",
-    "change-role",
-    "confirm-email-change",
-    "create-new-user-by-admin",
-    "delete-account",
-    "get-paginated-users",
+    "user-summary",
     "get-user",
     "get-user-by-id",
+    "get-paginated-users",
     "get-users-count",
-    "make-allow-location",
-    "release-user-by-admin",
-    "request-email-change",
+    "create-new-user-by-admin",
+    "change-password-by-user",
     "reset-password-by-admin",
+    "request-email-change",
+    "confirm-email-change",
+    "delete-account",
+    "change-role",
     "suspend-user-by-admin",
-    "user-summary"
+    "release-user-by-admin",
+    "add-disallowed-country",
+    "make-allow-location"
   ]
 }

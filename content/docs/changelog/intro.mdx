@@ -6,37 +6,184 @@ description: Welcome to the NYYU Changelog - A comprehensive record of all platf
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-# NYYU Changelog
+<div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-500/10 via-sky-500/10 to-blue-500/10 p-12 border border-indigo-500/20 mb-12">
+  <div className="relative z-10">
+    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6">
+      <span className="text-sm font-medium text-indigo-600 dark:text-indigo-400">Platform Updates</span>
+    </div>
+    <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-indigo-600 via-sky-600 to-blue-600 dark:from-indigo-400 dark:via-sky-400 dark:to-blue-400 bg-clip-text text-transparent">
+      NYYU Changelog
+    </h1>
+    <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl">
+      Track every update, improvement, and enhancement to the NYYU platform. Your comprehensive guide to what's new, what's improved, and what's coming next.
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl"></div>
+  <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
+</div>
 
-Welcome to the NYYU Changelog. This section serves as a comprehensive record of all updates, improvements, and changes made to the NYYU platform. Our commitment to transparency and continuous enhancement means that we regularly update our platform to better serve our users' needs.
-
-<Callout type="info">
-📅 Stay informed about the latest features, fixes, and enhancements to the NYYU platform!
-</Callout>
+<div className="grid md:grid-cols-2 gap-6 my-12">
+  <div className="p-6 rounded-xl border border-indigo-500/20 bg-gradient-to-br from-indigo-500/5 to-transparent">
+    <div className="text-3xl mb-4">📅</div>
+    <h3 className="text-xl font-bold mb-2">Stay Updated</h3>
+    <p className="text-muted-foreground">
+      Get real-time notifications about the latest features, fixes, and enhancements to the NYYU platform.
+    </p>
+  </div>
+  <div className="p-6 rounded-xl border border-sky-500/20 bg-gradient-to-br from-sky-500/5 to-transparent">
+    <div className="text-3xl mb-4">🎯</div>
+    <h3 className="text-xl font-bold mb-2">Categorized Updates</h3>
+    <p className="text-muted-foreground">
+      Easily find what matters to you with organized categories for features, improvements, and fixes.
+    </p>
+  </div>
+</div>
 
 ## Why We Keep a Changelog
 
-<Cards>
-<Card
-  title="📢 Transparent Communication"
-  description="Communicate updates and changes to our users transparently"
-/>
-<Card
-  title="✨ Highlight New Features"
-  description="Showcase new features and improvements as they're released"
-/>
-<Card
-  title="🐛 Document Bug Fixes"
-  description="Track bug fixes and technical enhancements"
-/>
-<Card
-  title="📚 Historical Record"
-  description="Provide a historical record of our platform's development"
-/>
-</Cards>
+<div className="grid md:grid-cols-2 gap-4 my-8">
+  <div className="flex gap-4 items-start p-6 rounded-xl border border-green-500/20 bg-gradient-to-br from-green-500/5 to-transparent">
+    <div className="text-3xl">📢</div>
+    <div className="flex-1">
+      <h4 className="font-bold text-lg mb-2">Transparent Communication</h4>
+      <p className="text-sm text-muted-foreground">
+        We believe in complete transparency. Every change, big or small, is documented here for our community.
+      </p>
+    </div>
+  </div>
 
-## How to Use This Changelog
+  <div className="flex gap-4 items-start p-6 rounded-xl border border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-transparent">
+    <div className="text-3xl">✨</div>
+    <div className="flex-1">
+      <h4 className="font-bold text-lg mb-2">Highlight Innovations</h4>
+      <p className="text-sm text-muted-foreground">
+        Discover new features and capabilities as soon as they're released to the platform.
+      </p>
+    </div>
+  </div>
 
-<Callout type="tip">
-Each entry in this changelog is dated and categorized to make it easy for you to find the information you need. Simply click on a date in the sidebar to view detailed information about each update.
+  <div className="flex gap-4 items-start p-6 rounded-xl border border-amber-500/20 bg-gradient-to-br from-amber-500/5 to-transparent">
+    <div className="text-3xl">🐛</div>
+    <div className="flex-1">
+      <h4 className="font-bold text-lg mb-2">Track Improvements</h4>
+      <p className="text-sm text-muted-foreground">
+        See how we continuously improve and optimize the platform based on user feedback.
+      </p>
+    </div>
+  </div>
+
+  <div className="flex gap-4 items-start p-6 rounded-xl border border-purple-500/20 bg-gradient-to-br from-purple-500/5 to-transparent">
+    <div className="text-3xl">📚</div>
+    <div className="flex-1">
+      <h4 className="font-bold text-lg mb-2">Historical Record</h4>
+      <p className="text-sm text-muted-foreground">
+        Access a complete history of our platform's evolution and development journey.
+      </p>
+    </div>
+  </div>
+</div>
+
+## Update Categories
+
+<div className="space-y-4 my-8">
+  <div className="flex items-center gap-4 p-5 rounded-xl border border-green-500/30 bg-gradient-to-r from-green-500/10 to-green-500/5">
+    <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-green-500/20 text-2xl">✨</div>
+    <div className="flex-1">
+      <div className="font-bold text-lg">New Features</div>
+      <div className="text-sm text-muted-foreground">Brand new capabilities and functionality added to the platform</div>
+    </div>
+  </div>
+
+  <div className="flex items-center gap-4 p-5 rounded-xl border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-blue-500/5">
+    <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-blue-500/20 text-2xl">🚀</div>
+    <div className="flex-1">
+      <div className="font-bold text-lg">Improvements</div>
+      <div className="text-sm text-muted-foreground">Enhancements to existing features for better performance and user experience</div>
+    </div>
+  </div>
+
+  <div className="flex items-center gap-4 p-5 rounded-xl border border-amber-500/30 bg-gradient-to-r from-amber-500/10 to-amber-500/5">
+    <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-amber-500/20 text-2xl">🐛</div>
+    <div className="flex-1">
+      <div className="font-bold text-lg">Bug Fixes</div>
+      <div className="text-sm text-muted-foreground">Resolved issues and technical fixes to ensure smooth operation</div>
+    </div>
+  </div>
+
+  <div className="flex items-center gap-4 p-5 rounded-xl border border-red-500/30 bg-gradient-to-r from-red-500/10 to-red-500/5">
+    <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-red-500/20 text-2xl">⚠️</div>
+    <div className="flex-1">
+      <div className="font-bold text-lg">Breaking Changes</div>
+      <div className="text-sm text-muted-foreground">Important updates that may require action or affect existing functionality</div>
+    </div>
+  </div>
+
+  <div className="flex items-center gap-4 p-5 rounded-xl border border-purple-500/30 bg-gradient-to-r from-purple-500/10 to-purple-500/5">
+    <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-purple-500/20 text-2xl">📝</div>
+    <div className="flex-1">
+      <div className="font-bold text-lg">Documentation</div>
+      <div className="text-sm text-muted-foreground">Updates to guides, resources, and platform documentation</div>
+    </div>
+  </div>
+</div>
+
+## Timeline Overview
+
+<div className="relative my-12 ml-8">
+  <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-500 via-sky-500 to-blue-500"></div>
+
+  <div className="relative pl-8 pb-8">
+    <div className="absolute left-0 top-2 w-4 h-4 rounded-full bg-indigo-500 ring-4 ring-indigo-500/20 transform -translate-x-[7.5px]"></div>
+    <div className="p-6 rounded-xl border border-indigo-500/20 bg-gradient-to-br from-indigo-500/5 to-transparent">
+      <div className="text-sm font-medium text-indigo-600 dark:text-indigo-400 mb-2">2024</div>
+      <div className="font-bold text-lg mb-2">Latest Updates</div>
+      <p className="text-sm text-muted-foreground">Resource Center launch and enhanced user experience features</p>
+    </div>
+  </div>
+
+  <div className="relative pl-8 pb-8">
+    <div className="absolute left-0 top-2 w-4 h-4 rounded-full bg-sky-500 ring-4 ring-sky-500/20 transform -translate-x-[7.5px]"></div>
+    <div className="p-6 rounded-xl border border-sky-500/20 bg-gradient-to-br from-sky-500/5 to-transparent">
+      <div className="text-sm font-medium text-sky-600 dark:text-sky-400 mb-2">2023</div>
+      <div className="font-bold text-lg mb-2">Major Feature Releases</div>
+      <p className="text-sm text-muted-foreground">Staking services, loan features, commodity listings, and more</p>
+    </div>
+  </div>
+
+  <div className="relative pl-8">
+    <div className="absolute left-0 top-2 w-4 h-4 rounded-full bg-blue-500 ring-4 ring-blue-500/20 transform -translate-x-[7.5px]"></div>
+    <div className="p-6 rounded-xl border border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-transparent">
+      <div className="text-sm font-medium text-blue-600 dark:text-blue-400 mb-2">2022</div>
+      <div className="font-bold text-lg mb-2">Foundation & Security</div>
+      <p className="text-sm text-muted-foreground">Bug bounty program, proof of reserves, API services, and security enhancements</p>
+    </div>
+  </div>
+</div>
+
+<Callout type="info" title="How to Navigate">
+Click on any changelog entry in the sidebar to view detailed information about that specific update. Each entry is organized by category to help you quickly find what you're looking for.
 </Callout>
+
+<div className="mt-12 p-8 rounded-2xl border border-indigo-500/20 bg-gradient-to-br from-indigo-500/5 via-sky-500/5 to-transparent">
+  <div className="flex items-start gap-6">
+    <div className="text-4xl">🔔</div>
+    <div className="flex-1">
+      <h3 className="text-2xl font-bold mb-3">Stay in the Loop</h3>
+      <p className="text-muted-foreground mb-4">
+        Want to be the first to know about new features and updates? Follow our changelog to stay informed about everything happening on the NYYU platform.
+      </p>
+      <div className="flex flex-wrap gap-3">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-indigo-500/10 border border-indigo-500/20 text-sm font-medium">
+          Real-time Updates
+        </div>
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sm font-medium">
+          Detailed Explanations
+        </div>
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-500/10 border border-blue-500/20 text-sm font-medium">
+          Version History
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

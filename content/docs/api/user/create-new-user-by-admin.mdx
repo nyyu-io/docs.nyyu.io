@@ -1,56 +1,191 @@
 ---
-title: Create New User By Admin
+title: Create New User by Admin
+description: Admin operation to create a new user account with auto-generated password
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 
-:::note
-The functions described is accessible only to users with ADMIN privileges.
-:::
+<div className="relative overflow-hidden rounded-xl border bg-gradient-to-br from-teal-500/10 via-emerald-500/10 to-cyan-500/10 p-8 backdrop-blur-sm mb-8">
+  <div className="relative z-10">
+    <div className="flex items-center gap-3 mb-4">
+      <h1 className="text-3xl font-bold bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">
+        Create New User by Admin
+      </h1>
+      <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-500/20 text-red-400 border border-red-500/30">
+        ADMIN
+      </div>
+    </div>
+    <p className="text-muted-foreground max-w-2xl">
+      Administrative mutation to create a new user account. Password is auto-generated and sent to the user via email.
+    </p>
+  </div>
+</div>
 
-The `createNewUser` mutation allows an admin to create a new user account. The password is auto-generated and sent to the user by email.
+## Mutation
 
-### Mutation: `createNewUser`
+<div className="relative overflow-hidden rounded-lg border border-teal-500/20 bg-gradient-to-br from-teal-500/5 to-emerald-500/5 p-6 my-6">
+  <h3 className="text-lg font-semibold text-teal-400 mb-4">GraphQL Schema</h3>
 
-#### Schema:
 ```graphql
 createNewUser(
-  email: String!,
-  country: String!,
-  role: String!,
-  avatarName: String!,
+  email: String!
+  country: String!
+  role: String!
+  avatarName: String!
   shortName: String!
 ): String
 ```
+</div>
 
-#### Parameters
+### Parameters
 
-- `email` (String): The user's email address. This field is mandatory.
-- `country` (String): The user's country. This field is mandatory.
-- `role` (String): The role of the created user. Possible values are `"ROLE_ADMIN"` or `"ROLE_USER"`. This field is mandatory.
-- `avatarName` (String): The name of the user's avatar. This field is mandatory.
-- `shortName` (String): The user's short name (e.g., "Tesla.12"). This field is mandatory.
+<div className="space-y-3 my-6">
+  <div className="rounded-lg border border-emerald-500/20 bg-card p-4">
+    <div className="flex items-start justify-between">
+      <div>
+        <code className="text-sm font-mono text-emerald-400">email</code>
+        <span className="ml-2 text-xs text-muted-foreground">String!</span>
+      </div>
+      <div className="text-xs px-2 py-1 rounded bg-red-500/20 text-red-400">Required</div>
+    </div>
+    <p className="text-sm text-muted-foreground mt-2">
+      User's email address. Must be unique and valid format
+    </p>
+  </div>
 
-#### Return
+  <div className="rounded-lg border border-emerald-500/20 bg-card p-4">
+    <div className="flex items-start justify-between">
+      <div>
+        <code className="text-sm font-mono text-emerald-400">country</code>
+        <span className="ml-2 text-xs text-muted-foreground">String!</span>
+      </div>
+      <div className="text-xs px-2 py-1 rounded bg-red-500/20 text-red-400">Required</div>
+    </div>
+    <p className="text-sm text-muted-foreground mt-2">
+      User's country code (ISO 3166-1 alpha-2)
+    </p>
+  </div>
 
-The mutation returns a string indicating the result of the user creation attempt.
+  <div className="rounded-lg border border-emerald-500/20 bg-card p-4">
+    <div className="flex items-start justify-between">
+      <div>
+        <code className="text-sm font-mono text-emerald-400">role</code>
+        <span className="ml-2 text-xs text-muted-foreground">String!</span>
+      </div>
+      <div className="text-xs px-2 py-1 rounded bg-red-500/20 text-red-400">Required</div>
+    </div>
+    <p className="text-sm text-muted-foreground mt-2">
+      User role: "ROLE_USER" or "ROLE_ADMIN"
+    </p>
+  </div>
 
-### Example Mutation
+  <div className="rounded-lg border border-emerald-500/20 bg-card p-4">
+    <div className="flex items-start justify-between">
+      <div>
+        <code className="text-sm font-mono text-emerald-400">avatarName</code>
+        <span className="ml-2 text-xs text-muted-foreground">String!</span>
+      </div>
+      <div className="text-xs px-2 py-1 rounded bg-red-500/20 text-red-400">Required</div>
+    </div>
+    <p className="text-sm text-muted-foreground mt-2">
+      Avatar prefix for the user (e.g., "Tesla")
+    </p>
+  </div>
 
-The following is an example of how to use the `createNewUser` mutation to create a new user:
+  <div className="rounded-lg border border-emerald-500/20 bg-card p-4">
+    <div className="flex items-start justify-between">
+      <div>
+        <code className="text-sm font-mono text-emerald-400">shortName</code>
+        <span className="ml-2 text-xs text-muted-foreground">String!</span>
+      </div>
+      <div className="text-xs px-2 py-1 rounded bg-red-500/20 text-red-400">Required</div>
+    </div>
+    <p className="text-sm text-muted-foreground mt-2">
+      User's display short name (e.g., "User.01")
+    </p>
+  </div>
+</div>
 
+## Example Usage
+
+<Tabs items={['Mutation', 'Response', 'TypeScript']}>
+  <Tab value="Mutation">
 ```graphql
 mutation {
   createNewUser(
-    email: "newuser@example.com",
-    country: "USA",
-    role: "ROLE_USER",
-    avatarName: "UserAvatar",
-    shortName: "User.01"
+    email: "newuser@example.com"
+    country: "USA"
+    role: "ROLE_USER"
+    avatarName: "Tesla"
+    shortName: "User.123"
   )
 }
 ```
+  </Tab>
 
-In this example, the mutation creates a new user with the email address `newuser@example.com`, country `USA`, role `ROLE_USER`, avatar name `UserAvatar`, and short name `User.01`. The return value will indicate whether the user was successfully created.
+  <Tab value="Response">
+```json
+{
+  "data": {
+    "createNewUser": "Success - User created and password sent via email"
+  }
+}
 ```
+  </Tab>
+
+  <Tab value="TypeScript">
+```typescript
+const mutation = `
+  mutation CreateUser(
+    $email: String!
+    $country: String!
+    $role: String!
+    $avatarName: String!
+    $shortName: String!
+  ) {
+    createNewUser(
+      email: $email
+      country: $country
+      role: $role
+      avatarName: $avatarName
+      shortName: $shortName
+    )
+  }
+`;
+
+const result = await client.request(mutation, {
+  email: 'newuser@example.com',
+  country: 'USA',
+  role: 'ROLE_USER',
+  avatarName: 'Tesla',
+  shortName: 'User.123',
+});
+```
+  </Tab>
+</Tabs>
+
+## Security Considerations
+
+<div className="space-y-4 my-6">
+  <Callout type="error" title="Admin Access Only">
+    This operation requires ROLE_ADMIN privileges.
+  </Callout>
+
+  <Callout type="warn" title="Password Security">
+    Auto-generated passwords are securely hashed and sent via encrypted email. Users should change their password on first login.
+  </Callout>
+
+  <Callout type="info" title="Email Verification">
+    New users receive a verification email. They must verify their email before accessing full features.
+  </Callout>
+</div>
+
+## Related Operations
+
+<Cards>
+  <Card title="Delete Account" href="/docs/api/user/delete-account" />
+  <Card title="Change Role" href="/docs/api/user/change-role" />
+  <Card title="Reset Password" href="/docs/api/user/reset-password-by-admin" />
+</Cards>

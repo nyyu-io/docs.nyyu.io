@@ -1,66 +1,295 @@
 ---
-title: Create Stripe Payment for Deposit Into the Wallet
+title: Create Stripe Payment for Deposit
+description: Process credit card deposits into your wallet using Stripe payment gateway
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-The `stripeForDeposit` mutation allows a user to create a Stripe payment for a deposit into their wallet.
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-500/10 via-indigo-500/5 to-background p-8 border border-blue-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Create Stripe Payment for Deposit
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Process secure credit card deposits into your wallet using Stripe
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl"></div>
+</div>
 
-### Mutation: `stripeForDeposit`
+## Mutation
 
-#### Schema:
-```graphql
-stripeForDeposit(
-  amount: Float!,
-  fiatAmount: Float!,
-  fiatType: String!,
-  cryptoType: String!,
-  paymentIntentId: String!,
-  paymentMethodId: String!,
-  isSaveCard: Boolean
-): PayResponse
-```
+<div className="rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-blue-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💳</span>
+    <div>
+      <div className="font-bold text-lg">stripeForDeposit</div>
+      <div className="text-sm text-muted-foreground">Create a Stripe payment for wallet deposit</div>
+    </div>
+  </div>
 
-#### Parameters
+  ### Schema
 
-- `amount` (Float): The amount to deposit in USD. This field is mandatory.
-- `fiatAmount` (Float): The amount in the paid currency. This field is mandatory.
-- `fiatType` (String): The type of currency to pay in. This field is mandatory.
-- `cryptoType` (String): The type of cryptocurrency (e.g., USDT) as a default value (currently not functional). This field is mandatory.
-- `paymentIntentId` (String): The payment intent ID from Stripe. This field is mandatory.
-- `paymentMethodId` (String): The payment method ID from Stripe. This field is mandatory.
-- `isSaveCard` (Boolean): If true, the card information will be saved for future payments.
-
-#### Return
-
-The mutation returns a `PayResponse` object, which includes details needed to complete the Stripe payment.
-
-### Example Mutation
-
-The following is an example of how to use the `stripeForDeposit` mutation to create a Stripe payment for a deposit into the wallet:
-
-```graphql
-mutation {
+  ```graphql
   stripeForDeposit(
-    amount: 100.0,
-    fiatAmount: 100.0,
-    fiatType: "USD",
-    cryptoType: "USDT",
-    paymentIntentId: "pi_1Fxxxxx",
-    paymentMethodId: "pm_1Fxxxxx",
-    isSaveCard: true
-  ) {
-    clientSecret,
-    paymentIntentId,
-    requiresAction,
-    error
+    amount: Float!
+    fiatAmount: Float!
+    fiatType: String!
+    cryptoType: String!
+    paymentIntentId: String!
+    paymentMethodId: String!
+    isSaveCard: Boolean
+  ): PayResponse
+  ```
+</div>
+
+## Parameters
+
+<div className="space-y-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">amount</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Float!</code></div>
+      <div className="text-muted-foreground">The amount to deposit in USD</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">fiatAmount</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Float!</code></div>
+      <div className="text-muted-foreground">The amount in the payment currency (for currency conversion)</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">fiatType</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String!</code></div>
+      <div className="text-muted-foreground">The payment currency (e.g., "USD", "EUR", "GBP")</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">cryptoType</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String!</code></div>
+      <div className="text-muted-foreground">The cryptocurrency type (e.g., "USDT") - currently not functional</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">paymentIntentId</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String!</code></div>
+      <div className="text-muted-foreground">The payment intent ID obtained from Stripe</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">paymentMethodId</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String!</code></div>
+      <div className="text-muted-foreground">The payment method ID obtained from Stripe</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">isSaveCard</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Boolean</code></div>
+      <div className="text-muted-foreground">Set to true to save card information for future payments</div>
+    </div>
+  </div>
+</div>
+
+## Return Value
+
+<div className="p-5 rounded-lg border border-green-500/30 bg-green-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">📦</span>
+    <div className="font-bold">Returns PayResponse Object</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    Contains details needed to complete the Stripe payment including client secret and payment status
+  </div>
+</div>
+
+## Example
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">Usage Example</div>
+      <div className="text-xs text-muted-foreground">Creating a Stripe payment for $100 deposit</div>
+    </div>
+  </div>
+
+  ```graphql
+  mutation {
+    stripeForDeposit(
+      amount: 100.0
+      fiatAmount: 100.0
+      fiatType: "USD"
+      cryptoType: "USDT"
+      paymentIntentId: "pi_1Fxxxxx"
+      paymentMethodId: "pm_1Fxxxxx"
+      isSaveCard: true
+    ) {
+      clientSecret
+      paymentIntentId
+      requiresAction
+      error
+    }
   }
-}
-```
+  ```
+</div>
 
-### Return
+## Response Example
 
-The example returns the `PayResponse` object with details such as `clientSecret`, `paymentIntentId`, `requiresAction`, and `error`.
+<div className="rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/10 to-green-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📤</span>
+    <div>
+      <div className="font-bold">Sample Response</div>
+      <div className="text-xs text-muted-foreground">Successful payment response</div>
+    </div>
+  </div>
 
-In this example, the mutation initiates a Stripe payment for a deposit of `100.0` USD. The `paymentIntentId` and `paymentMethodId` are obtained from Stripe, and `isSaveCard` is set to `true` to save the card information for future payments. The return value includes the `PayResponse` details needed to complete the Stripe payment.
+  ```json
+  {
+    "data": {
+      "stripeForDeposit": {
+        "clientSecret": "pi_1Fxxxxx_secret_xxxxx",
+        "paymentIntentId": "pi_1Fxxxxx",
+        "requiresAction": false,
+        "error": null
+      }
+    }
+  }
+  ```
+</div>
+
+## Integration Flow
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔄</span>
+    <div>
+      <div className="font-bold text-lg">Payment Processing Steps</div>
+      <div className="text-sm text-muted-foreground">Complete integration workflow</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-blue-500 font-bold text-lg">1</span>
+        <div className="font-semibold text-sm">Initialize Stripe</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Load Stripe.js in your frontend and create payment intent
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-blue-500 font-bold text-lg">2</span>
+        <div className="font-semibold text-sm">Collect Card Details</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Use Stripe Elements to securely collect card information
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-blue-500 font-bold text-lg">3</span>
+        <div className="font-semibold text-sm">Call stripeForDeposit</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Submit payment with Stripe IDs to create deposit transaction
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-blue-500 font-bold text-lg">4</span>
+        <div className="font-semibold text-sm">Handle Response</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Use clientSecret to confirm payment if requiresAction is true
+      </div>
+    </div>
+  </div>
+</div>
+
+## Use Cases
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">💰</div>
+    <div className="font-bold mb-2">Instant Deposits</div>
+    <div className="text-sm text-muted-foreground">
+      Add funds to your wallet immediately using credit/debit cards
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🔒</div>
+    <div className="font-bold mb-2">Secure Payments</div>
+    <div className="text-sm text-muted-foreground">
+      PCI-compliant payment processing through Stripe gateway
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">💳</div>
+    <div className="font-bold mb-2">Save Card for Future</div>
+    <div className="text-sm text-muted-foreground">
+      Optionally save card details for faster future deposits
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🌍</div>
+    <div className="font-bold mb-2">Multi-Currency</div>
+    <div className="text-sm text-muted-foreground">
+      Support for multiple fiat currencies with automatic conversion
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-indigo-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold">Best Practice</div>
+      <div className="text-sm text-muted-foreground">Always handle the requiresAction flag in the response. When true, use Stripe's confirmCardPayment method with the clientSecret to complete 3D Secure authentication.</div>
+    </div>
+  </div>
+</div>

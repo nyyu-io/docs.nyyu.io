@@ -1,130 +1,539 @@
 ---
-title: NYYU Invites
-description: Earn rewards by referring friends to NYYU
+title: Referral Program
+description: Earn rewards by inviting friends to NYYU and building your referral network
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
-import { Step, Steps } from 'fumadocs-ui/components/steps';
 
-## NYYU Invites Overview
+<div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-cyan-600 via-sky-600 to-blue-600 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-2xl"></div>
 
-The NYYU Invites section enables users to earn commissions by inviting friends to join the platform. This section provides a comprehensive overview of your referral activities, including total earnings, referral ID, and referral link.
+  <div className="relative">
+    <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm mb-4 animate-pulse">
+      <span>⏱️</span>
+      <span>10-15 minutes</span>
+      <span className="mx-2">•</span>
+      <span>🎯</span>
+      <span>Beginner</span>
+    </div>
 
-### Key Features
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">Referral Program Guide</h1>
+    <p className="text-xl text-cyan-100 leading-relaxed max-w-3xl">
+      Learn how to earn passive income by inviting friends to NYYU and building your referral network with commission tiers.
+    </p>
+  </div>
+</div>
 
-<Cards>
-<Card title="Total Earnings" description="Displays the total earned from friends." />
-<Card title="Connected Wallet" description="Shows the wallet connected for receiving referral earnings." />
-<Card title="Referral ID and Link" description="Provides a unique referral ID and link to invite friends." />
-<Card title="Invite Options" description="Multiple options to invite friends via link, email, Facebook, or Twitter." />
-<Card title="Invite Levels" description="Different commission levels based on the number of successful referrals." />
-<Card title="Invite Summary" description="Overview of invites and their completion status across different chains." />
-</Cards>
+## What You'll Learn
 
-## Managing Your NYYU Invites Dashboard
+<div className="grid gap-4 md:grid-cols-2 my-8">
+  <div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-sky-500/5 p-6 hover:shadow-lg transition-all">
+    <div className="w-12 h-12 rounded-lg bg-cyan-500/20 flex items-center justify-center text-2xl mb-4">
+      🔗
+    </div>
+    <h3 className="font-bold text-lg mb-2">Generate Referral Links</h3>
+    <p className="text-sm text-muted-foreground">
+      Create and share your unique referral link across multiple channels
+    </p>
+  </div>
 
-### Viewing Total Earnings
+  <div className="rounded-xl border border-sky-500/30 bg-gradient-to-br from-sky-500/10 to-blue-500/5 p-6 hover:shadow-lg transition-all">
+    <div className="w-12 h-12 rounded-lg bg-sky-500/20 flex items-center justify-center text-2xl mb-4">
+      💰
+    </div>
+    <h3 className="font-bold text-lg mb-2">Earn Commissions</h3>
+    <p className="text-sm text-muted-foreground">
+      Understand commission structures and maximize your earnings
+    </p>
+  </div>
 
-The total earnings section at the top left shows the total amount you have earned from your referrals in both BTC and USD.
+  <div className="rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-cyan-500/5 p-6 hover:shadow-lg transition-all">
+    <div className="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center text-2xl mb-4">
+      📊
+    </div>
+    <h3 className="font-bold text-lg mb-2">Track Performance</h3>
+    <p className="text-sm text-muted-foreground">
+      Monitor your referrals, earnings, and tier progression
+    </p>
+  </div>
 
-![Invites Overview](/img/Invites.png)
+  <div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-sky-500/5 p-6 hover:shadow-lg transition-all">
+    <div className="w-12 h-12 rounded-lg bg-cyan-500/20 flex items-center justify-center text-2xl mb-4">
+      📈
+    </div>
+    <h3 className="font-bold text-lg mb-2">Tier Progression</h3>
+    <p className="text-sm text-muted-foreground">
+      Level up through commission tiers and unlock higher earning rates
+    </p>
+  </div>
+</div>
 
+---
 
+## Prerequisites
 
-### Connected Wallet
+<div className="rounded-lg border border-cyan-500/30 bg-background p-6 mb-8">
+  <h3 className="font-bold mb-4 flex items-center gap-2">
+    <span className="text-cyan-500">✓</span>
+    Before You Start
+  </h3>
 
-This section displays the wallet address connected to receive referral earnings. Ensure your wallet is connected to track and receive your earnings.
+  <div className="space-y-3">
+    <div className="flex items-start gap-3">
+      <div className="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+        <span className="text-xs text-cyan-500">1</span>
+      </div>
+      <div>
+        <div className="font-medium">Active NYYU Account</div>
+        <div className="text-sm text-muted-foreground">Complete registration and email verification</div>
+      </div>
+    </div>
 
-#### Wallet Address
+    <div className="flex items-start gap-3">
+      <div className="w-6 h-6 rounded-full bg-sky-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+        <span className="text-xs text-sky-500">2</span>
+      </div>
+      <div>
+        <div className="font-medium">Connected Wallet</div>
+        <div className="text-sm text-muted-foreground">Have a wallet connected to receive commission payouts</div>
+      </div>
+    </div>
 
-<Cards>
-<Card title="Connected Wallet" description="Displays your wallet address." />
-<Card title="Copy Button" description="Allows you to copy the wallet address for easy sharing." />
-</Cards>
+    <div className="flex items-start gap-3">
+      <div className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+        <span className="text-xs text-blue-500">3</span>
+      </div>
+      <div>
+        <div className="font-medium">KYC Verification (Optional)</div>
+        <div className="text-sm text-muted-foreground">Level 1 KYC unlocks higher commission tiers</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-### Referral ID and Link
+---
 
-Your unique referral ID and link are provided to share with friends.
+## Step-by-Step Guide
 
-#### Referral ID
+### Step 1: Access the Invites Dashboard
 
-<Cards>
-<Card title="Referral ID" description="A unique identifier for your referral activities." />
-<Card title="Copy Button" description="Allows you to copy the referral ID." />
-</Cards>
+Navigate to your referral dashboard to view your unique referral code and earnings.
 
-#### Referral Link
+<div className="rounded-lg border border-cyan-500/30 bg-gradient-to-br from-cyan-500/5 to-sky-500/5 p-6 my-6">
+  <div className="space-y-4">
+    <div className="flex items-start gap-3">
+      <span className="text-2xl">📍</span>
+      <div className="flex-1">
+        <div className="font-bold mb-2">Location</div>
+        <div className="text-sm text-muted-foreground space-y-1">
+          <div>1. Click on your <strong>Profile Icon</strong> in the top right</div>
+          <div>2. Select <strong>"Referral Program"</strong> from the dropdown menu</div>
+          <div>3. Or navigate directly to <code className="bg-muted px-2 py-0.5 rounded">nyyu.io/invites</code></div>
+        </div>
+      </div>
+    </div>
 
-<Cards>
-<Card title="Referral Link" description="A unique link to invite friends." />
-<Card title="Copy Button" description="Allows you to copy the referral link." />
-</Cards>
+    <div className="flex items-start gap-3">
+      <span className="text-2xl">👁️</span>
+      <div className="flex-1">
+        <div className="font-bold mb-2">Dashboard Overview</div>
+        <div className="text-sm text-muted-foreground">
+          View your total earnings, active referrals, commission tier, and referral statistics at a glance
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-### Inviting Friends
+### Step 2: Copy Your Referral Link
 
-You can invite friends through various methods provided in this section.
+Get your unique referral link to share with potential users.
 
-#### Invite Methods
+<div className="rounded-lg border border-sky-500/30 bg-gradient-to-br from-sky-500/5 to-blue-500/5 p-6 my-6">
+  <div className="space-y-4">
+    <div className="flex items-start gap-3">
+      <span className="text-2xl">🔗</span>
+      <div className="flex-1">
+        <div className="font-bold mb-2">Your Referral Link</div>
+        <div className="bg-muted rounded p-3 font-mono text-sm mb-2">
+          https://nyyu.io/ref/YOUR_CODE
+        </div>
+        <div className="text-sm text-muted-foreground">
+          Click the <strong>"Copy Link"</strong> button to copy your unique referral URL
+        </div>
+      </div>
+    </div>
 
-<Cards>
-<Card title="Copy Link" description="Copy the referral link to share manually." />
-<Card title="Invite via Email" description="Use the email invite option to send an invite directly." />
-<Card title="Post to Facebook" description="Share the referral link on Facebook." />
-<Card title="Tweet" description="Share the referral link on Twitter." />
-</Cards>
+    <div className="flex items-start gap-3">
+      <span className="text-2xl">🆔</span>
+      <div className="flex-1">
+        <div className="font-bold mb-2">Referral ID</div>
+        <div className="text-sm text-muted-foreground">
+          Your referral ID is also displayed separately for manual sharing: <code className="bg-muted px-2 py-0.5 rounded">ABC123XYZ</code>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-### Invite Levels
+### Step 3: Share Your Referral Link
 
-This section displays the different levels of commission you can earn based on the number of successful referrals. Each level offers a different percentage of commission.
+Promote your referral link across various channels to maximize sign-ups.
 
-#### Commission Levels
+<div className="rounded-lg border border-blue-500/30 bg-gradient-to-br from-blue-500/5 to-cyan-500/5 p-6 my-6">
+  <div className="grid md:grid-cols-2 gap-4">
+    <div className="space-y-3">
+      <div className="font-bold mb-2">Quick Share Options</div>
+      <div className="space-y-2">
+        <div className="flex items-center gap-2 text-sm">
+          <span className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">📧</span>
+          <span>Email - Direct invitation to contacts</span>
+        </div>
+        <div className="flex items-center gap-2 text-sm">
+          <span className="w-8 h-8 rounded-full bg-sky-500/20 flex items-center justify-center">🐦</span>
+          <span>Twitter/X - Share with followers</span>
+        </div>
+        <div className="flex items-center gap-2 text-sm">
+          <span className="w-8 h-8 rounded-full bg-cyan-500/20 flex items-center justify-center">👥</span>
+          <span>Facebook - Post to timeline</span>
+        </div>
+        <div className="flex items-center gap-2 text-sm">
+          <span className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">💬</span>
+          <span>WhatsApp/Telegram - Message groups</span>
+        </div>
+      </div>
+    </div>
 
-<Cards>
-<Card title="10%" description="Base level commission." />
-<Card title="20% - 60%" description="Higher commission levels based on performance." />
-</Cards>
+    <div className="space-y-3">
+      <div className="font-bold mb-2">Recommended Channels</div>
+      <div className="text-sm text-muted-foreground space-y-2">
+        <div>• Crypto communities and Discord servers</div>
+        <div>• Investment forums and Reddit threads</div>
+        <div>• Personal blog or YouTube channel</div>
+        <div>• LinkedIn network for professional contacts</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-### Invite Summary
+### Step 4: Track Your Referrals
 
-The invite summary section provides an overview of your invites and their status across different chains and markets.
+Monitor your referral activity and earnings in real-time.
 
-#### Invite Details
+<div className="rounded-lg border border-cyan-500/30 bg-gradient-to-br from-cyan-500/5 to-sky-500/5 p-6 my-6">
+  <div className="space-y-4">
+    <div className="grid md:grid-cols-3 gap-4">
+      <div className="rounded-lg bg-background border border-border p-4">
+        <div className="text-2xl mb-2">👥</div>
+        <div className="text-xs text-muted-foreground mb-1">Total Referrals</div>
+        <div className="text-2xl font-bold">24</div>
+      </div>
+      <div className="rounded-lg bg-background border border-border p-4">
+        <div className="text-2xl mb-2">✅</div>
+        <div className="text-xs text-muted-foreground mb-1">Active Users</div>
+        <div className="text-2xl font-bold">18</div>
+      </div>
+      <div className="rounded-lg bg-background border border-border p-4">
+        <div className="text-2xl mb-2">💰</div>
+        <div className="text-xs text-muted-foreground mb-1">Total Earned</div>
+        <div className="text-2xl font-bold">$1,245</div>
+      </div>
+    </div>
 
-<Cards>
-<Card title="NDB Invites" description="Invites for NDB purchases on Binance Smart Chain." />
-<Card title="Ethereum Invites" description="Invites for Ethereum Chain." />
-<Card title="Solana Invites" description="Invites for Solana Chain." />
-<Card title="BNB Invites" description="Invites for Binance Smart Chain." />
-<Card title="NDB City Invites" description="Invites for specific locations." />
-</Cards>
+    <div className="text-sm text-muted-foreground">
+      <strong>Referral Details:</strong> View individual referral status, sign-up dates, trading volume, and your commission earned from each user
+    </div>
+  </div>
+</div>
 
-Each invite card shows:
+### Step 5: Understand Commission Tiers
 
-<Cards>
-<Card title="Chain and Market" description="The specific chain and market the invite is for." />
-<Card title="Earnings" description="The amount earned from successful invites." />
-<Card title="Invite Status" description="The number of invites sent and completed." />
-</Cards>
+Learn how commission rates increase as you refer more active users.
 
-## Comprehensive Tutorial: Using the Invites Dashboard
+<div className="rounded-lg border border-sky-500/30 bg-gradient-to-br from-sky-500/5 to-blue-500/5 p-6 my-6">
+  <div className="space-y-4">
+    <div className="font-bold mb-4">Commission Tier Structure</div>
 
-### Step-by-Step Guide to Inviting Friends
+    <div className="space-y-3">
+      <div className="flex items-center justify-between p-3 rounded-lg bg-background border border-border">
+        <div>
+          <div className="font-bold">Bronze Tier</div>
+          <div className="text-xs text-muted-foreground">0-9 active referrals</div>
+        </div>
+        <div className="text-right">
+          <div className="text-lg font-bold text-amber-500">10%</div>
+          <div className="text-xs text-muted-foreground">Commission</div>
+        </div>
+      </div>
 
-#### 1. Connect Your Wallet
+      <div className="flex items-center justify-between p-3 rounded-lg bg-background border border-border">
+        <div>
+          <div className="font-bold">Silver Tier</div>
+          <div className="text-xs text-muted-foreground">10-24 active referrals</div>
+        </div>
+        <div className="text-right">
+          <div className="text-lg font-bold text-slate-400">20%</div>
+          <div className="text-xs text-muted-foreground">Commission</div>
+        </div>
+      </div>
 
-- Ensure your wallet is connected to track and receive earnings.
+      <div className="flex items-center justify-between p-3 rounded-lg bg-background border border-border">
+        <div>
+          <div className="font-bold">Gold Tier</div>
+          <div className="text-xs text-muted-foreground">25-49 active referrals</div>
+        </div>
+        <div className="text-right">
+          <div className="text-lg font-bold text-yellow-500">30%</div>
+          <div className="text-xs text-muted-foreground">Commission</div>
+        </div>
+      </div>
 
-#### 2. Copy Your Referral ID and Link
+      <div className="flex items-center justify-between p-3 rounded-lg bg-background border border-border">
+        <div>
+          <div className="font-bold">Platinum Tier</div>
+          <div className="text-xs text-muted-foreground">50-99 active referrals</div>
+        </div>
+        <div className="text-right">
+          <div className="text-lg font-bold text-cyan-500">40%</div>
+          <div className="text-xs text-muted-foreground">Commission</div>
+        </div>
+      </div>
 
-- Use the copy button to copy your unique referral ID and link.
+      <div className="flex items-center justify-between p-3 rounded-lg bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30">
+        <div>
+          <div className="font-bold">Diamond Tier</div>
+          <div className="text-xs text-muted-foreground">100+ active referrals</div>
+        </div>
+        <div className="text-right">
+          <div className="text-lg font-bold text-purple-500">50%</div>
+          <div className="text-xs text-muted-foreground">Commission</div>
+        </div>
+      </div>
+    </div>
 
-#### 3. Invite Friends
+    <Callout type="info">
+      **Active Referral**: A user who has completed KYC Level 1 and has trading volume of at least $100 in the past 30 days
+    </Callout>
+  </div>
+</div>
 
-- Choose your preferred invite method (Copy Link, Email, Facebook, Twitter).
-- Share the referral link with your friends.
+### Step 6: Claim Your Earnings
 
-#### 4. Track Your Earnings and Invites
+Withdraw your referral commissions to your connected wallet.
 
-- Monitor the total earnings and invite summary to track your performance.
-- Check the invite levels to see your current commission percentage.
+<div className="rounded-lg border border-blue-500/30 bg-gradient-to-br from-blue-500/5 to-cyan-500/5 p-6 my-6">
+  <div className="space-y-4">
+    <div className="flex items-start gap-3">
+      <span className="text-2xl">💳</span>
+      <div className="flex-1">
+        <div className="font-bold mb-2">Minimum Withdrawal</div>
+        <div className="text-sm text-muted-foreground">
+          Minimum withdrawal amount is <strong>$50</strong> or equivalent in cryptocurrency
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <span className="text-2xl">⏱️</span>
+      <div className="flex-1">
+        <div className="font-bold mb-2">Payout Schedule</div>
+        <div className="text-sm text-muted-foreground">
+          Commissions are calculated daily and available for withdrawal within 24 hours
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <span className="text-2xl">🔄</span>
+      <div className="flex-1">
+        <div className="font-bold mb-2">Withdrawal Process</div>
+        <div className="text-sm text-muted-foreground space-y-1">
+          <div>1. Click <strong>"Withdraw Earnings"</strong> button</div>
+          <div>2. Select withdrawal currency (BTC, ETH, USDT, etc.)</div>
+          <div>3. Confirm wallet address</div>
+          <div>4. Complete 2FA verification</div>
+          <div>5. Funds sent within 1-4 hours</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Step 7: Optimize Your Referral Strategy
+
+Maximize your earnings with proven referral strategies.
+
+<div className="rounded-lg border border-cyan-500/30 bg-gradient-to-br from-cyan-500/5 to-sky-500/5 p-6 my-6">
+  <div className="space-y-4">
+    <div className="font-bold mb-3">Effective Promotion Strategies</div>
+
+    <div className="grid md:grid-cols-2 gap-4">
+      <div className="space-y-2">
+        <div className="flex items-start gap-2 text-sm">
+          <span className="text-cyan-500 mt-0.5">✓</span>
+          <span><strong>Content Creation:</strong> Write reviews, tutorials, or comparison articles</span>
+        </div>
+        <div className="flex items-start gap-2 text-sm">
+          <span className="text-cyan-500 mt-0.5">✓</span>
+          <span><strong>Video Content:</strong> Create YouTube videos or TikTok content</span>
+        </div>
+        <div className="flex items-start gap-2 text-sm">
+          <span className="text-cyan-500 mt-0.5">✓</span>
+          <span><strong>Community Engagement:</strong> Be active in crypto forums and groups</span>
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <div className="flex items-start gap-2 text-sm">
+          <span className="text-sky-500 mt-0.5">✓</span>
+          <span><strong>Email Marketing:</strong> Build an email list and send newsletters</span>
+        </div>
+        <div className="flex items-start gap-2 text-sm">
+          <span className="text-sky-500 mt-0.5">✓</span>
+          <span><strong>Social Proof:</strong> Share your success stories and earnings</span>
+        </div>
+        <div className="flex items-start gap-2 text-sm">
+          <span className="text-sky-500 mt-0.5">✓</span>
+          <span><strong>Exclusive Offers:</strong> Provide additional value to your referrals</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Tips & Tricks
+
+<div className="grid md:grid-cols-3 gap-4 my-8">
+  <div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-sky-500/5 p-6">
+    <div className="text-2xl mb-3">📱</div>
+    <h3 className="font-bold mb-2">Use Multiple Channels</h3>
+    <p className="text-sm text-muted-foreground">
+      Don't rely on just one platform. Share your referral link across social media, blogs, forums, and messaging apps for maximum reach.
+    </p>
+  </div>
+
+  <div className="rounded-xl border border-sky-500/30 bg-gradient-to-br from-sky-500/10 to-blue-500/5 p-6">
+    <div className="text-2xl mb-3">🎯</div>
+    <h3 className="font-bold mb-2">Target the Right Audience</h3>
+    <p className="text-sm text-muted-foreground">
+      Focus on crypto enthusiasts, investors, and traders who are likely to become active users and generate trading volume.
+    </p>
+  </div>
+
+  <div className="rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-cyan-500/5 p-6">
+    <div className="text-2xl mb-3">📊</div>
+    <h3 className="font-bold mb-2">Track Your Performance</h3>
+    <p className="text-sm text-muted-foreground">
+      Regularly monitor which channels bring the most active referrals and double down on what works best for you.
+    </p>
+  </div>
+
+  <div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-sky-500/5 p-6">
+    <div className="text-2xl mb-3">💡</div>
+    <h3 className="font-bold mb-2">Provide Value</h3>
+    <p className="text-sm text-muted-foreground">
+      Create helpful content like tutorials, guides, or market analysis to build trust and attract quality referrals who will stay active.
+    </p>
+  </div>
+
+  <div className="rounded-xl border border-sky-500/30 bg-gradient-to-br from-sky-500/10 to-blue-500/5 p-6">
+    <div className="text-2xl mb-3">🤝</div>
+    <h3 className="font-bold mb-2">Support Your Referrals</h3>
+    <p className="text-sm text-muted-foreground">
+      Help your referrals get started and answer their questions. Active referrals who trade more earn you higher commissions.
+    </p>
+  </div>
+
+  <div className="rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-cyan-500/5 p-6">
+    <div className="text-2xl mb-3">🎁</div>
+    <h3 className="font-bold mb-2">Offer Incentives</h3>
+    <p className="text-sm text-muted-foreground">
+      Consider offering bonuses, guides, or exclusive content to people who sign up using your referral link.
+    </p>
+  </div>
+</div>
+
+---
+
+## Common Mistakes to Avoid
+
+<div className="space-y-4 my-8">
+  <Callout type="error" title="Spamming Referral Links">
+    Don't spam your referral link everywhere. This can get you banned from communities and platforms. Focus on providing value and sharing your link organically.
+  </Callout>
+
+  <Callout type="error" title="Ignoring Quality Over Quantity">
+    Don't just focus on getting as many sign-ups as possible. One active trader is worth more than 100 inactive accounts. Focus on attracting genuine users.
+  </Callout>
+
+  <Callout type="error" title="Not Tracking Performance">
+    Failing to track which channels and strategies work best means you're wasting effort. Use analytics to optimize your approach and focus on what works.
+  </Callout>
+
+  <Callout type="error" title="Forgetting to Withdraw">
+    Don't let your commissions sit idle. Withdraw regularly (above the $50 minimum) to secure your earnings and reinvest or use them as you wish.
+  </Callout>
+
+  <Callout type="error" title="Violating Platform Rules">
+    Never create fake accounts or engage in fraudulent activity to boost referrals. This will result in account termination and loss of all earnings.
+  </Callout>
+</div>
+
+---
+
+## Next Steps
+
+<div className="grid md:grid-cols-3 gap-4 my-8">
+  <Card
+    title="Trading Guide"
+    href="/docs/tutorial/trade"
+    className="hover:shadow-lg transition-shadow"
+  >
+    Learn trading basics so you can better explain NYYU to your referrals
+  </Card>
+
+  <Card
+    title="Wallet Setup"
+    href="/docs/tutorial/wallet"
+    className="hover:shadow-lg transition-shadow"
+  >
+    Help your referrals set up their wallets securely
+  </Card>
+
+  <Card
+    title="Profile Settings"
+    href="/docs/tutorial/profile"
+    className="hover:shadow-lg transition-shadow"
+  >
+    Guide referrals through profile setup and tier progression
+  </Card>
+</div>
+
+---
+
+## Need Help?
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-sky-500/5 p-8 my-8">
+  <div className="text-center">
+    <div className="text-4xl mb-4">💬</div>
+    <h3 className="text-xl font-bold mb-2">Still Have Questions?</h3>
+    <p className="text-muted-foreground mb-6">
+      Our support team is here to help you maximize your referral earnings
+    </p>
+    <div className="flex flex-wrap gap-4 justify-center">
+      <a href="/docs/troubleshoot" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-cyan-500 text-white hover:bg-cyan-600 transition-colors">
+        <span>📚</span>
+        <span>Visit FAQ</span>
+      </a>
+      <a href="/docs/corporate/contact-us" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border hover:bg-muted transition-colors">
+        <span>✉️</span>
+        <span>Contact Support</span>
+      </a>
+    </div>
+  </div>
+</div>

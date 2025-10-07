@@ -1,15 +1,35 @@
 ---
 title: Create Crypto Payment for Deposit Into the Wallet
+description: Generate a cryptocurrency deposit address to fund your wallet with blockchain-based assets
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-The `createChargeForDeposit` mutation allows a user to create a cryptocurrency payment for a deposit into their wallet. It returns a deposit transaction with a deposit address.
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-500 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10"></div>
+  <div className="relative">
+    <div className="flex items-center gap-3 mb-4">
+      <div className="p-3 bg-white/20 backdrop-blur-sm rounded-xl">
+        <span className="text-4xl">₿</span>
+      </div>
+      <div>
+        <h1 className="text-3xl font-bold text-white mb-2">Create Crypto Payment for Deposit</h1>
+        <p className="text-emerald-50 text-lg">Generate a cryptocurrency deposit address to fund your wallet with blockchain-based assets</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-### Mutation: `createChargeForDeposit`
+## Overview
 
-#### Schema:
+The `createChargeForDeposit` mutation allows users to create a cryptocurrency payment for depositing funds into their wallet. This endpoint generates a unique deposit address on the specified blockchain network, enabling users to send crypto assets directly to their wallet. The transaction is tracked and credited once confirmed on the blockchain.
+
+<div className="mt-8 p-6 bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-xl border border-emerald-200 dark:border-emerald-800">
+  <h2 className="text-xl font-semibold mb-4 text-emerald-900 dark:text-emerald-100 flex items-center gap-2">
+    <span>🔧</span> Mutation Schema
+  </h2>
+
 ```graphql
 createChargeForDeposit(
   coin: String!,
@@ -17,20 +37,86 @@ createChargeForDeposit(
   cryptoType: String!
 ): CoinpaymentDepositTransaction
 ```
+</div>
 
-#### Parameters
+## Parameters
 
-- `coin` (String): The currency to make the deposit (e.g., from Coinpayment). This field is mandatory.
-- `network` (String): The type of network (e.g., ERC20, BEP20, SOL). This field is mandatory.
-- `cryptoType` (String): The type of cryptocurrency. This field is mandatory.
+<div className="grid gap-4 mt-6">
+  <div className="p-5 bg-white dark:bg-gray-950 rounded-lg border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-2">
+      <code className="text-lg font-semibold text-gray-900 dark:text-gray-100">coin</code>
+      <span className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full text-xs font-medium">Required</span>
+    </div>
+    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2"><strong>Type:</strong> String</p>
+    <p className="text-gray-700 dark:text-gray-300">The cryptocurrency to deposit (e.g., "BTC", "ETH", "USDT"). This determines which coin will be accepted for the deposit.</p>
+  </div>
 
-#### Return
+  <div className="p-5 bg-white dark:bg-gray-950 rounded-lg border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-2">
+      <code className="text-lg font-semibold text-gray-900 dark:text-gray-100">network</code>
+      <span className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full text-xs font-medium">Required</span>
+    </div>
+    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2"><strong>Type:</strong> String</p>
+    <p className="text-gray-700 dark:text-gray-300">The blockchain network to use (e.g., "ERC20", "BEP20", "SOL", "Bitcoin"). Ensure you select the correct network to avoid loss of funds.</p>
+  </div>
 
-The mutation returns a `CoinpaymentDepositTransaction` object, which includes the deposit address and other transaction details.
+  <div className="p-5 bg-white dark:bg-gray-950 rounded-lg border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-2">
+      <code className="text-lg font-semibold text-gray-900 dark:text-gray-100">cryptoType</code>
+      <span className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full text-xs font-medium">Required</span>
+    </div>
+    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2"><strong>Type:</strong> String</p>
+    <p className="text-gray-700 dark:text-gray-300">The type of cryptocurrency being deposited (e.g., "Bitcoin", "Ethereum", "Tether"). This should match the coin parameter.</p>
+  </div>
+</div>
 
-### Example Mutation
+## Return Value
 
-The following is an example of how to use the `createChargeForDeposit` mutation to create a cryptocurrency payment for a deposit into the wallet:
+<div className="mt-6 p-6 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 rounded-xl border border-gray-200 dark:border-gray-800">
+  <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-gray-100">CoinpaymentDepositTransaction</h3>
+  <p className="text-gray-700 dark:text-gray-300 mb-4">The mutation returns a <code>CoinpaymentDepositTransaction</code> object with the following fields:</p>
+
+  <div className="space-y-3">
+    <div className="flex items-start gap-3 p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <code className="text-sm font-mono text-emerald-600 dark:text-emerald-400">txnId</code>
+      <span className="text-sm text-gray-600 dark:text-gray-400">Unique transaction identifier</span>
+    </div>
+    <div className="flex items-start gap-3 p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <code className="text-sm font-mono text-emerald-600 dark:text-emerald-400">userId</code>
+      <span className="text-sm text-gray-600 dark:text-gray-400">The ID of the user making the deposit</span>
+    </div>
+    <div className="flex items-start gap-3 p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <code className="text-sm font-mono text-emerald-600 dark:text-emerald-400">coin</code>
+      <span className="text-sm text-gray-600 dark:text-gray-400">The cryptocurrency being deposited</span>
+    </div>
+    <div className="flex items-start gap-3 p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <code className="text-sm font-mono text-emerald-600 dark:text-emerald-400">network</code>
+      <span className="text-sm text-gray-600 dark:text-gray-400">The blockchain network used</span>
+    </div>
+    <div className="flex items-start gap-3 p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <code className="text-sm font-mono text-emerald-600 dark:text-emerald-400">depositAddress</code>
+      <span className="text-sm text-gray-600 dark:text-gray-400">The generated address where funds should be sent</span>
+    </div>
+    <div className="flex items-start gap-3 p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <code className="text-sm font-mono text-emerald-600 dark:text-emerald-400">status</code>
+      <span className="text-sm text-gray-600 dark:text-gray-400">Current transaction status</span>
+    </div>
+    <div className="flex items-start gap-3 p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <code className="text-sm font-mono text-emerald-600 dark:text-emerald-400">createdAt</code>
+      <span className="text-sm text-gray-600 dark:text-gray-400">Timestamp when the deposit address was created</span>
+    </div>
+    <div className="flex items-start gap-3 p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <code className="text-sm font-mono text-emerald-600 dark:text-emerald-400">updatedAt</code>
+      <span className="text-sm text-gray-600 dark:text-gray-400">Timestamp of the last update</span>
+    </div>
+  </div>
+</div>
+
+## Example Usage
+
+<Callout title="Example Mutation" type="info">
+The following example demonstrates how to create a Bitcoin deposit address on the Bitcoin network:
+</Callout>
 
 ```graphql
 mutation {
@@ -39,21 +125,130 @@ mutation {
     network: "Bitcoin",
     cryptoType: "Bitcoin"
   ) {
-    txnId,
-    userId,
-    coin,
-    network,
-    cryptoType,
-    depositAddress,
-    status,
-    createdAt,
+    txnId
+    userId
+    coin
+    network
+    cryptoType
+    depositAddress
+    status
+    createdAt
     updatedAt
   }
 }
 ```
 
-### Return
+### Example Response
 
-The example returns the `CoinpaymentDepositTransaction` object with details such as `txnId`, `userId`, `coin`, `network`, `cryptoType`, `depositAddress`, `status`, `createdAt`, and `updatedAt`.
+```json
+{
+  "data": {
+    "createChargeForDeposit": {
+      "txnId": "TXN_123456789",
+      "userId": 12345,
+      "coin": "BTC",
+      "network": "Bitcoin",
+      "cryptoType": "Bitcoin",
+      "depositAddress": "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
+      "status": "pending",
+      "createdAt": "2024-01-15T10:30:00Z",
+      "updatedAt": "2024-01-15T10:30:00Z"
+    }
+  }
+}
+```
 
-In this example, the mutation initiates a cryptocurrency payment for a deposit using Bitcoin on the Bitcoin network. The return value includes the `CoinpaymentDepositTransaction` details such as the deposit address and transaction status.
+## Use Cases
+
+<div className="grid md:grid-cols-2 gap-4 mt-6">
+  <div className="p-5 bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/20 dark:to-teal-950/20 rounded-xl border border-emerald-200 dark:border-emerald-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">🔗</div>
+    <h3 className="font-semibold text-lg mb-2 text-emerald-900 dark:text-emerald-100">Blockchain Deposits</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Enable users to deposit funds directly from their cryptocurrency wallets to the platform wallet.</p>
+  </div>
+
+  <div className="p-5 bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/20 dark:to-teal-950/20 rounded-xl border border-emerald-200 dark:border-emerald-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">🌐</div>
+    <h3 className="font-semibold text-lg mb-2 text-emerald-900 dark:text-emerald-100">Multi-Network Support</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Accept deposits across multiple blockchain networks like ERC20, BEP20, and native chains.</p>
+  </div>
+
+  <div className="p-5 bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/20 dark:to-teal-950/20 rounded-xl border border-emerald-200 dark:border-emerald-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">⚡</div>
+    <h3 className="font-semibold text-lg mb-2 text-emerald-900 dark:text-emerald-100">Instant Address Generation</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Quickly generate unique deposit addresses for each transaction to improve tracking and security.</p>
+  </div>
+
+  <div className="p-5 bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/20 dark:to-teal-950/20 rounded-xl border border-emerald-200 dark:border-emerald-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">🔐</div>
+    <h3 className="font-semibold text-lg mb-2 text-emerald-900 dark:text-emerald-100">Secure Transactions</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Leverage blockchain technology for transparent, immutable, and secure deposit transactions.</p>
+  </div>
+</div>
+
+## Network Compatibility
+
+<div className="mt-6 p-6 bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-xl border border-emerald-200 dark:border-emerald-800">
+  <h3 className="text-lg font-semibold mb-4 text-emerald-900 dark:text-emerald-100">Supported Networks</h3>
+
+  <div className="grid md:grid-cols-2 gap-3">
+    <div className="p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <div className="font-semibold text-emerald-700 dark:text-emerald-400 mb-1">ERC20</div>
+      <p className="text-sm text-gray-600 dark:text-gray-400">Ethereum-based tokens (USDT, USDC, etc.)</p>
+    </div>
+    <div className="p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <div className="font-semibold text-emerald-700 dark:text-emerald-400 mb-1">BEP20</div>
+      <p className="text-sm text-gray-600 dark:text-gray-400">Binance Smart Chain tokens</p>
+    </div>
+    <div className="p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <div className="font-semibold text-emerald-700 dark:text-emerald-400 mb-1">Bitcoin</div>
+      <p className="text-sm text-gray-600 dark:text-gray-400">Native Bitcoin blockchain</p>
+    </div>
+    <div className="p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <div className="font-semibold text-emerald-700 dark:text-emerald-400 mb-1">SOL</div>
+      <p className="text-sm text-gray-600 dark:text-gray-400">Solana blockchain network</p>
+    </div>
+  </div>
+</div>
+
+## Important Notes
+
+<Callout title="Critical Warning" type="error">
+Always verify that you're sending funds to the correct network. Sending cryptocurrency to an address on the wrong network will result in permanent loss of funds. For example, sending ERC20 USDT to a BEP20 address will cause the funds to be lost.
+</Callout>
+
+<Callout title="Confirmation Times" type="warn">
+Cryptocurrency deposits require blockchain confirmations before being credited to your wallet. Confirmation times vary by network:
+- Bitcoin: ~10-60 minutes (1-6 confirmations)
+- Ethereum: ~5-15 minutes (12-35 confirmations)
+- BSC: ~3-5 minutes (15-20 confirmations)
+- Solana: ~30 seconds (32 confirmations)
+</Callout>
+
+<div className="mt-6 p-5 bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-950/20 dark:to-teal-950/20 border-l-4 border-emerald-500 rounded-r-xl">
+  <h3 className="font-semibold text-emerald-900 dark:text-emerald-100 mb-2 flex items-center gap-2">
+    <span>💡</span> Best Practices
+  </h3>
+  <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+    <li className="flex items-start gap-2">
+      <span className="text-emerald-500 mt-1">•</span>
+      <span>Double-check the network before sending funds to avoid irreversible losses</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-emerald-500 mt-1">•</span>
+      <span>Store the deposit address and txnId for tracking purposes</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-emerald-500 mt-1">•</span>
+      <span>Display the deposit address as both text and QR code for easier copying</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-emerald-500 mt-1">•</span>
+      <span>Inform users about minimum deposit amounts and network fees</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-emerald-500 mt-1">•</span>
+      <span>Implement status polling to notify users when deposits are confirmed</span>
+    </li>
+  </ul>
+</div>

@@ -1,30 +1,81 @@
 ---
 title: Create Bank Deposit Request
+description: Initiate a bank deposit transaction for secure fiat currency deposits into your wallet
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-The `bankForDeposit` mutation allows a user to create an empty bank deposit transaction. This can be used to initiate a bank deposit request.
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-rose-500 via-pink-500 to-fuchsia-500 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10"></div>
+  <div className="relative">
+    <div className="flex items-center gap-3 mb-4">
+      <div className="p-3 bg-white/20 backdrop-blur-sm rounded-xl">
+        <span className="text-4xl">🏦</span>
+      </div>
+      <div>
+        <h1 className="text-3xl font-bold text-white mb-2">Create Bank Deposit Request</h1>
+        <p className="text-rose-50 text-lg">Initiate a bank deposit transaction for secure fiat currency deposits into your wallet</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-### Mutation: `bankForDeposit`
+## Overview
 
-#### Schema:
+The `bankForDeposit` mutation allows users to create a bank deposit request. This endpoint initiates an empty bank deposit transaction that can be later confirmed by an admin once the bank transfer is received and verified. This is a two-step process where users first create the request, then transfer funds via bank, and finally an admin confirms the deposit.
+
+<div className="mt-8 p-6 bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-950/30 dark:to-pink-950/30 rounded-xl border border-rose-200 dark:border-rose-800">
+  <h2 className="text-xl font-semibold mb-4 text-rose-900 dark:text-rose-100 flex items-center gap-2">
+    <span>🔧</span> Mutation Schema
+  </h2>
+
 ```graphql
 bankForDeposit: String
 ```
+</div>
 
-#### Parameters
+## Parameters
 
-- None
+<div className="grid gap-4 mt-6">
+  <div className="p-5 bg-white dark:bg-gray-950 rounded-lg border-l-4 border-gray-400 shadow-sm">
+    <div className="flex items-center gap-2 mb-2">
+      <span className="text-gray-500 text-lg">ℹ️</span>
+      <span className="text-lg font-semibold text-gray-900 dark:text-gray-100">No Parameters Required</span>
+    </div>
+    <p className="text-gray-700 dark:text-gray-300">This mutation does not require any input parameters. It creates an empty bank deposit transaction that will be populated with details during the admin confirmation step.</p>
+  </div>
+</div>
 
-#### Return
+## Return Value
 
-The mutation returns a string indicating the result of the bank deposit request creation.
+<div className="mt-6 p-6 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 rounded-xl border border-gray-200 dark:border-gray-800">
+  <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-gray-100">String</h3>
+  <p className="text-gray-700 dark:text-gray-300 mb-4">The mutation returns a string indicating the result of the bank deposit request creation. This typically includes:</p>
 
-### Example Mutation
+  <div className="space-y-3">
+    <div className="flex items-start gap-3 p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <span className="text-rose-500 text-xl">✓</span>
+      <div>
+        <div className="font-semibold text-rose-600 dark:text-rose-400 mb-1">Success Message</div>
+        <span className="text-sm text-gray-600 dark:text-gray-400">Confirmation that the bank deposit request was successfully created</span>
+      </div>
+    </div>
+    <div className="flex items-start gap-3 p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <span className="text-rose-500 text-xl">#</span>
+      <div>
+        <div className="font-semibold text-rose-600 dark:text-rose-400 mb-1">Transaction Reference</div>
+        <span className="text-sm text-gray-600 dark:text-gray-400">May include a transaction ID or reference number for tracking</span>
+      </div>
+    </div>
+  </div>
+</div>
 
-The following is an example of how to use the `bankForDeposit` mutation to create an empty bank deposit transaction:
+## Example Usage
+
+<Callout title="Example Mutation" type="info">
+The following example demonstrates how to create a bank deposit request:
+</Callout>
 
 ```graphql
 mutation {
@@ -32,8 +83,142 @@ mutation {
 }
 ```
 
-### Return
+### Example Response
 
-The example returns a string indicating the result of the bank deposit request creation.
+```json
+{
+  "data": {
+    "bankForDeposit": "Bank deposit request created successfully. Transaction ID: BDT_123456789"
+  }
+}
+```
 
-In this example, the mutation initiates an empty bank deposit transaction. The return value is a string that indicates whether the bank deposit request was successfully created.
+## Deposit Process Flow
+
+<div className="mt-6 p-6 bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-950/30 dark:to-pink-950/30 rounded-xl border border-rose-200 dark:border-rose-800">
+  <h3 className="text-lg font-semibold mb-4 text-rose-900 dark:text-rose-100">Step-by-Step Process</h3>
+
+  <div className="space-y-4">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center font-bold">1</div>
+      <div>
+        <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Create Deposit Request</div>
+        <p className="text-sm text-gray-600 dark:text-gray-400">User initiates a bank deposit request using this mutation</p>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center font-bold">2</div>
+      <div>
+        <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Receive Bank Details</div>
+        <p className="text-sm text-gray-600 dark:text-gray-400">System provides bank account details for the transfer</p>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center font-bold">3</div>
+      <div>
+        <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Make Bank Transfer</div>
+        <p className="text-sm text-gray-600 dark:text-gray-400">User transfers funds to the provided bank account</p>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center font-bold">4</div>
+      <div>
+        <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Admin Confirmation</div>
+        <p className="text-sm text-gray-600 dark:text-gray-400">Admin verifies the bank transfer and confirms the deposit using <code>confirmBankDeposit</code></p>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center font-bold">5</div>
+      <div>
+        <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Funds Credited</div>
+        <p className="text-sm text-gray-600 dark:text-gray-400">Upon confirmation, funds are credited to the user's wallet</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Use Cases
+
+<div className="grid md:grid-cols-2 gap-4 mt-6">
+  <div className="p-5 bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-950/20 dark:to-pink-950/20 rounded-xl border border-rose-200 dark:border-rose-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">💵</div>
+    <h3 className="font-semibold text-lg mb-2 text-rose-900 dark:text-rose-100">Fiat Deposits</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Enable users to deposit fiat currency directly from their bank accounts into the platform wallet.</p>
+  </div>
+
+  <div className="p-5 bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-950/20 dark:to-pink-950/20 rounded-xl border border-rose-200 dark:border-rose-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">🔐</div>
+    <h3 className="font-semibold text-lg mb-2 text-rose-900 dark:text-rose-100">Secure Transfers</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Utilize traditional banking infrastructure for secure, traceable fiat currency transfers.</p>
+  </div>
+
+  <div className="p-5 bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-950/20 dark:to-pink-950/20 rounded-xl border border-rose-200 dark:border-rose-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">📋</div>
+    <h3 className="font-semibold text-lg mb-2 text-rose-900 dark:text-rose-100">Compliance</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Maintain regulatory compliance with manual verification and admin approval for bank deposits.</p>
+  </div>
+
+  <div className="p-5 bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-950/20 dark:to-pink-950/20 rounded-xl border border-rose-200 dark:border-rose-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">🌍</div>
+    <h3 className="font-semibold text-lg mb-2 text-rose-900 dark:text-rose-100">Large Deposits</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Support large-value deposits through traditional wire transfers and bank channels.</p>
+  </div>
+</div>
+
+## Important Notes
+
+<Callout title="Manual Verification Required" type="warn">
+Bank deposit requests require manual verification and confirmation by an admin. This process may take several hours to a few business days depending on the bank transfer processing time and admin availability.
+</Callout>
+
+<Callout title="Next Steps" type="info">
+After creating the bank deposit request, users should receive bank account details for making the transfer. Once the transfer is completed, users should notify support or wait for the admin to verify and confirm the deposit using the `confirmBankDeposit` mutation.
+</Callout>
+
+<div className="mt-6 p-5 bg-gradient-to-r from-rose-50 to-pink-50 dark:from-rose-950/20 dark:to-pink-950/20 border-l-4 border-rose-500 rounded-r-xl">
+  <h3 className="font-semibold text-rose-900 dark:text-rose-100 mb-2 flex items-center gap-2">
+    <span>💡</span> Best Practices
+  </h3>
+  <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+    <li className="flex items-start gap-2">
+      <span className="text-rose-500 mt-1">•</span>
+      <span>Save the transaction ID returned from this mutation for future reference and tracking</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-rose-500 mt-1">•</span>
+      <span>Include the transaction ID in the bank transfer reference to facilitate faster verification</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-rose-500 mt-1">•</span>
+      <span>Keep proof of the bank transfer (receipt, screenshot) for dispute resolution if needed</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-rose-500 mt-1">•</span>
+      <span>Notify customer support after completing the bank transfer to expedite verification</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-rose-500 mt-1">•</span>
+      <span>Check the status of your deposit request periodically using the appropriate query</span>
+    </li>
+  </ul>
+</div>
+
+## Related Endpoints
+
+<div className="mt-6 grid md:grid-cols-2 gap-4">
+  <div className="p-4 bg-white dark:bg-gray-950 rounded-lg border border-gray-200 dark:border-gray-800">
+    <h4 className="font-semibold text-rose-700 dark:text-rose-400 mb-2">Confirm Bank Deposit</h4>
+    <p className="text-sm text-gray-600 dark:text-gray-400">Admin endpoint to verify and confirm bank deposit transactions</p>
+    <code className="text-xs text-gray-500 mt-2 block">confirmBankDeposit</code>
+  </div>
+
+  <div className="p-4 bg-white dark:bg-gray-950 rounded-lg border border-gray-200 dark:border-gray-800">
+    <h4 className="font-semibold text-rose-700 dark:text-rose-400 mb-2">View Deposit Status</h4>
+    <p className="text-sm text-gray-600 dark:text-gray-400">Query endpoints to check the status of bank deposit transactions</p>
+    <code className="text-xs text-gray-500 mt-2 block">getBankDepositTxnsByUser</code>
+  </div>
+</div>

@@ -1,79 +1,279 @@
 ---
-title: Sign in 2FA Check
+title: Sign In 2FA Check
+description: Complete sign-in authentication with two-factor verification code validation
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-The `confirm2FA` mutation is used to confirm the second factor of authentication for a user who has successfully completed the initial sign-in stage. This step verifies the 2FA code provided by the user.
+<div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-violet-600 via-indigo-600 to-blue-600 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="relative">
+    <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm mb-4">
+      <span className="relative flex h-2 w-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-background"></span>
+      </span>
+      2FA VERIFICATION
+    </div>
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">Sign In 2FA Check</h1>
+    <p className="text-xl text-blue-100 leading-relaxed max-w-3xl">
+      Complete the authentication process by verifying the two-factor authentication code after successful password validation.
+    </p>
+  </div>
+</div>
 
-### Mutation: `confirm2FA`
+<Callout type="info" title="Second Authentication Factor">
+  This endpoint is called **after** successful email/password sign-in. Use the token from `signin` mutation.
+</Callout>
 
-#### Schema:
+## Overview
+
+The `confirm2FA` mutation completes the sign-in process by validating the 2FA code provided by the user. This is the second step of authentication after the initial password verification.
+
+---
+
+## GraphQL Schema
+
+<div className="rounded-xl border border-violet-500/30 bg-gradient-to-br from-violet-500/10 to-indigo-500/5 p-6 mb-8">
+
 ```graphql
-confirm2FA(
-  email: String!,
-  token: String!,
-  code: [TwoFAEntry]!
-): Credentials!
-```
+mutation {
+  confirm2FA(
+    email: String!
+    token: String!
+    code: [TwoFAEntry]!
+  ): Credentials!
+}
 
-#### Input: `TwoFAEntry`
-```graphql
 input TwoFAEntry {
   key: String!
   value: String!
 }
-```
-- `key` (String): The 2FA method, such as `"app"` or `"email"`.
-- `value` (String): The 2FA code from the chosen method.
 
-#### Type: `Credentials`
-```graphql
 type Credentials {
   status: String
   token: String
 }
 ```
-- `status` (String): The status of the 2FA confirmation attempt.
-- `token` (String): The JWT token for authorization if the 2FA confirmation is successful.
 
-#### Parameters
+</div>
 
-- `email` (String): The user's email address. This field is mandatory.
-- `token` (String): The token received from the previous sign-in stage. This field is mandatory.
-- `code` ([TwoFAEntry]): A list of 2FA entries containing the method and corresponding 2FA code. This field is mandatory.
+---
 
-#### Return
+## Parameters
 
-The mutation returns an object containing the status and token.
+<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 my-6">
+  <div className="rounded-lg border border-violet-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">email</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700 dark:text-red-300">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-violet-600 dark:text-violet-400">String</span></p>
+    <p className="text-sm text-foreground">User's email address used during sign-in.</p>
+  </div>
 
-- If successful:
-  - `status`: `"Success"`
-  - `token`: The JWT token for authorization.
-- If failed:
-  - `status`: `"failed"`
-  - `token`: An error message indicating the reason for the failure:
-    - `"Password expired"`
-    - `"2FA code mismatch"`
+  <div className="rounded-lg border border-indigo-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">token</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700 dark:text-red-300">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-indigo-600 dark:text-indigo-400">String</span></p>
+    <p className="text-sm text-foreground">Temporary token received from the `signin` mutation response.</p>
+  </div>
 
-### Example Mutation
+  <div className="rounded-lg border border-blue-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">code</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700 dark:text-red-300">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-blue-600 dark:text-blue-400">[TwoFAEntry]</span></p>
+    <p className="text-sm text-foreground">Array of 2FA entries with method key and verification code value.</p>
+  </div>
+</div>
 
-The following is an example of how to use the `confirm2FA` mutation to confirm 2FA for a user:
+---
+
+## Return Values
+
+<div className="grid gap-4 my-6">
+  <div className="rounded-lg border border-green-500/30 bg-gradient-to-br from-green-500/10 to-emerald-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">✅</span>
+      <code className="bg-green-500/20 text-green-700 dark:text-green-300 px-3 py-1 rounded font-mono text-sm">Success</code>
+    </div>
+    <p className="text-sm text-foreground mb-2">
+      2FA verification successful. Returns JWT token for authenticated session.
+    </p>
+    <code className="text-xs bg-muted px-2 py-1 rounded">{`{ status: "Success", token: "jwt_token_here" }`}</code>
+  </div>
+
+  <div className="rounded-lg border border-red-500/30 bg-gradient-to-br from-red-500/10 to-rose-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">❌</span>
+      <code className="bg-red-500/20 text-red-700 dark:text-red-300 px-3 py-1 rounded font-mono text-sm">Failed</code>
+    </div>
+    <p className="text-sm text-foreground mb-2">
+      2FA code verification failed. Possible reasons in token field:
+    </p>
+    <div className="space-y-1 text-xs">
+      <div>• <code className="bg-muted px-1 py-0.5 rounded">Password expired</code> - Token from signin expired</div>
+      <div>• <code className="bg-muted px-1 py-0.5 rounded">2FA code mismatch</code> - Incorrect verification code</div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Example Usage
+
+### Successful 2FA Verification
 
 ```graphql
-mutation {
+mutation Verify2FA {
   confirm2FA(
-    email: "demouser@nyyu.io",
-    token: "prevSignInToken",
+    email: "demouser@nyyu.io"
+    token: "temp_token_from_signin"
     code: [
       { key: "app", value: "123456" }
     ]
   ) {
-    status,
+    status
     token
   }
 }
 ```
 
-In this example, the mutation attempts to confirm the 2FA for the user with the email address `arthurclark655@gmail.com`, using the token `prevSignInToken` from the previous sign-in stage, and the 2FA code `123456` for the method `app`. The return value will indicate whether the confirmation was successful and provide the JWT token for authorization, or if there was an error such as a code mismatch or expired password.
+**Response:**
+
+```json
+{
+  "data": {
+    "confirm2FA": {
+      "status": "Success",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+    }
+  }
+}
+```
+
+<Callout type="info" title="Authenticated">
+  Store the JWT token securely and use it for all subsequent API requests.
+</Callout>
+
+### Failed Verification
+
+```json
+{
+  "data": {
+    "confirm2FA": {
+      "status": "failed",
+      "token": "2FA code mismatch"
+    }
+  }
+}
+```
+
+<Callout type="error" title="Invalid Code">
+  The 2FA code is incorrect. Please check and try again.
+</Callout>
+
+---
+
+## Implementation Example
+
+<div className="rounded-xl border border-violet-500/30 bg-background p-6 my-6">
+  <h3 className="font-bold mb-4">Frontend Integration</h3>
+
+```javascript
+async function handleVerify2FA(email, tempToken, twoFACode, method) {
+  try {
+    const result = await graphqlClient.mutate({
+      mutation: gql`
+        mutation Confirm2FA($email: String!, $token: String!, $code: [TwoFAEntry]!) {
+          confirm2FA(email: $email, token: $token, code: $code) {
+            status
+            token
+          }
+        }
+      `,
+      variables: {
+        email: email,
+        token: tempToken,
+        code: [{ key: method, value: twoFACode }]
+      }
+    });
+
+    const { status, token } = result.data.confirm2FA;
+
+    if (status === "Success") {
+      // Store JWT token
+      localStorage.setItem('auth_token', token);
+      localStorage.setItem('user_email', email);
+
+      // Redirect to dashboard
+      router.push('/dashboard');
+      showSuccess("Successfully signed in!");
+
+    } else {
+      // Handle failure
+      if (token === "Password expired") {
+        showError("Session expired. Please sign in again.");
+        router.push('/signin');
+      } else if (token === "2FA code mismatch") {
+        showError("Invalid 2FA code. Please try again.");
+        clearCodeInput();
+      }
+    }
+  } catch (error) {
+    console.error("2FA verification failed:", error);
+    showError("Authentication failed. Please try again.");
+  }
+}
+```
+
+</div>
+
+---
+
+## Best Practices
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-violet-500 bg-violet-500/10 p-4">
+    <h4 className="font-bold text-violet-700 dark:text-violet-300 mb-1">⏱️ Token Expiration</h4>
+    <p className="text-sm text-violet-900 dark:text-violet-200">
+      The temporary signin token expires quickly. Complete 2FA verification promptly after signin
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-indigo-500 bg-indigo-500/10 p-4">
+    <h4 className="font-bold text-indigo-700 dark:text-indigo-300 mb-1">🔐 Secure Token Storage</h4>
+    <p className="text-sm text-indigo-900 dark:text-indigo-200">
+      Store the final JWT token securely (httpOnly cookies preferred over localStorage)
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-blue-500 bg-blue-500/10 p-4">
+    <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-1">🔄 Handle All Failures</h4>
+    <p className="text-sm text-blue-900 dark:text-blue-200">
+      Implement specific error handling for expired tokens vs incorrect codes
+    </p>
+  </div>
+</div>
+
+---
+
+## Related Operations
+
+<Cards>
+  <Card title="Sign In" href="/docs/api/registration/sign-in">
+    Initial authentication step
+  </Card>
+  <Card title="Request 2FA" href="/docs/api/registration/request-2fa">
+    Setup 2FA methods
+  </Card>
+  <Card title="Disable 2FA" href="/docs/api/registration/disable-2fa">
+    Turn off 2FA requirement
+  </Card>
+</Cards>

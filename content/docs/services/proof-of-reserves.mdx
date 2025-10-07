@@ -4,12 +4,27 @@ description: NYYU Proof of Reserves transparency report
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
-import { Card, Cards } from 'fumadocs-ui/components/card';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 
-# Proof of Reserves on NYYU
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-fuchsia-500/10 via-purple-500/10 to-background p-12 border border-fuchsia-500/20 mb-8">
+  <div className="relative z-10">
+    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-fuchsia-500/10 border border-fuchsia-500/20 mb-6">
+      <span className="text-sm font-medium text-fuchsia-400">Platform Program</span>
+    </div>
+    <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+      Proof of Reserves
+    </h1>
+    <p className="text-xl text-muted-foreground max-w-3xl">
+      Transparency and security are our top priorities. Our Proof of Reserves ensures all assets are backed 1:1.
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-fuchsia-500/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+</div>
 
-At NYYU, transparency and security are our top priorities. Our Proof of Reserves program is designed to provide our users with the assurance that all digital and fiat assets held on the platform are backed 1:1. This ensures that your assets are secure and verifiable at all times.
+<Callout type="info" title="Full Transparency">
+All digital and fiat assets held on the platform are backed 1:1 and independently verified.
+</Callout>
 
 ## What is Proof of Reserves?
 
@@ -20,40 +35,99 @@ Proof of Reserves is a process that allows NYYU to publicly demonstrate that we 
 <Steps>
 <Step>
 ### Third-Party Audits
+
 We engage reputable third-party auditing firms to conduct regular audits of our reserves. These audits verify that the total amount of assets held by NYYU matches the total amount of user assets on the platform.
+
+<div className="mt-4 p-4 rounded-lg bg-fuchsia-500/5 border border-fuchsia-500/10">
+  <div className="text-sm text-muted-foreground">
+    <strong className="text-fuchsia-400">Frequency:</strong> Quarterly audits by independent firms
+  </div>
+</div>
 </Step>
 
 <Step>
 ### Cryptographic Verification
+
 Users can independently verify that their assets are included in the total reserves through cryptographic proofs. This method ensures that individual user balances are accounted for without compromising privacy.
+
+<div className="mt-4 p-4 rounded-lg bg-purple-500/5 border border-purple-500/10">
+  <div className="text-sm text-muted-foreground">
+    <strong className="text-purple-400">Privacy Protected:</strong> Verification without exposing individual balances
+  </div>
+</div>
 </Step>
 
 <Step>
 ### Regular Reporting
+
 Audit reports and verification proofs are published regularly on our platform, providing users with up-to-date information on our reserve status.
 </Step>
-
 </Steps>
 
-## Benefits of Proof of Reserves
+## Benefits
 
-- **Transparency**: Users can verify that their assets are fully backed and secure.
-- **Security**: Regular audits and cryptographic proofs ensure the integrity and security of user assets.
-- **Trust**: By providing verifiable proof of reserves, NYYU builds trust with its users, ensuring confidence in our platform.
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+  <div className="text-center p-6 rounded-xl border border-fuchsia-500/20 bg-gradient-to-b from-fuchsia-500/5 to-background">
+    <div className="text-4xl mb-4">🔍</div>
+    <div className="font-bold text-lg mb-2">Transparency</div>
+    <div className="text-sm text-muted-foreground">
+      Users can verify that their assets are fully backed and secure
+    </div>
+  </div>
+
+  <div className="text-center p-6 rounded-xl border border-purple-500/20 bg-gradient-to-b from-purple-500/5 to-background">
+    <div className="text-4xl mb-4">🛡️</div>
+    <div className="font-bold text-lg mb-2">Security</div>
+    <div className="text-sm text-muted-foreground">
+      Regular audits and cryptographic proofs ensure asset integrity
+    </div>
+  </div>
+
+  <div className="text-center p-6 rounded-xl border border-pink-500/20 bg-gradient-to-b from-pink-500/5 to-background">
+    <div className="text-4xl mb-4">🤝</div>
+    <div className="font-bold text-lg mb-2">Trust</div>
+    <div className="text-sm text-muted-foreground">
+      Verifiable proof builds confidence in our platform
+    </div>
+  </div>
+</div>
 
 ## Audit Reports
 
-Our latest audit reports and cryptographic verification proofs are available for public review. You can access these documents through the links below:
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+  <a href="https://nyyu.io/audit-report" className="group p-6 rounded-xl border border-fuchsia-500/20 bg-gradient-to-br from-fuchsia-500/5 to-background hover:from-fuchsia-500/10 hover:to-background transition-all">
+    <div className="flex items-center justify-between mb-4">
+      <div className="text-3xl">📄</div>
+      <svg className="w-5 h-5 text-fuchsia-400 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+      </svg>
+    </div>
+    <div className="font-bold text-lg mb-2">Latest Audit Report</div>
+    <div className="text-sm text-muted-foreground">
+      View the most recent third-party audit report (PDF)
+    </div>
+  </a>
 
-- [Latest Audit Report (PDF)](https://nyyu.io/audit-report)
-- [Cryptographic Verification Proofs](https://nyyu.io/verification-proofs)
+  <a href="https://nyyu.io/verification-proofs" className="group p-6 rounded-xl border border-purple-500/20 bg-gradient-to-br from-purple-500/5 to-background hover:from-purple-500/10 hover:to-background transition-all">
+    <div className="flex items-center justify-between mb-4">
+      <div className="text-3xl">🔐</div>
+      <svg className="w-5 h-5 text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+      </svg>
+    </div>
+    <div className="font-bold text-lg mb-2">Verification Proofs</div>
+    <div className="text-sm text-muted-foreground">
+      Access cryptographic verification tools and proofs
+    </div>
+  </a>
+</div>
 
 ## How to Verify Your Assets
 
 <Steps>
 <Step>
 ### Log in to Your Account
-Access your NYYU account.
+Access your NYYU account through the secure platform.
 </Step>
 
 <Step>
@@ -66,5 +140,29 @@ Go to the Proof of Reserves section in your account settings.
 Check your current asset balance and the corresponding cryptographic proof.
 </Step>
 
+<Step>
+### Verify
+Use the provided cryptographic tools to verify that your assets are included in the total reserves.
+</Step>
 </Steps>
-4. **Verify**: Use the provided cryptographic tools to verify that your assets are included in the total reserves.
+
+<div className="mt-12 p-8 rounded-2xl border border-fuchsia-500/20 bg-gradient-to-br from-fuchsia-500/10 via-purple-500/5 to-background relative overflow-hidden">
+  <div className="relative z-10">
+    <div className="flex items-start gap-4">
+      <div className="text-4xl">🔒</div>
+      <div className="flex-1">
+        <div className="font-bold text-xl mb-2">Your Assets Are Safe</div>
+        <div className="text-muted-foreground mb-4">
+          NYYU is committed to maintaining full reserves and providing transparent, verifiable proof to all users. Our quarterly audits and real-time verification tools ensure your assets are always accounted for.
+        </div>
+        <a href="https://nyyu.io/verify" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-fuchsia-500/10 border border-fuchsia-500/30 text-fuchsia-400 hover:bg-fuchsia-500/20 transition-all font-medium">
+          Verify Your Assets
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div className="absolute top-0 right-0 w-48 h-48 bg-fuchsia-500/10 rounded-full blur-3xl"></div>
+</div>

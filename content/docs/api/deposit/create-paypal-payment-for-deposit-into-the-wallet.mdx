@@ -1,15 +1,35 @@
 ---
 title: Create PayPal Payment for Deposit Into the Wallet
+description: Initiate a PayPal payment transaction to deposit funds into your wallet with secure order processing
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-The `paypalForDeposit` mutation allows a user to create a PayPal payment for a deposit into their wallet. It returns an order response with details needed to proceed with the PayPal checkout.
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-500 via-orange-500 to-red-500 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10"></div>
+  <div className="relative">
+    <div className="flex items-center gap-3 mb-4">
+      <div className="p-3 bg-white/20 backdrop-blur-sm rounded-xl">
+        <span className="text-4xl">💳</span>
+      </div>
+      <div>
+        <h1 className="text-3xl font-bold text-white mb-2">Create PayPal Payment for Deposit</h1>
+        <p className="text-amber-50 text-lg">Initiate a PayPal payment transaction to deposit funds into your wallet with secure order processing</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-### Mutation: `paypalForDeposit`
+## Overview
 
-#### Schema:
+The `paypalForDeposit` mutation allows users to create a PayPal payment for depositing funds into their wallet. This endpoint initiates a PayPal checkout session and returns the order details needed to complete the payment process. Once the PayPal order is created, users are redirected to PayPal to complete the payment.
+
+<div className="mt-8 p-6 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-xl border border-amber-200 dark:border-amber-800">
+  <h2 className="text-xl font-semibold mb-4 text-amber-900 dark:text-amber-100 flex items-center gap-2">
+    <span>🔧</span> Mutation Schema
+  </h2>
+
 ```graphql
 paypalForDeposit(
   amount: Float!,
@@ -17,20 +37,62 @@ paypalForDeposit(
   cryptoType: String!
 ): OrderResponseDTO
 ```
+</div>
 
-#### Parameters
+## Parameters
 
-- `amount` (Float): The amount to deposit. This field is mandatory.
-- `currencyCode` (String): The type of currency (fiat) for the deposit. This field is mandatory.
-- `cryptoType` (String): The type of cryptocurrency (e.g., USDT) as a default value (currently not functional). This field is mandatory.
+<div className="grid gap-4 mt-6">
+  <div className="p-5 bg-white dark:bg-gray-950 rounded-lg border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-2">
+      <code className="text-lg font-semibold text-gray-900 dark:text-gray-100">amount</code>
+      <span className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full text-xs font-medium">Required</span>
+    </div>
+    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2"><strong>Type:</strong> Float</p>
+    <p className="text-gray-700 dark:text-gray-300">The amount to deposit into the wallet. Must be a positive number representing the deposit value in the specified currency.</p>
+  </div>
 
-#### Return
+  <div className="p-5 bg-white dark:bg-gray-950 rounded-lg border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-2">
+      <code className="text-lg font-semibold text-gray-900 dark:text-gray-100">currencyCode</code>
+      <span className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full text-xs font-medium">Required</span>
+    </div>
+    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2"><strong>Type:</strong> String</p>
+    <p className="text-gray-700 dark:text-gray-300">The fiat currency code for the deposit (e.g., "USD", "EUR", "GBP"). This determines the currency that will be charged via PayPal.</p>
+  </div>
 
-The mutation returns an `OrderResponseDTO` object, which includes details needed to proceed with the PayPal checkout.
+  <div className="p-5 bg-white dark:bg-gray-950 rounded-lg border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-2">
+      <code className="text-lg font-semibold text-gray-900 dark:text-gray-100">cryptoType</code>
+      <span className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full text-xs font-medium">Required</span>
+    </div>
+    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2"><strong>Type:</strong> String</p>
+    <p className="text-gray-700 dark:text-gray-300">The type of cryptocurrency to be credited to the wallet (e.g., "USDT"). Note: This is currently a placeholder and may not be functional.</p>
+  </div>
+</div>
 
-### Example Mutation
+## Return Value
 
-The following is an example of how to use the `paypalForDeposit` mutation to create a PayPal payment for a deposit into the wallet:
+<div className="mt-6 p-6 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 rounded-xl border border-gray-200 dark:border-gray-800">
+  <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-gray-100">OrderResponseDTO</h3>
+  <p className="text-gray-700 dark:text-gray-300 mb-4">The mutation returns an <code>OrderResponseDTO</code> object containing the PayPal order details:</p>
+
+  <div className="space-y-3">
+    <div className="flex items-start gap-3 p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <code className="text-sm font-mono text-amber-600 dark:text-amber-400">orderId</code>
+      <span className="text-sm text-gray-600 dark:text-gray-400">The unique PayPal order identifier</span>
+    </div>
+    <div className="flex items-start gap-3 p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <code className="text-sm font-mono text-amber-600 dark:text-amber-400">redirectUrl</code>
+      <span className="text-sm text-gray-600 dark:text-gray-400">The PayPal checkout URL where users complete the payment</span>
+    </div>
+  </div>
+</div>
+
+## Example Usage
+
+<Callout title="Example Mutation" type="info">
+The following example demonstrates how to create a PayPal payment for depositing $100 USD into the wallet:
+</Callout>
 
 ```graphql
 mutation {
@@ -39,14 +101,79 @@ mutation {
     currencyCode: "USD",
     cryptoType: "USDT"
   ) {
-    orderId,
+    orderId
     redirectUrl
   }
 }
 ```
 
-### Return
+### Example Response
 
-The example returns the `OrderResponseDTO` object with details such as `orderId` and `redirectUrl`.
+```json
+{
+  "data": {
+    "paypalForDeposit": {
+      "orderId": "8VH12345ABC67890",
+      "redirectUrl": "https://www.paypal.com/checkoutnow?token=8VH12345ABC67890"
+    }
+  }
+}
+```
 
-In this example, the mutation initiates a PayPal payment for a deposit of `100.0` USD. The return value includes the `OrderResponseDTO` details such as `orderId` and `redirectUrl`, which can be used to proceed with the PayPal checkout.
+## Use Cases
+
+<div className="grid md:grid-cols-2 gap-4 mt-6">
+  <div className="p-5 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20 rounded-xl border border-amber-200 dark:border-amber-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">💰</div>
+    <h3 className="font-semibold text-lg mb-2 text-amber-900 dark:text-amber-100">Wallet Funding</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Enable users to quickly add funds to their wallet balance using PayPal for trading or purchases.</p>
+  </div>
+
+  <div className="p-5 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20 rounded-xl border border-amber-200 dark:border-amber-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">🔒</div>
+    <h3 className="font-semibold text-lg mb-2 text-amber-900 dark:text-amber-100">Secure Payments</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Leverage PayPal's secure payment infrastructure for safe and reliable deposit transactions.</p>
+  </div>
+
+  <div className="p-5 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20 rounded-xl border border-amber-200 dark:border-amber-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">🌍</div>
+    <h3 className="font-semibold text-lg mb-2 text-amber-900 dark:text-amber-100">International Deposits</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Accept deposits in multiple currencies from users worldwide through PayPal's global network.</p>
+  </div>
+
+  <div className="p-5 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20 rounded-xl border border-amber-200 dark:border-amber-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">⚡</div>
+    <h3 className="font-semibold text-lg mb-2 text-amber-900 dark:text-amber-100">Quick Checkout</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Streamline the deposit process with PayPal's one-click checkout for returning users.</p>
+  </div>
+</div>
+
+## Important Notes
+
+<Callout title="Payment Flow" type="warn">
+After creating the PayPal order, you must redirect the user to the `redirectUrl` to complete the payment. Once the payment is completed, use the `captureOrderForDeposit` mutation to finalize the transaction and credit the user's wallet.
+</Callout>
+
+<div className="mt-6 p-5 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20 border-l-4 border-amber-500 rounded-r-xl">
+  <h3 className="font-semibold text-amber-900 dark:text-amber-100 mb-2 flex items-center gap-2">
+    <span>💡</span> Best Practices
+  </h3>
+  <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+    <li className="flex items-start gap-2">
+      <span className="text-amber-500 mt-1">•</span>
+      <span>Validate the amount before creating the PayPal order to ensure it meets minimum deposit requirements</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-amber-500 mt-1">•</span>
+      <span>Store the orderId for tracking and reconciliation purposes</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-amber-500 mt-1">•</span>
+      <span>Handle redirect errors gracefully if the user cancels the PayPal checkout</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-amber-500 mt-1">•</span>
+      <span>Implement timeout handling for cases where users don't complete the PayPal checkout</span>
+    </li>
+  </ul>
+</div>

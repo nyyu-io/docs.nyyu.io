@@ -1,15 +1,16 @@
 {
   "title": "Withdraw",
   "pages": [
-    "Approve Fiat Withdrawal Request",
-    "Change Withdrawal Request Show Status",
-    "Confirm Crypto Withdrawal Request",
-    "Confirm PayPal Withdrawal Request",
-    "Crypto Withdrawal Request",
-    "Deny Bank Withdrawal Request",
-    "Fiat Withdrawal Request",
-    "Generate Withdraw Code",
-    "PayPal Withdraw Request",
-    "Send Withdraw Confirmation Code"
+    "withdraw-summary",
+    "generate-withdraw-code",
+    "crypto-withdrawal-request",
+    "fiat-withdrawal-request",
+    "paypal-withdraw-request",
+    "change-withdrawal-request-show-status",
+    "send-withdraw-confirmation-code",
+    "confirm-crypto-withdrawal-request",
+    "confirm-paypal-withdrawal-request",
+    "approve-fiat-withdrawal-request",
+    "deny-bank-withdrawal-request"
   ]
 }

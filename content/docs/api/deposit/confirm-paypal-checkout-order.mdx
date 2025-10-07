@@ -1,43 +1,284 @@
 ---
 title: Confirm PayPal Checkout Order
+description: Complete and verify PayPal payment orders to credit deposited funds into user wallets
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-The `captureOrderForDeposit` mutation allows a user to confirm a PayPal payment for a deposit into their wallet. The backend will verify the payment and, if successful, add the balance to the user's internal wallet.
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-cyan-500 via-blue-500 to-indigo-500 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10"></div>
+  <div className="relative">
+    <div className="flex items-center gap-3 mb-4">
+      <div className="p-3 bg-white/20 backdrop-blur-sm rounded-xl">
+        <span className="text-4xl">✅</span>
+      </div>
+      <div>
+        <h1 className="text-3xl font-bold text-white mb-2">Confirm PayPal Checkout Order</h1>
+        <p className="text-cyan-50 text-lg">Complete and verify PayPal payment orders to credit deposited funds into user wallets</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-### Mutation: `captureOrderForDeposit`
+## Overview
 
-#### Schema:
+The `captureOrderForDeposit` mutation allows users to confirm and finalize a PayPal payment for their wallet deposit. After creating a PayPal order using `paypalForDeposit` and completing the checkout on PayPal's platform, this endpoint verifies the payment with PayPal and credits the corresponding funds to the user's internal wallet balance.
+
+<div className="mt-8 p-6 bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-950/30 dark:to-blue-950/30 rounded-xl border border-cyan-200 dark:border-cyan-800">
+  <h2 className="text-xl font-semibold mb-4 text-cyan-900 dark:text-cyan-100 flex items-center gap-2">
+    <span>🔧</span> Mutation Schema
+  </h2>
+
 ```graphql
 captureOrderForDeposit(
   orderId: String!
 ): Boolean
 ```
+</div>
 
-#### Parameters
+## Parameters
 
-- `orderId` (String): The PayPal checkout order ID. This field is mandatory.
+<div className="grid gap-4 mt-6">
+  <div className="p-5 bg-white dark:bg-gray-950 rounded-lg border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-2">
+      <code className="text-lg font-semibold text-gray-900 dark:text-gray-100">orderId</code>
+      <span className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full text-xs font-medium">Required</span>
+    </div>
+    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2"><strong>Type:</strong> String</p>
+    <p className="text-gray-700 dark:text-gray-300">The PayPal checkout order ID that was returned from the `paypalForDeposit` mutation. This ID is used to verify and capture the payment from PayPal.</p>
+  </div>
+</div>
 
-#### Return
+## Return Value
 
-The mutation returns a `Boolean` indicating whether the PayPal order was successfully captured and the balance was added to the internal wallet.
+<div className="mt-6 p-6 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 rounded-xl border border-gray-200 dark:border-gray-800">
+  <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-gray-100">Boolean</h3>
+  <p className="text-gray-700 dark:text-gray-300 mb-4">The mutation returns a boolean value indicating the success or failure of the operation:</p>
 
-### Example Mutation
+  <div className="space-y-3">
+    <div className="flex items-start gap-3 p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <span className="text-green-500 text-2xl">✓</span>
+      <div>
+        <div className="font-semibold text-cyan-600 dark:text-cyan-400 mb-1">true</div>
+        <span className="text-sm text-gray-600 dark:text-gray-400">The PayPal order was successfully captured, verified, and the balance was added to the user's wallet</span>
+      </div>
+    </div>
+    <div className="flex items-start gap-3 p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <span className="text-red-500 text-2xl">✗</span>
+      <div>
+        <div className="font-semibold text-cyan-600 dark:text-cyan-400 mb-1">false</div>
+        <span className="text-sm text-gray-600 dark:text-gray-400">The PayPal order could not be captured (e.g., payment failed, order already captured, or invalid order ID)</span>
+      </div>
+    </div>
+  </div>
+</div>
 
-The following is an example of how to use the `captureOrderForDeposit` mutation to confirm a PayPal payment for a deposit:
+## Example Usage
+
+<Callout title="Example Mutation" type="info">
+The following example demonstrates how to confirm a PayPal payment order after the user completes checkout:
+</Callout>
 
 ```graphql
 mutation {
   captureOrderForDeposit(
-    orderId: "PAYPAL_ORDER_ID"
+    orderId: "8VH12345ABC67890"
   )
 }
 ```
 
-### Return
+### Example Responses
 
-The example returns `true` if the PayPal order was successfully captured and the balance was added to the internal wallet, or `false` otherwise.
+**Successful Capture:**
+```json
+{
+  "data": {
+    "captureOrderForDeposit": true
+  }
+}
+```
 
-In this example, the mutation captures the PayPal order with the ID `PAYPAL_ORDER_ID`. The backend will check if the payment has been processed successfully. If successful, the balance will be added to the user's internal wallet.
+**Failed Capture:**
+```json
+{
+  "data": {
+    "captureOrderForDeposit": false
+  }
+}
+```
+
+## Payment Flow
+
+<div className="mt-6 p-6 bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-950/30 dark:to-blue-950/30 rounded-xl border border-cyan-200 dark:border-cyan-800">
+  <h3 className="text-lg font-semibold mb-4 text-cyan-900 dark:text-cyan-100">Complete PayPal Deposit Process</h3>
+
+  <div className="space-y-4">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-8 h-8 bg-cyan-500 text-white rounded-full flex items-center justify-center font-bold">1</div>
+      <div>
+        <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Create PayPal Order</div>
+        <p className="text-sm text-gray-600 dark:text-gray-400">Call <code>paypalForDeposit</code> to initiate a deposit and receive the order ID and redirect URL</p>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-8 h-8 bg-cyan-500 text-white rounded-full flex items-center justify-center font-bold">2</div>
+      <div>
+        <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Redirect to PayPal</div>
+        <p className="text-sm text-gray-600 dark:text-gray-400">Send the user to PayPal's checkout page using the provided redirect URL</p>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-8 h-8 bg-cyan-500 text-white rounded-full flex items-center justify-center font-bold">3</div>
+      <div>
+        <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">User Completes Payment</div>
+        <p className="text-sm text-gray-600 dark:text-gray-400">User logs into PayPal and authorizes the payment</p>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-8 h-8 bg-cyan-500 text-white rounded-full flex items-center justify-center font-bold">4</div>
+      <div>
+        <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Return to Application</div>
+        <p className="text-sm text-gray-600 dark:text-gray-400">PayPal redirects the user back to your application with the order ID</p>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-8 h-8 bg-cyan-500 text-white rounded-full flex items-center justify-center font-bold">5</div>
+      <div>
+        <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Capture Order</div>
+        <p className="text-sm text-gray-600 dark:text-gray-400">Call <code>captureOrderForDeposit</code> with the order ID to verify and complete the transaction</p>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-8 h-8 bg-cyan-500 text-white rounded-full flex items-center justify-center font-bold">6</div>
+      <div>
+        <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Funds Credited</div>
+        <p className="text-sm text-gray-600 dark:text-gray-400">If successful, the deposit amount is immediately added to the user's wallet balance</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Use Cases
+
+<div className="grid md:grid-cols-2 gap-4 mt-6">
+  <div className="p-5 bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-950/20 dark:to-blue-950/20 rounded-xl border border-cyan-200 dark:border-cyan-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">💸</div>
+    <h3 className="font-semibold text-lg mb-2 text-cyan-900 dark:text-cyan-100">Payment Verification</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Verify that PayPal payments were successfully completed before crediting user wallets.</p>
+  </div>
+
+  <div className="p-5 bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-950/20 dark:to-blue-950/20 rounded-xl border border-cyan-200 dark:border-cyan-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">⚡</div>
+    <h3 className="font-semibold text-lg mb-2 text-cyan-900 dark:text-cyan-100">Instant Deposits</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Enable real-time wallet funding with immediate balance updates upon successful payment capture.</p>
+  </div>
+
+  <div className="p-5 bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-950/20 dark:to-blue-950/20 rounded-xl border border-cyan-200 dark:border-cyan-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">🔄</div>
+    <h3 className="font-semibold text-lg mb-2 text-cyan-900 dark:text-cyan-100">Transaction Reconciliation</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Match PayPal transactions with internal deposit records for accurate financial tracking.</p>
+  </div>
+
+  <div className="p-5 bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-950/20 dark:to-blue-950/20 rounded-xl border border-cyan-200 dark:border-cyan-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">🛡️</div>
+    <h3 className="font-semibold text-lg mb-2 text-cyan-900 dark:text-cyan-100">Fraud Prevention</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Validate payment authenticity through PayPal's verification system before updating balances.</p>
+  </div>
+</div>
+
+## Important Notes
+
+<Callout title="Order Capture Timing" type="warn">
+PayPal orders should be captured within 3 hours of creation. Orders that are not captured within this timeframe may expire and require the user to create a new payment order.
+</Callout>
+
+<Callout title="Idempotency" type="info">
+This mutation is idempotent - calling it multiple times with the same order ID will not result in duplicate credits. PayPal ensures each order can only be captured once.
+</Callout>
+
+<Callout title="Error Handling" type="error">
+If the mutation returns `false`, check the following potential issues:
+- The order ID is invalid or doesn't exist
+- The PayPal order has already been captured
+- The user cancelled the payment on PayPal
+- The payment was declined by PayPal or the user's payment method
+- Network connectivity issues with PayPal's API
+</Callout>
+
+## Response Handling
+
+<div className="mt-6 p-6 bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-950/30 dark:to-blue-950/30 rounded-xl border border-cyan-200 dark:border-cyan-800">
+  <h3 className="text-lg font-semibold mb-4 text-cyan-900 dark:text-cyan-100">Recommended Implementation</h3>
+
+  <div className="space-y-3">
+    <div className="p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Success (true)</div>
+      <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-1 ml-4">
+        <li>• Show success message to the user</li>
+        <li>• Update the wallet balance display</li>
+        <li>• Redirect to wallet or dashboard page</li>
+        <li>• Send confirmation email/notification</li>
+      </ul>
+    </div>
+
+    <div className="p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Failure (false)</div>
+      <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-1 ml-4">
+        <li>• Display error message explaining the issue</li>
+        <li>• Offer to retry or create a new payment</li>
+        <li>• Log the error for support investigation</li>
+        <li>• Provide contact information for support</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div className="mt-6 p-5 bg-gradient-to-r from-cyan-50 to-blue-50 dark:from-cyan-950/20 dark:to-blue-950/20 border-l-4 border-cyan-500 rounded-r-xl">
+  <h3 className="font-semibold text-cyan-900 dark:text-cyan-100 mb-2 flex items-center gap-2">
+    <span>💡</span> Best Practices
+  </h3>
+  <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+    <li className="flex items-start gap-2">
+      <span className="text-cyan-500 mt-1">•</span>
+      <span>Call this mutation immediately after the user returns from PayPal to provide instant feedback</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-cyan-500 mt-1">•</span>
+      <span>Implement a loading state while the capture is being processed to improve UX</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-cyan-500 mt-1">•</span>
+      <span>Store the order ID in session storage to handle page refreshes during the payment flow</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-cyan-500 mt-1">•</span>
+      <span>Provide clear error messages and recovery options if the capture fails</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-cyan-500 mt-1">•</span>
+      <span>Log all capture attempts for auditing and troubleshooting purposes</span>
+    </li>
+  </ul>
+</div>
+
+## Related Endpoints
+
+<div className="mt-6 grid md:grid-cols-2 gap-4">
+  <div className="p-4 bg-white dark:bg-gray-950 rounded-lg border border-gray-200 dark:border-gray-800">
+    <h4 className="font-semibold text-cyan-700 dark:text-cyan-400 mb-2">Create PayPal Payment</h4>
+    <p className="text-sm text-gray-600 dark:text-gray-400">Initiate a PayPal deposit and obtain the order ID</p>
+    <code className="text-xs text-gray-500 mt-2 block">paypalForDeposit</code>
+  </div>
+
+  <div className="p-4 bg-white dark:bg-gray-950 rounded-lg border border-gray-200 dark:border-gray-800">
+    <h4 className="font-semibold text-cyan-700 dark:text-cyan-400 mb-2">View PayPal Transactions</h4>
+    <p className="text-sm text-gray-600 dark:text-gray-400">Query PayPal deposit transaction history</p>
+    <code className="text-xs text-gray-500 mt-2 block">getPaypalDepositTxnsByUser</code>
+  </div>
+</div>

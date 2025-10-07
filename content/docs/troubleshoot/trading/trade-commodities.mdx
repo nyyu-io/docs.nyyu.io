@@ -1,46 +1,607 @@
 ---
 title: Trading Commodities
-description: Physical commodities vs futures contracts
+description: Understanding physical commodities vs futures contracts on NYYU
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-500/10 via-orange-500/5 to-background p-8 border border-amber-500/20 mb-8">
+  <div className="relative z-10">
+    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-sm font-medium mb-4">
+      <span>📈</span>
+      <span>Commodities Trading</span>
+    </div>
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Can I Trade Physical Commodities or Only Futures?
+    </h1>
+    <p className="text-xl text-muted-foreground">
+      Explore NYYU's diverse commodity trading options including both physical assets and futures contracts
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl"></div>
+</div>
 
-# Can I trade physical commodities or only futures contracts?
+## Quick Answer
 
-At **NYYU**, we offer a diverse range of commodities for trading, including both physical commodities and futures contracts. Investors can choose the approach that fits their preferences and risk tolerance, providing flexibility in their investment strategies.
+<div className="rounded-xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-orange-500/5 p-6 my-6">
+  <div className="flex gap-4">
+    <div className="flex-shrink-0 text-3xl">💡</div>
+    <div>
+      <div className="font-bold text-lg mb-2">TL;DR - Trading Options</div>
+      <div className="text-muted-foreground">
+        At NYYU, we offer <strong>both physical commodities and futures contracts</strong> for trading. You can choose the approach that fits your investment strategy and risk tolerance. Physical commodities provide <strong>direct ownership</strong> of assets, while futures contracts offer <strong>high liquidity and leverage opportunities</strong> without owning the underlying assets.
+      </div>
+    </div>
+  </div>
+</div>
 
-<Callout type="info">
-Choose between physical commodities or futures contracts based on your investment strategy!
-</Callout>
+## Understanding Your Options
 
-<Tabs items={['Physical Commodities', 'Futures Contracts']}>
-<Tab value="Physical Commodities">
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+  <div className="p-6 rounded-xl border border-border bg-gradient-to-br from-amber-500/10 to-transparent">
+    <div className="flex items-center gap-3 mb-4">
+      <span className="text-3xl">🏆</span>
+      <div>
+        <h3 className="text-xl font-bold">Physical Commodities</h3>
+        <p className="text-sm text-muted-foreground">Own the actual assets</p>
+      </div>
+    </div>
+    <div className="text-sm text-muted-foreground">
+      Trade and own tangible physical assets directly. This approach provides actual ownership of commodities like precious metals, agricultural products, or energy resources.
+    </div>
+  </div>
 
-## Trading Physical Commodities
+  <div className="p-6 rounded-xl border border-border bg-gradient-to-br from-orange-500/10 to-transparent">
+    <div className="flex items-center gap-3 mb-4">
+      <span className="text-3xl">📊</span>
+      <div>
+        <h3 className="text-xl font-bold">Futures Contracts</h3>
+        <p className="text-sm text-muted-foreground">Trade price movements</p>
+      </div>
+    </div>
+    <div className="text-sm text-muted-foreground">
+      Engage in futures trading to speculate on commodity price changes without owning the physical assets. Perfect for traders seeking liquidity and leverage.
+    </div>
+  </div>
+</div>
 
-If you're interested in trading physical commodities, we've got you covered. You can buy and sell these commodities directly on our platform, giving you ownership of the underlying assets.
+## Physical Commodities Trading
 
-<Cards>
-<Card title="Direct Ownership" description="Own the actual physical assets" />
-<Card title="Tangible Investment" description="Invest in real, physical commodities" />
-<Card title="No Expiration" description="Hold assets without contract expiration dates" />
-</Cards>
+<Tabs items={['Overview', 'Available Commodities', 'How to Trade', 'Storage & Delivery']}>
+<Tab value="Overview">
+
+### Trading Physical Commodities on NYYU
+
+<div className="my-4">
+  <p className="text-sm text-muted-foreground mb-4">
+    Physical commodity trading allows you to buy and sell actual tangible assets on our platform. You gain ownership of the underlying commodities and can hold them as long-term investments or trade them based on market conditions.
+  </p>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="p-5 rounded-lg border border-green-500/20 bg-gradient-to-br from-green-500/5 to-transparent">
+      <div className="font-bold mb-2 flex items-center gap-2 text-green-400">
+        <span>✓</span>
+        <span>Advantages</span>
+      </div>
+      <ul className="text-sm text-muted-foreground space-y-2">
+        <li>• Direct ownership of physical assets</li>
+        <li>• No expiration dates or rollover costs</li>
+        <li>• Tangible investment with intrinsic value</li>
+        <li>• Protection against currency devaluation</li>
+        <li>• Option for physical delivery</li>
+      </ul>
+    </div>
+
+    <div className="p-5 rounded-lg border border-amber-500/20 bg-gradient-to-br from-amber-500/5 to-transparent">
+      <div className="font-bold mb-2 flex items-center gap-2 text-amber-400">
+        <span>⚠</span>
+        <span>Considerations</span>
+      </div>
+      <ul className="text-sm text-muted-foreground space-y-2">
+        <li>• Storage and insurance costs</li>
+        <li>• Lower liquidity than futures</li>
+        <li>• Wider bid-ask spreads</li>
+        <li>• Delivery logistics for physical settlement</li>
+        <li>• Minimum purchase quantities</li>
+      </ul>
+    </div>
+  </div>
+</div>
 
 </Tab>
-<Tab value="Futures Contracts">
+<Tab value="Available Commodities">
 
-## Trading Futures Contracts
-
-In addition to physical commodities, we also offer futures contracts for trading. Futures contracts are financial tools that let investors bet on commodity price changes without owning the actual assets.
+### Available Physical Commodities
 
 <Cards>
-<Card title="High Liquidity" description="Trade with ease in liquid markets" />
-<Card title="Leverage Opportunities" description="Use leverage to amplify your positions" />
-<Card title="Hedging Capability" description="Hedge against price fluctuations" />
+  <Card
+    title="💎 Precious Metals"
+    description="Gold, Silver, Platinum, Palladium - Store of value and industrial uses"
+  />
+  <Card
+    title="⚡ Energy Resources"
+    description="Crude Oil, Natural Gas, Coal - Essential energy commodities"
+  />
+  <Card
+    title="🌾 Agricultural Products"
+    description="Wheat, Corn, Soybeans, Coffee - Food and agricultural commodities"
+  />
+  <Card
+    title="🏭 Industrial Metals"
+    description="Copper, Aluminum, Nickel - Metals used in manufacturing and construction"
+  />
 </Cards>
+
+<Callout type="info" className="mt-4">
+  Availability varies by jurisdiction and may be subject to regulatory requirements. Check your account dashboard for commodities available in your region.
+</Callout>
+
+</Tab>
+<Tab value="How to Trade">
+
+### Step-by-Step Trading Process
+
+<div className="space-y-4 my-4">
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center font-bold text-amber-400">
+        1
+      </div>
+      <div className="flex-1">
+        <div className="font-bold mb-2">Select Your Commodity</div>
+        <div className="text-sm text-muted-foreground">
+          Navigate to the Commodities Trading section and browse available physical commodities. Review current market prices, historical charts, and market analysis.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center font-bold text-amber-400">
+        2
+      </div>
+      <div className="flex-1">
+        <div className="font-bold mb-2">Choose Your Order Type</div>
+        <div className="text-sm text-muted-foreground mb-2">
+          Select from available order types:
+        </div>
+        <ul className="text-sm text-muted-foreground space-y-1">
+          <li>• <strong>Market Order:</strong> Buy/sell immediately at current price</li>
+          <li>• <strong>Limit Order:</strong> Set your desired price point</li>
+          <li>• <strong>Stop Order:</strong> Trigger order at specific price level</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center font-bold text-amber-400">
+        3
+      </div>
+      <div className="flex-1">
+        <div className="font-bold mb-2">Specify Quantity & Settlement</div>
+        <div className="text-sm text-muted-foreground">
+          Enter the quantity you wish to purchase (subject to minimum lots) and choose between vault storage or physical delivery.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center font-bold text-amber-400">
+        4
+      </div>
+      <div className="flex-1">
+        <div className="font-bold mb-2">Execute & Settle</div>
+        <div className="text-sm text-muted-foreground">
+          Confirm your order details and execute. Settlement typically occurs T+2 (two business days). You'll receive confirmation and ownership documentation.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</Tab>
+<Tab value="Storage & Delivery">
+
+### Storage and Physical Delivery Options
+
+<div className="space-y-4 my-4">
+  <div className="rounded-lg border border-amber-500/20 bg-gradient-to-br from-amber-500/5 to-transparent p-5">
+    <div className="font-bold mb-3">🏦 Vault Storage</div>
+    <div className="text-sm text-muted-foreground mb-3">
+      NYYU partners with certified storage facilities for secure commodity storage:
+    </div>
+    <ul className="text-sm text-muted-foreground space-y-1">
+      <li>• Insured, secure vault storage</li>
+      <li>• Competitive storage fees (typically 0.15-0.50% annually)</li>
+      <li>• Easy to sell without physical movement</li>
+      <li>• Regular audits and certifications</li>
+      <li>• Available for precious metals and select commodities</li>
+    </ul>
+  </div>
+
+  <div className="rounded-lg border border-amber-500/20 bg-gradient-to-br from-amber-500/5 to-transparent p-5">
+    <div className="font-bold mb-3">📦 Physical Delivery</div>
+    <div className="text-sm text-muted-foreground mb-3">
+      Request physical delivery of your commodities:
+    </div>
+    <ul className="text-sm text-muted-foreground space-y-1">
+      <li>• Delivery to your specified address</li>
+      <li>• Shipping and insurance fees apply</li>
+      <li>• Minimum quantities may be required</li>
+      <li>• Delivery timeframe: 5-15 business days</li>
+      <li>• Full ownership transfer upon delivery</li>
+    </ul>
+  </div>
+</div>
 
 </Tab>
 </Tabs>
+
+## Futures Contracts Trading
+
+<Tabs items={['Overview', 'Contract Specifications', 'How to Trade', 'Risk Management']}>
+<Tab value="Overview">
+
+### Understanding Futures Contracts
+
+<div className="my-4">
+  <p className="text-sm text-muted-foreground mb-4">
+    Futures contracts are standardized agreements to buy or sell a specific quantity of a commodity at a predetermined price on a future date. They allow you to speculate on price movements without owning the physical asset.
+  </p>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="p-5 rounded-lg border border-green-500/20 bg-gradient-to-br from-green-500/5 to-transparent">
+      <div className="font-bold mb-2 flex items-center gap-2 text-green-400">
+        <span>✓</span>
+        <span>Advantages</span>
+      </div>
+      <ul className="text-sm text-muted-foreground space-y-2">
+        <li>• High liquidity for easy entry/exit</li>
+        <li>• Leverage to amplify returns</li>
+        <li>• Ability to profit from falling prices (short selling)</li>
+        <li>• No storage or insurance costs</li>
+        <li>• Tight bid-ask spreads</li>
+        <li>• Hedging capability against price risks</li>
+      </ul>
+    </div>
+
+    <div className="p-5 rounded-lg border border-red-500/20 bg-gradient-to-br from-red-500/5 to-transparent">
+      <div className="font-bold mb-2 flex items-center gap-2 text-red-400">
+        <span>⚠</span>
+        <span>Risks</span>
+      </div>
+      <ul className="text-sm text-muted-foreground space-y-2">
+        <li>• Leverage amplifies losses as well as gains</li>
+        <li>• Contract expiration requires rollover</li>
+        <li>• Margin calls if positions move against you</li>
+        <li>• Complexity requires market knowledge</li>
+        <li>• Potential for rapid, significant losses</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<Callout type="warn">
+  Futures trading involves substantial risk and is not suitable for all investors. Only trade with capital you can afford to lose.
+</Callout>
+
+</Tab>
+<Tab value="Contract Specifications">
+
+### Standard Contract Details
+
+<div className="my-4">
+  <div className="text-sm text-muted-foreground mb-4">
+    Each commodity has standardized contract specifications:
+  </div>
+
+  <div className="overflow-x-auto">
+    <table className="w-full text-sm">
+      <thead className="border-b border-border">
+        <tr className="text-left">
+          <th className="p-3">Commodity</th>
+          <th className="p-3">Contract Size</th>
+          <th className="p-3">Tick Size</th>
+          <th className="p-3">Margin Required</th>
+        </tr>
+      </thead>
+      <tbody className="text-muted-foreground">
+        <tr className="border-b border-border/50">
+          <td className="p-3">Gold</td>
+          <td className="p-3">100 troy oz</td>
+          <td className="p-3">$0.10</td>
+          <td className="p-3">~5-10%</td>
+        </tr>
+        <tr className="border-b border-border/50">
+          <td className="p-3">Crude Oil</td>
+          <td className="p-3">1,000 barrels</td>
+          <td className="p-3">$0.01</td>
+          <td className="p-3">~5-8%</td>
+        </tr>
+        <tr className="border-b border-border/50">
+          <td className="p-3">Corn</td>
+          <td className="p-3">5,000 bushels</td>
+          <td className="p-3">$0.0025</td>
+          <td className="p-3">~4-7%</td>
+        </tr>
+        <tr className="border-b border-border/50">
+          <td className="p-3">Copper</td>
+          <td className="p-3">25,000 lbs</td>
+          <td className="p-3">$0.0005</td>
+          <td className="p-3">~5-9%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <Callout type="info" className="mt-4">
+    Margin requirements vary based on market volatility and your account type. Check current requirements before trading.
+  </Callout>
+</div>
+
+</Tab>
+<Tab value="How to Trade">
+
+### Trading Futures Step-by-Step
+
+<div className="space-y-4 my-4">
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="font-bold mb-2">1. Account Setup & Margin Funding</div>
+    <div className="text-sm text-muted-foreground">
+      Ensure your account is approved for futures trading and fund your margin account with sufficient capital to meet initial margin requirements.
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="font-bold mb-2">2. Select Contract & Expiration</div>
+    <div className="text-sm text-muted-foreground">
+      Choose the commodity, contract month, and review contract specifications. Contracts are typically designated by month codes (e.g., CLZ25 for December 2025 Crude Oil).
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="font-bold mb-2">3. Place Your Order</div>
+    <div className="text-sm text-muted-foreground mb-2">
+      Select order type and direction:
+    </div>
+    <div className="grid grid-cols-2 gap-2 text-sm text-muted-foreground">
+      <div>• <strong>Long (Buy):</strong> Profit from price increases</div>
+      <div>• <strong>Short (Sell):</strong> Profit from price decreases</div>
+    </div>
+  </div>
+
+  <div className="rounded-lg border border-border bg-muted/30 p-5">
+    <div className="font-bold mb-2">4. Monitor & Manage</div>
+    <div className="text-sm text-muted-foreground">
+      Watch your position, margin levels, and market movements. Set stop-loss orders to limit potential losses. Close positions before expiration or roll to next contract month.
+    </div>
+  </div>
+</div>
+
+</Tab>
+<Tab value="Risk Management">
+
+### Managing Futures Trading Risk
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+  <div className="p-5 rounded-lg border border-amber-500/20 bg-gradient-to-br from-amber-500/5 to-transparent">
+    <div className="font-bold mb-3 flex items-center gap-2">
+      <span>🎯</span>
+      <span>Position Sizing</span>
+    </div>
+    <div className="text-sm text-muted-foreground">
+      Never risk more than 1-2% of your account on a single trade. Calculate position size based on stop-loss distance and account value.
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-amber-500/20 bg-gradient-to-br from-amber-500/5 to-transparent">
+    <div className="font-bold mb-3 flex items-center gap-2">
+      <span>🛡️</span>
+      <span>Stop-Loss Orders</span>
+    </div>
+    <div className="text-sm text-muted-foreground">
+      Always use stop-loss orders to automatically exit positions if prices move against you. Set stops based on technical levels, not arbitrary percentages.
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-amber-500/20 bg-gradient-to-br from-amber-500/5 to-transparent">
+    <div className="font-bold mb-3 flex items-center gap-2">
+      <span>📊</span>
+      <span>Monitor Margin Levels</span>
+    </div>
+    <div className="text-sm text-muted-foreground">
+      Keep margin utilization below 50% to avoid margin calls. Maintain excess capital as a buffer for adverse price movements.
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-amber-500/20 bg-gradient-to-br from-amber-500/5 to-transparent">
+    <div className="font-bold mb-3 flex items-center gap-2">
+      <span>📅</span>
+      <span>Expiration Management</span>
+    </div>
+    <div className="text-sm text-muted-foreground">
+      Close or roll positions at least 5-7 days before expiration to avoid delivery obligations and benefit from higher liquidity in front-month contracts.
+    </div>
+  </div>
+</div>
+
+</Tab>
+</Tabs>
+
+## Comparison: Physical vs Futures
+
+<div className="my-6">
+  <div className="overflow-x-auto">
+    <table className="w-full text-sm">
+      <thead className="border-b-2 border-border">
+        <tr className="text-left">
+          <th className="p-3">Feature</th>
+          <th className="p-3">Physical Commodities</th>
+          <th className="p-3">Futures Contracts</th>
+        </tr>
+      </thead>
+      <tbody className="text-muted-foreground">
+        <tr className="border-b border-border/50">
+          <td className="p-3 font-medium">Ownership</td>
+          <td className="p-3">✓ Direct ownership</td>
+          <td className="p-3">✗ No physical ownership</td>
+        </tr>
+        <tr className="border-b border-border/50">
+          <td className="p-3 font-medium">Liquidity</td>
+          <td className="p-3">Moderate</td>
+          <td className="p-3">Very High</td>
+        </tr>
+        <tr className="border-b border-border/50">
+          <td className="p-3 font-medium">Leverage</td>
+          <td className="p-3">None (full payment)</td>
+          <td className="p-3">High (5-20x)</td>
+        </tr>
+        <tr className="border-b border-border/50">
+          <td className="p-3 font-medium">Storage Costs</td>
+          <td className="p-3">Yes</td>
+          <td className="p-3">No</td>
+        </tr>
+        <tr className="border-b border-border/50">
+          <td className="p-3 font-medium">Expiration</td>
+          <td className="p-3">None</td>
+          <td className="p-3">Yes (monthly/quarterly)</td>
+        </tr>
+        <tr className="border-b border-border/50">
+          <td className="p-3 font-medium">Short Selling</td>
+          <td className="p-3">✗ Not possible</td>
+          <td className="p-3">✓ Fully supported</td>
+        </tr>
+        <tr className="border-b border-border/50">
+          <td className="p-3 font-medium">Minimum Investment</td>
+          <td className="p-3">Varies by commodity</td>
+          <td className="p-3">Lower (margin-based)</td>
+        </tr>
+        <tr className="border-b border-border/50">
+          <td className="p-3 font-medium">Best For</td>
+          <td className="p-3">Long-term holders, wealth preservation</td>
+          <td className="p-3">Active traders, speculators, hedgers</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+## Trading Requirements & Prerequisites
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="flex items-center gap-3 mb-3">
+      <span className="text-2xl">📋</span>
+      <div className="font-bold">Physical Commodities Requirements</div>
+    </div>
+    <ul className="text-sm text-muted-foreground space-y-2">
+      <li>• Verified NYYU account</li>
+      <li>• Sufficient account balance (no margin)</li>
+      <li>• Understand storage/delivery options</li>
+      <li>• Compliance with jurisdiction regulations</li>
+    </ul>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="flex items-center gap-3 mb-3">
+      <span className="text-2xl">⚡</span>
+      <div className="font-bold">Futures Trading Requirements</div>
+    </div>
+    <ul className="text-sm text-muted-foreground space-y-2">
+      <li>• Futures trading approval</li>
+      <li>• Minimum account balance (typically $5,000+)</li>
+      <li>• Complete risk disclosure acknowledgment</li>
+      <li>• Understanding of leverage and margin</li>
+      <li>• May require derivatives experience</li>
+    </ul>
+  </div>
+</div>
+
+## Market Hours & Trading Sessions
+
+<div className="rounded-xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-orange-500/5 p-6 my-6">
+  <div className="font-bold text-lg mb-3">When Can You Trade?</div>
+
+  <div className="space-y-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-bold text-sm mb-2">Physical Commodities</div>
+      <div className="text-sm text-muted-foreground">
+        <strong>Trading Hours:</strong> Monday-Friday, 9:00 AM - 5:00 PM EST<br/>
+        <strong>Settlement:</strong> T+2 business days
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-bold text-sm mb-2">Futures Contracts</div>
+      <div className="text-sm text-muted-foreground">
+        <strong>Trading Hours:</strong> Nearly 24/5 (Sunday 6pm - Friday 5pm EST)<br/>
+        <strong>Maintenance Window:</strong> Daily 5:00 PM - 6:00 PM EST<br/>
+        <strong>Settlement:</strong> Real-time during trading hours
+      </div>
+    </div>
+  </div>
+
+  <Callout type="info" className="mt-4">
+    Specific commodities may have different trading hours. Check individual contract specifications for exact schedules.
+  </Callout>
+</div>
+
+## Related FAQs
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <a href="/docs/troubleshoot/startups/invest-startups" className="p-5 rounded-lg border border-border bg-muted/50 hover:bg-muted/80 transition-colors group">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">🚀</span>
+      <div className="font-bold group-hover:text-amber-500 transition-colors">Startup Investment Guide</div>
+    </div>
+    <div className="text-sm text-muted-foreground">
+      Explore alternative investment opportunities beyond commodities
+    </div>
+  </a>
+
+  <a href="/docs/tutorial/trade" className="p-5 rounded-lg border border-border bg-muted/50 hover:bg-muted/80 transition-colors group">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">📚</span>
+      <div className="font-bold group-hover:text-amber-500 transition-colors">Trading Tutorial</div>
+    </div>
+    <div className="text-sm text-muted-foreground">
+      Learn the basics of trading on the NYYU platform
+    </div>
+  </a>
+</div>
+
+## Still Need Help?
+
+<div className="rounded-xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-orange-500/5 p-6 my-8">
+  <div className="flex items-start gap-4">
+    <span className="text-3xl">💬</span>
+    <div className="flex-1">
+      <div className="font-bold text-lg mb-2">Questions About Commodities Trading?</div>
+      <div className="text-muted-foreground mb-4">
+        Our trading support team can help you understand commodity options, account requirements, and guide you through your first trades.
+      </div>
+      <div className="flex flex-wrap gap-3">
+        <a href="/docs/corporate/contact-us" className="px-4 py-2 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/30 font-medium text-sm transition-colors">
+          Contact Support
+        </a>
+        <a href="/docs/troubleshoot" className="px-4 py-2 rounded-lg bg-muted hover:bg-muted/80 border border-border font-medium text-sm transition-colors">
+          Browse All FAQs
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+
+<div className="text-xs text-muted-foreground text-center my-8">
+  <strong>Keywords:</strong> commodity trading, futures contracts, physical commodities, gold trading, oil futures, commodity investment, leverage trading, hedging strategies
+</div>

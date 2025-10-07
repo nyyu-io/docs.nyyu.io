@@ -1,67 +1,286 @@
 ---
 title: Update Avatar Profile
+description: Update existing avatar profile attributes and metadata
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-:::note
-The functions described is accessible only to users with ADMIN privileges.
-:::
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-500/10 via-yellow-500/5 to-background p-8 border border-orange-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Update Avatar Profile
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Modify avatar profile details, skills, and components
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-yellow-500/5 rounded-full blur-3xl"></div>
+</div>
 
-The `updateAvatarProfile` mutation allows an admin to update the details of an avatar profile.
+<div className="p-4 rounded-lg border border-orange-500/30 bg-orange-500/10 my-6">
+  <div className="flex items-center gap-2">
+    <span className="text-lg">🔐</span>
+    <div className="font-bold">Admin Access Required</div>
+  </div>
+  <div className="text-sm text-muted-foreground mt-2">
+    This mutation is accessible only to users with ADMIN privileges
+  </div>
+</div>
 
-### Mutation: `updateAvatarProfile`
+## Mutation
 
-#### Schema:
-```graphql
-updateAvatarProfile(
-  id: Int!,
-  fname: String,
-  surname: String,
-  skillSet: [SkillSetInput],
-  avatarSet: [AvatarSetInput],
-  factsSet: [FactsInput],
-  hairColor: String,
-  details: String
-): Boolean
-```
+<div className="rounded-xl border border-orange-500/30 bg-gradient-to-br from-orange-500/10 to-orange-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">✏️</span>
+    <div>
+      <div className="font-bold text-lg">updateAvatarProfile</div>
+      <div className="text-sm text-muted-foreground">Update an existing avatar profile's attributes</div>
+    </div>
+  </div>
 
-#### Parameters
+  ### Schema
 
-- `id` (Int): The unique ID of the avatar profile to update. This field is mandatory.
-- `fname` (String): The first name of the avatar. This field is optional.
-- `surname` (String): The surname of the avatar. This field is optional.
-- `skillSet` ([SkillSetInput]): The skill set of the avatar. This field is optional.
-- `avatarSet` ([AvatarSetInput]): The avatar set details. This field is optional.
-- `factsSet` ([FactsInput]): The facts set related to the avatar. This field is optional.
-- `hairColor` (String): The hair color of the avatar. This field is optional.
-- `details` (String): Additional details about the avatar. This field is optional.
-
-#### Return
-
-The mutation returns a boolean value:
-
-- `true`: Indicates that the update was successful.
-- `false`: Indicates that the update failed.
-
-### Example Mutation
-
-The following is an example of how to use the `updateAvatarProfile` mutation to update an avatar profile:
-
-```graphql
-mutation {
+  ```graphql
   updateAvatarProfile(
-    id: 123,
-    fname: "John",
-    surname: "Doe",
-    skillSet: [{ name: "Coding", level: "Expert" }],
-    avatarSet: [{ type: "Warrior", level: 10 }],
-    factsSet: [{ fact: "Loves coding" }],
-    hairColor: "Brown",
-    details: "A skilled coder with a passion for technology."
-  )
-}
-```
+    id: Int!
+    fname: String
+    surname: String
+    skillSet: [SkillSetInput]
+    avatarSet: [AvatarSetInput]
+    factsSet: [FactsInput]
+    hairColor: String
+    details: String
+  ): Boolean
+  ```
+</div>
 
-In this example, the mutation updates the avatar profile with the ID `123`, setting the first name to "John", surname to "Doe", and updating the skill set, avatar set, facts set, hair color, and additional details. The return value will indicate whether the update was successful (`true`) or not (`false`).
+## Parameters
+
+<div className="space-y-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">id</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Int!</code></div>
+      <div className="text-muted-foreground">The unique ID of the avatar profile to update</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">fname</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String</code></div>
+      <div className="text-muted-foreground">The first name of the avatar</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">surname</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String</code></div>
+      <div className="text-muted-foreground">The surname of the avatar</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">skillSet</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">[SkillSetInput]</code></div>
+      <div className="text-muted-foreground">The skill set of the avatar (name and rate)</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">avatarSet</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">[AvatarSetInput]</code></div>
+      <div className="text-muted-foreground">The avatar component set (groupId and compId)</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">factsSet</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">[FactsInput]</code></div>
+      <div className="text-muted-foreground">Facts set related to the avatar (topic and detail)</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">hairColor</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String</code></div>
+      <div className="text-muted-foreground">The hair color of the avatar</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">details</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String</code></div>
+      <div className="text-muted-foreground">Additional details about the avatar</div>
+    </div>
+  </div>
+</div>
+
+## Return Value
+
+<div className="p-5 rounded-lg border border-green-500/30 bg-green-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">✅</span>
+    <div className="font-bold">Returns Boolean</div>
+  </div>
+  <div className="text-sm space-y-1">
+    <div><code className="bg-muted px-1 rounded">true</code> - Update was successful</div>
+    <div><code className="bg-muted px-1 rounded">false</code> - Update failed</div>
+  </div>
+</div>
+
+## Example
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">Usage Example</div>
+      <div className="text-xs text-muted-foreground">Updating an avatar profile with new skills and details</div>
+    </div>
+  </div>
+
+  ```graphql
+  mutation {
+    updateAvatarProfile(
+      id: 123
+      fname: "Nicola"
+      surname: "Tesla"
+      skillSet: [
+        { name: "Inventing", rate: 5 }
+        { name: "Electrical Engineering", rate: 5 }
+        { name: "Physics", rate: 4 }
+      ]
+      avatarSet: [
+        { groupId: "engineers", compId: 101 }
+        { groupId: "hats", compId: 5 }
+      ]
+      factsSet: [
+        {
+          topic: "Achievements"
+          detail: "Developed the modern AC electricity supply system"
+        }
+        {
+          topic: "Legacy"
+          detail: "Over 300 patents worldwide"
+        }
+      ]
+      hairColor: "Black"
+      details: "A visionary inventor and electrical engineer who revolutionized modern electricity."
+    )
+  }
+  ```
+</div>
+
+## Update Behavior
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔄</span>
+    <div>
+      <div className="font-bold text-lg">Partial Updates Supported</div>
+      <div className="text-sm text-muted-foreground">You can update specific fields without affecting others</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Selective Updates</div>
+      <div className="text-xs text-muted-foreground">
+        Only provide the fields you want to update; other fields remain unchanged
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Array Replacement</div>
+      <div className="text-xs text-muted-foreground">
+        Skills, facts, and avatar sets are replaced entirely when updated (not merged)
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Automatic Timestamps</div>
+      <div className="text-xs text-muted-foreground">
+        The <code className="bg-muted px-1 rounded">updateDate</code> field is automatically updated
+      </div>
+    </div>
+  </div>
+</div>
+
+## Use Cases
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📝</div>
+    <div className="font-bold mb-2">Profile Enhancement</div>
+    <div className="text-sm text-muted-foreground">
+      Add new skills, facts, or components to enrich avatar profiles
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🔧</div>
+    <div className="font-bold mb-2">Corrections</div>
+    <div className="text-sm text-muted-foreground">
+      Fix errors or update outdated information in existing profiles
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🎨</div>
+    <div className="font-bold mb-2">Visual Updates</div>
+    <div className="text-sm text-muted-foreground">
+      Change avatar appearance by updating components or hair color
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">⭐</div>
+    <div className="font-bold mb-2">Skill Adjustments</div>
+    <div className="text-sm text-muted-foreground">
+      Update skill ratings or add new skills as avatar evolves
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-orange-500/30 bg-gradient-to-r from-orange-500/10 to-yellow-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold">Important Note</div>
+      <div className="text-sm text-muted-foreground">Arrays (skillSet, avatarSet, factsSet) are replaced completely when updated. Include all items you want to keep.</div>
+    </div>
+  </div>
+</div>

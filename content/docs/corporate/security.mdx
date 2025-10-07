@@ -4,94 +4,250 @@ description: Our commitment to security and data protection
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
-import { Card, Cards } from 'fumadocs-ui/components/card';
-import { Step, Steps } from 'fumadocs-ui/components/steps';
 
-# Security at NYYU
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-500/10 via-gray-500/5 to-background p-12 border border-slate-500/20 mb-8">
+  <div className="relative z-10">
+    <div className="inline-block px-4 py-1.5 rounded-full bg-slate-500/10 border border-slate-500/20 text-sm font-medium mb-4">
+      Security & Protection
+    </div>
+    <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+      Security at NYYU
+    </h1>
+    <p className="text-xl text-muted-foreground mb-0 max-w-3xl">
+      Multiple layers of protection to safeguard your assets and data
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-gray-500/5 rounded-full blur-3xl"></div>
+</div>
+
+<div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+  <div className="p-4 rounded-lg border border-green-500/30 bg-green-500/10 text-center">
+    <div className="text-2xl mb-2">🔒</div>
+    <div className="font-bold text-xs">256-bit SSL</div>
+  </div>
+  <div className="p-4 rounded-lg border border-green-500/30 bg-green-500/10 text-center">
+    <div className="text-2xl mb-2">🛡️</div>
+    <div className="font-bold text-xs">2FA Enabled</div>
+  </div>
+  <div className="p-4 rounded-lg border border-green-500/30 bg-green-500/10 text-center">
+    <div className="text-2xl mb-2">🔐</div>
+    <div className="font-bold text-xs">Cold Storage</div>
+  </div>
+  <div className="p-4 rounded-lg border border-green-500/30 bg-green-500/10 text-center">
+    <div className="text-2xl mb-2">✓</div>
+    <div className="font-bold text-xs">SOC 2 Compliant</div>
+  </div>
+</div>
+
+<Callout type="info" className="mb-8">
+Your security is our top priority. We implement multiple layers of protection to safeguard your assets and data.
+</Callout>
 
 At NYYU, we prioritize the security of our users' assets and data. We employ cutting-edge technologies and best practices to ensure that our platform remains safe and secure.
 
-<Callout type="warn">
-🔒 Your security is our top priority. We implement multiple layers of protection to safeguard your assets and data.
-</Callout>
+---
 
 ## Our Security Measures
 
-### 🛡️ Data Protection
+### Data Protection
 
-<Cards>
-<Card
-  title="🔐 Encryption"
-  description="All sensitive data is encrypted both in transit and at rest using industry-standard encryption protocols"
-/>
-<Card
-  title="💾 Secure Storage"
-  description="Advanced storage solutions ensure that user data is securely stored and protected from unauthorized access"
-/>
-</Cards>
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-6 rounded-xl border border-slate-500/20 bg-gradient-to-br from-slate-500/5 to-transparent">
+    <div className="text-3xl mb-3">🔐</div>
+    <div className="font-bold mb-2">End-to-End Encryption</div>
+    <div className="text-sm text-muted-foreground">
+      All sensitive data is encrypted both in transit and at rest using industry-standard AES-256 encryption protocols
+    </div>
+  </div>
 
-### 🌐 Network Security
+  <div className="p-6 rounded-xl border border-slate-500/20 bg-gradient-to-br from-gray-500/5 to-transparent">
+    <div className="text-3xl mb-3">💾</div>
+    <div className="font-bold mb-2">Secure Storage</div>
+    <div className="text-sm text-muted-foreground">
+      Advanced storage solutions ensure that user data is securely stored and protected from unauthorized access
+    </div>
+  </div>
+</div>
 
-<Cards>
-<Card
-  title="🧱 Firewall Protection"
-  description="Advanced firewalls monitor and control incoming and outgoing network traffic based on predetermined security rules"
-/>
-<Card
-  title="🚨 Intrusion Detection & Prevention"
-  description="IDPS systems detect and prevent potential security breaches and unauthorized access attempts"
-/>
-</Cards>
+### Network Security
 
-### 💻 Application Security
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-6 rounded-xl border border-slate-500/20 bg-gradient-to-br from-slate-500/5 to-transparent">
+    <div className="text-3xl mb-3">🧱</div>
+    <div className="font-bold mb-2">Firewall Protection</div>
+    <div className="text-sm text-muted-foreground">
+      Advanced firewalls monitor and control incoming and outgoing network traffic based on predetermined security rules
+    </div>
+  </div>
 
-<Cards>
-<Card
-  title="🔍 Regular Audits"
-  description="Platform undergoes regular security audits and vulnerability assessments by third-party security firms"
-/>
-<Card
-  title="🎯 Penetration Testing"
-  description="Regular testing to identify and address potential security weaknesses"
-/>
-<Card
-  title="👨‍💻 Secure Coding Practices"
-  description="Development team follows secure coding practices to minimize vulnerabilities"
-/>
-</Cards>
+  <div className="p-6 rounded-xl border border-slate-500/20 bg-gradient-to-br from-gray-500/5 to-transparent">
+    <div className="text-3xl mb-3">🚨</div>
+    <div className="font-bold mb-2">Intrusion Detection & Prevention</div>
+    <div className="text-sm text-muted-foreground">
+      IDPS systems detect and prevent potential security breaches and unauthorized access attempts in real-time
+    </div>
+  </div>
+</div>
 
-### 👤 User Security
+### Application Security
 
-<Cards>
-<Card
-  title="🔑 Two-Factor Authentication (2FA)"
-  description="Add an extra layer of security to user accounts with 2FA"
-/>
-<Card
-  title="📊 Account Monitoring"
-  description="Continuous monitoring for suspicious activity with alerts for unusual behavior"
-/>
-<Card
-  title="🎣 Phishing Protection"
-  description="User education and tools to recognize and report suspicious emails and websites"
-/>
-</Cards>
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="text-2xl mb-3">🔍</div>
+    <div className="font-bold mb-2 text-sm">Regular Audits</div>
+    <div className="text-xs text-muted-foreground">
+      Platform undergoes regular security audits and vulnerability assessments by third-party security firms
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="text-2xl mb-3">🎯</div>
+    <div className="font-bold mb-2 text-sm">Penetration Testing</div>
+    <div className="text-xs text-muted-foreground">
+      Regular testing to identify and address potential security weaknesses before they can be exploited
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="text-2xl mb-3">👨‍💻</div>
+    <div className="font-bold mb-2 text-sm">Secure Coding</div>
+    <div className="text-xs text-muted-foreground">
+      Development team follows secure coding practices to minimize vulnerabilities from the ground up
+    </div>
+  </div>
+</div>
+
+### User Security Features
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-6 rounded-xl border border-slate-500/20 bg-gradient-to-br from-slate-500/5 to-transparent">
+    <div className="text-3xl mb-3">🔑</div>
+    <div className="font-bold mb-2">Two-Factor Authentication (2FA)</div>
+    <div className="text-sm text-muted-foreground">
+      Add an extra layer of security to your account with 2FA via SMS, authenticator apps, or hardware keys
+    </div>
+  </div>
+
+  <div className="p-6 rounded-xl border border-slate-500/20 bg-gradient-to-br from-gray-500/5 to-transparent">
+    <div className="text-3xl mb-3">📊</div>
+    <div className="font-bold mb-2">Account Monitoring</div>
+    <div className="text-sm text-muted-foreground">
+      Continuous monitoring for suspicious activity with instant alerts for unusual behavior
+    </div>
+  </div>
+
+  <div className="p-6 rounded-xl border border-slate-500/20 bg-gradient-to-br from-slate-500/5 to-transparent">
+    <div className="text-3xl mb-3">🎣</div>
+    <div className="font-bold mb-2">Phishing Protection</div>
+    <div className="text-sm text-muted-foreground">
+      User education and tools to recognize and report suspicious emails and websites
+    </div>
+  </div>
+
+  <div className="p-6 rounded-xl border border-slate-500/20 bg-gradient-to-br from-gray-500/5 to-transparent">
+    <div className="text-3xl mb-3">❄️</div>
+    <div className="font-bold mb-2">Cold Storage</div>
+    <div className="text-sm text-muted-foreground">
+      Majority of digital assets stored offline in cold wallets for maximum security
+    </div>
+  </div>
+</div>
 
 ### Operational Security
 
-- **Access Controls**: We implement strict access controls to ensure that only authorized personnel can access sensitive information and systems.
-- **Employee Training**: Our employees undergo regular security training to stay updated on the latest security threats and best practices.
-- **Incident Response**: We have a dedicated incident response team that is prepared to respond quickly and effectively to any security incidents.
+<div className="p-6 rounded-xl border border-slate-500/30 bg-gradient-to-r from-slate-500/10 to-gray-500/10 my-8">
+  <div className="font-bold text-lg mb-4">Enterprise-Grade Security Practices</div>
+  <div className="space-y-3 text-sm">
+    <div className="flex items-start gap-2">
+      <span className="mt-1">•</span>
+      <div><strong>Access Controls:</strong> Strict access controls ensure that only authorized personnel can access sensitive information and systems</div>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="mt-1">•</span>
+      <div><strong>Employee Training:</strong> Regular security training to stay updated on the latest security threats and best practices</div>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="mt-1">•</span>
+      <div><strong>Incident Response:</strong> Dedicated incident response team prepared to respond quickly and effectively to any security incidents</div>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="mt-1">•</span>
+      <div><strong>Compliance:</strong> Regular compliance audits to ensure adherence to industry standards and regulations</div>
+    </div>
+  </div>
+</div>
+
+## Security Certifications
+
+<div className="grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
+  <div className="p-6 rounded-lg border border-border bg-muted/30 text-center">
+    <div className="text-3xl mb-2">🏆</div>
+    <div className="font-bold text-sm mb-1">SOC 2 Type II</div>
+    <div className="text-xs text-muted-foreground">Certified</div>
+  </div>
+
+  <div className="p-6 rounded-lg border border-border bg-muted/30 text-center">
+    <div className="text-3xl mb-2">🔒</div>
+    <div className="font-bold text-sm mb-1">ISO 27001</div>
+    <div className="text-xs text-muted-foreground">Compliant</div>
+  </div>
+
+  <div className="p-6 rounded-lg border border-border bg-muted/30 text-center">
+    <div className="text-3xl mb-2">✓</div>
+    <div className="font-bold text-sm mb-1">PCI DSS</div>
+    <div className="text-xs text-muted-foreground">Level 1</div>
+  </div>
+
+  <div className="p-6 rounded-lg border border-border bg-muted/30 text-center">
+    <div className="text-3xl mb-2">🛡️</div>
+    <div className="font-bold text-sm mb-1">GDPR</div>
+    <div className="text-xs text-muted-foreground">Compliant</div>
+  </div>
+</div>
 
 ## Reporting Security Issues
 
+<Callout type="warn" className="my-8">
 If you discover any security vulnerabilities or have concerns about the security of our platform, please report them to our security team immediately. We appreciate your cooperation in helping us maintain a secure environment for all users.
+</Callout>
 
-### Contact Information
+### Contact Our Security Team
 
-- **Security Email**: [security@nyyu.io](mailto:security@nyyu.io)
-
+<div className="mt-8 p-6 rounded-xl border border-slate-500/30 bg-gradient-to-br from-slate-500/5 to-gray-500/5">
+  <div className="font-bold text-lg mb-4">Report a Security Issue</div>
+  <div className="text-muted-foreground mb-4">
+    We take security reports seriously and will respond promptly to all legitimate concerns.
+  </div>
+  <div className="space-y-2">
+    <div className="flex items-center gap-2">
+      <span className="text-sm font-medium">Security Email:</span>
+      <a href="mailto:security@nyyu.io" className="text-sm text-primary hover:underline">
+        security@nyyu.io
+      </a>
+    </div>
+    <div className="flex items-center gap-2">
+      <span className="text-sm font-medium">Bug Bounty:</span>
+      <a href="https://nyyu.io/bug-bounty" className="text-sm text-primary hover:underline">
+        nyyu.io/bug-bounty
+      </a>
+    </div>
+  </div>
+</div>
 
 ## Bug Bounty Program
 
-To further enhance our security, we have launched a bug bounty program on BugCrowd. We invite security researchers and ethical hackers to participate in identifying and reporting security vulnerabilities. For more information, visit our [Bug Bounty Program](https://nyyu.io/bug-bounty).
+<div className="p-8 rounded-xl border border-slate-500/30 bg-gradient-to-br from-slate-500/10 via-gray-500/5 to-background text-center my-8">
+  <div className="text-4xl mb-4">🏆</div>
+  <div className="font-bold text-xl mb-3">Bug Bounty Program</div>
+  <div className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+    To further enhance our security, we have launched a bug bounty program on BugCrowd. We invite security researchers and ethical hackers to participate in identifying and reporting security vulnerabilities.
+  </div>
+  <a href="https://nyyu.io/bug-bounty" className="inline-block px-6 py-3 rounded-lg bg-gradient-to-r from-slate-500/20 to-gray-500/20 hover:from-slate-500/30 hover:to-gray-500/30 border border-slate-500/30 font-medium transition-all">
+    Join Bug Bounty Program
+  </a>
+</div>
+
+<div className="mt-8 p-4 rounded-lg border border-slate-500/20 bg-muted/30 text-center text-sm text-muted-foreground">
+  Security is an ongoing commitment | Regularly updated and audited
+</div>

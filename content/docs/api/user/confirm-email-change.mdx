@@ -1,45 +1,77 @@
 ---
 title: Confirm Email Change
+description: Complete email address change with verification code
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-The `confirmEmailChange` mutation is used to confirm a change of the user's email address. After receiving a verification code from the backend, this mutation finalizes the email change request.
+<div className="relative overflow-hidden rounded-xl border bg-gradient-to-br from-teal-500/10 via-emerald-500/10 to-cyan-500/10 p-8 backdrop-blur-sm mb-8">
+  <div className="relative z-10">
+    <div className="flex items-center gap-3 mb-4">
+      <h1 className="text-3xl font-bold bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">
+        Confirm Email Change
+      </h1>
+      <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-teal-500/20 text-teal-400 border border-teal-500/30">
+        USER
+      </div>
+    </div>
+    <p className="text-muted-foreground max-w-2xl">
+      Complete email change by providing the verification code sent to the new email address.
+    </p>
+  </div>
+</div>
 
-### Mutation: `confirmEmailChange`
+## Mutation
 
-#### Schema:
+<div className="relative overflow-hidden rounded-lg border border-teal-500/20 bg-gradient-to-br from-teal-500/5 to-emerald-500/5 p-6 my-6">
+  <h3 className="text-lg font-semibold text-teal-400 mb-4">GraphQL Schema</h3>
+
 ```graphql
-confirmEmailChange(
-  code: String!,
-  newEmail: String!
-): String!
+confirmEmailChange(code: String!): String
 ```
+</div>
 
-#### Parameters
+### Parameters
 
-- `code` (String): The verification code sent to the current email address. This field is mandatory.
-- `newEmail` (String): The new email address to be set. This field is mandatory.
+<div className="space-y-3 my-6">
+  <div className="rounded-lg border border-emerald-500/20 bg-card p-4">
+    <div className="flex items-start justify-between">
+      <div>
+        <code className="text-sm font-mono text-emerald-400">code</code>
+        <span className="ml-2 text-xs text-muted-foreground">String!</span>
+      </div>
+      <div className="text-xs px-2 py-1 rounded bg-red-500/20 text-red-400">Required</div>
+    </div>
+    <p className="text-sm text-muted-foreground mt-2">
+      Verification code sent to the new email address
+    </p>
+  </div>
+</div>
 
-#### Return
-
-The mutation returns a string indicating the result of the email change confirmation.
-
-- `"Success"`: Indicates that the email address has been successfully changed.
-- `"Failed"`: Indicates that there was an error in processing the request, such as an incorrect verification code.
-
-### Example Mutation
-
-The following is an example of how to use the `confirmEmailChange` mutation to confirm an email change:
+## Example Usage
 
 ```graphql
 mutation {
-  confirmEmailChange(
-    code: "123456",
-    newEmail: "newemail@example.com"
-  )
+  confirmEmailChange(code: "123456")
 }
 ```
 
-In this example, the mutation confirms the email change for the user, using the verification code `123456` and setting the new email address to `newemail@example.com`. The return value will indicate whether the email change was successful.
+## Security Considerations
+
+<div className="space-y-4 my-6">
+  <Callout type="warn" title="Code Expiration">
+    Verification codes expire after 15 minutes. Request a new code if expired.
+  </Callout>
+
+  <Callout type="info" title="Session Update">
+    After successful email change, user session is updated with the new email.
+  </Callout>
+</div>
+
+## Related Operations
+
+<Cards>
+  <Card title="Request Email Change" href="/docs/api/user/request-email-change" />
+  <Card title="Get User" href="/docs/api/user/get-user" />
+</Cards>

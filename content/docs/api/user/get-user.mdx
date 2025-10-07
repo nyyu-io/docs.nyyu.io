@@ -1,44 +1,376 @@
 ---
 title: Get User
+description: Retrieve the current authenticated user's profile information
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 
-:::note
-The functions described is accessible only to users with ADMIN privileges.
-:::
+<div className="relative overflow-hidden rounded-xl border bg-gradient-to-br from-teal-500/10 via-emerald-500/10 to-cyan-500/10 p-8 backdrop-blur-sm mb-8">
+  <div className="relative z-10">
+    <div className="flex items-center gap-3 mb-4">
+      <h1 className="text-3xl font-bold bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">
+        Get User
+      </h1>
+      <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-teal-500/20 text-teal-400 border border-teal-500/30">
+        USER
+      </div>
+    </div>
+    <p className="text-muted-foreground max-w-2xl">
+      Retrieve the currently authenticated user's complete profile information including personal details, verification status, and security settings.
+    </p>
+  </div>
+</div>
 
-The `getUser` query is used to retrieve the current user's information. This query can be executed by users with the appropriate privileges.
+## Query
 
-### Query: `getUser`
+<div className="relative overflow-hidden rounded-lg border border-teal-500/20 bg-gradient-to-br from-teal-500/5 to-emerald-500/5 p-6 my-6">
+  <h3 className="text-lg font-semibold text-teal-400 mb-4">GraphQL Schema</h3>
 
-#### Schema:
 ```graphql
 getUser: User
 ```
+</div>
 
-#### Parameters
+### Parameters
 
-- None
+<div className="rounded-lg border border-emerald-500/20 bg-card p-6 my-6">
+  <p className="text-sm text-muted-foreground">This query requires no parameters. It automatically retrieves the profile of the currently authenticated user based on their authentication token.</p>
+</div>
 
-#### Return
+### Return Type
 
-The query returns the current user's information.
+Returns a complete `User` object containing:
 
-### Example Query
+<div className="grid grid-cols-1 md:grid-cols-2 gap-3 my-6">
+  <div className="rounded-lg border border-teal-500/20 bg-card p-4">
+    <div className="text-sm font-medium text-teal-400 mb-1">Personal Information</div>
+    <div className="text-xs text-muted-foreground">email, name, country, phone, birthday</div>
+  </div>
 
-The following is an example of how to use the `getUser` query to retrieve the current user's information:
+  <div className="rounded-lg border border-emerald-500/20 bg-card p-4">
+    <div className="text-sm font-medium text-emerald-400 mb-1">Account Details</div>
+    <div className="text-xs text-muted-foreground">id, regDate, lastLoginDate, role, tierLevel</div>
+  </div>
 
+  <div className="rounded-lg border border-cyan-500/20 bg-card p-4">
+    <div className="text-sm font-medium text-cyan-400 mb-1">Avatar & Settings</div>
+    <div className="text-xs text-muted-foreground">avatar (UserAvatar), notifySetting</div>
+  </div>
+
+  <div className="rounded-lg border border-teal-500/20 bg-card p-4">
+    <div className="text-sm font-medium text-teal-400 mb-1">Security & Verification</div>
+    <div className="text-xs text-muted-foreground">security (UserSecurity), verify (UserVerify)</div>
+  </div>
+</div>
+
+## Example Usage
+
+<Tabs items={['Query', 'Response', 'TypeScript', 'Python']}>
+  <Tab value="Query">
 ```graphql
 query {
   getUser {
     id
     email
     name
+    country
     role
+    tierLevel
+    lastLoginDate
+    avatar {
+      prefix
+      name
+      selected
+    }
+    verify {
+      emailVerified
+      phoneVerified
+      kycVerified
+    }
+    security {
+      tfaEnabled
+      authType
+    }
   }
 }
 ```
+  </Tab>
 
-In this example, the query retrieves the current user's information, including their `id`, `email`, `name`, and `role`.
+  <Tab value="Response">
+```json
+{
+  "data": {
+    "getUser": {
+      "id": 12345,
+      "email": "user@example.com",
+      "name": "John Doe",
+      "country": "USA",
+      "role": ["ROLE_USER"],
+      "tierLevel": 2,
+      "lastLoginDate": 1699564800000,
+      "avatar": {
+        "prefix": "Tesla",
+        "name": "12",
+        "selected": "{\"hair\":\"style1\",\"eyes\":\"blue\"}"
+      },
+      "verify": {
+        "emailVerified": true,
+        "phoneVerified": true,
+        "kycVerified": false
+      },
+      "security": {
+        "tfaEnabled": true,
+        "authType": "password"
+      }
+    }
+  }
+}
+```
+  </Tab>
+
+  <Tab value="TypeScript">
+```typescript
+import { GraphQLClient } from 'graphql-request';
+
+const client = new GraphQLClient('https://api.nyyu.io/graphql', {
+  headers: {
+    authorization: `Bearer ${authToken}`,
+  },
+});
+
+const query = `
+  query {
+    getUser {
+      id
+      email
+      name
+      role
+      tierLevel
+      verify {
+        emailVerified
+        kycVerified
+      }
+    }
+  }
+`;
+
+async function getCurrentUser() {
+  try {
+    const data = await client.request(query);
+    console.log('Current user:', data.getUser);
+    return data.getUser;
+  } catch (error) {
+    console.error('Error fetching user:', error);
+    throw error;
+  }
+}
+```
+  </Tab>
+
+  <Tab value="Python">
+```python
+from gql import gql, Client
+from gql.transport.requests import RequestsHTTPTransport
+
+transport = RequestsHTTPTransport(
+    url='https://api.nyyu.io/graphql',
+    headers={'authorization': f'Bearer {auth_token}'},
+)
+
+client = Client(transport=transport)
+
+query = gql('''
+  query {
+    getUser {
+      id
+      email
+      name
+      role
+      tierLevel
+      verify {
+        emailVerified
+        kycVerified
+      }
+    }
+  }
+''')
+
+def get_current_user():
+    try:
+        result = client.execute(query)
+        print(f"Current user: {result['getUser']}")
+        return result['getUser']
+    except Exception as error:
+        print(f"Error fetching user: {error}")
+        raise
+```
+  </Tab>
+</Tabs>
+
+## Use Cases
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="rounded-lg border border-teal-500/20 bg-gradient-to-br from-teal-500/5 to-emerald-500/5 p-6">
+    <h3 className="text-md font-semibold text-teal-400 mb-3">Profile Dashboard</h3>
+    <p className="text-sm text-muted-foreground mb-3">
+      Display user profile information in a dashboard, showing account details, verification status, and tier level.
+    </p>
+    <code className="text-xs text-teal-400">User Profile, Settings Page</code>
+  </div>
+
+  <div className="rounded-lg border border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-cyan-500/5 p-6">
+    <h3 className="text-md font-semibold text-emerald-400 mb-3">Session Validation</h3>
+    <p className="text-sm text-muted-foreground mb-3">
+      Verify user session and retrieve current authentication status when users access protected resources.
+    </p>
+    <code className="text-xs text-emerald-400">Auth Middleware, Route Guards</code>
+  </div>
+
+  <div className="rounded-lg border border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-teal-500/5 p-6">
+    <h3 className="text-md font-semibold text-cyan-400 mb-3">Personalization</h3>
+    <p className="text-sm text-muted-foreground mb-3">
+      Load user preferences, avatar settings, and notification configurations to personalize the user experience.
+    </p>
+    <code className="text-xs text-cyan-400">UI Customization, Preferences</code>
+  </div>
+
+  <div className="rounded-lg border border-teal-500/20 bg-gradient-to-br from-teal-500/5 via-emerald-500/5 to-cyan-500/5 p-6">
+    <h3 className="text-md font-semibold text-teal-400 mb-3">Verification Check</h3>
+    <p className="text-sm text-muted-foreground mb-3">
+      Check user verification status before allowing access to features that require KYC, email, or phone verification.
+    </p>
+    <code className="text-xs text-teal-400">Feature Gating, Compliance</code>
+  </div>
+</div>
+
+## Security Considerations
+
+<div className="space-y-4 my-6">
+  <Callout type="info" title="Authentication Required">
+    This query requires a valid authentication token. The user's identity is determined from the JWT token in the Authorization header.
+  </Callout>
+
+  <Callout type="warn" title="Data Privacy">
+    This query only returns data for the authenticated user. Users cannot access other users' profiles through this endpoint.
+  </Callout>
+
+  <Callout type="info" title="Token Validation">
+    Ensure tokens are properly validated and not expired. Implement token refresh mechanisms for long-running sessions.
+  </Callout>
+</div>
+
+## Best Practices
+
+<div className="rounded-lg border border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-indigo-500/5 p-6 my-6">
+  <h3 className="text-lg font-semibold text-blue-400 mb-4">Implementation Guidelines</h3>
+
+  <div className="space-y-3">
+    <div className="flex items-start gap-3">
+      <div className="text-blue-400 mt-1">1.</div>
+      <div>
+        <div className="font-medium text-sm mb-1">Cache User Data</div>
+        <div className="text-sm text-muted-foreground">Store user profile data in local state or cache to minimize API calls. Refresh periodically or on specific events.</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <div className="text-blue-400 mt-1">2.</div>
+      <div>
+        <div className="font-medium text-sm mb-1">Select Required Fields</div>
+        <div className="text-sm text-muted-foreground">Only query the fields you need. Avoid requesting the entire User object if only basic information is required.</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <div className="text-blue-400 mt-1">3.</div>
+      <div>
+        <div className="font-medium text-sm mb-1">Handle Authentication Errors</div>
+        <div className="text-sm text-muted-foreground">Implement proper error handling for expired or invalid tokens. Redirect to login when authentication fails.</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <div className="text-blue-400 mt-1">4.</div>
+      <div>
+        <div className="font-medium text-sm mb-1">Update on Changes</div>
+        <div className="text-sm text-muted-foreground">Refetch user data after profile updates, password changes, or verification events to ensure UI reflects current state.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Error Handling
+
+<Tabs items={['Common Errors', 'Solutions']}>
+  <Tab value="Common Errors">
+    <div className="space-y-3 my-4">
+      <div className="rounded-lg border border-red-500/20 bg-card p-4">
+        <code className="text-sm text-red-400">Unauthorized</code>
+        <p className="text-sm text-muted-foreground mt-2">Missing or invalid authentication token</p>
+      </div>
+
+      <div className="rounded-lg border border-red-500/20 bg-card p-4">
+        <code className="text-sm text-red-400">Token Expired</code>
+        <p className="text-sm text-muted-foreground mt-2">JWT token has expired and needs to be refreshed</p>
+      </div>
+
+      <div className="rounded-lg border border-red-500/20 bg-card p-4">
+        <code className="text-sm text-red-400">User Not Found</code>
+        <p className="text-sm text-muted-foreground mt-2">User account has been deleted or suspended</p>
+      </div>
+    </div>
+  </Tab>
+
+  <Tab value="Solutions">
+    <div className="space-y-3 my-4">
+```typescript
+async function getUserWithErrorHandling() {
+  try {
+    const data = await client.request(query);
+    return data.getUser;
+  } catch (error) {
+    if (error.response?.status === 401) {
+      // Token expired or invalid - redirect to login
+      window.location.href = '/login';
+    } else if (error.response?.status === 404) {
+      // User not found - clear session
+      localStorage.removeItem('authToken');
+      window.location.href = '/login';
+    } else {
+      // Other errors - show error message
+      console.error('Failed to fetch user:', error);
+      throw error;
+    }
+  }
+}
+```
+    </div>
+  </Tab>
+</Tabs>
+
+## Related Operations
+
+<Cards>
+  <Card
+    title="Get User by ID"
+    description="Admin operation to retrieve any user's profile by ID"
+    href="/docs/api/user/get-user-by-id"
+  />
+  <Card
+    title="Change Password"
+    description="Update the current user's password"
+    href="/docs/api/user/change-password-by-user"
+  />
+  <Card
+    title="Request Email Change"
+    description="Initiate email address change for current user"
+    href="/docs/api/user/request-email-change"
+  />
+  <Card
+    title="Delete Account"
+    description="Permanently delete the current user's account"
+    href="/docs/api/user/delete-account"
+  />
+</Cards>

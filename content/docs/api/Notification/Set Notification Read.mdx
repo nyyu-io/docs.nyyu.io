@@ -1,51 +1,353 @@
 ---
 title: Set Notification Read
+description: Mark a notification as read by its ID
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-The `setNotificationReadFlag` mutation allows a user to mark a notification as read.
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-500/10 via-orange-500/5 to-background p-8 border border-amber-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Set Notification Read
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Mark a notification as read to update the user's notification status
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-500/5 rounded-full blur-3xl"></div>
+</div>
 
-### Mutation: `setNotificationReadFlag`
+## Mutation
 
-#### Schema:
-```graphql
-setNotificationReadFlag(
-  id: Int!
-): Notification
-```
+<div className="rounded-xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-amber-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">✅</span>
+    <div>
+      <div className="font-bold text-lg">setNotificationReadFlag</div>
+      <div className="text-sm text-muted-foreground">Update a notification's read status</div>
+    </div>
+  </div>
 
-#### Parameters
+  ### Schema
 
-- `id` (Int): The ID of the notification to mark as read. This field is mandatory.
-
-#### Return
-
-The mutation returns the updated `Notification` object.
-
-### Example Mutation
-
-The following is an example of how to use the `setNotificationReadFlag` mutation to mark a notification as read:
-
-```graphql
-mutation {
+  ```graphql
   setNotificationReadFlag(
-    id: 123
-  ) {
-    id,
-    userId,
-    timeStamp,
-    nType,
-    read,
-    title,
-    msg
+    id: Int!
+  ): Notification
+  ```
+</div>
+
+## Parameters
+
+<div className="space-y-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">id</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Int!</code></div>
+      <div className="text-muted-foreground">The unique identifier of the notification to mark as read</div>
+    </div>
+  </div>
+</div>
+
+## Return Value
+
+<div className="p-5 rounded-lg border border-amber-500/30 bg-amber-500/10 my-6">
+  <div className="flex items-center gap-2 mb-3">
+    <span className="text-lg">📦</span>
+    <div className="font-bold">Returns Updated Notification Object</div>
+  </div>
+  <div className="text-sm text-muted-foreground mb-4">
+    The mutation returns the updated <code className="bg-muted px-1 rounded">Notification</code> object with <code className="bg-muted px-1 rounded">read</code> set to <code className="bg-muted px-1 rounded">true</code>
+  </div>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div className="p-3 rounded-lg bg-background border border-border">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">id</code>
+      <div className="text-xs text-muted-foreground mt-1">Unique notification identifier</div>
+    </div>
+    <div className="p-3 rounded-lg bg-background border border-border">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">userId</code>
+      <div className="text-xs text-muted-foreground mt-1">Recipient user ID</div>
+    </div>
+    <div className="p-3 rounded-lg bg-background border border-border">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">timeStamp</code>
+      <div className="text-xs text-muted-foreground mt-1">Unix timestamp when sent</div>
+    </div>
+    <div className="p-3 rounded-lg bg-background border border-border">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">nType</code>
+      <div className="text-xs text-muted-foreground mt-1">Notification type index</div>
+    </div>
+    <div className="p-3 rounded-lg bg-background border border-border">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">read</code>
+      <div className="text-xs text-muted-foreground mt-1">Read status (set to true)</div>
+    </div>
+    <div className="p-3 rounded-lg bg-background border border-border">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">title</code>
+      <div className="text-xs text-muted-foreground mt-1">Notification title</div>
+    </div>
+    <div className="p-3 rounded-lg bg-background border border-border col-span-full">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">msg</code>
+      <div className="text-xs text-muted-foreground mt-1">Notification message content</div>
+    </div>
+  </div>
+</div>
+
+## Example
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">Usage Example</div>
+      <div className="text-xs text-muted-foreground">Marking a notification as read</div>
+    </div>
+  </div>
+
+  ### Mutation
+
+  ```graphql
+  mutation {
+    setNotificationReadFlag(
+      id: 123
+    ) {
+      id
+      userId
+      timeStamp
+      nType
+      read
+      title
+      msg
+    }
   }
-}
-```
+  ```
 
-### Return
+  ### Response
 
-The example returns the updated `Notification` object with details such as `id`, `userId`, `timeStamp`, `nType`, `read`, `title`, and `msg`.
+  ```json
+  {
+    "data": {
+      "setNotificationReadFlag": {
+        "id": 123,
+        "userId": 456,
+        "timeStamp": 1704157200000,
+        "nType": 1,
+        "read": true,
+        "title": "Bid Ranking Updated",
+        "msg": "Your bid ranking has changed in Round #15."
+      }
+    }
+  }
+  ```
+</div>
 
-In this example, the mutation marks the notification with ID `123` as read. The return value includes the updated details of the `Notification`, showing that the `read` flag has been set.
+## Use Cases
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">👁️</div>
+    <div className="font-bold mb-2">Mark as Viewed</div>
+    <div className="text-sm text-muted-foreground">
+      Mark notifications as read when user views them in the notification center
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🔢</div>
+    <div className="font-bold mb-2">Update Badge Count</div>
+    <div className="text-sm text-muted-foreground">
+      Reduce the unread notification count badge when user interacts with notifications
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🎯</div>
+    <div className="font-bold mb-2">Single Click Action</div>
+    <div className="text-sm text-muted-foreground">
+      Mark a notification as read when user clicks on it
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📋</div>
+    <div className="font-bold mb-2">Batch Processing</div>
+    <div className="text-sm text-muted-foreground">
+      Process multiple notifications by calling this mutation in sequence
+    </div>
+  </div>
+</div>
+
+## Behavior
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">⚙️</span>
+    <div>
+      <div className="font-bold text-lg">How It Works</div>
+      <div className="text-sm text-muted-foreground">Mutation behavior details</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Sets Read Flag</div>
+      <div className="text-xs text-muted-foreground">
+        Changes the <code className="bg-muted px-1 rounded">read</code> field from <code className="bg-muted px-1 rounded">false</code> to <code className="bg-muted px-1 rounded">true</code>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Idempotent Operation</div>
+      <div className="text-xs text-muted-foreground">
+        Calling this mutation multiple times on the same notification is safe - it remains marked as read
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Returns Updated Object</div>
+      <div className="text-xs text-muted-foreground">
+        The complete notification object is returned with the updated read status
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Persistent Change</div>
+      <div className="text-xs text-muted-foreground">
+        The read status is permanently updated in the database
+      </div>
+    </div>
+  </div>
+</div>
+
+## Important Notes
+
+<div className="rounded-xl border border-rose-500/30 bg-gradient-to-br from-rose-500/10 to-rose-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold text-lg">Best Practices</div>
+      <div className="text-sm text-muted-foreground">Tips for using this mutation</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">User Ownership</div>
+      <div className="text-xs text-muted-foreground">
+        Users can only mark their own notifications as read. Attempting to mark another user's notification will fail.
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Authentication Required</div>
+      <div className="text-xs text-muted-foreground">
+        This mutation requires a valid user session to determine notification ownership
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Invalid ID Handling</div>
+      <div className="text-xs text-muted-foreground">
+        If the notification ID doesn't exist, the mutation will return an error
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">No Undo Function</div>
+      <div className="text-xs text-muted-foreground">
+        There is no built-in way to mark a notification as unread. Once marked as read, it remains read.
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Real-time Updates</div>
+      <div className="text-xs text-muted-foreground">
+        After marking as read, query <code className="bg-muted px-1 rounded">getAllUnReadNotifications</code> again to get updated list
+      </div>
+    </div>
+  </div>
+</div>
+
+## Implementation Example
+
+<div className="rounded-xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 to-indigo-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔧</span>
+    <div>
+      <div className="font-bold text-lg">Mark as Read on Click</div>
+      <div className="text-sm text-muted-foreground">Example implementation</div>
+    </div>
+  </div>
+
+  ```javascript
+  // Mark notification as read when user clicks on it
+  async function handleNotificationClick(notificationId) {
+    try {
+      const response = await fetchGraphQL(`
+        mutation {
+          setNotificationReadFlag(id: ${notificationId}) {
+            id
+            read
+          }
+        }
+      `);
+
+      if (response.data.setNotificationReadFlag.read) {
+        console.log('Notification marked as read');
+
+        // Update UI - remove from unread list
+        removeFromUnreadList(notificationId);
+
+        // Update badge count
+        updateUnreadCount();
+      }
+    } catch (error) {
+      console.error('Failed to mark notification as read:', error);
+    }
+  }
+
+  // Mark all visible notifications as read
+  async function markAllAsRead(notificationIds) {
+    for (const id of notificationIds) {
+      await setNotificationReadFlag(id);
+    }
+
+    // Refresh notification list
+    await refreshNotifications();
+  }
+  ```
+</div>
+
+## Related Queries
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-gradient-to-br from-emerald-500/5 to-background">
+    <div className="font-bold mb-2">getAllUnReadNotifications</div>
+    <div className="text-sm text-muted-foreground mb-3">
+      Get all unread notifications after marking some as read
+    </div>
+    <code className="text-xs bg-muted px-2 py-1 rounded">query</code>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-gradient-to-br from-cyan-500/5 to-background">
+    <div className="font-bold mb-2">getNotifications</div>
+    <div className="text-sm text-muted-foreground mb-3">
+      Get paginated notifications to see updated read status
+    </div>
+    <code className="text-xs bg-muted px-2 py-1 rounded">query</code>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-amber-500/30 bg-gradient-to-r from-amber-500/10 to-orange-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">✨</span>
+    <div>
+      <div className="font-bold">Pro Tip</div>
+      <div className="text-sm text-muted-foreground">Call this mutation when users view or interact with notifications to keep your notification system clean and organized</div>
+    </div>
+  </div>
+</div>

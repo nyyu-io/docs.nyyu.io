@@ -5,88 +5,162 @@ description: Learn about NYYU's vision, mission, and story
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
-import { Step, Steps } from 'fumadocs-ui/components/steps';
 
-# About Us
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-500/10 via-gray-500/5 to-background p-12 border border-slate-500/20 mb-8">
+  <div className="relative z-10">
+    <div className="inline-block px-4 py-1.5 rounded-full bg-slate-500/10 border border-slate-500/20 text-sm font-medium mb-4">
+      Company Information
+    </div>
+    <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+      About NYYU
+    </h1>
+    <p className="text-xl text-muted-foreground mb-0 max-w-3xl">
+      Transforming finance through decentralization, sustainability, and energy-based currency innovation
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-slate-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-gray-500/5 rounded-full blur-3xl"></div>
+</div>
+
+## Welcome to NYYU
 
 Welcome to **NYYU**, an innovative decentralized investment banking platform dedicated to transforming the financial landscape. We provide personalized solutions for broker-dealers, financial institutions, businesses, and individuals, offering a comprehensive suite of back-office and front-end capabilities to manage traditional and digital assets seamlessly.
 
-<Callout type="info">
-🚀 Transforming finance through decentralization, sustainability, and energy-based currency
-</Callout>
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
+  <div className="p-6 rounded-xl border border-slate-500/20 bg-gradient-to-br from-slate-500/5 to-transparent">
+    <div className="text-3xl mb-3">🌍</div>
+    <div className="font-bold text-lg mb-2">Energy-Based Currency</div>
+    <div className="text-sm text-muted-foreground">
+      Creating a financial system that establishes energy as the foundation of a new form of currency
+    </div>
+  </div>
+
+  <div className="p-6 rounded-xl border border-slate-500/20 bg-gradient-to-br from-gray-500/5 to-transparent">
+    <div className="text-3xl mb-3">💪</div>
+    <div className="font-bold text-lg mb-2">Break Free from Fiat</div>
+    <div className="text-sm text-muted-foreground">
+      Overcoming the risks associated with inflation and centralized control
+    </div>
+  </div>
+
+  <div className="p-6 rounded-xl border border-slate-500/20 bg-gradient-to-br from-slate-500/5 to-transparent">
+    <div className="text-3xl mb-3">🌱</div>
+    <div className="font-bold text-lg mb-2">Sustainable Growth</div>
+    <div className="text-sm text-muted-foreground">
+      Fostering sustainability and stable growth as energy supply and demand expand
+    </div>
+  </div>
+</div>
 
 ## Our Vision
 
-<Cards>
-<Card
-  title="🌍 Energy-Based Currency"
-  description="Create a financial system that establishes energy as the foundation of a new form of currency"
-/>
-<Card
-  title="💪 Break Free from Fiat"
-  description="Overcome the risks associated with inflation and centralized control"
-/>
-<Card
-  title="🌱 Sustainable Growth"
-  description="Foster sustainability and stable growth as energy supply and demand expand"
-/>
-</Cards>
+<div className="p-8 rounded-xl border border-slate-500/30 bg-gradient-to-r from-slate-500/10 via-gray-500/5 to-slate-500/10 my-6">
+  <div className="text-lg leading-relaxed">
+    To create a financial system that breaks away from the traditional fiat currency system and establishes energy as the foundation of a new form of currency, overcoming the risks associated with inflation and centralized control while fostering sustainable growth.
+  </div>
+</div>
 
 ## Our Mission
 
 Our mission is to develop and implement an innovative financial framework that utilizes energy as a currency. Through facilitated marketplaces, we aim to establish an alternative to the fiat currency system, providing an inflation-free and de-risked environment for financial transactions.
 
-<Callout type="tip">
+<Callout type="info" className="my-6">
 Our goal is to foster sustainable economic growth by leveraging the expanding energy market and creating a stable foundation for financial activities.
 </Callout>
 
 ## Our Story
 
-**Founded in 2022**, NYYU was born out of a vision to revolutionize the financial industry by integrating the principles of decentralization and sustainability. Our founders, a group of experienced professionals in finance, technology, and energy sectors, recognized the limitations of the current financial system and sought to create a platform that addresses these challenges.
+<div className="relative pl-6 border-l-2 border-slate-500/30 my-8">
+  <div className="mb-6">
+    <div className="absolute -left-2 w-4 h-4 rounded-full bg-slate-500/30 border-4 border-background"></div>
+    <div className="text-sm text-muted-foreground mb-1">2022</div>
+    <div className="font-bold text-lg mb-2">Foundation</div>
+    <div className="text-muted-foreground">
+      NYYU was born out of a vision to revolutionize the financial industry by integrating the principles of decentralization and sustainability. Our founders, a group of experienced professionals in finance, technology, and energy sectors, recognized the limitations of the current financial system and sought to create a platform that addresses these challenges.
+    </div>
+  </div>
+</div>
 
 ## What We Offer
 
-### Comprehensive Solutions
+<div className="my-8">
+  <h3 className="text-2xl font-bold mb-6">Comprehensive Solutions</h3>
 
-NYYU offers a range of products and services designed to meet the diverse needs of our clients:
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="p-6 rounded-xl border border-border bg-muted/30 hover:bg-muted/50 transition-all">
+      <div className="text-2xl mb-3">💱</div>
+      <div className="font-bold mb-2">Digital & Fiat Exchange</div>
+      <div className="text-sm text-muted-foreground">
+        User-friendly platform for trading various cryptocurrencies and fiat currencies
+      </div>
+    </div>
 
-<Cards>
-<Card
-  title="💱 Digital & Fiat Exchange"
-  description="User-friendly platform for trading various cryptocurrencies and fiat currencies"
-/>
-<Card
-  title="🔄 Decentralized Exchange (DEX)"
-  description="Secure and efficient trading of digital assets without intermediaries"
-/>
-<Card
-  title="👛 Wallet Services"
-  description="Reliable and secure storage solutions for digital assets"
-/>
-<Card
-  title="💰 Staking & Loan Services"
-  description="Opportunities to earn passive income and access liquidity"
-/>
-<Card
-  title="🏪 Marketplaces"
-  description="Platforms for listing and trading real estate, commodities, and startups"
-/>
-<Card
-  title="🎨 White-Label Solutions"
-  description="API-as-a-Service offering customizable and scalable solutions for businesses"
-/>
-</Cards>
+    <div className="p-6 rounded-xl border border-border bg-muted/30 hover:bg-muted/50 transition-all">
+      <div className="text-2xl mb-3">🔄</div>
+      <div className="font-bold mb-2">Decentralized Exchange (DEX)</div>
+      <div className="text-sm text-muted-foreground">
+        Secure and efficient trading of digital assets without intermediaries
+      </div>
+    </div>
 
-### Innovation and Security
+    <div className="p-6 rounded-xl border border-border bg-muted/30 hover:bg-muted/50 transition-all">
+      <div className="text-2xl mb-3">👛</div>
+      <div className="font-bold mb-2">Wallet Services</div>
+      <div className="text-sm text-muted-foreground">
+        Reliable and secure storage solutions for digital assets
+      </div>
+    </div>
 
-<Callout type="warn">
-🔒 At NYYU, we are committed to leveraging cutting-edge technology to provide innovative financial solutions while maintaining the highest standards of security and compliance. Our platform is built on a robust infrastructure that ensures the safety and integrity of user assets.
-</Callout>
+    <div className="p-6 rounded-xl border border-border bg-muted/30 hover:bg-muted/50 transition-all">
+      <div className="text-2xl mb-3">💰</div>
+      <div className="font-bold mb-2">Staking & Loan Services</div>
+      <div className="text-sm text-muted-foreground">
+        Opportunities to earn passive income and access liquidity
+      </div>
+    </div>
+
+    <div className="p-6 rounded-xl border border-border bg-muted/30 hover:bg-muted/50 transition-all">
+      <div className="text-2xl mb-3">🏪</div>
+      <div className="font-bold mb-2">Marketplaces</div>
+      <div className="text-sm text-muted-foreground">
+        Platforms for listing and trading real estate, commodities, and startups
+      </div>
+    </div>
+
+    <div className="p-6 rounded-xl border border-border bg-muted/30 hover:bg-muted/50 transition-all">
+      <div className="text-2xl mb-3">🎨</div>
+      <div className="font-bold mb-2">White-Label Solutions</div>
+      <div className="text-sm text-muted-foreground">
+        API-as-a-Service offering customizable and scalable solutions for businesses
+      </div>
+    </div>
+  </div>
+</div>
+
+## Innovation and Security
+
+<div className="p-6 rounded-xl border border-slate-500/30 bg-gradient-to-r from-slate-500/10 to-gray-500/10 my-8">
+  <div className="flex items-start gap-4">
+    <div className="text-3xl">🔒</div>
+    <div className="flex-1">
+      <div className="font-bold text-lg mb-2">Commitment to Excellence</div>
+      <div className="text-muted-foreground">
+        At NYYU, we are committed to leveraging cutting-edge technology to provide innovative financial solutions while maintaining the highest standards of security and compliance. Our platform is built on a robust infrastructure that ensures the safety and integrity of user assets.
+      </div>
+    </div>
+  </div>
+</div>
 
 ## Join Us
 
 We invite you to join us on our journey to reshape the financial landscape. Whether you are an individual investor, a financial institution, or a business, NYYU offers the tools and opportunities to help you achieve your financial goals.
 
-<Callout type="info">
-Ready to get started? Join thousands of users already transforming their financial future with NYYU.
-</Callout>
+<div className="mt-8 p-8 rounded-xl border border-slate-500/30 bg-gradient-to-br from-slate-500/10 via-gray-500/5 to-background text-center">
+  <div className="font-bold text-xl mb-2">Ready to Get Started?</div>
+  <div className="text-muted-foreground mb-4">
+    Join thousands of users already transforming their financial future with NYYU
+  </div>
+  <a href="https://nyyu.io" className="inline-block px-6 py-3 rounded-lg bg-gradient-to-r from-slate-500/20 to-gray-500/20 hover:from-slate-500/30 hover:to-gray-500/30 border border-slate-500/30 font-medium transition-all">
+    Get Started Today
+  </a>
+</div>

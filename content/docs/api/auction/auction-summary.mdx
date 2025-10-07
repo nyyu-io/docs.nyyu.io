@@ -1,136 +1,301 @@
 ---
-title: Auction API Intro
+title: Auction API Overview
+description: Complete guide to NYYU auction system types and structures
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-The `Auction` type represents an auction round within the system, including details about the auction's timing, tokens, status, and associated avatars.
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-background p-8 border border-purple-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Auction API
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Manage auction rounds, track bids, and handle token sales with comprehensive auction system APIs
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-pink-500/5 rounded-full blur-3xl"></div>
+</div>
 
-### Types
+## Overview
 
-#### Auction
-Represents an auction round with details on timing, tokens, avatars, and status.
+The Auction API enables you to manage auction rounds within the NYYU platform, including details about timing, tokens, status, and associated avatars.
 
-```graphql
-type Auction {
-  id: Int!,
-  regDate: Float,
-  updateDate: Float,
-  deleted: Int,
-  round: Int,
-  startedAt: Float,
-  endedAt: Float,
-  totalToken: Float,
-  minPrice: Float,
-  avatar: [AvatarSet],
-  token: Float,
-  sold: Float,
-  stats: AuctionStats,
-  status: Int
-}
-```
+## Core Types
 
-##### Fields
-- `id` (Int!): The unique identifier for the auction.
-- `regDate` (Float): The registration date of the auction as a Unix timestamp.
-- `updateDate` (Float): The last update date of the auction as a Unix timestamp.
-- `deleted` (Int): Indicates if the auction is deleted (0 for not deleted, 1 for deleted).
-- `round` (Int): The round number of the auction.
-- `startedAt` (Float): The start time of the auction as a Unix timestamp.
-- `endedAt` (Float): The end time of the auction as a Unix timestamp.
-- `totalToken` (Float): The total number of tokens available in the auction.
-- `minPrice` (Float): The minimum price per token in the auction.
-- `avatar` ([AvatarSet]): A list of avatar sets associated with the auction.
-- `token` (Float): Additional tokens allocated for avatar matching users.
-- `sold` (Float): The amount of tokens sold in the auction.
-- `stats` (AuctionStats): Statistics about the auction.
-- `status` (Int): The status of the auction. Possible values:
-  - `0`: PENDING
-  - `1`: COUNTDOWN
-  - `2`: STARTED
-  - `3`: ENDED
+### Auction
 
-#### AvatarSet
-Represents a set of avatar components associated with an auction.
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🏛️</span>
+    <div>
+      <div className="font-bold text-lg">Auction Type</div>
+      <div className="text-sm text-muted-foreground">Represents an auction round with comprehensive details</div>
+    </div>
+  </div>
 
-```graphql
-type AvatarSet {
-  id: Int!,
-  regDate: Float,
-  updateDate: Float,
-  deleted: Int,
-  groupId: String,
-  compId: Int
-}
-```
+  ```graphql
+  type Auction {
+    id: Int!
+    regDate: Float
+    updateDate: Float
+    deleted: Int
+    round: Int
+    startedAt: Float
+    endedAt: Float
+    totalToken: Float
+    minPrice: Float
+    avatar: [AvatarSet]
+    token: Float
+    sold: Float
+    stats: AuctionStats
+    status: Int
+  }
+  ```
 
-##### Fields
-- `id` (Int!): The unique identifier for the avatar set.
-- `regDate` (Float): The registration date of the avatar set as a Unix timestamp.
-- `updateDate` (Float): The last update date of the avatar set as a Unix timestamp.
-- `deleted` (Int): Indicates if the set is deleted (0 for not deleted, 1 for deleted).
-- `groupId` (String): The category of the component.
-- `compId` (Int): The unique ID of the component.
+  <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">Core Fields</div>
+      <div className="space-y-1 text-xs">
+        <div><code className="bg-muted px-1 rounded">id</code> - Unique identifier</div>
+        <div><code className="bg-muted px-1 rounded">round</code> - Round number</div>
+        <div><code className="bg-muted px-1 rounded">status</code> - Current status (0-3)</div>
+        <div><code className="bg-muted px-1 rounded">deleted</code> - Deletion flag</div>
+      </div>
+    </div>
 
-#### AvatarSetInput
-Input type for setting avatar components in an auction.
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">Timing Fields</div>
+      <div className="space-y-1 text-xs">
+        <div><code className="bg-muted px-1 rounded">regDate</code> - Registration timestamp</div>
+        <div><code className="bg-muted px-1 rounded">updateDate</code> - Last update timestamp</div>
+        <div><code className="bg-muted px-1 rounded">startedAt</code> - Start time</div>
+        <div><code className="bg-muted px-1 rounded">endedAt</code> - End time</div>
+      </div>
+    </div>
 
-```graphql
-input AvatarSetInput {
-  groupId: String,
-  compId: Int
-}
-```
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">Token Fields</div>
+      <div className="space-y-1 text-xs">
+        <div><code className="bg-muted px-1 rounded">totalToken</code> - Total tokens available</div>
+        <div><code className="bg-muted px-1 rounded">minPrice</code> - Minimum token price</div>
+        <div><code className="bg-muted px-1 rounded">token</code> - Avatar bonus tokens</div>
+        <div><code className="bg-muted px-1 rounded">sold</code> - Tokens sold</div>
+      </div>
+    </div>
 
-##### Fields
-- `groupId` (String): The category of the component.
-- `compId` (Int): The unique ID of the component.
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">Related Data</div>
+      <div className="space-y-1 text-xs">
+        <div><code className="bg-muted px-1 rounded">avatar</code> - Avatar sets array</div>
+        <div><code className="bg-muted px-1 rounded">stats</code> - Auction statistics</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-#### AuctionStats
-Represents statistics for an auction.
+### AvatarSet
 
-```graphql
-type AuctionStats {
-  qty: Float,
-  win: Float,
-  fail: Float
-}
-```
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🎭</span>
+    <div>
+      <div className="font-bold">AvatarSet Type</div>
+      <div className="text-xs text-muted-foreground">Avatar components associated with an auction</div>
+    </div>
+  </div>
 
-##### Fields
-- `qty` (Float): Quantity of tokens in the auction.
-- `win` (Float): Amount of winning bids.
-- `fail` (Float): Amount of failed bids.
+  ```graphql
+  type AvatarSet {
+    id: Int!
+    regDate: Float
+    updateDate: Float
+    deleted: Int
+    groupId: String
+    compId: Int
+  }
+  ```
 
-#### CurrentRound
-Represents the current auction or presale round.
+  <div className="mt-4 p-4 rounded-lg bg-background border border-border">
+    <div className="grid grid-cols-2 gap-4 text-xs">
+      <div>
+        <div className="font-semibold mb-1">groupId</div>
+        <div className="text-muted-foreground">Component category</div>
+      </div>
+      <div>
+        <div className="font-semibold mb-1">compId</div>
+        <div className="text-muted-foreground">Component unique ID</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-```graphql
-type CurrentRound {
-  status: String,
-  auction: Auction,
-  presale: PreSale
-}
-```
+### AvatarSetInput
 
-##### Fields
-- `status` (String): Status of the current round.
-- `auction` (Auction): The current auction.
-- `presale` (PreSale): The current presale.
+<div className="p-5 rounded-lg border border-border bg-muted/30 my-6">
+  <div className="font-bold mb-3 flex items-center gap-2">
+    <span className="text-lg">📝</span>
+    <span>AvatarSetInput (Input Type)</span>
+  </div>
 
-### Auction Status Constants
+  ```graphql
+  input AvatarSetInput {
+    groupId: String
+    compId: Int
+  }
+  ```
 
-- `PENDING` (0): Auction has been created but not yet started.
-- `COUNTDOWN` (1): Auction is counting down and will start automatically when the counter reaches zero.
-- `STARTED` (2): Auction is currently ongoing.
-- `ENDED` (3): Auction has ended.
+  <div className="mt-3 text-sm text-muted-foreground">
+    Used when setting avatar components in auction creation or updates
+  </div>
+</div>
 
-### Status Definitions
+### AuctionStats
 
-- **PENDING**: The auction round has been created and is awaiting start.
-- **COUNTDOWN**: The auction round is in a countdown phase and will start automatically once the countdown completes.
-- **STARTED**: The auction round is currently active and accepting bids.
-- **ENDED**: The auction round has concluded and is no longer accepting bids.
+<div className="rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/10 to-green-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📊</span>
+    <div>
+      <div className="font-bold">AuctionStats Type</div>
+      <div className="text-xs text-muted-foreground">Statistical information about auction performance</div>
+    </div>
+  </div>
 
-This system allows for detailed tracking and management of auction rounds, including associated avatar components and real-time status updates.
+  ```graphql
+  type AuctionStats {
+    qty: Float
+    win: Float
+    fail: Float
+  }
+  ```
+
+  <div className="mt-4 grid grid-cols-3 gap-3">
+    <div className="p-3 rounded-lg bg-background border border-border text-center">
+      <div className="font-semibold text-sm">qty</div>
+      <div className="text-xs text-muted-foreground">Token quantity</div>
+    </div>
+    <div className="p-3 rounded-lg bg-background border border-border text-center">
+      <div className="font-semibold text-sm">win</div>
+      <div className="text-xs text-muted-foreground">Winning bids</div>
+    </div>
+    <div className="p-3 rounded-lg bg-background border border-border text-center">
+      <div className="font-semibold text-sm">fail</div>
+      <div className="text-xs text-muted-foreground">Failed bids</div>
+    </div>
+  </div>
+</div>
+
+### CurrentRound
+
+<div className="p-5 rounded-lg border border-border bg-muted/30 my-6">
+  <div className="font-bold mb-3 flex items-center gap-2">
+    <span className="text-lg">🔄</span>
+    <span>CurrentRound Type</span>
+  </div>
+
+  ```graphql
+  type CurrentRound {
+    status: String
+    auction: Auction
+    presale: PreSale
+  }
+  ```
+
+  <div className="mt-3 text-sm">
+    Represents the current auction or presale round in the system
+  </div>
+</div>
+
+## Auction Status
+
+<div className="rounded-xl border border-orange-500/30 bg-gradient-to-br from-orange-500/10 to-orange-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🚦</span>
+    <div>
+      <div className="font-bold text-lg">Status Constants</div>
+      <div className="text-sm text-muted-foreground">Auction lifecycle states</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
+      <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-500 font-bold flex-shrink-0">0</div>
+      <div className="flex-1">
+        <div className="font-bold text-sm">PENDING</div>
+        <div className="text-xs text-muted-foreground">Auction created but not yet started</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
+      <div className="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-500 font-bold flex-shrink-0">1</div>
+      <div className="flex-1">
+        <div className="font-bold text-sm">COUNTDOWN</div>
+        <div className="text-xs text-muted-foreground">Counting down, will start automatically when timer reaches zero</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
+      <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center text-green-500 font-bold flex-shrink-0">2</div>
+      <div className="flex-1">
+        <div className="font-bold text-sm">STARTED</div>
+        <div className="text-xs text-muted-foreground">Auction is currently active and accepting bids</div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-3 p-4 rounded-lg bg-background border border-border">
+      <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center text-red-500 font-bold flex-shrink-0">3</div>
+      <div className="flex-1">
+        <div className="font-bold text-sm">ENDED</div>
+        <div className="text-xs text-muted-foreground">Auction has concluded, no longer accepting bids</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Key Features
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">⏱️</div>
+    <div className="font-bold mb-2">Real-time Tracking</div>
+    <div className="text-sm text-muted-foreground">
+      Monitor auction rounds with Unix timestamps for precise timing control
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🎨</div>
+    <div className="font-bold mb-2">Avatar Integration</div>
+    <div className="text-sm text-muted-foreground">
+      Associate avatar components with auctions for enhanced user rewards
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📈</div>
+    <div className="font-bold mb-2">Performance Stats</div>
+    <div className="text-sm text-muted-foreground">
+      Track auction performance with win/fail bid statistics
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🔄</div>
+    <div className="font-bold mb-2">Status Management</div>
+    <div className="text-sm text-muted-foreground">
+      Automatic status transitions from pending through countdown to active
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-purple-500/30 bg-gradient-to-r from-purple-500/10 to-pink-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">🚀</span>
+    <div>
+      <div className="font-bold">Ready to integrate?</div>
+      <div className="text-sm text-muted-foreground">Explore our mutation and query documentation to start managing auction rounds</div>
+    </div>
+  </div>
+</div>

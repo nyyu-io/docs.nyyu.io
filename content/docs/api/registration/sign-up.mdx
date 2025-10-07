@@ -1,51 +1,445 @@
 ---
-title: Signup
+title: Sign Up
+description: Register new user accounts with email verification and country-based compliance
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-sign-up
+<div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-600 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="relative">
+    <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm mb-4">
+      <span className="relative flex h-2 w-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-background"></span>
+      </span>
+      ACCOUNT CREATION
+    </div>
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">Sign Up</h1>
+    <p className="text-xl text-blue-100 leading-relaxed max-w-3xl">
+      Create new user accounts with secure email verification and country-based regulatory compliance.
+    </p>
+  </div>
+</div>
 
-The `signup` mutation allows a new user to register an account. The process involves providing an email address, password, and country code. Depending on the current status of the email in the system, different responses will be returned.
+<Callout type="info" title="Registration Start">
+  This is the **first step** in the user registration process. After signup, users must verify their email and set up 2FA.
+</Callout>
 
-### Mutation: `signup`
+## Overview
 
-#### Schema:
-```graphql
-signup(
-  email: String!,
-  password: String!,
-  country: String!
-): String!
-```
+The `signup` mutation initiates the account registration process by creating a new user with email, password, and country information. The system automatically sends a verification code to the provided email address to confirm ownership.
 
-#### Parameters
+---
 
-- `email` (String): The email address of the user. This field is mandatory and will be used for account verification.
-- `password` (String): The password chosen by the user for their account. This field is mandatory and should follow the application's password strength guidelines.
-- `country` (String): The 3-letter country code representing the user's country. This field is mandatory and should follow the ISO 3166-1 alpha-3 standard (e.g., "USA" for the United States).
+## GraphQL Schema
 
-#### Return
-
-The mutation returns a string that describes the outcome of the signup attempt. The possible return values are:
-
-- `"Success"`: Indicates that a new user account has been successfully created. The account is not yet verified, and two-factor authentication (2FA) is not set up. A verification code will be sent to the provided email address to complete the verification process.
-- `"Already exists, sent verify code"`: Indicates that the email address is already registered in the system, but the account has not been verified. A new verification code will be sent to the email address to prompt the user to complete the verification process.
-- `"Already verified"`: Indicates that the email address is already registered and verified in the system. No further action is required from the user.
-
-### Example Mutation
-
-The following is an example of how to use the `signup` mutation to register a new user:
+<div className="rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-indigo-500/5 p-6 mb-8">
 
 ```graphql
 mutation {
   signup(
-    email: "demouser@nyyu.io",
-    password: "38f@3n102du/qA!",
+    email: String!
+    password: String!
+    country: String!
+  ): String!
+}
+```
+
+</div>
+
+---
+
+## Parameters
+
+<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 my-6">
+  <div className="rounded-lg border border-blue-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">email</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700 dark:text-red-300">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-blue-600 dark:text-blue-400">String</span></p>
+    <p className="text-sm text-foreground">User's email address for account identification and verification. Must be a valid email format.</p>
+  </div>
+
+  <div className="rounded-lg border border-indigo-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">password</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700 dark:text-red-300">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-indigo-600 dark:text-indigo-400">String</span></p>
+    <p className="text-sm text-foreground">Secure password for account protection. Should meet application's password strength requirements.</p>
+  </div>
+
+  <div className="rounded-lg border border-violet-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">country</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700 dark:text-red-300">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-violet-600 dark:text-violet-400">String</span></p>
+    <p className="text-sm text-foreground">ISO 3166-1 alpha-3 country code (e.g., "USA", "GBR", "CAN") for regulatory compliance.</p>
+  </div>
+</div>
+
+---
+
+## Return Values
+
+<div className="grid gap-4 my-6">
+  <div className="rounded-lg border border-green-500/30 bg-gradient-to-br from-green-500/10 to-emerald-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">✅</span>
+      <code className="bg-green-500/20 text-green-700 dark:text-green-300 px-3 py-1 rounded font-mono text-sm">Success</code>
+    </div>
+    <p className="text-sm text-foreground">
+      New account created successfully. Verification code sent to email (valid for 10 minutes). User must verify email before continuing.
+    </p>
+  </div>
+
+  <div className="rounded-lg border border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-yellow-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">📧</span>
+      <code className="bg-amber-500/20 text-amber-700 dark:text-amber-300 px-3 py-1 rounded font-mono text-sm">Already exists, sent verify code</code>
+    </div>
+    <p className="text-sm text-foreground">
+      Email already registered but not verified. New verification code sent to email. User should check inbox and complete verification.
+    </p>
+  </div>
+
+  <div className="rounded-lg border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-cyan-500/5 p-6">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">ℹ️</span>
+      <code className="bg-blue-500/20 text-blue-700 dark:text-blue-300 px-3 py-1 rounded font-mono text-sm">Already verified</code>
+    </div>
+    <p className="text-sm text-foreground">
+      Email already registered and verified. User should proceed to sign in instead. No action required.
+    </p>
+  </div>
+</div>
+
+---
+
+## Example Usage
+
+### Request
+
+```graphql
+mutation CreateAccount {
+  signup(
+    email: "demouser@nyyu.io"
+    password: "38f@3n102du/qA!"
     country: "USA"
   )
 }
 ```
 
-In this example, the mutation attempts to create a new account for the user with the email address `arthurclark655@gmail.com`, the password `123`, and the country code `USA`. The return value will indicate whether the account was successfully created, if the user needs to verify their email, or if the email is already verified.
+### Successful Response
+
+```json
+{
+  "data": {
+    "signup": "Success"
+  }
+}
+```
+
+<Callout type="info" title="Verification Email Sent">
+  A 6-digit verification code has been sent to **demouser@nyyu.io**. The code expires in 10 minutes.
+</Callout>
+
+### Existing Unverified Account
+
+```json
+{
+  "data": {
+    "signup": "Already exists, sent verify code"
+  }
+}
+```
+
+<Callout type="warn" title="Account Exists">
+  This email is already registered but not verified. A new verification code has been sent.
+</Callout>
+
+### Already Verified Account
+
+```json
+{
+  "data": {
+    "signup": "Already verified"
+  }
+}
+```
+
+<Callout type="info" title="Account Active">
+  This email is already registered and verified. Please use the sign-in page to access your account.
+</Callout>
+
+---
+
+## Registration Flow
+
+<div className="rounded-lg border border-blue-500/30 bg-background p-6 mb-6">
+  <h3 className="font-bold mb-4">Account Creation Process</h3>
+
+  <div className="space-y-6">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center text-2xl">
+        📝
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Step 1: Submit Registration</h4>
+        <p className="text-sm text-muted-foreground mb-2">
+          User provides email, password, and country code through your registration form
+        </p>
+        <div className="rounded-lg border border-blue-500/30 bg-blue-500/5 p-3">
+          <code className="text-xs">mutation signup(email, password, country)</code>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-indigo-500/20 flex items-center justify-center text-2xl">
+        ✉️
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Step 2: Verification Email</h4>
+        <p className="text-sm text-muted-foreground mb-2">
+          System automatically sends 6-digit code to the provided email address
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <span className="inline-flex items-center rounded-full bg-indigo-500/10 px-3 py-1 text-xs font-semibold text-indigo-700 dark:text-indigo-300">6-digit code</span>
+          <span className="inline-flex items-center rounded-full bg-indigo-500/10 px-3 py-1 text-xs font-semibold text-indigo-700 dark:text-indigo-300">10 min expiry</span>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-violet-500/20 flex items-center justify-center text-2xl">
+        👉
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Step 3: Next Action</h4>
+        <p className="text-sm text-muted-foreground mb-2">
+          Direct user to the email verification page to enter the code
+        </p>
+        <div className="rounded-lg border border-violet-500/30 bg-violet-500/5 p-3">
+          <code className="text-xs">→ verifyAccount(email, code)</code>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Implementation Example
+
+<div className="rounded-xl border border-blue-500/30 bg-background p-6 my-6">
+  <h3 className="font-bold mb-4">Frontend Integration</h3>
+
+```javascript
+// Example: User registration form handler
+async function handleSignup(formData) {
+  try {
+    const result = await graphqlClient.mutate({
+      mutation: gql`
+        mutation Signup($email: String!, $password: String!, $country: String!) {
+          signup(email: $email, password: $password, country: $country)
+        }
+      `,
+      variables: {
+        email: formData.email,
+        password: formData.password,
+        country: formData.country // e.g., "USA"
+      }
+    });
+
+    const response = result.data.signup;
+
+    if (response === "Success" || response === "Already exists, sent verify code") {
+      // Store email for verification step
+      sessionStorage.setItem('pendingEmail', formData.email);
+
+      // Redirect to verification page
+      router.push('/verify-email');
+
+      showNotification("Check your email for the verification code!");
+    } else if (response === "Already verified") {
+      // Account exists and is verified
+      showError("This email is already registered. Please sign in.");
+      router.push('/signin');
+    }
+  } catch (error) {
+    console.error("Signup failed:", error);
+    showError("Registration failed. Please try again.");
+  }
+}
+
+// Password strength validator
+function validatePassword(password) {
+  const minLength = 8;
+  const hasUpperCase = /[A-Z]/.test(password);
+  const hasLowerCase = /[a-z]/.test(password);
+  const hasNumbers = /\d/.test(password);
+  const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+  return password.length >= minLength &&
+         hasUpperCase &&
+         hasLowerCase &&
+         hasNumbers &&
+         hasSpecialChar;
+}
+```
+
+</div>
+
+---
+
+## Use Cases
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🆕</div>
+    <h3 className="font-bold mb-2">New User Registration</h3>
+    <p className="text-sm text-muted-foreground">
+      Primary use case for first-time users creating accounts on the platform
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔄</div>
+    <h3 className="font-bold mb-2">Resend Verification</h3>
+    <p className="text-sm text-muted-foreground">
+      Users can retry signup to receive a new verification code if the original expired
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🌍</div>
+    <h3 className="font-bold mb-2">Compliance Tracking</h3>
+    <p className="text-sm text-muted-foreground">
+      Country code enables region-specific features and regulatory compliance
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔒</div>
+    <h3 className="font-bold mb-2">Security Foundation</h3>
+    <p className="text-sm text-muted-foreground">
+      Email verification ensures account ownership before granting platform access
+    </p>
+  </Card>
+</div>
+
+---
+
+## Best Practices
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-blue-500 bg-blue-500/10 p-4">
+    <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-1">✅ Password Validation</h4>
+    <p className="text-sm text-blue-900 dark:text-blue-200">
+      Enforce strong password requirements client-side: minimum 8 characters with uppercase, lowercase, numbers, and special characters
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-indigo-500 bg-indigo-500/10 p-4">
+    <h4 className="font-bold text-indigo-700 dark:text-indigo-300 mb-1">📧 Email Format</h4>
+    <p className="text-sm text-indigo-900 dark:text-indigo-200">
+      Validate email format before submission and normalize to lowercase to prevent duplicate accounts
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-violet-500 bg-violet-500/10 p-4">
+    <h4 className="font-bold text-violet-700 dark:text-violet-300 mb-1">🌍 Country Codes</h4>
+    <p className="text-sm text-violet-900 dark:text-violet-200">
+      Use ISO 3166-1 alpha-3 standard (3-letter codes) and provide a dropdown with valid options
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-blue-500 bg-blue-500/10 p-4">
+    <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-1">⏰ Time Awareness</h4>
+    <p className="text-sm text-blue-900 dark:text-blue-200">
+      Inform users that verification codes expire in 10 minutes and provide clear next steps
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-indigo-500 bg-indigo-500/10 p-4">
+    <h4 className="font-bold text-indigo-700 dark:text-indigo-300 mb-1">🔄 Handle All Responses</h4>
+    <p className="text-sm text-indigo-900 dark:text-indigo-200">
+      Implement specific UI flows for each return value: Success, Already exists, and Already verified
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-violet-500 bg-violet-500/10 p-4">
+    <h4 className="font-bold text-violet-700 dark:text-violet-300 mb-1">🎯 User Experience</h4>
+    <p className="text-sm text-violet-900 dark:text-violet-200">
+      Store email in session storage after signup to pre-fill verification form and improve UX
+    </p>
+  </div>
+</div>
+
+---
+
+## Country Code Examples
+
+<div className="rounded-lg border border-blue-500/30 bg-background p-6 mb-6">
+  <h3 className="font-bold mb-4">Common ISO 3166-1 Alpha-3 Codes</h3>
+
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+    <div className="p-3 rounded-lg border border-border bg-muted/30">
+      <code className="text-sm font-bold text-blue-600 dark:text-blue-400">USA</code>
+      <div className="text-xs text-muted-foreground mt-1">United States</div>
+    </div>
+    <div className="p-3 rounded-lg border border-border bg-muted/30">
+      <code className="text-sm font-bold text-blue-600 dark:text-blue-400">GBR</code>
+      <div className="text-xs text-muted-foreground mt-1">United Kingdom</div>
+    </div>
+    <div className="p-3 rounded-lg border border-border bg-muted/30">
+      <code className="text-sm font-bold text-blue-600 dark:text-blue-400">CAN</code>
+      <div className="text-xs text-muted-foreground mt-1">Canada</div>
+    </div>
+    <div className="p-3 rounded-lg border border-border bg-muted/30">
+      <code className="text-sm font-bold text-blue-600 dark:text-blue-400">AUS</code>
+      <div className="text-xs text-muted-foreground mt-1">Australia</div>
+    </div>
+    <div className="p-3 rounded-lg border border-border bg-muted/30">
+      <code className="text-sm font-bold text-blue-600 dark:text-blue-400">DEU</code>
+      <div className="text-xs text-muted-foreground mt-1">Germany</div>
+    </div>
+    <div className="p-3 rounded-lg border border-border bg-muted/30">
+      <code className="text-sm font-bold text-blue-600 dark:text-blue-400">FRA</code>
+      <div className="text-xs text-muted-foreground mt-1">France</div>
+    </div>
+    <div className="p-3 rounded-lg border border-border bg-muted/30">
+      <code className="text-sm font-bold text-blue-600 dark:text-blue-400">JPN</code>
+      <div className="text-xs text-muted-foreground mt-1">Japan</div>
+    </div>
+    <div className="p-3 rounded-lg border border-border bg-muted/30">
+      <code className="text-sm font-bold text-blue-600 dark:text-blue-400">SGP</code>
+      <div className="text-xs text-muted-foreground mt-1">Singapore</div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Related Operations
+
+<Cards>
+  <Card title="Verify Account" href="/docs/api/registration/verify-account">
+    Complete email verification with code
+  </Card>
+  <Card title="Resend Verification" href="/docs/api/registration/resend-verification-code">
+    Request new verification code
+  </Card>
+  <Card title="Request 2FA" href="/docs/api/registration/request-2fa">
+    Set up two-factor authentication
+  </Card>
+  <Card title="Sign In" href="/docs/api/registration/sign-in">
+    Authenticate existing users
+  </Card>
+</Cards>

@@ -1,173 +1,375 @@
 ---
-title: Avatar API Introduction
+title: Avatar API Overview
+description: Complete guide to avatar components, profiles, and customization system
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-The Avatar system includes various components and profiles to represent users' avatars. These include components (such as accessories), profiles (combinations of components), and avatar sets (groups of components).
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-pink-500/10 via-purple-500/5 to-background p-8 border border-pink-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Avatar System API
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Create and manage customizable user avatars with components, profiles, and skill sets
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-pink-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl"></div>
+</div>
 
-### Concepts
+## System Overview
 
-- **Component**: An accessory for avatars, such as hats or facial features. Each component has a `groupId` (kind) and a `compId` (unique ID).
-- **GroupId**: The category of components (e.g., hats, hairColor).
-- **CompId**: A unique ID for each component (auto-generated as an integer).
-- **Profile**: A combination of multiple components.
-- **AvatarSet**: A model representing a set of components with `groupId` and `compId`.
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🎨</span>
+    <div>
+      <div className="font-bold text-lg">Avatar Customization Platform</div>
+      <div className="text-sm text-muted-foreground">Build unique user identities with modular components</div>
+    </div>
+  </div>
+  <div className="text-sm">
+    The Avatar system enables rich user customization through components (accessories), profiles (component combinations), and avatar sets (grouped components). Each element can be styled, priced, and managed independently.
+  </div>
+</div>
 
-### Authority
+## Core Concepts
 
-- **Admin Role**: Required for creating and updating components and profiles.
-- **User Role**: Sufficient for retrieving avatars.
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-2xl mb-2">🧩</div>
+    <div className="font-bold mb-2">Component</div>
+    <div className="text-sm text-muted-foreground">
+      Individual avatar accessories like hats or facial features. Each has a <code className="bg-muted px-1 rounded">groupId</code> (category) and <code className="bg-muted px-1 rounded">compId</code> (unique ID).
+    </div>
+  </div>
 
-### Types
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-2xl mb-2">👤</div>
+    <div className="font-bold mb-2">Profile</div>
+    <div className="text-sm text-muted-foreground">
+      Complete avatar built from multiple components, including skills, facts, and personal details.
+    </div>
+  </div>
 
-#### AvatarComponent
-Represents an individual component of an avatar.
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-2xl mb-2">📦</div>
+    <div className="font-bold mb-2">AvatarSet</div>
+    <div className="text-sm text-muted-foreground">
+      Collection of components grouped together with <code className="bg-muted px-1 rounded">groupId</code> and <code className="bg-muted px-1 rounded">compId</code> references.
+    </div>
+  </div>
 
-```graphql
-type AvatarComponent {
-  groupId: String!,
-  compId: Int!,
-  tierLevel: Int,
-  price: Float,
-  limited: Int,
-  purchased: Int,
-  svg: String,
-  width: Int,
-  top: Int,
-  left: Int
-}
-```
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-2xl mb-2">🔤</div>
+    <div className="font-bold mb-2">GroupId</div>
+    <div className="text-sm text-muted-foreground">
+      Category identifier for components (e.g., "hats", "hairColor", "accessories").
+    </div>
+  </div>
+</div>
 
-##### Fields
-- `groupId` (String!): The category of the component (e.g., "hats").
-- `compId` (Int!): The unique ID of the component.
-- `tierLevel` (Int): The tier level required to use the component.
-- `price` (Float): The price of the component.
-- `limited` (Int): The maximum number of components that can be sold.
-- `purchased` (Int): The number of components purchased.
-- `svg` (String): The SVG content of the component.
-- `width` (Int): The width of the component as a percentage.
-- `top` (Int): The top margin of the component.
-- `left` (Int): The left margin of the component.
+## Access Control
 
-#### AvatarProfile
-Represents a combination of avatar components, forming a profile.
+<div className="rounded-xl border border-orange-500/30 bg-gradient-to-br from-orange-500/10 to-orange-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔐</span>
+    <div>
+      <div className="font-bold text-lg">Role-Based Permissions</div>
+      <div className="text-sm text-muted-foreground">Different operations require different privilege levels</div>
+    </div>
+  </div>
 
-```graphql
-type AvatarProfile {
-  id: Int!,
-  regDate: Float,
-  updateDate: Float,
-  deleted: Int,
-  fname: String!,
-  surname: String,
-  skillSet: [SkillSet],
-  avatarSet: [AvatarSet],
-  hairColor: String,
-  factsSet: [AvatarFacts],
-  details: String
-}
-```
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-bold text-sm mb-2 text-red-500">👑 Admin Role</div>
+      <div className="text-xs space-y-1">
+        <div>• Create avatar components</div>
+        <div>• Update component attributes</div>
+        <div>• Manage avatar profiles</div>
+        <div>• Set pricing & limitations</div>
+      </div>
+    </div>
 
-##### Fields
-- `id` (Int!): The unique identifier for the avatar profile.
-- `regDate` (Float): The registration date of the avatar profile.
-- `updateDate` (Float): The last update date of the avatar profile.
-- `deleted` (Int): Indicates if the profile is deleted (0 for not deleted, 1 for deleted).
-- `fname` (String!): The first name associated with the avatar profile.
-- `surname` (String): The surname associated with the avatar profile.
-- `skillSet` ([SkillSet]): A list of skills associated with the avatar profile.
-- `avatarSet` ([AvatarSet]): A list of avatar sets associated with the profile.
-- `hairColor` (String): The hair color of the avatar profile.
-- `factsSet` ([AvatarFacts]): A list of facts associated with the avatar profile.
-- `details` (String): Additional details about the avatar profile.
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-bold text-sm mb-2 text-blue-500">👤 User Role</div>
+      <div className="text-xs space-y-1">
+        <div>• View avatar components</div>
+        <div>• Retrieve avatar profiles</div>
+        <div>• Access public avatar data</div>
+        <div>• Query available items</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-#### SkillSet
-Represents a skill associated with an avatar profile.
+## Core Types
 
-```graphql
-type SkillSet {
-  id: Int,
-  name: String!,
-  rate: Int
-}
-```
+### AvatarComponent
 
-##### Fields
-- `id` (Int): The unique identifier for the skill.
-- `name` (String!): The name of the skill.
-- `rate` (Int): The rating of the skill (number of stars).
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🎭</span>
+    <div>
+      <div className="font-bold">AvatarComponent Type</div>
+      <div className="text-xs text-muted-foreground">Individual avatar accessory or element</div>
+    </div>
+  </div>
 
-#### AvatarSet
-Represents a set of avatar components.
+  ```graphql
+  type AvatarComponent {
+    groupId: String!
+    compId: Int!
+    tierLevel: Int
+    price: Float
+    limited: Int
+    purchased: Int
+    svg: String
+    width: Int
+    top: Int
+    left: Int
+  }
+  ```
 
-```graphql
-type AvatarSet {
-  id: Int!,
-  regDate: Float,
-  updateDate: Float,
-  deleted: Int,
-  groupId: String,
-  compId: Int
-}
-```
+  <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">Identity</div>
+      <div className="space-y-1 text-xs">
+        <div><code className="bg-muted px-1 rounded">groupId</code> - Component category</div>
+        <div><code className="bg-muted px-1 rounded">compId</code> - Unique identifier</div>
+      </div>
+    </div>
 
-##### Fields
-- `id` (Int!): The unique identifier for the avatar set.
-- `regDate` (Float): The registration date of the avatar set.
-- `updateDate` (Float): The last update date of the avatar set.
-- `deleted` (Int): Indicates if the set is deleted (0 for not deleted, 1 for deleted).
-- `groupId` (String): The category of the component.
-- `compId` (Int): The unique ID of the component.
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">Access Control</div>
+      <div className="space-y-1 text-xs">
+        <div><code className="bg-muted px-1 rounded">tierLevel</code> - Required tier</div>
+        <div><code className="bg-muted px-1 rounded">price</code> - Token cost</div>
+      </div>
+    </div>
 
-#### AvatarSetInput
-Input type for setting avatar components.
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">Inventory</div>
+      <div className="space-y-1 text-xs">
+        <div><code className="bg-muted px-1 rounded">limited</code> - Max available</div>
+        <div><code className="bg-muted px-1 rounded">purchased</code> - Already sold</div>
+      </div>
+    </div>
 
-```graphql
-input AvatarSetInput {
-  groupId: String,
-  compId: Int
-}
-```
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-2">Visual</div>
+      <div className="space-y-1 text-xs">
+        <div><code className="bg-muted px-1 rounded">svg</code> - SVG content</div>
+        <div><code className="bg-muted px-1 rounded">width, top, left</code> - Positioning</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-##### Fields
-- `groupId` (String): The category of the component.
-- `compId` (Int): The unique ID of the component.
+### AvatarProfile
 
-#### AvatarFacts
-Represents a fact associated with an avatar profile.
+<div className="rounded-xl border border-pink-500/30 bg-gradient-to-br from-pink-500/10 to-pink-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">👥</span>
+    <div>
+      <div className="font-bold">AvatarProfile Type</div>
+      <div className="text-xs text-muted-foreground">Complete avatar with components and metadata</div>
+    </div>
+  </div>
 
-```graphql
-type AvatarFacts {
-  id: Int!,
-  regDate: Float,
-  updateDate: Float,
-  deleted: Int,
-  topic: String,
-  detail: String
-}
-```
+  ```graphql
+  type AvatarProfile {
+    id: Int!
+    regDate: Float
+    updateDate: Float
+    deleted: Int
+    fname: String!
+    surname: String
+    skillSet: [SkillSet]
+    avatarSet: [AvatarSet]
+    hairColor: String
+    factsSet: [AvatarFacts]
+    details: String
+  }
+  ```
 
-##### Fields
-- `id` (Int!): The unique identifier for the fact.
-- `regDate` (Float): The registration date of the fact.
-- `updateDate` (Float): The last update date of the fact.
-- `deleted` (Int): Indicates if the fact is deleted (0 for not deleted, 1 for deleted).
-- `topic` (String): The topic of the fact.
-- `detail` (String): The detail content of the fact.
+  <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3">
+    <div className="p-3 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-xs mb-1">Personal Info</div>
+      <div className="text-xs text-muted-foreground">fname, surname, details</div>
+    </div>
 
-#### FactsInput
-Input type for setting avatar facts.
+    <div className="p-3 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-xs mb-1">Components</div>
+      <div className="text-xs text-muted-foreground">avatarSet, hairColor</div>
+    </div>
 
-```graphql
-input FactsInput {
-  topic: String,
-  detail: String
-}
-```
+    <div className="p-3 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-xs mb-1">Metadata</div>
+      <div className="text-xs text-muted-foreground">skillSet, factsSet</div>
+    </div>
+  </div>
+</div>
 
-##### Fields
-- `topic` (String): The topic of the fact.
-- `detail` (String): The detail content of the fact.
+### SkillSet
+
+<div className="p-5 rounded-lg border border-border bg-muted/30 my-6">
+  <div className="font-bold mb-3 flex items-center gap-2">
+    <span className="text-lg">⭐</span>
+    <span>SkillSet Type</span>
+  </div>
+
+  ```graphql
+  type SkillSet {
+    id: Int
+    name: String!
+    rate: Int
+  }
+  ```
+
+  <div className="mt-3 text-sm">
+    Represents skills associated with avatar profiles. <code className="bg-muted px-1 rounded">rate</code> indicates skill level (star rating).
+  </div>
+</div>
+
+### AvatarSet
+
+<div className="p-5 rounded-lg border border-border bg-muted/30 my-6">
+  <div className="font-bold mb-3 flex items-center gap-2">
+    <span className="text-lg">🎨</span>
+    <span>AvatarSet Type</span>
+  </div>
+
+  ```graphql
+  type AvatarSet {
+    id: Int!
+    regDate: Float
+    updateDate: Float
+    deleted: Int
+    groupId: String
+    compId: Int
+  }
+  ```
+
+  <div className="mt-3 grid grid-cols-2 gap-3 text-sm">
+    <div>
+      <div className="font-semibold mb-1">groupId</div>
+      <div className="text-xs text-muted-foreground">Component category</div>
+    </div>
+    <div>
+      <div className="font-semibold mb-1">compId</div>
+      <div className="text-xs text-muted-foreground">Component ID reference</div>
+    </div>
+  </div>
+</div>
+
+### AvatarFacts
+
+<div className="p-5 rounded-lg border border-border bg-muted/30 my-6">
+  <div className="font-bold mb-3 flex items-center gap-2">
+    <span className="text-lg">📝</span>
+    <span>AvatarFacts Type</span>
+  </div>
+
+  ```graphql
+  type AvatarFacts {
+    id: Int!
+    regDate: Float
+    updateDate: Float
+    deleted: Int
+    topic: String
+    detail: String
+  }
+  ```
+
+  <div className="mt-3 text-sm">
+    Stores interesting facts and trivia associated with avatar profiles. Each fact has a <code className="bg-muted px-1 rounded">topic</code> and detailed <code className="bg-muted px-1 rounded">detail</code> content.
+  </div>
+</div>
+
+## Input Types
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-green-500/30 bg-green-500/5">
+    <div className="font-bold mb-2 flex items-center gap-2">
+      <span>📥</span>
+      <span>AvatarSetInput</span>
+    </div>
+
+    ```graphql
+    input AvatarSetInput {
+      groupId: String
+      compId: Int
+    }
+    ```
+
+    <div className="text-xs text-muted-foreground mt-2">
+      Used when creating or updating avatar component sets
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-green-500/30 bg-green-500/5">
+    <div className="font-bold mb-2 flex items-center gap-2">
+      <span>📥</span>
+      <span>FactsInput</span>
+    </div>
+
+    ```graphql
+    input FactsInput {
+      topic: String
+      detail: String
+    }
+    ```
+
+    <div className="text-xs text-muted-foreground mt-2">
+      Used when adding facts to avatar profiles
+    </div>
+  </div>
+</div>
+
+## Key Features
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">💎</div>
+    <div className="font-bold mb-2">Tiered Access</div>
+    <div className="text-sm text-muted-foreground">
+      Components can be restricted by user tier levels and pricing
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🎯</div>
+    <div className="font-bold mb-2">Limited Editions</div>
+    <div className="text-sm text-muted-foreground">
+      Control scarcity with purchase limits and inventory tracking
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🎨</div>
+    <div className="font-bold mb-2">SVG Based</div>
+    <div className="text-sm text-muted-foreground">
+      Scalable vector graphics ensure crisp rendering at any size
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🔧</div>
+    <div className="font-bold mb-2">Customizable Positioning</div>
+    <div className="text-sm text-muted-foreground">
+      Precise control over component placement and dimensions
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-pink-500/30 bg-gradient-to-r from-pink-500/10 to-purple-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">🚀</span>
+    <div>
+      <div className="font-bold">Start customizing avatars</div>
+      <div className="text-sm text-muted-foreground">Explore mutation and query endpoints to build your avatar system</div>
+    </div>
+  </div>
+</div>

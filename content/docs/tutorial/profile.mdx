@@ -1,192 +1,1048 @@
 ---
-title: NYYU Profile
-description: Manage your account settings and preferences
+title: NYYU Profile & Security Setup
+description: Complete guide to customizing your avatar, securing your account with 2FA, and progressing through user tier levels
 ---
 
-import { Callout } from 'fumadocs-ui/components/callout';
-import { Card, Cards } from 'fumadocs-ui/components/card';
-import { Step, Steps } from 'fumadocs-ui/components/steps';
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-cyan-500/10 via-sky-500/5 to-background p-8 md:p-12 border border-cyan-500/20 mb-8">
+  <div className="relative z-10">
+    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-500/30 text-sm font-medium mb-4">
+      <svg className="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+      </svg>
+      Profile Tutorial
+    </div>
+    <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 bg-clip-text text-transparent">
+      Profile & Security Setup
+    </h1>
+    <p className="text-xl text-muted-foreground max-w-2xl mb-6">
+      Secure your NYYU account with multi-factor authentication, customize your avatar and identity, and unlock higher limits through tier progression. Your complete guide to account optimization and security.
+    </p>
+    <div className="flex flex-wrap gap-3">
+      <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-cyan-500/10 border border-cyan-500/20">
+        <svg className="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span className="text-sm font-medium">12 min read</span>
+      </div>
+      <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-green-500/10 border border-green-500/20">
+        <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span className="text-sm font-medium">Beginner Level</span>
+      </div>
+      <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-purple-500/10 border border-purple-500/20">
+        <svg className="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+        </svg>
+        <span className="text-sm font-medium">Security Essential</span>
+      </div>
+    </div>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl"></div>
+</div>
 
-## NYYU Profile Overview
+## What You'll Learn
 
-The NYYU Profile section allows users to manage their personal information, security settings, identity verification, and payment preferences. This section provides a comprehensive overview of your profile details and security measures.
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+  <div className="p-4 rounded-xl border border-border bg-card">
+    <div className="flex items-center gap-3 mb-2">
+      <div className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center">
+        <svg className="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+      <span className="font-semibold">Avatar Customization</span>
+    </div>
+    <p className="text-sm text-muted-foreground">Design unique avatars with customizable components, backgrounds, and accessories</p>
+  </div>
 
-### Key Features
+  <div className="p-4 rounded-xl border border-border bg-card">
+    <div className="flex items-center gap-3 mb-2">
+      <div className="w-8 h-8 rounded-lg bg-sky-500/20 flex items-center justify-center">
+        <svg className="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+        </svg>
+      </div>
+      <span className="font-semibold">Two-Factor Authentication</span>
+    </div>
+    <p className="text-sm text-muted-foreground">Secure your account with Google Authenticator, SMS codes, or hardware keys</p>
+  </div>
 
-<Cards>
-<Card title="User Information" description="Displays personal information and account details." />
-<Card title="Security Settings" description="Options to enhance account security with passkeys, biometrics, email, phone number, and more." />
-<Card title="Identity and Payments" description="Manage identification, default currency, account limits, and connected accounts." />
-<Card title="Notices and Alerts" description="Important notifications and alerts related to your account." />
-</Cards>
+  <div className="p-4 rounded-xl border border-border bg-card">
+    <div className="flex items-center gap-3 mb-2">
+      <div className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">
+        <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+        </svg>
+      </div>
+      <span className="font-semibold">User Tier Progression</span>
+    </div>
+    <p className="text-sm text-muted-foreground">Level up through Bronze, Silver, Gold, Platinum tiers for increased limits and benefits</p>
+  </div>
 
-## Managing Your NYYU Profile Dashboard
+  <div className="p-4 rounded-xl border border-border bg-card">
+    <div className="flex items-center gap-3 mb-2">
+      <div className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center">
+        <svg className="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+      </div>
+      <span className="font-semibold">Identity Verification</span>
+    </div>
+    <p className="text-sm text-muted-foreground">Complete KYC requirements for higher withdrawal limits and marketplace access</p>
+  </div>
+</div>
 
-### User Information
+## Prerequisites
 
-The user information section at the top provides a summary of your account details, including username, NYYU ID, carbon credits, address, and legal name.
+<div className="rounded-xl border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-blue-500/5 p-6 mb-8">
+  <div className="flex items-start gap-4">
+    <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center flex-shrink-0">
+      <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+      </svg>
+    </div>
+    <div className="flex-1">
+      <div className="font-bold text-lg mb-3">Before You Start</div>
+      <div className="space-y-2 text-sm">
+        <div className="flex items-start gap-2">
+          <svg className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+          <span>Active NYYU account with verified email address</span>
+        </div>
+        <div className="flex items-start gap-2">
+          <svg className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+          <span>Smartphone with authenticator app installed (Google Authenticator or Authy)</span>
+        </div>
+        <div className="flex items-start gap-2">
+          <svg className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+          <span>Government-issued ID for KYC verification (passport, driver's license)</span>
+        </div>
+        <div className="flex items-start gap-2">
+          <svg className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+          <span>Secure password manager to store backup codes safely</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-![Profile Overview](/img/Profile.png)
+## Step-by-Step Guide
 
+### Step 1: Access Your Profile Dashboard
 
+<div className="rounded-xl border border-border bg-card p-6 mb-6">
+  <div className="flex items-center gap-3 mb-4">
+    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-cyan-500/10 flex items-center justify-center font-bold text-cyan-400">
+      1
+    </div>
+    <div className="font-bold text-lg">Navigate to Profile Section</div>
+  </div>
 
-#### User Details
+  <div className="space-y-4 text-sm">
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Accessing your profile:</div>
+      <ul className="space-y-2 ml-4">
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span>Click your username or avatar icon in the top-right corner</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span>Select "Profile" or "Account Settings" from the dropdown menu</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span>View your basic information: username, NYYU ID, email, join date</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span>Check your current tier level and progress to next tier</span>
+        </li>
+      </ul>
+    </div>
 
-<Cards>
-<Card title="Username" description="Your display name on the platform." />
-<Card title="NYYU ID" description="Unique identifier for your account." />
-<Card title="Carbon Credits" description="Total carbon credits earned." />
-<Card title="Address" description="Your registered address." />
-<Card title="Legal Name" description="Your legal name and tax residency information." />
-<Card title="Date of Birth" description="Your date of birth." />
-<Card title="Passport Number" description="Your passport number." />
-</Cards>
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Profile sections overview:</div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
+        <div className="p-3 rounded-lg border border-border bg-muted/30">
+          <div className="font-semibold mb-1 flex items-center gap-2">
+            <svg className="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            User Information
+          </div>
+          <div className="text-xs text-muted-foreground">
+            Personal details, contact info, and account identifiers
+          </div>
+        </div>
+        <div className="p-3 rounded-lg border border-border bg-muted/30">
+          <div className="font-semibold mb-1 flex items-center gap-2">
+            <svg className="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            Security Settings
+          </div>
+          <div className="text-xs text-muted-foreground">
+            2FA, passkeys, password management, device authorization
+          </div>
+        </div>
+        <div className="p-3 rounded-lg border border-border bg-muted/30">
+          <div className="font-semibold mb-1 flex items-center gap-2">
+            <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Identity & Payments
+          </div>
+          <div className="text-xs text-muted-foreground">
+            KYC verification, payment methods, account limits
+          </div>
+        </div>
+        <div className="p-3 rounded-lg border border-border bg-muted/30">
+          <div className="font-semibold mb-1 flex items-center gap-2">
+            <svg className="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Avatar & Appearance
+          </div>
+          <div className="text-xs text-muted-foreground">
+            Avatar customization, profile picture, display preferences
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-### Security Settings
+### Step 2: Customize Your Avatar
 
-This section allows you to enhance the security of your account through various measures.
+<div className="rounded-xl border border-border bg-card p-6 mb-6">
+  <div className="flex items-center gap-3 mb-4">
+    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-sky-500/20 to-sky-500/10 flex items-center justify-center font-bold text-sky-400">
+      2
+    </div>
+    <div className="font-bold text-lg">Design Your Unique Avatar</div>
+  </div>
 
-#### Passkeys and Biometrics
+  <div className="space-y-4 text-sm">
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Avatar component categories:</div>
+      <div className="space-y-2">
+        <div className="p-3 rounded-lg border border-cyan-500/30 bg-cyan-500/5">
+          <div className="font-semibold mb-1 text-cyan-400">Face & Body</div>
+          <div className="text-xs text-muted-foreground">
+            Skin tones, face shapes, body types, poses (50+ options)
+          </div>
+        </div>
+        <div className="p-3 rounded-lg border border-blue-500/30 bg-blue-500/5">
+          <div className="font-semibold mb-1 text-blue-400">Hair & Facial Features</div>
+          <div className="text-xs text-muted-foreground">
+            Hairstyles, colors, beards, mustaches, eyewear (100+ combinations)
+          </div>
+        </div>
+        <div className="p-3 rounded-lg border border-purple-500/30 bg-purple-500/5">
+          <div className="font-semibold mb-1 text-purple-400">Clothing & Accessories</div>
+          <div className="text-xs text-muted-foreground">
+            Outfits, hats, jewelry, badges (unlock with tier progression)
+          </div>
+        </div>
+        <div className="p-3 rounded-lg border border-green-500/30 bg-green-500/5">
+          <div className="font-semibold mb-1 text-green-400">Backgrounds & Effects</div>
+          <div className="text-xs text-muted-foreground">
+            Scenes, gradients, animated effects, premium backgrounds
+          </div>
+        </div>
+      </div>
+    </div>
 
-<Cards>
-<Card title="Passkeys and Biometrics" description="Enable security keys such as Yubikey for additional protection." />
-<Card title="Buy Yubikey" description="Link to purchase a Yubikey for enhanced security." />
-</Cards>
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Creating your avatar:</div>
+      <ol className="space-y-2 ml-4 list-decimal">
+        <li>Navigate to Profile → Avatar Customization</li>
+        <li>Select a base avatar template or start from scratch</li>
+        <li>Choose components from each category (face, hair, clothing)</li>
+        <li>Adjust colors, sizes, and positions with sliders</li>
+        <li>Preview your avatar in different contexts (profile, chat, leaderboard)</li>
+        <li>Save changes and set as your active avatar</li>
+        <li>Create multiple avatar profiles for different moods</li>
+      </ol>
+    </div>
 
-#### Email
+    <div className="pl-[52px] mt-4">
+      <div className="p-4 rounded-lg border border-blue-500/30 bg-blue-500/5">
+        <div className="font-semibold mb-2 text-blue-400">Unlock Exclusive Components</div>
+        <div className="text-xs text-muted-foreground space-y-1">
+          <p>Premium avatar components unlock through achievements:</p>
+          <ul className="ml-4 space-y-1">
+            <li>• Bronze Tier: Basic components (default)</li>
+            <li>• Silver Tier: Animated effects, premium backgrounds</li>
+            <li>• Gold Tier: Exclusive outfits, rare accessories</li>
+            <li>• Platinum Tier: Legendary items, custom animations</li>
+            <li>• Special Events: Limited edition seasonal items</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<Cards>
-<Card title="Email Protection" description="Secure your account and transactions with codes sent to your email." />
-<Card title="Email Address" description="Displayed email address for account notifications." />
-</Cards>
+### Step 3: Enable Two-Factor Authentication
 
-#### Authenticator App
+<div className="rounded-xl border border-border bg-card p-6 mb-6">
+  <div className="flex items-center gap-3 mb-4">
+    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500/20 to-blue-500/10 flex items-center justify-center font-bold text-blue-400">
+      3
+    </div>
+    <div className="font-bold text-lg">Secure With 2FA</div>
+  </div>
 
-<Cards>
-<Card title="Authenticator App" description="Enable an authenticator app to secure your account and transactions." />
-<Card title="Setup Assistance" description="Help link for setting up the authenticator app." />
-</Cards>
+  <div className="space-y-4 text-sm">
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">2FA method options:</div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div className="p-3 rounded-lg border border-border bg-muted/30">
+          <div className="font-semibold mb-1">Authenticator App (Recommended)</div>
+          <ul className="space-y-1 text-xs text-muted-foreground">
+            <li>• Works offline</li>
+            <li>• Most secure option</li>
+            <li>• Google Authenticator, Authy</li>
+            <li>• Time-based codes (TOTP)</li>
+          </ul>
+        </div>
+        <div className="p-3 rounded-lg border border-border bg-muted/30">
+          <div className="font-semibold mb-1">SMS Text Messages</div>
+          <ul className="space-y-1 text-xs text-muted-foreground">
+            <li>• Easy setup</li>
+            <li>• Requires phone signal</li>
+            <li>• Codes sent via text</li>
+            <li>• Less secure than app</li>
+          </ul>
+        </div>
+        <div className="p-3 rounded-lg border border-border bg-muted/30">
+          <div className="font-semibold mb-1">Email Verification</div>
+          <ul className="space-y-1 text-xs text-muted-foreground">
+            <li>• Backup method only</li>
+            <li>• Codes sent to email</li>
+            <li>• Slower delivery</li>
+            <li>• Not recommended as primary</li>
+          </ul>
+        </div>
+        <div className="p-3 rounded-lg border border-border bg-muted/30">
+          <div className="font-semibold mb-1">Hardware Security Keys</div>
+          <ul className="space-y-1 text-xs text-muted-foreground">
+            <li>• Ultimate security</li>
+            <li>• YubiKey, Titan Key</li>
+            <li>• Physical device required</li>
+            <li>• Costs $25-$50</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-#### Phone Number
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Setting up Google Authenticator:</div>
+      <ol className="space-y-2 ml-4 list-decimal">
+        <li>Download Google Authenticator app on your smartphone</li>
+        <li>Go to Profile → Security Settings → Authenticator App</li>
+        <li>Click "Enable Authenticator App"</li>
+        <li>Scan the QR code with your authenticator app</li>
+        <li>OR manually enter the setup key if QR code doesn't work</li>
+        <li>Enter the 6-digit code displayed in the app</li>
+        <li>Save your backup codes in a secure location</li>
+        <li>Verify 2FA is working by logging out and back in</li>
+      </ol>
+    </div>
 
-<Cards>
-<Card title="Phone Number Protection" description="Secure your account and transactions with SMS codes." />
-<Card title="Phone Number" description="Displayed phone number for SMS verification." />
-</Cards>
+    <div className="pl-[52px] mt-4">
+      <div className="p-4 rounded-lg border border-yellow-500/30 bg-yellow-500/5">
+        <div className="font-semibold mb-2 text-yellow-400 flex items-center gap-2">
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+          Save Your Backup Codes
+        </div>
+        <div className="text-xs text-muted-foreground">
+          NYYU provides 10 backup codes when enabling 2FA. Store these codes offline in a safe place (password manager, printed paper in a safe). If you lose your phone, these codes are your ONLY way to regain account access. Each code can be used once.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-#### Login Password
+<div className="rounded-xl border border-red-500/30 bg-gradient-to-r from-red-500/10 to-red-500/5 p-5 mb-6">
+  <div className="flex items-start gap-3">
+    <svg className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+    </svg>
+    <div>
+      <div className="font-bold mb-1">Critical: Don't Lose Your Backup Codes</div>
+      <div className="text-sm text-muted-foreground space-y-1">
+        <p>• Without backup codes, losing your 2FA device means losing account access</p>
+        <p>• Account recovery takes 7-14 days and requires extensive verification</p>
+        <p>• Store codes in multiple secure locations (password manager + printed copy)</p>
+        <p>• Never share backup codes with anyone, including NYYU support</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-<Cards>
-<Card title="Login Password" description="Used to log in to your account. " />
-<Card title="Password Status" description="Indicates if your password is secure or leaked." />
-<Card title="Secure Password Link" description="Link to secure your password." />
-</Cards>
+### Step 4: Complete Identity Verification (KYC)
 
-#### Account Connections
+<div className="rounded-xl border border-border bg-card p-6 mb-6">
+  <div className="flex items-center gap-3 mb-4">
+    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-cyan-500/10 flex items-center justify-center font-bold text-cyan-400">
+      4
+    </div>
+    <div className="font-bold text-lg">Verify Your Identity</div>
+  </div>
 
-<Cards>
-<Card title="Third-Party Accounts" description="Use third-party accounts like Apple ID or Google account to log in to your NYYU account." />
-</Cards>
+  <div className="space-y-4 text-sm">
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">KYC verification levels:</div>
+      <div className="space-y-3">
+        <div className="p-3 rounded-lg border border-green-500/30 bg-green-500/5">
+          <div className="font-semibold mb-1 text-green-400">Level 1: Basic Verification</div>
+          <div className="text-xs text-muted-foreground mb-2">
+            <strong>Requirements:</strong> Email + phone number verification
+          </div>
+          <ul className="space-y-1 text-xs text-muted-foreground">
+            <li>• Daily withdrawal limit: $2,000</li>
+            <li>• Monthly withdrawal limit: $20,000</li>
+            <li>• Crypto trading: Enabled</li>
+            <li>• Marketplace access: View only</li>
+            <li>• Processing time: Instant</li>
+          </ul>
+        </div>
 
-#### Anti-Phishing Code
+        <div className="p-3 rounded-lg border border-cyan-500/30 bg-cyan-500/5">
+          <div className="font-semibold mb-1 text-cyan-400">Level 2: Standard Verification</div>
+          <div className="text-xs text-muted-foreground mb-2">
+            <strong>Requirements:</strong> ID document + selfie verification
+          </div>
+          <ul className="space-y-1 text-xs text-muted-foreground">
+            <li>• Daily withdrawal limit: $50,000</li>
+            <li>• Monthly withdrawal limit: $500,000</li>
+            <li>• Fiat deposits/withdrawals: Enabled</li>
+            <li>• Marketplace access: Basic investments</li>
+            <li>• Processing time: 1-3 business days</li>
+          </ul>
+        </div>
 
-<Cards>
-<Card title="Anti-Phishing Code" description="Protect your account from phishing attempts." />
-<Card title="Enable/Disable" description="Option to turn on/off the anti-phishing code." />
-</Cards>
+        <div className="p-3 rounded-lg border border-blue-500/30 bg-blue-500/5">
+          <div className="font-semibold mb-1 text-blue-400">Level 3: Enhanced Verification</div>
+          <div className="text-xs text-muted-foreground mb-2">
+            <strong>Requirements:</strong> Proof of address + source of wealth
+          </div>
+          <ul className="space-y-1 text-xs text-muted-foreground">
+            <li>• Daily withdrawal limit: $200,000</li>
+            <li>• Monthly withdrawal limit: Unlimited</li>
+            <li>• API trading access: Enabled</li>
+            <li>• Marketplace access: All categories</li>
+            <li>• Processing time: 3-5 business days</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-#### App Authorization
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">KYC submission process:</div>
+      <ol className="space-y-2 ml-4 list-decimal">
+        <li>Navigate to Profile → Identity Verification</li>
+        <li>Select verification level (Level 2 recommended for most users)</li>
+        <li>Prepare documents: Government ID (passport or driver's license)</li>
+        <li>Upload clear photos of document front and back</li>
+        <li>Take a selfie holding your ID next to your face</li>
+        <li>For Level 3: Upload proof of address (utility bill, bank statement)</li>
+        <li>Submit application and wait for review</li>
+        <li>Check email for verification status updates</li>
+      </ol>
+    </div>
 
-<Cards>
-<Card title="App Authorization" description="Use your NYYU account to sign in to third-party sites and apps." />
-<Card title="Status" description="Indicates if app authorization is active." />
-</Cards>
+    <div className="pl-[52px] mt-4">
+      <div className="p-4 rounded-lg border border-cyan-500/30 bg-cyan-500/5">
+        <div className="font-semibold mb-2 text-cyan-400">Document Requirements</div>
+        <div className="text-xs text-muted-foreground space-y-2">
+          <p><strong>Accepted ID Documents:</strong></p>
+          <ul className="ml-4 space-y-1">
+            <li>• Passport (any country, not expired)</li>
+            <li>• National ID card (government issued)</li>
+            <li>• Driver's license (with photo)</li>
+          </ul>
+          <p className="mt-2"><strong>Photo Requirements:</strong></p>
+          <ul className="ml-4 space-y-1">
+            <li>• High resolution (minimum 1280x720)</li>
+            <li>• All text must be clearly readable</li>
+            <li>• No glare or shadows covering information</li>
+            <li>• Full document visible in frame</li>
+            <li>• Selfie: face clearly visible, good lighting</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-#### Device Management
+### Step 5: Understand User Tier System
 
-<Cards>
-<Card title="Device Management" description="Manage devices allowed to access your account." />
-</Cards>
+<div className="rounded-xl border border-border bg-card p-6 mb-6">
+  <div className="flex items-center gap-3 mb-4">
+    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-sky-500/20 to-sky-500/10 flex items-center justify-center font-bold text-sky-400">
+      5
+    </div>
+    <div className="font-bold text-lg">Progress Through Tier Levels</div>
+  </div>
 
-#### API Management
+  <div className="space-y-4 text-sm">
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Tier progression overview:</div>
+      <div className="space-y-3">
+        <div className="p-3 rounded-lg border border-orange-500/30 bg-orange-500/5">
+          <div className="flex items-center justify-between mb-2">
+            <div className="font-semibold text-orange-400">Bronze Tier</div>
+            <div className="text-xs text-muted-foreground">Entry Level</div>
+          </div>
+          <div className="text-xs text-muted-foreground mb-2">
+            <strong>Requirements:</strong> Create account + email verification
+          </div>
+          <ul className="space-y-1 text-xs text-muted-foreground">
+            <li>• Trading fee: 0.15% maker / 0.25% taker</li>
+            <li>• Staking APY: Base rates</li>
+            <li>• Referral bonus: 10%</li>
+            <li>• Customer support: Standard (24h response)</li>
+          </ul>
+        </div>
 
-<Cards>
-<Card title="API Management" description="Create and manage API keys (requires completed KYC)." />
-</Cards>
+        <div className="p-3 rounded-lg border border-gray-400/30 bg-gray-400/5">
+          <div className="flex items-center justify-between mb-2">
+            <div className="font-semibold text-gray-400">Silver Tier</div>
+            <div className="text-xs text-muted-foreground">Active User</div>
+          </div>
+          <div className="text-xs text-muted-foreground mb-2">
+            <strong>Requirements:</strong> $10,000 trading volume OR $5,000 staked
+          </div>
+          <ul className="space-y-1 text-xs text-muted-foreground">
+            <li>• Trading fee: 0.12% maker / 0.22% taker</li>
+            <li>• Staking APY: +0.5% bonus</li>
+            <li>• Referral bonus: 15%</li>
+            <li>• Customer support: Priority (12h response)</li>
+            <li>• Exclusive avatar components unlocked</li>
+          </ul>
+        </div>
 
-### Identity and Payments
+        <div className="p-3 rounded-lg border border-yellow-500/30 bg-yellow-500/5">
+          <div className="flex items-center justify-between mb-2">
+            <div className="font-semibold text-yellow-400">Gold Tier</div>
+            <div className="text-xs text-muted-foreground">Power User</div>
+          </div>
+          <div className="text-xs text-muted-foreground mb-2">
+            <strong>Requirements:</strong> $100,000 trading volume OR $50,000 staked
+          </div>
+          <ul className="space-y-1 text-xs text-muted-foreground">
+            <li>• Trading fee: 0.08% maker / 0.18% taker</li>
+            <li>• Staking APY: +1.0% bonus</li>
+            <li>• Referral bonus: 20%</li>
+            <li>• Customer support: VIP (6h response)</li>
+            <li>• Early access to presales and auctions</li>
+            <li>• Quarterly portfolio review with advisors</li>
+          </ul>
+        </div>
 
-This section allows you to manage your identity verification, default currency, account limits, and connected accounts.
+        <div className="p-3 rounded-lg border border-cyan-500/30 bg-cyan-500/5">
+          <div className="flex items-center justify-between mb-2">
+            <div className="font-semibold text-cyan-400">Platinum Tier</div>
+            <div className="text-xs text-muted-foreground">Elite Status</div>
+          </div>
+          <div className="text-xs text-muted-foreground mb-2">
+            <strong>Requirements:</strong> $1,000,000 trading volume OR $500,000 staked
+          </div>
+          <ul className="space-y-1 text-xs text-muted-foreground">
+            <li>• Trading fee: 0.05% maker / 0.15% taker</li>
+            <li>• Staking APY: +2.0% bonus</li>
+            <li>• Referral bonus: 25%</li>
+            <li>• Customer support: Concierge (1h response)</li>
+            <li>• Dedicated account manager</li>
+            <li>• Exclusive events and networking</li>
+            <li>• Custom investment opportunities</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-#### Identification
+    <div className="pl-[52px] mt-4">
+      <div className="p-4 rounded-lg border border-blue-500/30 bg-blue-500/5">
+        <div className="font-semibold mb-2 text-blue-400">Tier Maintenance</div>
+        <div className="text-xs text-muted-foreground space-y-1">
+          <p>Tiers are calculated based on rolling 30-day activity:</p>
+          <ul className="ml-4 space-y-1">
+            <li>• Trading volume resets monthly</li>
+            <li>• Staking balances calculated as average over 30 days</li>
+            <li>• Must maintain requirements to keep tier benefits</li>
+            <li>• Tier downgrades take effect immediately</li>
+            <li>• Tier upgrades process within 24 hours</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<Cards>
-<Card title="Identity Verification" description="Protect your account with verified identification." />
-<Card title="Source of Wealth Declaration" description="Declare the source of your wealth." />
-</Cards>
+### Step 6: Manage Security Settings
 
-#### Default Currency
+<div className="rounded-xl border border-border bg-card p-6 mb-6">
+  <div className="flex items-center gap-3 mb-4">
+    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500/20 to-blue-500/10 flex items-center justify-center font-bold text-blue-400">
+      6
+    </div>
+    <div className="font-bold text-lg">Configure Advanced Security</div>
+  </div>
 
-<Cards>
-<Card title="Default Currency" description="Set the default currency to display amounts on the platform." />
-</Cards>
+  <div className="space-y-4 text-sm">
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Additional security features:</div>
+      <ul className="space-y-2 ml-4">
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span><strong>Anti-Phishing Code:</strong> Custom code displayed in emails to verify authenticity</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span><strong>Withdrawal Whitelist:</strong> Pre-approve addresses to prevent unauthorized withdrawals</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span><strong>Device Management:</strong> View and revoke access for all logged-in devices</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span><strong>Login History:</strong> Track all login attempts with IP addresses and timestamps</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span><strong>Session Timeout:</strong> Automatically log out after 30 minutes of inactivity</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span><strong>API Key Management:</strong> Create read-only or trading API keys with IP restrictions</span>
+        </li>
+      </ul>
+    </div>
 
-#### Account Limits
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Setting up withdrawal whitelist:</div>
+      <ol className="space-y-2 ml-4 list-decimal">
+        <li>Go to Security Settings → Withdrawal Whitelist</li>
+        <li>Click "Enable Whitelist" (requires 2FA confirmation)</li>
+        <li>Add trusted wallet addresses (label each for easy identification)</li>
+        <li>New addresses have 24-hour waiting period before activation</li>
+        <li>Withdrawals to non-whitelisted addresses are blocked</li>
+        <li>Update whitelist anytime with 2FA verification</li>
+      </ol>
+    </div>
 
-<Cards>
-<Card title="Account Limits" description="Set and view limits for fiat deposits/withdrawals and crypto transactions." />
-<Card title="Level Information" description="Display current account level and associated limits." />
-</Cards>
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Password best practices:</div>
+      <ul className="space-y-2 ml-4">
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span>Use unique password (not reused from other sites)</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span>Minimum 12 characters with uppercase, lowercase, numbers, symbols</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span>Change password every 90 days</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span>Use password manager (1Password, LastPass, Bitwarden)</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span>Never share password with anyone</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-#### Discord Connect
+### Step 7: Connect Payment Methods
 
-<Cards>
-<Card title="Discord Connect" description="Connect your account to Discord to unlock additional features." />
-</Cards>
+<div className="rounded-xl border border-border bg-card p-6 mb-6">
+  <div className="flex items-center gap-3 mb-4">
+    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-cyan-500/10 flex items-center justify-center font-bold text-cyan-400">
+      7
+    </div>
+    <div className="font-bold text-lg">Add Payment Options</div>
+  </div>
 
-#### Connected Accounts
+  <div className="space-y-4 text-sm">
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Supported payment methods:</div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div className="p-3 rounded-lg border border-border bg-muted/30">
+          <div className="font-semibold mb-1">Bank Account (ACH)</div>
+          <ul className="space-y-1 text-xs text-muted-foreground">
+            <li>• Connect via Plaid</li>
+            <li>• Instant verification</li>
+            <li>• Low fees ($0-$5)</li>
+            <li>• 1-3 day transfer time</li>
+          </ul>
+        </div>
+        <div className="p-3 rounded-lg border border-border bg-muted/30">
+          <div className="font-semibold mb-1">Credit/Debit Card</div>
+          <ul className="space-y-1 text-xs text-muted-foreground">
+            <li>• Visa, Mastercard, Amex</li>
+            <li>• Instant deposits</li>
+            <li>• 2.9% + $0.30 fee</li>
+            <li>• Save for quick checkout</li>
+          </ul>
+        </div>
+        <div className="p-3 rounded-lg border border-border bg-muted/30">
+          <div className="font-semibold mb-1">PayPal</div>
+          <ul className="space-y-1 text-xs text-muted-foreground">
+            <li>• Quick PayPal login</li>
+            <li>• Instant transfers</li>
+            <li>• 2.5% fee</li>
+            <li>• Buyer protection</li>
+          </ul>
+        </div>
+        <div className="p-3 rounded-lg border border-border bg-muted/30">
+          <div className="font-semibold mb-1">External Wallet</div>
+          <ul className="space-y-1 text-xs text-muted-foreground">
+            <li>• MetaMask, WalletConnect</li>
+            <li>• Direct crypto deposits</li>
+            <li>• Network fees only</li>
+            <li>• Multiple chains supported</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-<Cards>
-<Card title="Manage Accounts" description="Manage connected bank accounts and saved cards." />
-</Cards>
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Adding a payment method:</div>
+      <ol className="space-y-2 ml-4 list-decimal">
+        <li>Navigate to Profile → Payment Methods</li>
+        <li>Click "Add Payment Method"</li>
+        <li>Select payment type (bank, card, PayPal, etc.)</li>
+        <li>Follow verification steps for your chosen method</li>
+        <li>For bank: Log in through Plaid secure connection</li>
+        <li>For card: Enter card details and billing address</li>
+        <li>Complete micro-deposit verification (banks) or charge verification (cards)</li>
+        <li>Set as default payment method if desired</li>
+      </ol>
+    </div>
+  </div>
+</div>
 
-### Notices and Alerts
+### Step 8: Customize Notification Preferences
 
-Important notifications and alerts related to your account are displayed in this section.
+<div className="rounded-xl border border-border bg-card p-6 mb-6">
+  <div className="flex items-center gap-3 mb-4">
+    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-sky-500/20 to-sky-500/10 flex items-center justify-center font-bold text-sky-400">
+      8
+    </div>
+    <div className="font-bold text-lg">Manage Alerts and Notifications</div>
+  </div>
 
-<Cards>
-<Card title="Compliance Notices" description="Ensure compliance by providing the source of your wealth." />
-<Card title="Manage Notifications" description="Link to manage notification settings." />
-</Cards>
+  <div className="space-y-4 text-sm">
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Notification categories:</div>
+      <div className="space-y-2">
+        <div className="flex items-start justify-between p-2 rounded-lg bg-muted/30">
+          <div className="flex items-start gap-2 flex-1">
+            <span className="text-cyan-400 mt-0.5">•</span>
+            <div>
+              <div className="font-medium">Security Alerts</div>
+              <div className="text-xs text-muted-foreground">Login attempts, password changes, withdrawals</div>
+            </div>
+          </div>
+          <span className="text-xs text-cyan-400">Required</span>
+        </div>
+        <div className="flex items-start justify-between p-2 rounded-lg bg-muted/30">
+          <div className="flex items-start gap-2 flex-1">
+            <span className="text-cyan-400 mt-0.5">•</span>
+            <div>
+              <div className="font-medium">Trading Activity</div>
+              <div className="text-xs text-muted-foreground">Order fills, price alerts, market updates</div>
+            </div>
+          </div>
+          <span className="text-xs text-muted-foreground">Optional</span>
+        </div>
+        <div className="flex items-start justify-between p-2 rounded-lg bg-muted/30">
+          <div className="flex items-start gap-2 flex-1">
+            <span className="text-cyan-400 mt-0.5">•</span>
+            <div>
+              <div className="font-medium">Staking & Rewards</div>
+              <div className="text-xs text-muted-foreground">Daily earnings, maturity dates, APY changes</div>
+            </div>
+          </div>
+          <span className="text-xs text-muted-foreground">Optional</span>
+        </div>
+        <div className="flex items-start justify-between p-2 rounded-lg bg-muted/30">
+          <div className="flex items-start gap-2 flex-1">
+            <span className="text-cyan-400 mt-0.5">•</span>
+            <div>
+              <div className="font-medium">Marketplace Updates</div>
+              <div className="text-xs text-muted-foreground">New listings, auction endings, presale openings</div>
+            </div>
+          </div>
+          <span className="text-xs text-muted-foreground">Optional</span>
+        </div>
+        <div className="flex items-start justify-between p-2 rounded-lg bg-muted/30">
+          <div className="flex items-start gap-2 flex-1">
+            <span className="text-cyan-400 mt-0.5">•</span>
+            <div>
+              <div className="font-medium">Promotional Offers</div>
+              <div className="text-xs text-muted-foreground">Special deals, bonus opportunities, newsletters</div>
+            </div>
+          </div>
+          <span className="text-xs text-muted-foreground">Optional</span>
+        </div>
+      </div>
+    </div>
 
-## Comprehensive Tutorial: Managing Your Profile
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Notification delivery channels:</div>
+      <ul className="space-y-2 ml-4">
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span><strong>In-App:</strong> Notification bell icon (always enabled)</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span><strong>Email:</strong> Configure which emails you receive</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span><strong>SMS:</strong> Critical security alerts only (recommended)</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span><strong>Push Notifications:</strong> Mobile app alerts (iOS/Android)</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-### Step-by-Step Guide to Profile Management
+## Tips & Tricks
 
-#### 1. Update User Information
+<div className="space-y-3 mb-8">
+  <div className="p-4 rounded-xl border border-cyan-500/30 bg-gradient-to-r from-cyan-500/10 to-cyan-500/5">
+    <div className="flex items-start gap-3">
+      <svg className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+      </svg>
+      <div>
+        <div className="font-bold mb-1">Use Multiple 2FA Methods</div>
+        <div className="text-sm text-muted-foreground">
+          Enable both authenticator app AND SMS backup. If you lose your phone, you can still access your account via SMS. For high-value accounts, add a hardware security key as a third layer for ultimate protection.
+        </div>
+      </div>
+    </div>
+  </div>
 
-- Click on the "Change" or "Update" links next to the information fields to edit your details.
+  <div className="p-4 rounded-xl border border-cyan-500/30 bg-gradient-to-r from-cyan-500/10 to-cyan-500/5">
+    <div className="flex items-start gap-3">
+      <svg className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+      <div>
+        <div className="font-bold mb-1">Complete KYC Early</div>
+        <div className="text-sm text-muted-foreground">
+          Don't wait until you need to withdraw large amounts. Complete Level 2 KYC verification early so you're ready when opportunities arise. Verification can take 3-5 days during busy periods.
+        </div>
+      </div>
+    </div>
+  </div>
 
-#### 2. Enhance Security
+  <div className="p-4 rounded-xl border border-cyan-500/30 bg-gradient-to-r from-cyan-500/10 to-cyan-500/5">
+    <div className="flex items-start gap-3">
+      <svg className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+      </svg>
+      <div>
+        <div className="font-bold mb-1">Leverage Tier Benefits</div>
+        <div className="text-sm text-muted-foreground">
+          If you're close to the next tier threshold, consider increasing your staking or trading volume. The fee discounts and APY bonuses often pay for themselves. Gold tier saves $500+ annually on trading fees for active traders.
+        </div>
+      </div>
+    </div>
+  </div>
 
-- Enable Passkeys and Biometrics: Purchase and set up a Yubikey.
-- Secure Your Email: Verify and protect your email address.
-- Set Up Authenticator App: Follow the link for setup assistance.
-- Verify Phone Number: Add and verify your phone number for SMS protection.
-- Change Login Password: Ensure your password is secure and change if necessary.
-- Enable Anti-Phishing Code: Turn on the anti-phishing code to protect against phishing attacks.
-- Manage Device Access: Add or remove devices authorized to access your account.
-- Manage API Keys: Create and manage API keys after completing KYC.
+  <div className="p-4 rounded-xl border border-cyan-500/30 bg-gradient-to-r from-cyan-500/10 to-cyan-500/5">
+    <div className="flex items-start gap-3">
+      <svg className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+      </svg>
+      <div>
+        <div className="font-bold mb-1">Save Backup Codes in Password Manager</div>
+        <div className="text-sm text-muted-foreground">
+          Store 2FA backup codes in your password manager (1Password, Bitwarden, LastPass) as a secure note. This ensures they're encrypted, backed up, and accessible from any device while remaining secure.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-#### 3. Manage Identity and Payments
+## Common Mistakes to Avoid
 
-- Verify Identification: Complete identity verification and declare the source of your wealth.
-- Set Default Currency: Choose your preferred currency for displaying amounts.
-- Adjust Account Limits: View and set limits for deposits, withdrawals, and crypto transactions.
-- Connect Discord: Link your Discord account for additional features.
-- Manage Connected Accounts: Add or remove connected bank accounts and cards.
+<div className="space-y-3 mb-8">
+  <div className="p-4 rounded-xl border border-red-500/30 bg-red-500/5">
+    <div className="flex items-start gap-3">
+      <svg className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+      </svg>
+      <div>
+        <div className="font-bold mb-1">Losing 2FA Backup Codes</div>
+        <div className="text-sm text-muted-foreground">
+          Not saving backup codes or storing them only in one place. If you lose your 2FA device without backup codes, account recovery takes weeks and requires extensive verification. Always store codes in 2+ secure locations.
+        </div>
+      </div>
+    </div>
+  </div>
 
-#### 4. Monitor Notices and Alerts
+  <div className="p-4 rounded-xl border border-red-500/30 bg-red-500/5">
+    <div className="flex items-start gap-3">
+      <svg className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+      </svg>
+      <div>
+        <div className="font-bold mb-1">Using SMS as Only 2FA Method</div>
+        <div className="text-sm text-muted-foreground">
+          SMS can be intercepted through SIM swapping attacks. Use authenticator app as primary method and SMS as backup only. Authenticator apps work offline and are much more secure against sophisticated attacks.
+        </div>
+      </div>
+    </div>
+  </div>
 
-- Review Compliance Notices: Provide required information to ensure compliance.
-- Manage Notification Settings: Customize your notification preferences.
+  <div className="p-4 rounded-xl border border-red-500/30 bg-red-500/5">
+    <div className="flex items-start gap-3">
+      <svg className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+      </svg>
+      <div>
+        <div className="font-bold mb-1">Skipping Anti-Phishing Code</div>
+        <div className="text-sm text-muted-foreground">
+          Not setting up an anti-phishing code makes you vulnerable to fake emails pretending to be from NYYU. Scammers send convincing phishing emails. Always verify your personal anti-phishing code appears in all official NYYU emails.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-xl border border-red-500/30 bg-red-500/5">
+    <div className="flex items-start gap-3">
+      <svg className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+      </svg>
+      <div>
+        <div className="font-bold mb-1">Providing Fake KYC Information</div>
+        <div className="text-sm text-muted-foreground">
+          Using fake IDs, altered documents, or false information results in permanent account ban and loss of funds. NYYU uses advanced verification systems that detect fraud. Always provide genuine, accurate documentation.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-xl border border-red-500/30 bg-red-500/5">
+    <div className="flex items-start gap-3">
+      <svg className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+      </svg>
+      <div>
+        <div className="font-bold mb-1">Ignoring Suspicious Login Alerts</div>
+        <div className="text-sm text-muted-foreground">
+          If you receive login alerts for sessions you didn't initiate, act immediately. Change your password, revoke all sessions, and contact support. Waiting "to see if it's real" gives attackers time to drain your account.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Next Steps
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+  <a href="/docs/tutorial/wallet" className="p-5 rounded-xl border border-border bg-card hover:border-cyan-500/50 hover:bg-cyan-500/5 transition-all group">
+    <div className="text-2xl mb-3">💼</div>
+    <div className="font-bold mb-2 group-hover:text-cyan-400 transition-colors">Wallet Management</div>
+    <div className="text-sm text-muted-foreground mb-3">
+      Learn to manage your crypto wallet, deposits, and withdrawals securely
+    </div>
+    <div className="text-xs text-cyan-400 flex items-center gap-1">
+      Setup Wallet
+      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+      </svg>
+    </div>
+  </a>
+
+  <a href="/docs/tutorial/trade" className="p-5 rounded-xl border border-border bg-card hover:border-cyan-500/50 hover:bg-cyan-500/5 transition-all group">
+    <div className="text-2xl mb-3">📈</div>
+    <div className="font-bold mb-2 group-hover:text-cyan-400 transition-colors">Start Trading</div>
+    <div className="text-sm text-muted-foreground mb-3">
+      Master crypto trading with market and limit orders
+    </div>
+    <div className="text-xs text-cyan-400 flex items-center gap-1">
+      Learn Trading
+      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+      </svg>
+    </div>
+  </a>
+
+  <a href="/docs/tutorial/save" className="p-5 rounded-xl border border-border bg-card hover:border-cyan-500/50 hover:bg-cyan-500/5 transition-all group">
+    <div className="text-2xl mb-3">💰</div>
+    <div className="font-bold mb-2 group-hover:text-cyan-400 transition-colors">Earn Interest</div>
+    <div className="text-sm text-muted-foreground mb-3">
+      Stake your crypto and earn passive income through savings products
+    </div>
+    <div className="text-xs text-cyan-400 flex items-center gap-1">
+      Start Earning
+      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+      </svg>
+    </div>
+  </a>
+</div>
+
+## Need Help?
+
+<div className="rounded-xl border border-border bg-card p-6">
+  <div className="flex items-start gap-4">
+    <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center flex-shrink-0">
+      <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+      </svg>
+    </div>
+    <div className="flex-1">
+      <div className="font-bold text-lg mb-2">Get Support</div>
+      <div className="text-sm text-muted-foreground mb-4">
+        Questions about account security or verification? Our support team can help with 2FA setup, KYC issues, and account recovery. We're available 24/7 to ensure your account stays secure.
+      </div>
+      <div className="flex flex-wrap gap-3">
+        <a href="/docs/corporate/contact-us" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-sm font-medium transition-colors">
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+          </svg>
+          Contact Support
+        </a>
+        <a href="/docs/corporate/security" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-muted hover:bg-muted/80 border border-border text-sm font-medium transition-colors">
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+          Security Guide
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

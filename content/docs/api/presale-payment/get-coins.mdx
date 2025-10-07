@@ -1,0 +1,202 @@
+---
+title: Get Coins
+description: Retrieve list of all supported cryptocurrencies
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-500 via-red-600 to-pink-700 p-8 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+      Get Supported Coins
+    </h1>
+    <p className="text-xl text-white/90 mb-6">
+      Fetch the complete list of available cryptocurrencies
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+</div>
+
+## Query
+
+<div className="rounded-xl border border-orange-500/30 bg-gradient-to-br from-orange-500/10 to-orange-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🪙</span>
+    <div>
+      <div className="font-bold text-lg">getCoins</div>
+      <div className="text-sm text-muted-foreground">List all available cryptocurrencies in the system</div>
+    </div>
+  </div>
+
+  ### Schema
+
+  ```graphql
+  getCoins: [Coin]
+  ```
+</div>
+
+## Parameters
+
+<div className="p-5 rounded-lg border border-border bg-muted/30 my-6">
+  <div className="text-sm text-muted-foreground">
+    This query requires no parameters
+  </div>
+</div>
+
+## Return Value
+
+<div className="p-5 rounded-lg border border-green-500/30 bg-green-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">📦</span>
+    <div className="font-bold">Returns Array of Coin Objects</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    List of all supported cryptocurrencies with name and symbol
+  </div>
+</div>
+
+## Example
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">Usage Example</div>
+      <div className="text-xs text-muted-foreground">Get all available cryptocurrencies</div>
+    </div>
+  </div>
+
+  ```graphql
+  query {
+    getCoins {
+      name
+      symbol
+    }
+  }
+  ```
+</div>
+
+## Response Example
+
+<div className="rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/10 to-green-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📤</span>
+    <div>
+      <div className="font-bold">Sample Response</div>
+      <div className="text-xs text-muted-foreground">List of supported coins</div>
+    </div>
+  </div>
+
+  ```json
+  {
+    "data": {
+      "getCoins": [
+        {
+          "name": "Bitcoin",
+          "symbol": "BTC"
+        },
+        {
+          "name": "Ethereum",
+          "symbol": "ETH"
+        },
+        {
+          "name": "Tether",
+          "symbol": "USDT"
+        },
+        {
+          "name": "USD Coin",
+          "symbol": "USDC"
+        },
+        {
+          "name": "Binance Coin",
+          "symbol": "BNB"
+        }
+      ]
+    }
+  }
+  ```
+</div>
+
+## Use Cases
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🎨</div>
+    <div className="font-bold mb-2">Payment Options</div>
+    <div className="text-sm text-muted-foreground">
+      Display available cryptocurrencies as payment options to users
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🔽</div>
+    <div className="font-bold mb-2">Dropdown Menus</div>
+    <div className="text-sm text-muted-foreground">
+      Populate dropdown selectors with supported cryptocurrencies
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">✅</div>
+    <div className="font-bold mb-2">Validation</div>
+    <div className="text-sm text-muted-foreground">
+      Validate user input against the list of supported coins
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🔄</div>
+    <div className="font-bold mb-2">Dynamic Updates</div>
+    <div className="text-sm text-muted-foreground">
+      Keep your UI synchronized with the platform's supported currencies
+    </div>
+  </div>
+</div>
+
+## Coin Structure
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📋</span>
+    <div>
+      <div className="font-bold text-lg">Coin Object Fields</div>
+      <div className="text-sm text-muted-foreground">Structure of each coin entry</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <code className="bg-cyan-500/20 text-cyan-400 px-2 py-0.5 rounded font-mono text-sm">name</code>
+        <span className="text-xs text-muted-foreground">String</span>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Full name of the cryptocurrency (e.g., "Bitcoin", "Ethereum")
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <code className="bg-cyan-500/20 text-cyan-400 px-2 py-0.5 rounded font-mono text-sm">symbol</code>
+        <span className="text-xs text-muted-foreground">String</span>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Trading symbol or ticker (e.g., "BTC", "ETH")
+      </div>
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-orange-500/30 bg-gradient-to-r from-orange-500/10 to-red-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold">Best Practice</div>
+      <div className="text-sm text-muted-foreground">
+        Cache this list on the frontend to avoid repeated API calls. Refresh the cache periodically or when users access payment pages. Use the symbol field as the unique identifier when processing payments. Provide clear labels using the name field for better user experience.
+      </div>
+    </div>
+  </div>
+</div>

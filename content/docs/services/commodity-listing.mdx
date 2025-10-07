@@ -4,58 +4,168 @@ description: Commodity listing application for crude oil, diamonds, gold, and pr
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
-import { Card, Cards } from 'fumadocs-ui/components/card';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 
-# Commodity Listing on NYYU
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-500/10 via-green-500/10 to-background p-12 border border-emerald-500/20 mb-8">
+  <div className="relative z-10">
+    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-6">
+      <span className="text-sm font-medium text-emerald-400">Listing Service</span>
+    </div>
+    <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+      Commodity Listing
+    </h1>
+    <p className="text-xl text-muted-foreground max-w-3xl mb-6">
+      Trade physical commodities including crude oil, precious metals, diamonds, and more on the NYYU platform with secure, transparent transactions.
+    </p>
+    <a href="https://nyyu.io/commodity-listing-form" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 transition-all font-medium">
+      Apply for Listing
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+      </svg>
+    </a>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-green-500/10 rounded-full blur-3xl"></div>
+</div>
 
-Welcome to NYYU's Commodity Listing application! Our platform offers a comprehensive solution for listing and managing commodities, including crude oil and derivatives, diamonds, gold, and precious metals. To ensure a smooth and efficient listing process, please complete the application form provided below. Our team will review your submission based on the information you provide. Any false or invalid information will result in your commodity not being considered for listing on NYYU.
+<div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+  <div className="p-4 rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-background text-center">
+    <div className="text-2xl mb-2">🛢️</div>
+    <div className="font-semibold text-sm">Energy</div>
+    <div className="text-xs text-muted-foreground mt-1">Oil, Gas, LNG</div>
+  </div>
+  <div className="p-4 rounded-xl border border-green-500/20 bg-gradient-to-br from-green-500/5 to-background text-center">
+    <div className="text-2xl mb-2">💎</div>
+    <div className="font-semibold text-sm">Precious Stones</div>
+    <div className="text-xs text-muted-foreground mt-1">Diamonds</div>
+  </div>
+  <div className="p-4 rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-background text-center">
+    <div className="text-2xl mb-2">🥇</div>
+    <div className="font-semibold text-sm">Precious Metals</div>
+    <div className="text-xs text-muted-foreground mt-1">Gold, Silver, Platinum</div>
+  </div>
+  <div className="p-4 rounded-xl border border-green-500/20 bg-gradient-to-br from-green-500/5 to-background text-center">
+    <div className="text-2xl mb-2">⚙️</div>
+    <div className="font-semibold text-sm">Industrial</div>
+    <div className="text-xs text-muted-foreground mt-1">Copper, Lithium</div>
+  </div>
+</div>
+
+<Callout type="warn" title="Verification Required">
+All commodities must have verifiable certificates of origin and quality. False documentation will result in immediate disqualification.
+</Callout>
 
 ## Application Process
 
 <Steps>
 <Step>
-### Submit Your Application
-Fill out the [Commodity Listing Application Form](https://nyyu.io/commodity-listing-form) with accurate and detailed information about your commodity.
+### Submit Application
+Complete the [Commodity Listing Form](https://nyyu.io/commodity-listing-form) with comprehensive commodity details, origin certificates, and quality assurance documentation.
 </Step>
 
 <Step>
-### Initial Review
-Our Research Department will evaluate your application, assessing the commodity's feasibility, compliance, and alignment with NYYU's mission and values.
+### Verification & Audit
+Our experts conduct thorough verification of your commodity including origin authentication, quality testing, and compliance checks.
+
+<div className="grid grid-cols-3 gap-3 mt-4">
+  <div className="p-3 rounded-lg bg-muted/50 border border-border text-center">
+    <div className="text-xs text-muted-foreground mb-1">Processing</div>
+    <div className="font-semibold text-sm">5-10 Days</div>
+  </div>
+  <div className="p-3 rounded-lg bg-muted/50 border border-border text-center">
+    <div className="text-xs text-muted-foreground mb-1">Listing Fee</div>
+    <div className="font-semibold text-sm">$3,000 USD</div>
+  </div>
+  <div className="p-3 rounded-lg bg-muted/50 border border-border text-center">
+    <div className="text-xs text-muted-foreground mb-1">Approval</div>
+    <div className="font-semibold text-sm">70%</div>
+  </div>
+</div>
 </Step>
 
 <Step>
-### Feedback and Workflow
-Upon passing the initial review, we will share the listing workflow and some useful tips to facilitate the listing process. An account manager will be assigned to guide you through each step.
+### Market Launch
+Once approved, your commodity is listed on the NYYU marketplace with full specifications, certifications, and real-time pricing.
 </Step>
-
-<Step>
-### Account Manager
-Your assigned account manager will reach out to discuss the next steps and provide continuous support throughout the listing process.
-</Step>
-
 </Steps>
 
-## Required Information
+## Required Documentation
 
-When filling out the application form, please ensure you provide the following details:
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-background">
+    <div className="flex items-start gap-3">
+      <div className="text-2xl">📦</div>
+      <div>
+        <div className="font-bold mb-1">Commodity Details</div>
+        <div className="text-sm text-muted-foreground">Name, type, quantity, and specifications</div>
+      </div>
+    </div>
+  </div>
 
-- **Commodity Name**: The name of your commodity (e.g., crude oil, gold, diamonds).
-- **Commodity Type**: Specify the type of commodity and any derivatives involved.
-- **Source**: Information about the source of the commodity, including geographic origin and extraction methods.
-- **Commodity Description**: A detailed description of the commodity, highlighting its unique features and quality standards.
-- **Owner Information**: Background information about the commodity owner, including contact details and verification documents.
-- **Financial Information**: Information about the commodity's financial performance, including historical prices, market trends, and any existing contracts.
-- **Legal Documents**: Copies of legal documents related to the commodity, such as ownership certificates, export/import permits, and compliance reports.
-- **Market Analysis**: Insights into the commodity market, including demand, supply, and competitive landscape.
-- **Community and Social Media**: Links to any online listings or promotional materials related to the commodity.
+  <div className="p-5 rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-background">
+    <div className="flex items-start gap-3">
+      <div className="text-2xl">📜</div>
+      <div>
+        <div className="font-bold mb-1">Certificates of Origin</div>
+        <div className="text-sm text-muted-foreground">Verified source and extraction documentation</div>
+      </div>
+    </div>
+  </div>
 
-## Evaluation Criteria
+  <div className="p-5 rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-background">
+    <div className="flex items-start gap-3">
+      <div className="text-2xl">🔬</div>
+      <div>
+        <div className="font-bold mb-1">Quality Certificates</div>
+        <div className="text-sm text-muted-foreground">Independent lab test results and purity reports</div>
+      </div>
+    </div>
+  </div>
 
-Our evaluation process considers several factors, including but not limited to:
+  <div className="p-5 rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-background">
+    <div className="flex items-start gap-3">
+      <div className="text-2xl">⚖️</div>
+      <div>
+        <div className="font-bold mb-1">Legal Compliance</div>
+        <div className="text-sm text-muted-foreground">Export/import permits and regulatory clearances</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-- **Source and Quality**: The origin and quality of the commodity, including any certifications.
-- **Market Potential**: The commodity's market potential, including demand and competitive landscape.
-- **Financial Health**: The financial performance and projections related to the commodity.
-- **Compliance and Legal Status**: Adherence to legal and regulatory standards, and verification of ownership and clear title.
-- **Market Analysis**: The commodity's market potential, including demand and competitive landscape.
+## Platform Benefits
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+  <div className="text-center p-6 rounded-xl border border-emerald-500/20 bg-gradient-to-b from-emerald-500/5 to-background">
+    <div className="text-4xl mb-4">🌍</div>
+    <div className="font-bold text-lg mb-2">Global Markets</div>
+    <div className="text-sm text-muted-foreground">Access international buyers and sellers</div>
+  </div>
+
+  <div className="text-center p-6 rounded-xl border border-green-500/20 bg-gradient-to-b from-green-500/5 to-background">
+    <div className="text-4xl mb-4">🔒</div>
+    <div className="font-bold text-lg mb-2">Secure Trading</div>
+    <div className="text-sm text-muted-foreground">Escrow services and verified transactions</div>
+  </div>
+
+  <div className="text-center p-6 rounded-xl border border-emerald-500/20 bg-gradient-to-b from-emerald-500/5 to-background">
+    <div className="text-4xl mb-4">📊</div>
+    <div className="font-bold text-lg mb-2">Price Transparency</div>
+    <div className="text-sm text-muted-foreground">Real-time market pricing and analytics</div>
+  </div>
+</div>
+
+<div className="mt-12 p-8 rounded-2xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/10 via-green-500/5 to-background relative overflow-hidden">
+  <div className="relative z-10 text-center">
+    <div className="text-3xl mb-3">📦</div>
+    <div className="font-bold text-2xl mb-2">List Your Commodities</div>
+    <div className="text-muted-foreground mb-6">Join commodity traders and suppliers on NYYU</div>
+    <a href="https://nyyu.io/commodity-listing-form" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 transition-all font-medium">
+      Submit Application
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+      </svg>
+    </a>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl"></div>
+</div>

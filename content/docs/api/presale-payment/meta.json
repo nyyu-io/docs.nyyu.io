@@ -1,20 +1,20 @@
 {
   "title": "Presale Payment",
   "pages": [
-    "Adding New Coin",
-    "Capture Paypal Order For Presale",
-    "Delete a Coin",
-    "Get Coins",
-    "Get Crypto Transactions for Presale Orders",
-    "Get Cryptocurrency Price",
-    "Get PayPal Transactions for Presale Orders",
-    "Get Stripe Transaction for Presale Orders",
-    "Pay For Presale In Crypto Currency",
-    "Pay For Presale Order With Nyyu Wallet",
-    "Pay For Presale with Stripe Saved Card",
-    "Pay for presale with PayPal",
-    "Pay for presale with Stripe",
-    "Place a New Presale Order",
-    "presale-payment-summary"
+    "presale-payment-summary",
+    "place-presale-order",
+    "pay-with-stripe",
+    "pay-with-stripe-saved-card",
+    "pay-with-paypal",
+    "capture-paypal-order",
+    "pay-with-crypto",
+    "pay-with-wallet",
+    "get-crypto-price",
+    "get-coins",
+    "add-new-coin",
+    "delete-coin",
+    "get-crypto-transactions",
+    "get-paypal-transactions",
+    "get-stripe-transactions"
   ]
 }

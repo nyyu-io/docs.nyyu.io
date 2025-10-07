@@ -1,61 +1,485 @@
 ---
 title: Add New Tier
+description: Create a new tier level in the gamification system (Admin only)
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-:::note
-The functions described is accessible only to users with ADMIN privileges.
-:::
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-500/10 via-fuchsia-500/5 to-background p-8 border border-purple-500/20 mb-8">
+  <div className="relative z-10">
+    <div className="flex items-center gap-3 mb-4">
+      <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/20">
+        <span className="text-3xl">➕</span>
+      </div>
+      <div>
+        <div className="flex items-center gap-3 mb-2">
+          <h1 className="text-3xl md:text-4xl font-bold">Add New Tier</h1>
+          <span className="px-3 py-1 rounded-full bg-red-500/20 text-red-400 text-xs font-bold border border-red-500/30">
+            ADMIN
+          </span>
+        </div>
+        <p className="text-lg text-muted-foreground">
+          Create new tier levels for user progression
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
-The `addNewUserTier` mutation allows an admin to add a new user tier level.
+<Callout type="warn" title="Admin Access Required">
+  This mutation is accessible only to users with ADMIN privileges. Unauthorized access will be denied.
+</Callout>
 
-### Mutation: `addNewUserTier`
+## Overview
 
-#### Schema:
-```graphql
-addNewUserTier(
-  level: Int!,
-  name: String!,
-  point: Float!,
-  svg: String!
-): Tier
-```
+The `addNewUserTier` mutation allows administrators to create new tier levels in the gamification system. Define tier names, point requirements, and visual badges to expand the progression ladder.
 
-#### Parameters
+## GraphQL Schema
 
-- `level` (Int): Unique value to identify the tier level. This field is mandatory.
-- `name` (String): The name of the user tier, for example, Bronze, Diamond. This field is mandatory.
-- `point` (Float): The points required to reach that tier level. This field is mandatory.
-- `svg` (String): The content of the SVG file. This field is mandatory.
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔧</span>
+    <div>
+      <div className="font-bold text-lg">Mutation Definition</div>
+      <div className="text-sm text-muted-foreground">Creates a new tier in the system</div>
+    </div>
+  </div>
 
-#### Return
-
-The mutation returns a `Tier` object representing the created user tier if successful. If not successful, it returns `null`.
-
-### Example Mutation
-
-The following is an example of how to use the `addNewUserTier` mutation to add a new user tier level:
-
-```graphql
-mutation {
+  ```graphql
   addNewUserTier(
-    level: 1,
-    name: "Bronze",
-    point: 100.0,
-    svg: "<svg>...</svg>"
-  ) {
-    level,
-    name,
-    point,
-    svg
+    level: Int!
+    name: String!
+    point: Float!
+    svg: String!
+  ): Tier
+  ```
+</div>
+
+## Parameters
+
+<div className="rounded-xl border border-fuchsia-500/30 bg-gradient-to-br from-fuchsia-500/10 to-fuchsia-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📝</span>
+    <div>
+      <div className="font-bold text-lg">Required Fields</div>
+      <div className="text-sm text-muted-foreground">All parameters are mandatory</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-start gap-3">
+        <code className="px-2 py-1 rounded bg-muted text-sm font-mono">level</code>
+        <div className="flex-1">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-sm font-semibold">Tier Level</span>
+            <span className="px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 text-xs font-mono">Int!</span>
+          </div>
+          <div className="text-xs text-muted-foreground">
+            Unique identifier for the tier (e.g., 1, 2, 3). Must not conflict with existing tiers.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-start gap-3">
+        <code className="px-2 py-1 rounded bg-muted text-sm font-mono">name</code>
+        <div className="flex-1">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-sm font-semibold">Tier Name</span>
+            <span className="px-2 py-0.5 rounded bg-green-500/20 text-green-400 text-xs font-mono">String!</span>
+          </div>
+          <div className="text-xs text-muted-foreground">
+            Display name for the tier (e.g., "Bronze", "Silver", "Gold").
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-start gap-3">
+        <code className="px-2 py-1 rounded bg-muted text-sm font-mono">point</code>
+        <div className="flex-1">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-sm font-semibold">Points Required</span>
+            <span className="px-2 py-0.5 rounded bg-purple-500/20 text-purple-400 text-xs font-mono">Float!</span>
+          </div>
+          <div className="text-xs text-muted-foreground">
+            Minimum points needed to reach this tier (e.g., 1000.0).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-start gap-3">
+        <code className="px-2 py-1 rounded bg-muted text-sm font-mono">svg</code>
+        <div className="flex-1">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-sm font-semibold">Badge SVG</span>
+            <span className="px-2 py-0.5 rounded bg-green-500/20 text-green-400 text-xs font-mono">String!</span>
+          </div>
+          <div className="text-xs text-muted-foreground">
+            SVG markup for the tier badge icon (e.g., "&lt;svg&gt;...&lt;/svg&gt;").
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Return Type
+
+<div className="rounded-xl border border-violet-500/30 bg-gradient-to-br from-violet-500/10 to-violet-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📦</span>
+    <div>
+      <div className="font-bold text-lg">Tier Object</div>
+      <div className="text-sm text-muted-foreground">Returns the newly created tier on success, null on failure</div>
+    </div>
+  </div>
+
+  ```graphql
+  type Tier {
+    level: Int!
+    name: String
+    point: Float
+    svg: String
   }
-}
-```
+  ```
+</div>
 
-### Return
+## Example Mutation
 
-The example returns the created `Tier` object with details such as `level`, `name`, `point`, and `svg`.
+<div className="my-6">
+  ### Creating Bronze Tier
 
-In this example, the mutation adds a new user tier named "Bronze" with a level of `1`, requiring `100.0` points, and includes the content of the SVG file. The return value includes the details of the created `Tier`.
+  ```graphql
+  mutation {
+    addNewUserTier(
+      level: 1
+      name: "Bronze"
+      point: 1000.0
+      svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='#CD7F32' d='M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z'/></svg>"
+    ) {
+      level
+      name
+      point
+      svg
+    }
+  }
+  ```
+</div>
+
+## Example Response
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">✅</span>
+    <div>
+      <div className="font-bold text-lg">Success Response</div>
+      <div className="text-sm text-muted-foreground">Tier created successfully</div>
+    </div>
+  </div>
+
+  ```json
+  {
+    "data": {
+      "addNewUserTier": {
+        "level": 1,
+        "name": "Bronze",
+        "point": 1000,
+        "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='#CD7F32' d='M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z'/></svg>"
+      }
+    }
+  }
+  ```
+</div>
+
+## Complete Tier Examples
+
+<div className="rounded-xl border border-fuchsia-500/30 bg-gradient-to-br from-fuchsia-500/10 to-fuchsia-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🏆</span>
+    <div>
+      <div className="font-bold text-lg">Standard Tier Setup</div>
+      <div className="text-sm text-muted-foreground">Create a complete progression system</div>
+    </div>
+  </div>
+
+  <div className="space-y-4">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-bold text-sm mb-2 flex items-center gap-2">
+        <div className="w-6 h-6 rounded-full bg-amber-700/20 flex items-center justify-center text-amber-700 text-xs font-bold">1</div>
+        <span>Bronze Tier</span>
+      </div>
+      <div className="text-xs font-mono bg-muted p-2 rounded">
+        level: 1 | name: "Bronze" | point: 1000.0
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-bold text-sm mb-2 flex items-center gap-2">
+        <div className="w-6 h-6 rounded-full bg-gray-400/20 flex items-center justify-center text-gray-400 text-xs font-bold">2</div>
+        <span>Silver Tier</span>
+      </div>
+      <div className="text-xs font-mono bg-muted p-2 rounded">
+        level: 2 | name: "Silver" | point: 5000.0
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-bold text-sm mb-2 flex items-center gap-2">
+        <div className="w-6 h-6 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-500 text-xs font-bold">3</div>
+        <span>Gold Tier</span>
+      </div>
+      <div className="text-xs font-mono bg-muted p-2 rounded">
+        level: 3 | name: "Gold" | point: 15000.0
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-bold text-sm mb-2 flex items-center gap-2">
+        <div className="w-6 h-6 rounded-full bg-cyan-400/20 flex items-center justify-center text-cyan-400 text-xs font-bold">4</div>
+        <span>Platinum Tier</span>
+      </div>
+      <div className="text-xs font-mono bg-muted p-2 rounded">
+        level: 4 | name: "Platinum" | point: 50000.0
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-bold text-sm mb-2 flex items-center gap-2">
+        <div className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-500 text-xs font-bold">5</div>
+        <span>Diamond Tier</span>
+      </div>
+      <div className="text-xs font-mono bg-muted p-2 rounded">
+        level: 5 | name: "Diamond" | point: 150000.0
+      </div>
+    </div>
+  </div>
+</div>
+
+## Use Cases
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🎮</div>
+    <div className="font-bold mb-2">Initial Setup</div>
+    <div className="text-sm text-muted-foreground">
+      Create the complete tier structure when launching your gamification system
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📈</div>
+    <div className="font-bold mb-2">Expansion</div>
+    <div className="text-sm text-muted-foreground">
+      Add higher tiers as your user base grows and engagement increases
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🎯</div>
+    <div className="font-bold mb-2">Seasonal Events</div>
+    <div className="text-sm text-muted-foreground">
+      Create limited-time special tiers for events and promotions
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🏅</div>
+    <div className="font-bold mb-2">Elite Recognition</div>
+    <div className="text-sm text-muted-foreground">
+      Add premium tiers to recognize and reward your most engaged users
+    </div>
+  </div>
+</div>
+
+## Best Practices
+
+<div className="space-y-3 my-6">
+  <div className="p-4 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-start gap-3">
+      <span className="text-lg">📊</span>
+      <div className="flex-1">
+        <div className="font-bold text-sm mb-1">Progressive Point Requirements</div>
+        <div className="text-xs text-muted-foreground">
+          Ensure each tier requires significantly more points than the previous one to create meaningful progression (e.g., 1000, 5000, 15000, 50000)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-start gap-3">
+      <span className="text-lg">🎨</span>
+      <div className="flex-1">
+        <div className="font-bold text-sm mb-1">Consistent Badge Design</div>
+        <div className="text-xs text-muted-foreground">
+          Use consistent SVG dimensions and styling across all tier badges for uniform display (recommended: 24x24 viewBox)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-start gap-3">
+      <span className="text-lg">🔢</span>
+      <div className="flex-1">
+        <div className="font-bold text-sm mb-1">Sequential Levels</div>
+        <div className="text-xs text-muted-foreground">
+          Maintain sequential level numbers without gaps to simplify tier logic and user understanding
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-start gap-3">
+      <span className="text-lg">✅</span>
+      <div className="flex-1">
+        <div className="font-bold text-sm mb-1">Validate Before Creating</div>
+        <div className="text-xs text-muted-foreground">
+          Check for level conflicts with getUserTiers before creating new tiers to prevent duplication errors
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-start gap-3">
+      <span className="text-lg">💬</span>
+      <div className="flex-1">
+        <div className="font-bold text-sm mb-1">Meaningful Names</div>
+        <div className="text-xs text-muted-foreground">
+          Choose tier names that convey prestige and achievement (Bronze, Silver, Gold, Platinum, Diamond)
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Implementation Example
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold text-lg">Admin Implementation</div>
+      <div className="text-sm text-muted-foreground">Create multiple tiers programmatically</div>
+    </div>
+  </div>
+
+  ```typescript
+  // Define tier structure
+  const tiers = [
+    { level: 1, name: "Bronze", point: 1000, color: "#CD7F32" },
+    { level: 2, name: "Silver", point: 5000, color: "#C0C0C0" },
+    { level: 3, name: "Gold", point: 15000, color: "#FFD700" },
+    { level: 4, name: "Platinum", point: 50000, color: "#E5E4E2" },
+    { level: 5, name: "Diamond", point: 150000, color: "#B9F2FF" }
+  ];
+
+  // Generate SVG badge
+  const createBadgeSVG = (color: string) => {
+    return `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
+      <path fill='${color}' d='M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z'/>
+    </svg>`;
+  };
+
+  // Create each tier
+  for (const tier of tiers) {
+    const { data } = await client.mutate({
+      mutation: gql`
+        mutation AddTier($level: Int!, $name: String!, $point: Float!, $svg: String!) {
+          addNewUserTier(
+            level: $level
+            name: $name
+            point: $point
+            svg: $svg
+          ) {
+            level
+            name
+            point
+          }
+        }
+      `,
+      variables: {
+        level: tier.level,
+        name: tier.name,
+        point: tier.point,
+        svg: createBadgeSVG(tier.color)
+      }
+    });
+
+    console.log(`Created tier: ${data.addNewUserTier.name}`);
+  }
+  ```
+</div>
+
+## Error Handling
+
+<div className="rounded-xl border border-red-500/30 bg-gradient-to-br from-red-500/10 to-red-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">⚠️</span>
+    <div>
+      <div className="font-bold text-lg">Common Errors</div>
+      <div className="text-sm text-muted-foreground">Handle these scenarios gracefully</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-bold text-sm mb-1">Duplicate Level</div>
+      <div className="text-xs text-muted-foreground">
+        Attempting to create a tier with an existing level number will fail. Check existing tiers first.
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-bold text-sm mb-1">Invalid SVG</div>
+      <div className="text-xs text-muted-foreground">
+        Malformed SVG markup may cause rendering issues. Validate SVG syntax before submission.
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-bold text-sm mb-1">Unauthorized Access</div>
+      <div className="text-xs text-muted-foreground">
+        Non-admin users will receive an authorization error. Ensure proper role verification.
+      </div>
+    </div>
+  </div>
+</div>
+
+## Related Operations
+
+<Cards>
+  <Card
+    title="User Tier Overview"
+    description="Learn about tier types and structures"
+    href="/docs/api/user-tier/user-tier-summary"
+  />
+  <Card
+    title="Get User Tiers"
+    description="Retrieve all tier configurations"
+    href="/docs/api/user-tier/get-user-tiers"
+  />
+  <Card
+    title="Update User Tier"
+    description="Modify tier configuration (Admin)"
+    href="/docs/api/user-tier/update-user-tier"
+  />
+  <Card
+    title="Delete User Tier"
+    description="Remove tier level (Admin)"
+    href="/docs/api/user-tier/delete-user-tier"
+  />
+</Cards>
+
+<Callout type="warn" title="Admin Operation">
+  Only administrators can create new tiers. This operation affects the entire gamification system structure.
+</Callout>

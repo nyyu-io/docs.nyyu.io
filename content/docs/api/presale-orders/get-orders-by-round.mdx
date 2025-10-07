@@ -1,0 +1,224 @@
+---
+title: Get Orders by Presale Round
+description: Retrieve all orders placed in a specific presale round for admin management
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-fuchsia-500 via-purple-600 to-violet-700 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
+  <div className="relative">
+    <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm mb-4">
+      <span className="relative flex h-2 w-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-background"></span>
+      </span>
+      ADMIN ONLY
+    </div>
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">Get Orders by Round</h1>
+    <p className="text-xl text-fuchsia-100 leading-relaxed max-w-3xl">
+      Retrieve all presale orders from a specific round for comprehensive management and analysis.
+    </p>
+  </div>
+</div>
+
+<Callout type="warn" title="Admin Access Required">
+  This query is only accessible to users with **ADMIN** privileges for presale round management.
+</Callout>
+
+## Overview
+
+The `getPresaleOrders` query allows administrators to retrieve all orders placed in a specific presale round, providing insights into participation levels and token distribution.
+
+---
+
+## GraphQL Schema
+
+<div className="rounded-xl border border-fuchsia-500/30 bg-gradient-to-br from-fuchsia-500/10 to-purple-500/5 p-6 mb-8">
+
+```graphql
+query {
+  getPresaleOrders(
+    presaleId: Int!
+  ): [PreSaleOrder]
+}
+```
+
+</div>
+
+---
+
+## Parameters
+
+<div className="grid gap-4 my-6">
+  <div className="rounded-lg border border-fuchsia-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">presaleId</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-fuchsia-600">Int</span></p>
+    <p className="text-sm text-foreground">The unique ID of the presale round to retrieve orders from.</p>
+  </div>
+</div>
+
+---
+
+## Return Value
+
+<div className="rounded-lg border border-green-500/30 bg-gradient-to-br from-green-500/10 to-emerald-500/5 p-6 mb-6">
+  <h3 className="font-bold mb-2 flex items-center gap-2">
+    <span className="text-2xl">✓</span>
+    Success Response
+  </h3>
+  <p className="text-sm text-foreground mb-3">
+    Returns an array of <span className="font-mono text-green-600">[PreSaleOrder]</span> objects for the specified round.
+  </p>
+</div>
+
+---
+
+## Example Usage
+
+### Request
+
+```graphql
+query GetRoundOrders {
+  getPresaleOrders(presaleId: 12) {
+    id
+    presaleId
+    userId
+    ndbAmount
+    destination
+    extAddr
+    status
+    createdAt
+    updatedAt
+  }
+}
+```
+
+### Response
+
+```json
+{
+  "data": {
+    "getPresaleOrders": [
+      {
+        "id": 456,
+        "presaleId": 12,
+        "userId": 789,
+        "ndbAmount": 1000.0,
+        "destination": 1,
+        "extAddr": null,
+        "status": 2,
+        "createdAt": 1704067200,
+        "updatedAt": 1704153600
+      },
+      {
+        "id": 457,
+        "presaleId": 12,
+        "userId": 790,
+        "ndbAmount": 2500.0,
+        "destination": 2,
+        "extAddr": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+        "status": 0,
+        "createdAt": 1704240000,
+        "updatedAt": 1704240000
+      }
+    ]
+  }
+}
+```
+
+<Callout type="info" title="Orders Retrieved">
+  Successfully retrieved all orders for presale round **12**.
+</Callout>
+
+---
+
+## Use Cases
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">📊</div>
+    <h3 className="font-bold mb-2">Round Performance</h3>
+    <p className="text-sm text-muted-foreground">
+      Analyze total participation, token distribution, and revenue for specific presale rounds.
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">👥</div>
+    <h3 className="font-bold mb-2">Participant Management</h3>
+    <p className="text-sm text-muted-foreground">
+      View all participants in a presale round for support, compliance, and communication purposes.
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🎯</div>
+    <h3 className="font-bold mb-2">Token Allocation</h3>
+    <p className="text-sm text-muted-foreground">
+      Track token allocation and ensure fair distribution according to presale conditions.
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">📈</div>
+    <h3 className="font-bold mb-2">Sales Analytics</h3>
+    <p className="text-sm text-muted-foreground">
+      Generate reports on order patterns, average order sizes, and participation trends.
+    </p>
+  </Card>
+</div>
+
+---
+
+## Best Practices
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-fuchsia-500 bg-fuchsia-500/10 p-4">
+    <h4 className="font-bold text-fuchsia-700 dark:text-fuchsia-300 mb-1">📊 Data Aggregation</h4>
+    <p className="text-sm text-fuchsia-800">
+      Calculate totals, averages, and statistics to understand presale round performance comprehensively.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-purple-500 bg-purple-500/10 p-4">
+    <h4 className="font-bold text-purple-700 dark:text-purple-300 mb-1">🔍 Status Filtering</h4>
+    <p className="text-sm text-purple-800">
+      Filter orders client-side by status to identify pending payments or completed purchases.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-violet-500 bg-violet-500/10 p-4">
+    <h4 className="font-bold text-violet-700 dark:text-violet-300 mb-1">📥 Export Functionality</h4>
+    <p className="text-sm text-violet-800">
+      Implement export features for compliance, tax reporting, and stakeholder communications.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-fuchsia-500 bg-fuchsia-500/10 p-4">
+    <h4 className="font-bold text-fuchsia-700 dark:text-fuchsia-300 mb-1">⚡ Pagination</h4>
+    <p className="text-sm text-fuchsia-800">
+      Consider implementing pagination for presale rounds with large numbers of orders.
+    </p>
+  </div>
+</div>
+
+---
+
+## Related Operations
+
+<Cards>
+  <Card title="Get Newly Placed Orders" href="/docs/api/presale-orders/get-newly-placed-orders">
+    Get recent orders for real-time updates
+  </Card>
+  <Card title="Get Presale by Status" href="/docs/api/presale/get-presales-by-status">
+    View presale rounds by status
+  </Card>
+  <Card title="Get Order Transactions" href="/docs/api/presale-orders/get-order-transactions">
+    View payment transaction history
+  </Card>
+</Cards>

@@ -1,0 +1,309 @@
+---
+title: Place A New Presale Order
+description: Create presale orders with customizable NDB token amounts and destination options
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-500 via-indigo-600 to-purple-700 p-8 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+      Place Presale Order
+    </h1>
+    <p className="text-xl text-white/90 mb-6">
+      Create a new presale order with flexible destination options for NDB token delivery
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+</div>
+
+## Mutation
+
+<div className="rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-blue-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🛒</span>
+    <div>
+      <div className="font-bold text-lg">placePreSaleOrder</div>
+      <div className="text-sm text-muted-foreground">Create a new presale order for NDB tokens</div>
+    </div>
+  </div>
+
+  ### Schema
+
+  ```graphql
+  placePreSaleOrder(
+    presaleId: Int!
+    ndbAmount: Float!
+    destination: Int!
+    extAddr: String
+  ): PreSaleOrder
+  ```
+</div>
+
+## Parameters
+
+<div className="space-y-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">presaleId</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Int!</code></div>
+      <div className="text-muted-foreground">The unique identifier of the presale round to place an order for</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">ndbAmount</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Float!</code></div>
+      <div className="text-muted-foreground">The amount of NDB tokens to purchase in this order</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">destination</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Int!</code></div>
+      <div className="text-muted-foreground mb-2">Specifies where NDB tokens will be delivered after purchase</div>
+      <div className="space-y-1 mt-2">
+        <div className="flex items-center gap-2 text-xs">
+          <code className="bg-green-500/20 text-green-500 px-1.5 py-0.5 rounded font-mono">1</code>
+          <span className="text-muted-foreground">Internal - Tokens sent to your NYYU wallet</span>
+        </div>
+        <div className="flex items-center gap-2 text-xs">
+          <code className="bg-amber-500/20 text-amber-500 px-1.5 py-0.5 rounded font-mono">2</code>
+          <span className="text-muted-foreground">External - Tokens sent to an external wallet address</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">extAddr</code>
+      <span className="text-xs bg-muted text-muted-foreground px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String</code></div>
+      <div className="text-muted-foreground">
+        External wallet address for NDB token delivery. <span className="text-amber-500 font-semibold">Required when destination is 2</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Return Value
+
+<div className="p-5 rounded-lg border border-green-500/30 bg-green-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">📦</span>
+    <div className="font-bold">Returns PreSaleOrder Object</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    Contains the created presale order with initial status of 0 (pending payment confirmation)
+  </div>
+</div>
+
+## Example
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">Internal Delivery Example</div>
+      <div className="text-xs text-muted-foreground">Order 500 NDB tokens to internal wallet</div>
+    </div>
+  </div>
+
+  ```graphql
+  mutation {
+    placePreSaleOrder(
+      presaleId: 1
+      ndbAmount: 500.0
+      destination: 1
+    ) {
+      id
+      presaleId
+      userId
+      ndbAmount
+      destination
+      status
+      createdAt
+      updatedAt
+    }
+  }
+  ```
+</div>
+
+<div className="rounded-xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 to-indigo-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">External Delivery Example</div>
+      <div className="text-xs text-muted-foreground">Order 500 NDB tokens to external address</div>
+    </div>
+  </div>
+
+  ```graphql
+  mutation {
+    placePreSaleOrder(
+      presaleId: 1
+      ndbAmount: 500.0
+      destination: 2
+      extAddr: "0x1234567890abcdef1234567890abcdef12345678"
+    ) {
+      id
+      presaleId
+      userId
+      ndbAmount
+      destination
+      extAddr
+      status
+      createdAt
+      updatedAt
+    }
+  }
+  ```
+</div>
+
+## Response Example
+
+<div className="rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/10 to-green-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📤</span>
+    <div>
+      <div className="font-bold">Sample Response</div>
+      <div className="text-xs text-muted-foreground">Successful order creation</div>
+    </div>
+  </div>
+
+  ```json
+  {
+    "data": {
+      "placePreSaleOrder": {
+        "id": 12345,
+        "presaleId": 1,
+        "userId": "user_abc123",
+        "ndbAmount": 500.0,
+        "destination": 2,
+        "extAddr": "0x1234567890abcdef1234567890abcdef12345678",
+        "status": 0,
+        "createdAt": 1634567890,
+        "updatedAt": 1634567890
+      }
+    }
+  }
+  ```
+</div>
+
+## Order Workflow
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-8">
+  <div className="flex items-center gap-3 mb-6">
+    <span className="text-2xl">🔄</span>
+    <div>
+      <div className="font-bold text-lg">Order Processing Steps</div>
+      <div className="text-sm text-muted-foreground">Complete order lifecycle</div>
+    </div>
+  </div>
+
+  <div className="space-y-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-cyan-500 font-bold text-lg">1</span>
+        <div className="font-semibold text-sm">Create Order</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Call <code className="bg-muted px-1 rounded">placePreSaleOrder</code> with presale ID, amount, and destination. Order is created with status 0 (pending)
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-cyan-500 font-bold text-lg">2</span>
+        <div className="font-semibold text-sm">Process Payment</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Use one of the payment methods (Stripe, PayPal, Crypto, or Wallet) to pay for the order
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-cyan-500 font-bold text-lg">3</span>
+        <div className="font-semibold text-sm">Confirm Payment</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        Payment gateway confirms the transaction and updates order status
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-cyan-500 font-bold text-lg">4</span>
+        <div className="font-semibold text-sm">Token Delivery</div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        NDB tokens are delivered to the specified destination (internal wallet or external address)
+      </div>
+    </div>
+  </div>
+</div>
+
+## Important Notes
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-amber-500/30 bg-amber-500/10">
+    <div className="text-xl mb-2">⚠️</div>
+    <div className="font-bold mb-2">Payment Required</div>
+    <div className="text-sm text-muted-foreground">
+      The order is created with status 0 (pending). It must be confirmed through a payment method before token delivery.
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-blue-500/30 bg-blue-500/10">
+    <div className="text-xl mb-2">🔐</div>
+    <div className="font-bold mb-2">External Address</div>
+    <div className="text-sm text-muted-foreground">
+      When destination is 2 (external), you must provide a valid external wallet address in the extAddr field.
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-green-500/30 bg-green-500/10">
+    <div className="text-xl mb-2">✅</div>
+    <div className="font-bold mb-2">Internal Delivery</div>
+    <div className="text-sm text-muted-foreground">
+      Choosing destination 1 (internal) delivers tokens to your NYYU wallet automatically upon payment confirmation.
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-purple-500/30 bg-purple-500/10">
+    <div className="text-xl mb-2">📊</div>
+    <div className="font-bold mb-2">Order Tracking</div>
+    <div className="text-sm text-muted-foreground">
+      Use the returned order ID to track payment status and token delivery through other API endpoints.
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-indigo-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold">Best Practice</div>
+      <div className="text-sm text-muted-foreground">
+        Always validate the external address format on the frontend before submitting. For Ethereum addresses, ensure they are valid checksummed addresses. Store the order ID immediately after creation for payment processing and order tracking.
+      </div>
+    </div>
+  </div>
+</div>

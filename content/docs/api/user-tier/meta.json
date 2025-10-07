@@ -1,12 +1,12 @@
 {
   "title": "User Tier",
   "pages": [
-    "add-new-task-setting",
-    "add-new-tier",
-    "delete-user-tier",
+    "user-tier-summary",
     "get-user-tiers",
-    "update-task-setting",
+    "add-new-tier",
     "update-user-tier",
-    "user-tier-summary"
+    "delete-user-tier",
+    "add-new-task-setting",
+    "update-task-setting"
   ]
 }

@@ -7,55 +7,217 @@ import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 
-# Property Listing on NYYU
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-teal-500/10 via-cyan-500/10 to-background p-12 border border-teal-500/20 mb-8">
+  <div className="relative z-10">
+    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-500/10 border border-teal-500/20 mb-6">
+      <span className="text-sm font-medium text-teal-400">Listing Service</span>
+    </div>
+    <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+      Real Estate Listing
+    </h1>
+    <p className="text-xl text-muted-foreground max-w-3xl mb-6">
+      List and tokenize your real estate assets on NYYU. Connect with investors seeking property investment opportunities worldwide.
+    </p>
+    <a href="https://nyyu.io/property-listing-form" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-teal-500/10 border border-teal-500/30 text-teal-400 hover:bg-teal-500/20 transition-all font-medium">
+      Apply for Listing
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+      </svg>
+    </a>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+</div>
 
-Welcome to NYYU's Property Listing application! Our platform offers a comprehensive solution for listing and managing your real estate assets. To ensure a smooth and efficient listing process, please complete the application form provided below. Our team will review your submission based on the information you provide. Any false or invalid information will result in your property not being considered for listing on NYYU.
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+  <div className="p-5 rounded-xl border border-teal-500/20 bg-gradient-to-br from-teal-500/5 to-background text-center">
+    <div className="text-3xl mb-2">🏠</div>
+    <div className="font-bold mb-1">Residential</div>
+    <div className="text-sm text-muted-foreground">Apartments, houses, condos</div>
+  </div>
+
+  <div className="p-5 rounded-xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-background text-center">
+    <div className="text-3xl mb-2">🏢</div>
+    <div className="font-bold mb-1">Commercial</div>
+    <div className="text-sm text-muted-foreground">Offices, retail, mixed-use</div>
+  </div>
+
+  <div className="p-5 rounded-xl border border-teal-500/20 bg-gradient-to-br from-teal-500/5 to-background text-center">
+    <div className="text-3xl mb-2">🏭</div>
+    <div className="font-bold mb-1">Industrial</div>
+    <div className="text-sm text-muted-foreground">Warehouses, factories, land</div>
+  </div>
+</div>
+
+<Callout type="warn" title="Important Notice">
+All property documentation must be authentic and verified. False information will disqualify your listing.
+</Callout>
 
 ## Application Process
 
 <Steps>
 <Step>
 ### Submit Your Application
-Fill out the [Property Listing Application Form](https://nyyu.io/property-listing-form) with accurate and detailed information about your property.
+
+Complete the [Property Listing Application Form](https://nyyu.io/property-listing-form) with comprehensive property details and legal documentation.
+
+<div className="mt-4 p-4 rounded-lg bg-teal-500/5 border border-teal-500/10">
+  <div className="text-sm text-muted-foreground">
+    <strong className="text-teal-400">Tip:</strong> Have all title deeds, appraisals, and inspection reports ready before starting your application.
+  </div>
+</div>
 </Step>
 
 <Step>
-### Initial Review
-Our Research Department will evaluate your application, assessing the property's feasibility, compliance, and alignment with NYYU's mission and values.
+### Property Verification
+
+Our team conducts thorough due diligence on the property, including title search, legal compliance, and market valuation.
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-4">
+  <div className="p-3 rounded-lg bg-muted/50 border border-border">
+    <div className="text-xs text-muted-foreground mb-1">Verification Time</div>
+    <div className="font-semibold">7-10 Business Days</div>
+  </div>
+  <div className="p-3 rounded-lg bg-muted/50 border border-border">
+    <div className="text-xs text-muted-foreground mb-1">Listing Fee</div>
+    <div className="font-semibold">$2,000 USD</div>
+  </div>
+  <div className="p-3 rounded-lg bg-muted/50 border border-border">
+    <div className="text-xs text-muted-foreground mb-1">Approval Rate</div>
+    <div className="font-semibold">80%</div>
+  </div>
+</div>
 </Step>
 
 <Step>
-### Feedback and Workflow
-Upon passing the initial review, we will share the listing workflow and some useful tips to facilitate the listing process. An account manager will be assigned to guide you through each step.
+### Tokenization Setup
+
+Once approved, we assist with the tokenization process, creating digital shares of your property for fractional ownership.
 </Step>
 
 <Step>
-### Account Manager
-Your assigned account manager will reach out to discuss the next steps and provide continuous support throughout the listing process.
-</Step>
+### Go Live
 
+Your property goes live on the NYYU marketplace, accessible to investors worldwide with full transparency and secure transactions.
+</Step>
 </Steps>
 
-## Required Information
+## Required Documentation
 
-When filling out the application form, please ensure you provide the following details:
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-xl border border-teal-500/20 bg-gradient-to-br from-teal-500/5 to-background">
+    <div className="flex items-start gap-3">
+      <div className="text-2xl">🏢</div>
+      <div>
+        <div className="font-bold mb-1">Property Details</div>
+        <div className="text-sm text-muted-foreground">Name, type, location, and specifications</div>
+      </div>
+    </div>
+  </div>
 
-- **Property Name**: The name of your property.
-- **Property Type**: Specify the type of property (e.g., residential, commercial, industrial).
-- **Location**: The exact location of the property, including address and geographic coordinates.
-- **Property Description**: A detailed description of the property, highlighting its unique features and amenities.
-- **Owner Information**: Background information about the property owner, including contact details and verification documents.
-- **Financial Information**: Information about the property's financial performance, including rental income, expenses, and any existing liens or mortgages.
-- **Legal Documents**: Copies of legal documents related to the property, such as title deeds, zoning permits, and inspection reports.
-- **Market Analysis**: Insights into the local real estate market, including comparable properties and market trends.
-- **Community and Social Media**: Links to any online listings or promotional materials related to the property.
+  <div className="p-5 rounded-xl border border-teal-500/20 bg-gradient-to-br from-teal-500/5 to-background">
+    <div className="flex items-start gap-3">
+      <div className="text-2xl">📜</div>
+      <div>
+        <div className="font-bold mb-1">Title Deeds</div>
+        <div className="text-sm text-muted-foreground">Proof of ownership and clear title</div>
+      </div>
+    </div>
+  </div>
 
-## Evaluation Criteria
+  <div className="p-5 rounded-xl border border-teal-500/20 bg-gradient-to-br from-teal-500/5 to-background">
+    <div className="flex items-start gap-3">
+      <div className="text-2xl">💰</div>
+      <div>
+        <div className="font-bold mb-1">Financial Records</div>
+        <div className="text-sm text-muted-foreground">Income, expenses, and liens</div>
+      </div>
+    </div>
+  </div>
 
-Our evaluation process considers several factors, including but not limited to:
+  <div className="p-5 rounded-xl border border-teal-500/20 bg-gradient-to-br from-teal-500/5 to-background">
+    <div className="flex items-start gap-3">
+      <div className="text-2xl">🔍</div>
+      <div>
+        <div className="font-bold mb-1">Inspection Reports</div>
+        <div className="text-sm text-muted-foreground">Property condition assessments</div>
+      </div>
+    </div>
+  </div>
 
-- **Location and Market Potential**: The property's location and its potential impact on the market.
-- **Property Condition**: The current condition and maintenance status of the property.
-- **Financial Health**: The financial performance and projections of the property.
-- **Compliance and Legal Status**: Adherence to legal and regulatory standards, and verification of ownership and clear title.
-- **Market Analysis**: The property's market potential, including demand and competitive landscape.
+  <div className="p-5 rounded-xl border border-teal-500/20 bg-gradient-to-br from-teal-500/5 to-background">
+    <div className="flex items-start gap-3">
+      <div className="text-2xl">📊</div>
+      <div>
+        <div className="font-bold mb-1">Market Analysis</div>
+        <div className="text-sm text-muted-foreground">Comparable sales and valuations</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-xl border border-teal-500/20 bg-gradient-to-br from-teal-500/5 to-background">
+    <div className="flex items-start gap-3">
+      <div className="text-2xl">⚖️</div>
+      <div>
+        <div className="font-bold mb-1">Legal Compliance</div>
+        <div className="text-sm text-muted-foreground">Zoning permits and regulatory clearances</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Benefits of Listing on NYYU
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+  <div className="text-center p-6 rounded-xl border border-teal-500/20 bg-gradient-to-b from-teal-500/5 to-background">
+    <div className="text-4xl mb-4">💎</div>
+    <div className="font-bold text-lg mb-2">Fractional Ownership</div>
+    <div className="text-sm text-muted-foreground">
+      Enable multiple investors to own shares of your property
+    </div>
+  </div>
+
+  <div className="text-center p-6 rounded-xl border border-cyan-500/20 bg-gradient-to-b from-cyan-500/5 to-background">
+    <div className="text-4xl mb-4">🌍</div>
+    <div className="font-bold text-lg mb-2">Global Access</div>
+    <div className="text-sm text-muted-foreground">
+      Reach investors worldwide, not just local markets
+    </div>
+  </div>
+
+  <div className="text-center p-6 rounded-xl border border-teal-500/20 bg-gradient-to-b from-teal-500/5 to-background">
+    <div className="text-4xl mb-4">⚡</div>
+    <div className="font-bold text-lg mb-2">Instant Liquidity</div>
+    <div className="text-sm text-muted-foreground">
+      Tokenization provides easier entry and exit for investors
+    </div>
+  </div>
+</div>
+
+<div className="mt-12 p-8 rounded-2xl border border-teal-500/20 bg-gradient-to-br from-teal-500/10 via-cyan-500/5 to-background relative overflow-hidden">
+  <div className="relative z-10">
+    <div className="text-center mb-6">
+      <div className="text-3xl mb-3">🏢</div>
+      <div className="font-bold text-2xl mb-2">Ready to List Your Property?</div>
+      <div className="text-muted-foreground mb-6">
+        Join property owners already tokenizing real estate on NYYU
+      </div>
+    </div>
+    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="https://nyyu.io/property-listing-form" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-teal-500/10 border border-teal-500/30 text-teal-400 hover:bg-teal-500/20 transition-all font-medium">
+        Submit Application
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </a>
+      <a href="/docs/services/fees" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-border hover:bg-muted/50 transition-all font-medium">
+        View Fees
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl"></div>
+</div>

@@ -6,13 +6,30 @@ description: Token listing application process and requirements
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
-import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
-# Token Listing on NYYU
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-background p-12 border border-emerald-500/20 mb-8">
+  <div className="relative z-10">
+    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-6">
+      <span className="text-sm font-medium text-emerald-400">Listing Service</span>
+    </div>
+    <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+      Token Listing
+    </h1>
+    <p className="text-xl text-muted-foreground max-w-3xl mb-6">
+      List your cryptocurrency token on NYYU, the innovative decentralized investment banking platform. Expand your reach and connect with a global community of investors.
+    </p>
+    <a href="https://nyyu.io/token-listing-form" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 transition-all font-medium">
+      Apply for Listing
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+      </svg>
+    </a>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl"></div>
+</div>
 
-Thank you for your interest in listing your token on NYYU, the innovative decentralized investment banking platform. To ensure a smooth and efficient listing process, please complete the application form provided below.
-
-<Callout type="warn">
+<Callout type="warn" title="Important Notice">
 If any information is found to be false or invalid, your project will not be considered for listing on NYYU.
 </Callout>
 
@@ -21,66 +38,295 @@ If any information is found to be false or invalid, your project will not be con
 <Steps>
 <Step>
 ### Submit Your Application
+
 Fill out the [Token Listing Application Form](https://nyyu.io/token-listing-form) with accurate and detailed information about your project.
+
+<div className="mt-4 p-4 rounded-lg bg-emerald-500/5 border border-emerald-500/10">
+  <div className="text-sm text-muted-foreground">
+    <strong className="text-emerald-400">Tip:</strong> Prepare all required documents before starting the application to ensure a smooth submission process.
+  </div>
+</div>
 </Step>
 
 <Step>
 ### Initial Review
+
 Our Research Department will review your application. This includes evaluating the project's feasibility, compliance, and potential alignment with NYYU's mission and values.
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-4">
+  <div className="p-3 rounded-lg bg-muted/50 border border-border">
+    <div className="text-xs text-muted-foreground mb-1">Review Time</div>
+    <div className="font-semibold">3-5 Business Days</div>
+  </div>
+  <div className="p-3 rounded-lg bg-muted/50 border border-border">
+    <div className="text-xs text-muted-foreground mb-1">Success Rate</div>
+    <div className="font-semibold">85%</div>
+  </div>
+  <div className="p-3 rounded-lg bg-muted/50 border border-border">
+    <div className="text-xs text-muted-foreground mb-1">Response Method</div>
+    <div className="font-semibold">Email</div>
+  </div>
+</div>
 </Step>
 
 <Step>
 ### Feedback and Workflow
+
 Upon passing the initial review, we will share the listing workflow with you, along with some useful tips to facilitate the listing process. An account manager will be assigned to guide you through each step.
 </Step>
 
 <Step>
 ### Account Manager Support
+
 Your assigned account manager will reach out to you to discuss the next steps and provide continuous support throughout the listing process.
+
+<div className="mt-4 flex items-center gap-3 p-4 rounded-lg bg-emerald-500/5 border border-emerald-500/10">
+  <div className="text-2xl">🤝</div>
+  <div className="text-sm text-muted-foreground">
+    Your dedicated account manager will be your primary point of contact throughout the entire listing journey.
+  </div>
+</div>
 </Step>
 </Steps>
 
 ## Required Information
 
-<Callout type="info">
+<Callout type="info" title="Application Requirements">
 When filling out the application form, please ensure you provide the following details:
 </Callout>
 
-<Cards>
-<Card title="Project Name" description="The name of your project" />
-<Card title="Token Symbol" description="The symbol of your token" />
-<Card title="Project Website" description="The official website of your project" />
-<Card title="Whitepaper" description="A detailed whitepaper describing your project" />
-<Card title="Team Information" description="Background information about the core team members, including their LinkedIn profiles" />
-<Card title="Project Description" description="A brief description of your project, highlighting its unique features and goals" />
-<Card title="Technical Documentation" description="Detailed technical documents, including smart contract addresses and code repositories" />
-<Card title="Tokenomics" description="Information about the token supply, distribution, and use cases" />
-<Card title="Market Information" description="Details about current and planned exchanges, trading pairs, and liquidity" />
-<Card title="Community & Social Media" description="Links to your project's social media channels, forums, and community engagement platforms" />
-</Cards>
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-background">
+    <div className="flex items-start gap-3">
+      <div className="text-2xl">📝</div>
+      <div>
+        <div className="font-bold mb-1">Project Name</div>
+        <div className="text-sm text-muted-foreground">The official name of your project</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-background">
+    <div className="flex items-start gap-3">
+      <div className="text-2xl">🪙</div>
+      <div>
+        <div className="font-bold mb-1">Token Symbol</div>
+        <div className="text-sm text-muted-foreground">The ticker symbol of your token</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-background">
+    <div className="flex items-start gap-3">
+      <div className="text-2xl">🌐</div>
+      <div>
+        <div className="font-bold mb-1">Project Website</div>
+        <div className="text-sm text-muted-foreground">The official website URL</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-background">
+    <div className="flex items-start gap-3">
+      <div className="text-2xl">📄</div>
+      <div>
+        <div className="font-bold mb-1">Whitepaper</div>
+        <div className="text-sm text-muted-foreground">Detailed project whitepaper</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-background">
+    <div className="flex items-start gap-3">
+      <div className="text-2xl">👥</div>
+      <div>
+        <div className="font-bold mb-1">Team Information</div>
+        <div className="text-sm text-muted-foreground">Core team backgrounds and LinkedIn profiles</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-background">
+    <div className="flex items-start gap-3">
+      <div className="text-2xl">💡</div>
+      <div>
+        <div className="font-bold mb-1">Project Description</div>
+        <div className="text-sm text-muted-foreground">Brief overview highlighting unique features</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-background">
+    <div className="flex items-start gap-3">
+      <div className="text-2xl">⚙️</div>
+      <div>
+        <div className="font-bold mb-1">Technical Documentation</div>
+        <div className="text-sm text-muted-foreground">Smart contract addresses and code repositories</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-background">
+    <div className="flex items-start gap-3">
+      <div className="text-2xl">📊</div>
+      <div>
+        <div className="font-bold mb-1">Tokenomics</div>
+        <div className="text-sm text-muted-foreground">Supply, distribution, and use cases</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-background">
+    <div className="flex items-start gap-3">
+      <div className="text-2xl">📈</div>
+      <div>
+        <div className="font-bold mb-1">Market Information</div>
+        <div className="text-sm text-muted-foreground">Current exchanges, pairs, and liquidity</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 to-background">
+    <div className="flex items-start gap-3">
+      <div className="text-2xl">💬</div>
+      <div>
+        <div className="font-bold mb-1">Community & Social Media</div>
+        <div className="text-sm text-muted-foreground">Social channels and community platforms</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 ## Evaluation Criteria
 
-Our evaluation process considers several factors:
+<div className="mb-4 text-muted-foreground">
+Our evaluation process considers several factors to ensure quality listings:
+</div>
 
-<Accordions>
-<Accordion title="Innovation and Technology">
-The uniqueness and technological advancements of your project.
-</Accordion>
+<div className="space-y-4">
+  <div className="p-6 rounded-xl border border-emerald-500/20 bg-gradient-to-r from-emerald-500/5 to-background">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-xl">
+        🚀
+      </div>
+      <div className="flex-1">
+        <div className="font-bold text-lg mb-2">Innovation and Technology</div>
+        <div className="text-sm text-muted-foreground">
+          We assess the uniqueness and technological advancements of your project, including the novelty of your solution and the sophistication of your technical implementation.
+        </div>
+      </div>
+    </div>
+  </div>
 
-<Accordion title="Team and Background">
-The experience and credibility of the team behind the project.
-</Accordion>
+  <div className="p-6 rounded-xl border border-teal-500/20 bg-gradient-to-r from-teal-500/5 to-background">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-xl">
+        👥
+      </div>
+      <div className="flex-1">
+        <div className="font-bold text-lg mb-2">Team and Background</div>
+        <div className="text-sm text-muted-foreground">
+          The experience, credibility, and track record of the team behind the project are crucial factors in our evaluation process.
+        </div>
+      </div>
+    </div>
+  </div>
 
-<Accordion title="Market Potential">
-The project's market potential, including demand and adoption metrics.
-</Accordion>
+  <div className="p-6 rounded-xl border border-emerald-500/20 bg-gradient-to-r from-emerald-500/5 to-background">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-xl">
+        📈
+      </div>
+      <div className="flex-1">
+        <div className="font-bold text-lg mb-2">Market Potential</div>
+        <div className="text-sm text-muted-foreground">
+          We evaluate the project's market potential, including demand metrics, adoption rates, and growth projections.
+        </div>
+      </div>
+    </div>
+  </div>
 
-<Accordion title="Compliance and Security">
-Adherence to legal and regulatory standards, and robust security measures.
-</Accordion>
+  <div className="p-6 rounded-xl border border-teal-500/20 bg-gradient-to-r from-teal-500/5 to-background">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-xl">
+        🛡️
+      </div>
+      <div className="flex-1">
+        <div className="font-bold text-lg mb-2">Compliance and Security</div>
+        <div className="text-sm text-muted-foreground">
+          Adherence to legal and regulatory standards, along with robust security measures and audit reports, are essential requirements.
+        </div>
+      </div>
+    </div>
+  </div>
 
-<Accordion title="Community Engagement">
-The level of engagement and support from the project's community.
-</Accordion>
-</Accordions>
+  <div className="p-6 rounded-xl border border-emerald-500/20 bg-gradient-to-r from-emerald-500/5 to-background">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-xl">
+        💬
+      </div>
+      <div className="flex-1">
+        <div className="font-bold text-lg mb-2">Community Engagement</div>
+        <div className="text-sm text-muted-foreground">
+          The level of engagement and support from the project's community, including social media presence and active participation.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Why List on NYYU?
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+  <div className="text-center p-6 rounded-xl border border-emerald-500/20 bg-gradient-to-b from-emerald-500/5 to-background">
+    <div className="text-4xl mb-4">🌍</div>
+    <div className="font-bold text-lg mb-2">Global Reach</div>
+    <div className="text-sm text-muted-foreground">
+      Access to a worldwide community of crypto enthusiasts and investors
+    </div>
+  </div>
+
+  <div className="text-center p-6 rounded-xl border border-teal-500/20 bg-gradient-to-b from-teal-500/5 to-background">
+    <div className="text-4xl mb-4">🔒</div>
+    <div className="font-bold text-lg mb-2">Secure Platform</div>
+    <div className="text-sm text-muted-foreground">
+      Enterprise-grade security and compliance standards
+    </div>
+  </div>
+
+  <div className="text-center p-6 rounded-xl border border-emerald-500/20 bg-gradient-to-b from-emerald-500/5 to-background">
+    <div className="text-4xl mb-4">💰</div>
+    <div className="font-bold text-lg mb-2">High Liquidity</div>
+    <div className="text-sm text-muted-foreground">
+      Deep liquidity pools and active trading community
+    </div>
+  </div>
+</div>
+
+<div className="mt-12 p-8 rounded-2xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-background relative overflow-hidden">
+  <div className="relative z-10">
+    <div className="text-center mb-6">
+      <div className="text-3xl mb-3">🚀</div>
+      <div className="font-bold text-2xl mb-2">Ready to List Your Token?</div>
+      <div className="text-muted-foreground mb-6">
+        Join hundreds of successful projects already listed on NYYU
+      </div>
+    </div>
+    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="https://nyyu.io/token-listing-form" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 transition-all font-medium">
+        Submit Application
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </a>
+      <a href="/docs/services/fees" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-border hover:bg-muted/50 transition-all font-medium">
+        View Listing Fees
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl"></div>
+</div>

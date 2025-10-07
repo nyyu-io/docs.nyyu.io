@@ -1,0 +1,439 @@
+---
+title: Get Round Perform 1
+description: Retrieve token price and sold amount performance metrics for all auction rounds
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-orange-600 via-orange-500 to-amber-600 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="relative">
+    <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm mb-4">
+      <span className="relative flex h-2 w-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-background"></span>
+      </span>
+      PERFORMANCE METRICS
+    </div>
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">Round Performance 1</h1>
+    <p className="text-xl text-orange-100 leading-relaxed max-w-3xl">
+      Access comprehensive token pricing and sales volume metrics across all auction rounds for trend analysis and visualization.
+    </p>
+  </div>
+</div>
+
+<Callout type="info" title="Real-time Data">
+  This query returns **current performance metrics** for all rounds, perfect for building live dashboards and price charts.
+</Callout>
+
+## Overview
+
+The `getRoundPerform1` query retrieves performance metrics focused on token economics - specifically **token price** and **sold amount** for each auction round. This data is essential for tracking pricing trends, sales volume, and overall market performance.
+
+---
+
+## GraphQL Schema
+
+<div className="rounded-xl border border-orange-500/30 bg-gradient-to-br from-orange-500/10 to-amber-500/5 p-6 mb-8">
+
+```graphql
+query {
+  getRoundPerform1: [RoundPerform1]
+}
+```
+
+</div>
+
+---
+
+## Return Type
+
+<div className="rounded-lg border border-orange-500/30 bg-background p-6 mb-6">
+  <h3 className="font-bold mb-4">RoundPerform1 Object</h3>
+
+  <div className="space-y-4">
+    <div className="rounded-lg border border-border bg-muted/30 p-4">
+      <div className="flex items-start gap-3 mb-3">
+        <code className="bg-orange-500/20 text-orange-700 dark:text-orange-300 px-3 py-1 rounded text-sm font-mono">roundNumber</code>
+        <span className="inline-flex items-center rounded-full bg-blue-500/10 px-2 py-0.5 text-xs font-semibold text-blue-700 dark:text-blue-300">Int!</span>
+      </div>
+      <p className="text-sm text-muted-foreground">
+        The unique identifier for the auction round. Sequential numbering starting from 1.
+      </p>
+    </div>
+
+    <div className="rounded-lg border border-border bg-muted/30 p-4">
+      <div className="flex items-start gap-3 mb-3">
+        <code className="bg-orange-500/20 text-orange-700 dark:text-orange-300 px-3 py-1 rounded text-sm font-mono">tokenPrice</code>
+        <span className="inline-flex items-center rounded-full bg-green-500/10 px-2 py-0.5 text-xs font-semibold text-green-700 dark:text-green-300">Float!</span>
+      </div>
+      <p className="text-sm text-muted-foreground">
+        The token price during this specific round. Typically measured in USD or platform currency.
+      </p>
+    </div>
+
+    <div className="rounded-lg border border-border bg-muted/30 p-4">
+      <div className="flex items-start gap-3 mb-3">
+        <code className="bg-orange-500/20 text-orange-700 dark:text-orange-300 px-3 py-1 rounded text-sm font-mono">soldAmount</code>
+        <span className="inline-flex items-center rounded-full bg-green-500/10 px-2 py-0.5 text-xs font-semibold text-green-700 dark:text-green-300">Float!</span>
+      </div>
+      <p className="text-sm text-muted-foreground">
+        The total quantity of tokens sold during this round. Represents sales volume and market demand.
+      </p>
+    </div>
+  </div>
+</div>
+
+---
+
+## Example Usage
+
+### Query Request
+
+```graphql
+query GetRoundPerformance {
+  getRoundPerform1 {
+    roundNumber
+    tokenPrice
+    soldAmount
+  }
+}
+```
+
+### Successful Response
+
+```json
+{
+  "data": {
+    "getRoundPerform1": [
+      {
+        "roundNumber": 1,
+        "tokenPrice": 0.05,
+        "soldAmount": 1000000.0
+      },
+      {
+        "roundNumber": 2,
+        "tokenPrice": 0.075,
+        "soldAmount": 850000.0
+      },
+      {
+        "roundNumber": 3,
+        "tokenPrice": 0.10,
+        "soldAmount": 750000.0
+      },
+      {
+        "roundNumber": 4,
+        "tokenPrice": 0.15,
+        "soldAmount": 650000.0
+      },
+      {
+        "roundNumber": 5,
+        "tokenPrice": 0.20,
+        "soldAmount": 500000.0
+      }
+    ]
+  }
+}
+```
+
+<Callout type="info" title="Data Insights">
+  The example shows typical auction behavior: **token price increases** over rounds while **sold amount decreases**, reflecting supply constraints and rising valuations.
+</Callout>
+
+---
+
+## Chart Integration Examples
+
+<div className="rounded-lg border border-amber-500/30 bg-background p-6 mb-6">
+  <h3 className="font-bold mb-4">Visualization Use Cases</h3>
+
+  <div className="space-y-6">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-orange-500/20 flex items-center justify-center text-2xl">
+        📈
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Price Trend Line Chart</h4>
+        <p className="text-sm text-muted-foreground mb-3">
+          Visualize token price progression across rounds to identify pricing trends and growth patterns.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <code className="bg-orange-500/20 text-orange-700 dark:text-orange-300 px-2 py-1 rounded text-xs">Chart.js Line</code>
+          <code className="bg-orange-500/20 text-orange-700 dark:text-orange-300 px-2 py-1 rounded text-xs">Recharts LineChart</code>
+          <code className="bg-orange-500/20 text-orange-700 dark:text-orange-300 px-2 py-1 rounded text-xs">Victory VictoryLine</code>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-amber-500/20 flex items-center justify-center text-2xl">
+        📊
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Sales Volume Bar Chart</h4>
+        <p className="text-sm text-muted-foreground mb-3">
+          Display sold amount per round as vertical bars to compare sales performance and demand levels.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <code className="bg-amber-500/20 text-amber-700 dark:text-amber-300 px-2 py-1 rounded text-xs">Chart.js Bar</code>
+          <code className="bg-amber-500/20 text-amber-700 dark:text-amber-300 px-2 py-1 rounded text-xs">Recharts BarChart</code>
+          <code className="bg-amber-500/20 text-amber-700 dark:text-amber-300 px-2 py-1 rounded text-xs">Victory VictoryBar</code>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-yellow-500/20 flex items-center justify-center text-2xl">
+        🔄
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Dual-Axis Combination Chart</h4>
+        <p className="text-sm text-muted-foreground mb-3">
+          Combine price (line) and volume (bars) on a single chart with dual Y-axes for comprehensive insights.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <code className="bg-yellow-500/20 text-yellow-700 dark:text-yellow-300 px-2 py-1 rounded text-xs">Recharts ComposedChart</code>
+          <code className="bg-yellow-500/20 text-yellow-700 dark:text-yellow-300 px-2 py-1 rounded text-xs">Chart.js Mixed</code>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-orange-500/20 flex items-center justify-center text-2xl">
+        📉
+      </div>
+      <div>
+        <h4 className="font-bold mb-2">Area Chart for Volume Trends</h4>
+        <p className="text-sm text-muted-foreground mb-3">
+          Use filled area charts to emphasize volume magnitude and visualize decreasing supply over time.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <code className="bg-orange-500/20 text-orange-700 dark:text-orange-300 px-2 py-1 rounded text-xs">Recharts AreaChart</code>
+          <code className="bg-orange-500/20 text-orange-700 dark:text-orange-300 px-2 py-1 rounded text-xs">Victory VictoryArea</code>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Implementation Examples
+
+<div className="rounded-xl border border-orange-500/30 bg-background p-6 my-6">
+  <h3 className="font-bold mb-4">React + Chart.js Integration</h3>
+
+```javascript
+import { Line } from 'react-chartjs-2';
+import { useQuery } from '@apollo/client';
+import { gql } from '@apollo/client';
+
+const GET_ROUND_PERFORM_1 = gql`
+  query GetRoundPerformance {
+    getRoundPerform1 {
+      roundNumber
+      tokenPrice
+      soldAmount
+    }
+  }
+`;
+
+function TokenPriceChart() {
+  const { data, loading } = useQuery(GET_ROUND_PERFORM_1);
+
+  if (loading) return <div>Loading chart...</div>;
+
+  const chartData = {
+    labels: data.getRoundPerform1.map(r => `Round ${r.roundNumber}`),
+    datasets: [
+      {
+        label: 'Token Price ($)',
+        data: data.getRoundPerform1.map(r => r.tokenPrice),
+        borderColor: 'rgb(251, 146, 60)',
+        backgroundColor: 'rgba(251, 146, 60, 0.1)',
+        tension: 0.4
+      }
+    ]
+  };
+
+  const options = {
+    responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: 'Token Price Trend Across Rounds'
+      },
+      legend: {
+        position: 'top'
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        title: {
+          display: true,
+          text: 'Price (USD)'
+        }
+      }
+    }
+  };
+
+  return <Line data={chartData} options={options} />;
+}
+```
+
+</div>
+
+<div className="rounded-xl border border-amber-500/30 bg-background p-6 my-6">
+  <h3 className="font-bold mb-4">Recharts Dual-Axis Example</h3>
+
+```jsx
+import { ComposedChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { useQuery } from '@apollo/client';
+
+function PriceVolumeChart() {
+  const { data } = useQuery(GET_ROUND_PERFORM_1);
+
+  return (
+    <ComposedChart width={800} height={400} data={data?.getRoundPerform1}>
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="roundNumber" label={{ value: 'Round', position: 'insideBottom', offset: -5 }} />
+      <YAxis yAxisId="left" label={{ value: 'Price ($)', angle: -90, position: 'insideLeft' }} />
+      <YAxis yAxisId="right" orientation="right" label={{ value: 'Volume', angle: 90, position: 'insideRight' }} />
+      <Tooltip />
+      <Legend />
+      <Bar yAxisId="right" dataKey="soldAmount" fill="#f59e0b" name="Sold Amount" />
+      <Line yAxisId="left" type="monotone" dataKey="tokenPrice" stroke="#fb923c" strokeWidth={3} name="Token Price" />
+    </ComposedChart>
+  );
+}
+```
+
+</div>
+
+---
+
+## Use Cases
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">📊</div>
+    <h3 className="font-bold mb-2">Analytics Dashboard</h3>
+    <p className="text-sm text-muted-foreground">
+      Display key performance indicators including total revenue (price × volume), price growth rate, and sales trends
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">📈</div>
+    <h3 className="font-bold mb-2">Investor Reports</h3>
+    <p className="text-sm text-muted-foreground">
+      Generate automated reports showing token appreciation, market demand evolution, and round-by-round performance
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🎯</div>
+    <h3 className="font-bold mb-2">Market Analysis</h3>
+    <p className="text-sm text-muted-foreground">
+      Analyze correlation between pricing strategy and sales volume to optimize future round configurations
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">💰</div>
+    <h3 className="font-bold mb-2">Revenue Tracking</h3>
+    <p className="text-sm text-muted-foreground">
+      Calculate total revenue per round and cumulative earnings across all auction rounds
+    </p>
+  </Card>
+</div>
+
+---
+
+## Data Analysis Tips
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-orange-500 bg-orange-500/10 p-4">
+    <h4 className="font-bold text-orange-700 dark:text-orange-300 mb-1">💡 Revenue Calculation</h4>
+    <p className="text-sm text-orange-900 dark:text-orange-200">
+      Calculate revenue per round: <code className="bg-orange-500/20 px-2 py-0.5 rounded">revenue = tokenPrice × soldAmount</code>
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-amber-500 bg-amber-500/10 p-4">
+    <h4 className="font-bold text-amber-700 dark:text-amber-300 mb-1">📊 Growth Rate Analysis</h4>
+    <p className="text-sm text-amber-900 dark:text-amber-200">
+      Track price growth: <code className="bg-amber-500/20 px-2 py-0.5 rounded">growth = (current - previous) / previous × 100</code>
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-yellow-500 bg-yellow-500/10 p-4">
+    <h4 className="font-bold text-yellow-700 dark:text-yellow-300 mb-1">🎯 Demand Correlation</h4>
+    <p className="text-sm text-yellow-900 dark:text-yellow-200">
+      Compare how price changes affect sales volume to understand price elasticity and market demand
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-orange-500 bg-orange-500/10 p-4">
+    <h4 className="font-bold text-orange-700 dark:text-orange-300 mb-1">📈 Trend Forecasting</h4>
+    <p className="text-sm text-orange-900 dark:text-orange-200">
+      Use historical data to project future prices and volumes using linear regression or moving averages
+    </p>
+  </div>
+</div>
+
+---
+
+## Best Practices
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-orange-500 bg-orange-500/10 p-4">
+    <h4 className="font-bold text-orange-700 dark:text-orange-300 mb-1">⚡ Real-time Updates</h4>
+    <p className="text-sm text-orange-900 dark:text-orange-200">
+      Implement polling (every 30-60 seconds) to keep price and volume data fresh for live dashboards
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-amber-500 bg-amber-500/10 p-4">
+    <h4 className="font-bold text-amber-700 dark:text-amber-300 mb-1">💾 Data Caching</h4>
+    <p className="text-sm text-amber-900 dark:text-amber-200">
+      Cache historical round data as it won't change, only fetch latest round for updates
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-yellow-500 bg-yellow-500/10 p-4">
+    <h4 className="font-bold text-yellow-700 dark:text-yellow-300 mb-1">📊 Chart Responsiveness</h4>
+    <p className="text-sm text-yellow-900 dark:text-yellow-200">
+      Ensure charts are mobile-friendly with proper scaling and touch interactions for all device sizes
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-orange-500 bg-orange-500/10 p-4">
+    <h4 className="font-bold text-orange-700 dark:text-orange-300 mb-1">🎨 Color Accessibility</h4>
+    <p className="text-sm text-orange-900 dark:text-orange-200">
+      Use colorblind-friendly palettes and sufficient contrast for chart elements to ensure accessibility
+    </p>
+  </div>
+</div>
+
+---
+
+## Related Operations
+
+<Cards>
+  <Card title="Round Perform 2" href="/docs/api/statistics/get-round-perform-2">
+    Statistical metrics with min, max, and standard deviation
+  </Card>
+  <Card title="Round Chance" href="/docs/api/statistics/get-round-chance">
+    Success rates and win/fail statistics
+  </Card>
+  <Card title="Auction Rounds" href="/docs/api/auction/get-all-auction-rounds">
+    Complete auction round information and configuration
+  </Card>
+  <Card title="Statistics Overview" href="/docs/api/statistics/statistics-summary">
+    All statistics queries and analytics features
+  </Card>
+</Cards>

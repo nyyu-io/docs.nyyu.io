@@ -1,0 +1,262 @@
+---
+title: Get Newly Placed Orders
+description: Retrieve recent presale orders for real-time updates and live order tracking
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-lime-500 via-green-600 to-emerald-700 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
+  <div className="relative">
+    <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm mb-4">
+      <span className="relative flex h-2 w-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-background"></span>
+      </span>
+      ADMIN ONLY
+    </div>
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">Get Newly Placed Orders</h1>
+    <p className="text-xl text-lime-100 leading-relaxed max-w-3xl">
+      Retrieve recently placed orders for real-time presale monitoring and live order feed updates.
+    </p>
+  </div>
+</div>
+
+<Callout type="warn" title="Admin Access Required">
+  This query is only accessible to users with **ADMIN** privileges for real-time order monitoring.
+</Callout>
+
+## Overview
+
+The `getNewPresaleOrders` query allows administrators to retrieve orders placed after a specific order ID, enabling efficient real-time updates without fetching all orders repeatedly.
+
+---
+
+## GraphQL Schema
+
+<div className="rounded-xl border border-lime-500/30 bg-gradient-to-br from-lime-500/10 to-green-500/5 p-6 mb-8">
+
+```graphql
+query {
+  getNewPresaleOrders(
+    presaleId: Int!
+    lastOrderId: Int!
+  ): [PreSaleOrder]
+}
+```
+
+</div>
+
+---
+
+## Parameters
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <div className="rounded-lg border border-lime-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">presaleId</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-lime-600">Int</span></p>
+    <p className="text-sm text-foreground">The ID of the presale round to retrieve new orders from.</p>
+  </div>
+
+  <div className="rounded-lg border border-lime-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">lastOrderId</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-lime-600">Int</span></p>
+    <p className="text-sm text-foreground">The ID of the last order already retrieved. Only orders with higher IDs will be returned.</p>
+  </div>
+</div>
+
+---
+
+## Return Value
+
+<div className="rounded-lg border border-green-500/30 bg-gradient-to-br from-green-500/10 to-emerald-500/5 p-6 mb-6">
+  <h3 className="font-bold mb-2 flex items-center gap-2">
+    <span className="text-2xl">✓</span>
+    Success Response
+  </h3>
+  <p className="text-sm text-foreground mb-3">
+    Returns an array of <span className="font-mono text-green-600">[PreSaleOrder]</span> objects placed after the specified order ID.
+  </p>
+</div>
+
+---
+
+## Example Usage
+
+### Request
+
+```graphql
+query GetRecentOrders {
+  getNewPresaleOrders(
+    presaleId: 12
+    lastOrderId: 450
+  ) {
+    id
+    presaleId
+    userId
+    ndbAmount
+    destination
+    status
+    createdAt
+  }
+}
+```
+
+### Response
+
+```json
+{
+  "data": {
+    "getNewPresaleOrders": [
+      {
+        "id": 456,
+        "presaleId": 12,
+        "userId": 789,
+        "ndbAmount": 1000.0,
+        "destination": 1,
+        "status": 0,
+        "createdAt": 1704067200
+      },
+      {
+        "id": 457,
+        "presaleId": 12,
+        "userId": 790,
+        "ndbAmount": 2500.0,
+        "destination": 2,
+        "status": 0,
+        "createdAt": 1704240000
+      }
+    ]
+  }
+}
+```
+
+<Callout type="info" title="New Orders Retrieved">
+  Retrieved **2** new orders placed after order ID **450** in presale round **12**.
+</Callout>
+
+---
+
+## Use Cases
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">📡</div>
+    <h3 className="font-bold mb-2">Live Order Feed</h3>
+    <p className="text-sm text-muted-foreground">
+      Display real-time order activity on admin dashboards to monitor presale participation as it happens.
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">⚡</div>
+    <h3 className="font-bold mb-2">Efficient Polling</h3>
+    <p className="text-sm text-muted-foreground">
+      Implement efficient polling by only fetching new orders, reducing bandwidth and improving performance.
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔔</div>
+    <h3 className="font-bold mb-2">Order Notifications</h3>
+    <p className="text-sm text-muted-foreground">
+      Trigger notifications to admins when new orders are placed during active presale rounds.
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">📊</div>
+    <h3 className="font-bold mb-2">Real-Time Analytics</h3>
+    <p className="text-sm text-muted-foreground">
+      Update sales metrics, participation rates, and token allocation in real-time as orders arrive.
+    </p>
+  </Card>
+</div>
+
+---
+
+## Implementation Pattern
+
+<div className="rounded-lg border border-lime-500/30 bg-background p-6 mb-6">
+  <h3 className="font-bold mb-4">Polling Strategy</h3>
+  <div className="space-y-4">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-lime-500/20 flex items-center justify-center font-bold text-lime-700">1</div>
+      <div>
+        <h4 className="font-bold mb-1">Initial Load</h4>
+        <p className="text-sm text-muted-foreground">Fetch all orders using <code>getPresaleOrders</code> and store the highest order ID</p>
+      </div>
+    </div>
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center font-bold text-green-700">2</div>
+      <div>
+        <h4 className="font-bold mb-1">Poll for Updates</h4>
+        <p className="text-sm text-muted-foreground">Every few seconds, call <code>getNewPresaleOrders</code> with the last known order ID</p>
+      </div>
+    </div>
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center font-bold text-emerald-700">3</div>
+      <div>
+        <h4 className="font-bold mb-1">Update Display</h4>
+        <p className="text-sm text-muted-foreground">Add new orders to your UI and update the last known order ID for the next poll</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Best Practices
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-lime-500 bg-lime-500/10 p-4">
+    <h4 className="font-bold text-lime-700 dark:text-lime-300 mb-1">⏱️ Polling Interval</h4>
+    <p className="text-sm text-lime-800">
+      Use 3-5 second polling intervals for active presales, increase to 10-30 seconds for ended rounds.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-green-500 bg-green-500/10 p-4">
+    <h4 className="font-bold text-green-700 dark:text-green-300 mb-1">🎯 ID Tracking</h4>
+    <p className="text-sm text-green-800">
+      Always track and update the last order ID to ensure you don't miss or duplicate orders.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-emerald-500 bg-emerald-500/10 p-4">
+    <h4 className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">📊 Batch Processing</h4>
+    <p className="text-sm text-emerald-800">
+      Process multiple new orders together to reduce UI updates and improve performance.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-lime-500 bg-lime-500/10 p-4">
+    <h4 className="font-bold text-lime-700 dark:text-lime-300 mb-1">🔄 Error Handling</h4>
+    <p className="text-sm text-lime-800">
+      Implement retry logic with exponential backoff if polling requests fail.
+    </p>
+  </div>
+</div>
+
+---
+
+## Related Operations
+
+<Cards>
+  <Card title="Get Orders by Round" href="/docs/api/presale-orders/get-orders-by-round">
+    Get all orders in a presale round
+  </Card>
+  <Card title="Get Order by ID" href="/docs/api/presale-orders/get-order-by-id">
+    View specific order details
+  </Card>
+  <Card title="Get Active Presales" href="/docs/api/presale/get-presales-by-status">
+    View active presale rounds
+  </Card>
+</Cards>

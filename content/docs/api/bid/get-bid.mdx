@@ -1,65 +1,209 @@
 ---
 title: Get Bid
+description: Retrieve your bid for a specific auction round
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-The `getBid` query is used to retrieve the bid placed by the current user for a specific auction round.
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-teal-500/10 via-cyan-500/5 to-background p-8 border border-teal-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Get Bid
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Retrieve your bid information for a specific auction round
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl"></div>
+</div>
 
-### Query: `getBid`
+## Query
 
-#### Schema:
-```graphql
-getBid(
-  round: Int!
-): Bid
-```
+<div className="rounded-xl border border-teal-500/30 bg-gradient-to-br from-teal-500/10 to-teal-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔍</span>
+    <div>
+      <div className="font-bold text-lg">getBid</div>
+      <div className="text-sm text-muted-foreground">Retrieve your bid for a specific round</div>
+    </div>
+  </div>
 
-#### Parameters
+  ### Schema
 
-- `round` (Int): The number of the round to get the bid for. This field is mandatory.
-
-#### Return
-
-The query returns the `Bid` object placed by the current user for the specified round.
-
-### Example Query
-
-The following is an example of how to use the `getBid` query to retrieve a bid for the current user and a specific round:
-
-```graphql
-query {
+  ```graphql
   getBid(
-    round: 12
-  ) {
-    userId,
-    roundId,
-    tokenAmount,
-    totalPrice,
-    tokenPrice,
-    tempTokenAmount,
-    tempTokenPrice,
-    delta,
-    pendingIncrease,
-    holdings {
-      key,
-      value {
-        crypto,
-        usd
+    round: Int!
+  ): Bid
+  ```
+</div>
+
+## Parameters
+
+<div className="space-y-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">round</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Int!</code></div>
+      <div className="text-muted-foreground">The round number to retrieve your bid for</div>
+    </div>
+  </div>
+</div>
+
+## Return Value
+
+<div className="p-5 rounded-lg border border-green-500/30 bg-green-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">📦</span>
+    <div className="font-bold">Returns Bid Object</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    The query returns your <code className="bg-muted px-1 rounded">Bid</code> object for the specified round
+  </div>
+</div>
+
+## Authentication
+
+<div className="p-5 rounded-lg border border-blue-500/30 bg-blue-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">🔐</span>
+    <div className="font-bold">User Authentication</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    The user ID is automatically obtained from your JWT authentication token
+  </div>
+</div>
+
+## Example
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">Usage Example</div>
+      <div className="text-xs text-muted-foreground">Retrieving your bid for round 12</div>
+    </div>
+  </div>
+
+  ```graphql
+  query {
+    getBid(round: 12) {
+      userId
+      roundId
+      tokenAmount
+      totalPrice
+      tokenPrice
+      tempTokenAmount
+      tempTokenPrice
+      delta
+      pendingIncrease
+      holdings {
+        key
+        value {
+          crypto
+          usd
+        }
       }
-    },
-    payType,
-    cryptoType,
-    placedAt,
-    updatedAt,
-    status
+      payType
+      cryptoType
+      placedAt
+      updatedAt
+      status
+    }
   }
-}
-```
+  ```
+</div>
 
-In this example, the query retrieves the bid placed by the current user for the round number `12`. The returned `Bid` object includes details such as `userId`, `roundId`, `tokenAmount`, `totalPrice`, `tokenPrice`, `tempTokenAmount`, `tempTokenPrice`, `delta`, `pendingIncrease`, `holdings`, `payType`, `cryptoType`, `placedAt`, `updatedAt`, and `status`.
+## Response Example
 
-### Note
+<div className="rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/10 to-green-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📤</span>
+    <div>
+      <div className="font-bold">Sample Response</div>
+      <div className="text-xs text-muted-foreground">Example bid data</div>
+    </div>
+  </div>
 
-- The user's ID will be obtained from the JWT token.
+  ```json
+  {
+    "data": {
+      "getBid": {
+        "userId": "user123",
+        "roundId": "round12",
+        "tokenAmount": 100.0,
+        "totalPrice": 50.0,
+        "tokenPrice": 0.5,
+        "tempTokenAmount": 0,
+        "tempTokenPrice": 0,
+        "delta": 0,
+        "pendingIncrease": false,
+        "holdings": [
+          {
+            "key": "BTC",
+            "value": {
+              "crypto": 0.0012,
+              "usd": 50.0
+            }
+          }
+        ],
+        "payType": 2,
+        "cryptoType": "BTC",
+        "placedAt": 1625247600000.0,
+        "updatedAt": 1625334000000.0,
+        "status": 0
+      }
+    }
+  }
+  ```
+</div>
+
+## Use Cases
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📊</div>
+    <div className="font-bold mb-2">Bid Status Check</div>
+    <div className="text-sm text-muted-foreground">
+      Check your current bid status and details in an active round
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">💰</div>
+    <div className="font-bold mb-2">Payment Verification</div>
+    <div className="text-sm text-muted-foreground">
+      Verify payment method and holdings for your bid
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📈</div>
+    <div className="font-bold mb-2">Bid Analysis</div>
+    <div className="text-sm text-muted-foreground">
+      Analyze your bid performance and pending increases
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🎯</div>
+    <div className="font-bold mb-2">Decision Making</div>
+    <div className="text-sm text-muted-foreground">
+      Review current bid to decide if you need to increase it
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-teal-500/30 bg-gradient-to-r from-teal-500/10 to-cyan-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold">Tip</div>
+      <div className="text-sm text-muted-foreground">Regularly check your bid status during active rounds to stay competitive and make timely adjustments</div>
+    </div>
+  </div>
+</div>

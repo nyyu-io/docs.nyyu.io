@@ -1,75 +1,488 @@
 ---
 title: Add New Task Setting
+description: Create task reward configurations for the gamification system (Admin only)
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-:::note
-The functions described is accessible only to users with ADMIN privileges.
-:::
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-fuchsia-500/10 via-violet-500/5 to-background p-8 border border-fuchsia-500/20 mb-8">
+  <div className="relative z-10">
+    <div className="flex items-center gap-3 mb-4">
+      <div className="p-3 rounded-xl bg-fuchsia-500/10 border border-fuchsia-500/20">
+        <span className="text-3xl">🎁</span>
+      </div>
+      <div>
+        <div className="flex items-center gap-3 mb-2">
+          <h1 className="text-3xl md:text-4xl font-bold">Add Task Setting</h1>
+          <span className="px-3 py-1 rounded-full bg-red-500/20 text-red-400 text-xs font-bold border border-red-500/30">
+            ADMIN
+          </span>
+        </div>
+        <p className="text-lg text-muted-foreground">
+          Configure reward points for user activities
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
-The `addNewSetting` mutation allows an admin to add a new task setting to the system.
+<Callout type="warn" title="Admin Access Required">
+  This mutation is accessible only to users with ADMIN privileges. Configures point rewards for the entire platform.
+</Callout>
 
-### Mutation: `addNewSetting`
+## Overview
 
-#### Schema:
-```graphql
-addNewSetting(
-  setting: TaskSettingInput!
-): TaskSetting
-```
+The `addNewSetting` mutation allows administrators to create task reward configurations that define how many points users earn for various activities. Set up verification bonuses, deposit rewards, trading incentives, and staking multipliers.
 
-#### Parameters
+## GraphQL Schema
 
-- `setting` (TaskSettingInput): The new task setting to add. This field is mandatory and includes the following fields:
-  - `verification` (Float!): The verification points associated with the task setting.
-  - `wallet` ([WalletTaskInput]!): A list of wallet tasks associated with the task setting.
-  - `auction` (Float!): The auction points associated with the task setting.
-  - `direct` (Float!): The direct points associated with the task setting.
-  - `staking` ([StakeTaskInput]!): A list of staking tasks associated with the task setting.
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔧</span>
+    <div>
+      <div className="font-bold text-lg">Mutation Definition</div>
+      <div className="text-sm text-muted-foreground">Creates comprehensive task reward settings</div>
+    </div>
+  </div>
 
-#### Return
-
-The mutation returns the created `TaskSetting` object if successful.
-
-### Example Mutation
-
-The following is an example of how to use the `addNewSetting` mutation to add a new task setting:
-
-```graphql
-mutation {
+  ```graphql
   addNewSetting(
-    setting: {
-      verification: 10.0,
-      wallet: [
-        { amount: 100, point: 10.0 }
-      ],
-      auction: 5.0,
-      direct: 2.0,
-      staking: [
-        { expiredTime: 30, ratio: 1.5 }
-      ]
-    }
-  ) {
-    id,
-    verification,
-    wallet {
-      amount,
-      point
-    },
-    auction,
-    direct,
-    staking {
-      expiredTime,
-      ratio
+    setting: TaskSettingInput!
+  ): TaskSetting
+  ```
+</div>
+
+## Parameters
+
+<div className="rounded-xl border border-fuchsia-500/30 bg-gradient-to-br from-fuchsia-500/10 to-fuchsia-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📝</span>
+    <div>
+      <div className="font-bold text-lg">TaskSettingInput</div>
+      <div className="text-sm text-muted-foreground">Complete reward configuration</div>
+    </div>
+  </div>
+
+  ```graphql
+  input TaskSettingInput {
+    verification: Float!
+    wallet: [WalletTaskInput]!
+    auction: Float!
+    direct: Float!
+    staking: [StakeTaskInput]!
+  }
+  ```
+
+  <div className="mt-4 space-y-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-start gap-3">
+        <code className="px-2 py-1 rounded bg-muted text-sm font-mono">verification</code>
+        <div className="flex-1">
+          <div className="text-sm font-semibold mb-1">Verification Points</div>
+          <div className="text-xs text-muted-foreground">
+            Points awarded for completing account verification (e.g., 50.0)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-start gap-3">
+        <code className="px-2 py-1 rounded bg-muted text-sm font-mono">wallet</code>
+        <div className="flex-1">
+          <div className="text-sm font-semibold mb-1">Wallet Deposit Rewards</div>
+          <div className="text-xs text-muted-foreground">
+            Array of deposit tiers with amount thresholds and corresponding point rewards
+          </div>
+          <div className="mt-2 p-2 rounded bg-muted/50 text-xs font-mono">
+            [&#123; amount: 100, point: 10.0 &#125;, &#123; amount: 500, point: 75.0 &#125;]
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-start gap-3">
+        <code className="px-2 py-1 rounded bg-muted text-sm font-mono">auction</code>
+        <div className="flex-1">
+          <div className="text-sm font-semibold mb-1">Auction Participation Points</div>
+          <div className="text-xs text-muted-foreground">
+            Points per auction bid placement (e.g., 5.0)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-start gap-3">
+        <code className="px-2 py-1 rounded bg-muted text-sm font-mono">direct</code>
+        <div className="flex-1">
+          <div className="text-sm font-semibold mb-1">Direct Purchase Points</div>
+          <div className="text-xs text-muted-foreground">
+            Points per direct trading transaction (e.g., 2.0)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="flex items-start gap-3">
+        <code className="px-2 py-1 rounded bg-muted text-sm font-mono">staking</code>
+        <div className="flex-1">
+          <div className="text-sm font-semibold mb-1">Staking Multipliers</div>
+          <div className="text-xs text-muted-foreground">
+            Array of staking durations with point multipliers
+          </div>
+          <div className="mt-2 p-2 rounded bg-muted/50 text-xs font-mono">
+            [&#123; expiredTime: 30, ratio: 1.5 &#125;, &#123; expiredTime: 90, ratio: 2.0 &#125;]
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Return Type
+
+<div className="rounded-xl border border-violet-500/30 bg-gradient-to-br from-violet-500/10 to-violet-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📦</span>
+    <div>
+      <div className="font-bold text-lg">TaskSetting Object</div>
+      <div className="text-sm text-muted-foreground">Complete reward configuration with generated ID</div>
+    </div>
+  </div>
+
+  ```graphql
+  type TaskSetting {
+    id: Int!
+    verification: Float
+    wallet: [WalletTask]
+    auction: Float
+    direct: Float
+    staking: [StakeTask]
+  }
+  ```
+</div>
+
+## Example Mutation
+
+<div className="my-6">
+  ```graphql
+  mutation {
+    addNewSetting(
+      setting: {
+        verification: 50.0
+        wallet: [
+          { amount: 100, point: 10.0 }
+          { amount: 500, point: 75.0 }
+          { amount: 1000, point: 200.0 }
+        ]
+        auction: 5.0
+        direct: 2.0
+        staking: [
+          { expiredTime: 30, ratio: 1.5 }
+          { expiredTime: 90, ratio: 2.0 }
+          { expiredTime: 180, ratio: 3.0 }
+        ]
+      }
+    ) {
+      id
+      verification
+      wallet {
+        amount
+        point
+      }
+      auction
+      direct
+      staking {
+        expiredTime
+        ratio
+      }
     }
   }
-}
-```
+  ```
+</div>
 
-### Return
+## Example Response
 
-The example returns the created `TaskSetting` object with details such as `id`, `verification`, `wallet`, `auction`, `direct`, and `staking`.
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">✅</span>
+    <div>
+      <div className="font-bold text-lg">Success Response</div>
+      <div className="text-sm text-muted-foreground">Task setting created successfully</div>
+    </div>
+  </div>
 
-In this example, the mutation adds a new task setting with `10.0` verification points, a wallet task for `100` amount and `10.0` points, `5.0` auction points, `2.0` direct points, and a staking task with `30` expired time and `1.5` ratio. The return value includes the details of the created `TaskSetting`.
+  ```json
+  {
+    "data": {
+      "addNewSetting": {
+        "id": 1,
+        "verification": 50,
+        "wallet": [
+          { "amount": 100, "point": 10 },
+          { "amount": 500, "point": 75 },
+          { "amount": 1000, "point": 200 }
+        ],
+        "auction": 5,
+        "direct": 2,
+        "staking": [
+          { "expiredTime": 30, "ratio": 1.5 },
+          { "expiredTime": 90, "ratio": 2 },
+          { "expiredTime": 180, "ratio": 3 }
+        ]
+      }
+    }
+  }
+  ```
+</div>
+
+## Reward Configuration Examples
+
+<div className="rounded-xl border border-fuchsia-500/30 bg-gradient-to-br from-fuchsia-500/10 to-fuchsia-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🎯</span>
+    <div>
+      <div className="font-bold text-lg">Common Configurations</div>
+      <div className="text-sm text-muted-foreground">Typical reward structures for different strategies</div>
+    </div>
+  </div>
+
+  <div className="space-y-4">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-bold text-sm mb-2">Conservative Strategy</div>
+      <div className="text-xs text-muted-foreground mb-2">Lower rewards, easier to achieve</div>
+      <div className="space-y-1 text-xs font-mono bg-muted/50 p-2 rounded">
+        <div>verification: 25.0</div>
+        <div>wallet: [&#123;100, 5&#125;, &#123;500, 30&#125;, &#123;1000, 80&#125;]</div>
+        <div>auction: 3.0</div>
+        <div>direct: 1.0</div>
+        <div>staking: [&#123;30, 1.2&#125;, &#123;90, 1.5&#125;]</div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-bold text-sm mb-2">Balanced Strategy</div>
+      <div className="text-xs text-muted-foreground mb-2">Moderate rewards for steady engagement</div>
+      <div className="space-y-1 text-xs font-mono bg-muted/50 p-2 rounded">
+        <div>verification: 50.0</div>
+        <div>wallet: [&#123;100, 10&#125;, &#123;500, 75&#125;, &#123;1000, 200&#125;]</div>
+        <div>auction: 5.0</div>
+        <div>direct: 2.0</div>
+        <div>staking: [&#123;30, 1.5&#125;, &#123;90, 2.0&#125;, &#123;180, 3.0&#125;]</div>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-bold text-sm mb-2">Aggressive Strategy</div>
+      <div className="text-xs text-muted-foreground mb-2">High rewards to drive rapid adoption</div>
+      <div className="space-y-1 text-xs font-mono bg-muted/50 p-2 rounded">
+        <div>verification: 100.0</div>
+        <div>wallet: [&#123;100, 25&#125;, &#123;500, 150&#125;, &#123;1000, 400&#125;]</div>
+        <div>auction: 10.0</div>
+        <div>direct: 5.0</div>
+        <div>staking: [&#123;30, 2.0&#125;, &#123;90, 3.0&#125;, &#123;180, 5.0&#125;]</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Use Cases
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🚀</div>
+    <div className="font-bold mb-2">Platform Launch</div>
+    <div className="text-sm text-muted-foreground">
+      Set up initial reward structure to incentivize early adopters
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🎯</div>
+    <div className="font-bold mb-2">Behavior Targeting</div>
+    <div className="text-sm text-muted-foreground">
+      Configure high rewards for specific activities you want to encourage
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">💰</div>
+    <div className="font-bold mb-2">Deposit Incentives</div>
+    <div className="text-sm text-muted-foreground">
+      Create graduated wallet rewards to encourage larger deposits
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🔒</div>
+    <div className="font-bold mb-2">Long-term Commitment</div>
+    <div className="text-sm text-muted-foreground">
+      Use staking multipliers to reward users who commit for extended periods
+    </div>
+  </div>
+</div>
+
+## Best Practices
+
+<div className="space-y-3 my-6">
+  <div className="p-4 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-start gap-3">
+      <span className="text-lg">📊</span>
+      <div className="flex-1">
+        <div className="font-bold text-sm mb-1">Progressive Wallet Tiers</div>
+        <div className="text-xs text-muted-foreground">
+          Create at least 3-5 deposit tiers with increasing rewards to encourage larger deposits
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-start gap-3">
+      <span className="text-lg">⚖️</span>
+      <div className="flex-1">
+        <div className="font-bold text-sm mb-1">Balance Activity Rewards</div>
+        <div className="text-xs text-muted-foreground">
+          Keep auction and direct trading points relatively low since users can perform these repeatedly
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-start gap-3">
+      <span className="text-lg">🎁</span>
+      <div className="flex-1">
+        <div className="font-bold text-sm mb-1">Verification Bonus</div>
+        <div className="text-xs text-muted-foreground">
+          Set verification points high (50-100) as it's a one-time action that builds trust
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-start gap-3">
+      <span className="text-lg">📈</span>
+      <div className="flex-1">
+        <div className="font-bold text-sm mb-1">Staking Multiplier Progression</div>
+        <div className="text-xs text-muted-foreground">
+          Use meaningful multiplier increases (1.5x → 2.0x → 3.0x) to make longer staking periods worthwhile
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-start gap-3">
+      <span className="text-lg">🧮</span>
+      <div className="flex-1">
+        <div className="font-bold text-sm mb-1">Calculate Total Economy</div>
+        <div className="text-xs text-muted-foreground">
+          Estimate total points distribution based on expected user behavior to ensure sustainable progression
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Implementation Example
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold text-lg">Admin Implementation</div>
+      <div className="text-sm text-muted-foreground">Configure rewards programmatically</div>
+    </div>
+  </div>
+
+  ```typescript
+  // Define reward structure
+  const rewardConfig = {
+    verification: 50.0,
+    wallet: [
+      { amount: 100, point: 10.0 },
+      { amount: 500, point: 75.0 },
+      { amount: 1000, point: 200.0 },
+      { amount: 5000, point: 1200.0 }
+    ],
+    auction: 5.0,
+    direct: 2.0,
+    staking: [
+      { expiredTime: 30, ratio: 1.5 },   // 30 days: 1.5x multiplier
+      { expiredTime: 90, ratio: 2.0 },   // 90 days: 2.0x multiplier
+      { expiredTime: 180, ratio: 3.0 },  // 180 days: 3.0x multiplier
+      { expiredTime: 365, ratio: 5.0 }   // 1 year: 5.0x multiplier
+    ]
+  };
+
+  // Create task setting
+  const { data } = await client.mutate({
+    mutation: gql`
+      mutation CreateTaskSetting($setting: TaskSettingInput!) {
+        addNewSetting(setting: $setting) {
+          id
+          verification
+          wallet {
+            amount
+            point
+          }
+          auction
+          direct
+          staking {
+            expiredTime
+            ratio
+          }
+        }
+      }
+    `,
+    variables: {
+      setting: rewardConfig
+    }
+  });
+
+  console.log('Task setting created:', data.addNewSetting);
+
+  // Validate configuration
+  const totalWalletRewards = rewardConfig.wallet.reduce(
+    (sum, tier) => sum + tier.point,
+    0
+  );
+  console.log(`Total wallet tier rewards: ${totalWalletRewards} points`);
+  console.log(`Max staking multiplier: ${Math.max(...rewardConfig.staking.map(s => s.ratio))}x`);
+  ```
+</div>
+
+## Related Operations
+
+<Cards>
+  <Card
+    title="User Tier Overview"
+    description="Learn about tier types and structures"
+    href="/docs/api/user-tier/user-tier-summary"
+  />
+  <Card
+    title="Update Task Setting"
+    description="Modify task rewards (Admin)"
+    href="/docs/api/user-tier/update-task-setting"
+  />
+  <Card
+    title="Get User Tiers"
+    description="View tier progression"
+    href="/docs/api/user-tier/get-user-tiers"
+  />
+  <Card
+    title="Add New Tier"
+    description="Create tier levels (Admin)"
+    href="/docs/api/user-tier/add-new-tier"
+  />
+</Cards>
+
+<Callout type="info" title="System-Wide Configuration">
+  Task settings apply to all users platform-wide. Carefully plan reward values to maintain a balanced gamification economy.
+</Callout>

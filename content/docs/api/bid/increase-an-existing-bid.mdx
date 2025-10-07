@@ -1,82 +1,285 @@
 ---
 title: Increase an Existing Bid
+description: Raise your bid amount or price in an active auction round
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-The `increaseBid` mutation allows a user to increase the token price or token amount of an existing bid in a specified auction round.
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-500/10 via-indigo-500/5 to-background p-8 border border-blue-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Increase Existing Bid
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Raise your token amount or price to stay competitive in the auction
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl"></div>
+</div>
 
-### Mutation: `increaseBid`
+## Mutation
 
-#### Schema:
-```graphql
-increaseBid(
-  roundId: String!,
-  tokenAmount: Float!,
-  tokenPrice: Float!,
-  payment: Int!,
-  cryptoType: String
-): Bid
-```
+<div className="rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-blue-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">📈</span>
+    <div>
+      <div className="font-bold text-lg">increaseBid</div>
+      <div className="text-sm text-muted-foreground">Increase token amount or price of your existing bid</div>
+    </div>
+  </div>
 
-#### Parameters
+  ### Schema
 
-- `roundId` (String): The ID of the round to increase the bid. This field is mandatory.
-- `tokenAmount` (Float): The new amount of tokens to bid. This field is mandatory.
-- `tokenPrice` (Float): The new price per token. This field is mandatory.
-- `payment` (Int): The payment method (1: CREDIT, 2: CRYPTO, 3: WALLET). This field is mandatory.
-- `cryptoType` (String): The type of cryptocurrency for payment, e.g., "BTC", "BCH". This field is optional but required if the payment method is CRYPTO.
-
-#### Return
-
-The mutation returns the updated `Bid` object if successful.
-
-### Example Mutation
-
-The following is an example of how to use the `increaseBid` mutation to increase an existing bid:
-
-```graphql
-mutation {
+  ```graphql
   increaseBid(
-    roundId: "abcd1234",
-    tokenAmount: 150.0,
-    tokenPrice: 0.6,
-    payment: 2,
-    cryptoType: "BTC"
-  ) {
-    userId,
-    roundId,
-    tokenAmount,
-    totalPrice,
-    tokenPrice,
-    tempTokenAmount,
-    tempTokenPrice,
-    delta,
-    pendingIncrease,
-    holdings {
-      key,
-      value {
-        crypto,
-        usd
+    roundId: String!
+    tokenAmount: Float!
+    tokenPrice: Float!
+    payment: Int!
+    cryptoType: String
+  ): Bid
+  ```
+</div>
+
+## Parameters
+
+<div className="space-y-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">roundId</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String!</code></div>
+      <div className="text-muted-foreground">The ID of the auction round containing your bid</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">tokenAmount</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Float!</code></div>
+      <div className="text-muted-foreground">New token amount (can be same or higher than original)</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">tokenPrice</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Float!</code></div>
+      <div className="text-muted-foreground">New price per token (must be ≥ original price)</div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-blue-500/20 text-blue-500 px-2 py-0.5 rounded font-mono text-sm">payment</code>
+      <span className="text-xs bg-red-500/20 text-red-500 px-2 py-0.5 rounded font-semibold">Required</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">Int!</code></div>
+      <div className="text-muted-foreground mb-2">Payment method:</div>
+      <div className="pl-4 space-y-1 text-xs">
+        <div>• <code className="bg-muted px-1 rounded">1</code> - CREDIT</div>
+        <div>• <code className="bg-muted px-1 rounded">2</code> - CRYPTO</div>
+        <div>• <code className="bg-muted px-1 rounded">3</code> - WALLET</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/30">
+    <div className="flex items-center gap-2 mb-2">
+      <code className="bg-green-500/20 text-green-500 px-2 py-0.5 rounded font-mono text-sm">cryptoType</code>
+      <span className="text-xs bg-gray-500/20 text-gray-500 px-2 py-0.5 rounded font-semibold">Optional</span>
+    </div>
+    <div className="text-sm">
+      <div className="font-semibold mb-1">Type: <code className="bg-muted px-1 rounded">String</code></div>
+      <div className="text-muted-foreground">Cryptocurrency type - required if payment is CRYPTO</div>
+    </div>
+  </div>
+</div>
+
+## Return Value
+
+<div className="p-5 rounded-lg border border-green-500/30 bg-green-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">📦</span>
+    <div className="font-bold">Returns Updated Bid Object</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    The mutation returns the updated <code className="bg-muted px-1 rounded">Bid</code> object if successful
+  </div>
+</div>
+
+## Example
+
+<div className="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-purple-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">💻</span>
+    <div>
+      <div className="font-bold">Usage Example</div>
+      <div className="text-xs text-muted-foreground">Increasing bid amount and price</div>
+    </div>
+  </div>
+
+  ```graphql
+  mutation {
+    increaseBid(
+      roundId: "abcd1234"
+      tokenAmount: 150.0
+      tokenPrice: 0.6
+      payment: 2
+      cryptoType: "BTC"
+    ) {
+      userId
+      roundId
+      tokenAmount
+      totalPrice
+      tokenPrice
+      tempTokenAmount
+      tempTokenPrice
+      delta
+      pendingIncrease
+      holdings {
+        key
+        value {
+          crypto
+          usd
+        }
       }
-    },
-    payType,
-    cryptoType,
-    placedAt,
-    updatedAt,
-    status
+      payType
+      cryptoType
+      placedAt
+      updatedAt
+      status
+    }
   }
-}
-```
+  ```
+</div>
 
-### Notes
+## Important Rules
 
-1. The new price must be larger than or equal to the original price.
-2. Other conditions are the same as placing a bid:
-   - Bids can be placed only for rounds with status `STARTED`.
-   - If the payment method is not `CREDIT`, `cryptoType` must be provided.
-   - If the payment method is `CRYPTO`, bids must be placed at least 10 minutes before the end of the round.
-   - The token price of the bid must be larger than the minimum price of the round.
+<div className="rounded-xl border border-orange-500/30 bg-gradient-to-br from-orange-500/10 to-orange-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">⚠️</span>
+    <div>
+      <div className="font-bold text-lg">Increase Requirements</div>
+      <div className="text-sm text-muted-foreground">Rules for increasing bids</div>
+    </div>
+  </div>
 
-In this example, the mutation increases the bid in the round with ID `abcd1234`, increasing the token amount to 150 and the token price to 0.6, using Bitcoin (BTC) as the payment method. The return value includes the details of the updated bid.
+  <div className="space-y-3">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Price Minimum</div>
+      <div className="text-xs text-muted-foreground">
+        New price must be greater than or equal to your original bid price
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Round Status</div>
+      <div className="text-xs text-muted-foreground">
+        Round must have status <code className="bg-muted px-1 rounded">STARTED</code>
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Crypto Timing</div>
+      <div className="text-xs text-muted-foreground">
+        CRYPTO payments must be made at least 10 minutes before round end
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold text-sm mb-1">Round Minimum</div>
+      <div className="text-xs text-muted-foreground">
+        Price must exceed the round's minimum token price
+      </div>
+    </div>
+  </div>
+</div>
+
+## Use Cases
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📊</div>
+    <div className="font-bold mb-2">Competitive Adjustment</div>
+    <div className="text-sm text-muted-foreground">
+      Increase your bid price to outbid competitors and improve winning chances
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">📈</div>
+    <div className="font-bold mb-2">Volume Increase</div>
+    <div className="text-sm text-muted-foreground">
+      Purchase more tokens by increasing your token amount
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">💰</div>
+    <div className="font-bold mb-2">Price Optimization</div>
+    <div className="text-sm text-muted-foreground">
+      Adjust to market conditions as token prices fluctuate during the round
+    </div>
+  </div>
+
+  <div className="p-5 rounded-lg border border-border bg-muted/50">
+    <div className="text-xl mb-2">🎯</div>
+    <div className="font-bold mb-2">Last-Minute Strategy</div>
+    <div className="text-sm text-muted-foreground">
+      Make final adjustments before the auction round closes
+    </div>
+  </div>
+</div>
+
+## Delta Calculation
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 p-6 my-6">
+  <div className="flex items-center gap-3 mb-4">
+    <span className="text-2xl">🔢</span>
+    <div>
+      <div className="font-bold text-lg">Understanding Delta</div>
+      <div className="text-sm text-muted-foreground">How bid increases are calculated</div>
+    </div>
+  </div>
+
+  <div className="space-y-3 text-sm">
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold mb-2">Delta Field</div>
+      <div className="text-xs text-muted-foreground mb-2">
+        The <code className="bg-muted px-1 rounded">delta</code> field represents the price difference between your current and previous bid
+      </div>
+      <div className="text-xs font-mono bg-muted p-2 rounded">
+        delta = (newTokenPrice × newTokenAmount) - (oldTokenPrice × oldTokenAmount)
+      </div>
+    </div>
+
+    <div className="p-4 rounded-lg bg-background border border-border">
+      <div className="font-semibold mb-2">Payment Adjustment</div>
+      <div className="text-xs text-muted-foreground">
+        You only pay the delta amount when increasing a bid, not the full new amount
+      </div>
+    </div>
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-indigo-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold">Strategy Tip</div>
+      <div className="text-sm text-muted-foreground">You can increase your bid multiple times before round end - monitor competitor activity and adjust strategically</div>
+    </div>
+  </div>
+</div>

@@ -1,8 +1,8 @@
 {
-  "title": "Oauth2",
+  "title": "OAuth2",
   "pages": [
-    "Add & Update Social Sites into DB",
-    "Send Request for Social login",
-    "oauth2-summary"
+    "oauth2-summary",
+    "send-request-for-social-login",
+    "add-update-social-sites"
   ]
 }

@@ -1,121 +1,576 @@
 ---
 title: Viewing Deposit Transactions
+description: Query and retrieve deposit transaction history across PayPal, Bank, and cryptocurrency payment methods
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-These queries allow users and admins to retrieve various types of deposit transactions. Below are the queries for PayPal, Bank, and Coinpayment deposit transactions.
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-sky-500 via-blue-500 to-indigo-500 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10"></div>
+  <div className="relative">
+    <div className="flex items-center gap-3 mb-4">
+      <div className="p-3 bg-white/20 backdrop-blur-sm rounded-xl">
+        <span className="text-4xl">📊</span>
+      </div>
+      <div>
+        <h1 className="text-3xl font-bold text-white mb-2">Viewing Deposit Transactions</h1>
+        <p className="text-sky-50 text-lg">Query and retrieve deposit transaction history across PayPal, Bank, and cryptocurrency payment methods</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-### PayPal Deposit Transactions
+## Overview
 
-#### Get All PayPal Deposit Transactions
+These query endpoints allow users and administrators to retrieve deposit transaction records across different payment methods. The API provides comprehensive querying capabilities with filtering, ordering, and status-based retrieval options for PayPal, Bank, and Coinpayment (cryptocurrency) deposit transactions.
+
+<div className="mt-8 p-6 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/30 dark:to-blue-950/30 rounded-xl border border-sky-200 dark:border-sky-800">
+  <h2 className="text-xl font-semibold mb-4 text-sky-900 dark:text-sky-100 flex items-center gap-2">
+    <span>📋</span> Transaction Types
+  </h2>
+  <p className="text-gray-700 dark:text-gray-300 mb-4">Three categories of deposit transactions are available:</p>
+  <div className="grid md:grid-cols-3 gap-4">
+    <div className="p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <div className="font-semibold text-sky-700 dark:text-sky-400 mb-1">PayPal Deposits</div>
+      <p className="text-sm text-gray-600 dark:text-gray-400">Fiat deposits via PayPal checkout</p>
+    </div>
+    <div className="p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <div className="font-semibold text-sky-700 dark:text-sky-400 mb-1">Bank Deposits</div>
+      <p className="text-sm text-gray-600 dark:text-gray-400">Wire transfers and bank deposits</p>
+    </div>
+    <div className="p-3 bg-white dark:bg-gray-950 rounded-lg">
+      <div className="font-semibold text-sky-700 dark:text-sky-400 mb-1">Crypto Deposits</div>
+      <p className="text-sm text-gray-600 dark:text-gray-400">Blockchain cryptocurrency deposits</p>
+    </div>
+  </div>
+</div>
+
+---
+
+## PayPal Deposit Transactions
+
+### Get All PayPal Deposit Transactions
+
+<div className="mt-6 p-6 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/30 dark:to-blue-950/30 rounded-xl border border-sky-200 dark:border-sky-800">
+  <h4 className="text-lg font-semibold mb-4 text-sky-900 dark:text-sky-100">Query Schema</h4>
+
 ```graphql
 getAllPaypalDepositTxns(
   orderBy: String
 ): [PaypalDepositTransaction]
 ```
-- `orderBy` (String): The field to order the results by.
+</div>
 
-#### Get PayPal Deposit Transactions by User
+**Parameters:**
+- `orderBy` (String, Optional) - The field to order the results by (e.g., "createdAt", "amount")
+
+**Example:**
+```graphql
+query {
+  getAllPaypalDepositTxns(orderBy: "createdAt") {
+    id
+    userId
+    amount
+    currencyCode
+    status
+    createdAt
+  }
+}
+```
+
+---
+
+### Get PayPal Deposit Transactions by User
+
+<div className="mt-6 p-6 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/30 dark:to-blue-950/30 rounded-xl border border-sky-200 dark:border-sky-800">
+  <h4 className="text-lg font-semibold mb-4 text-sky-900 dark:text-sky-100">Query Schema</h4>
+
 ```graphql
 getPaypalDepositTxnsByUser(
   orderBy: String,
   showStatus: Int
 ): [PaypalDepositTransaction]
 ```
-- `orderBy` (String): The field to order the results by.
-- `showStatus` (Int): The show status to filter by.
+</div>
 
-#### Get PayPal Deposit Transaction by ID
+**Parameters:**
+- `orderBy` (String, Optional) - The field to order the results by
+- `showStatus` (Int, Optional) - Filter by visibility status (0 = hidden, 1 = visible)
+
+**Example:**
+```graphql
+query {
+  getPaypalDepositTxnsByUser(orderBy: "createdAt", showStatus: 1) {
+    id
+    amount
+    currencyCode
+    status
+    orderId
+    createdAt
+  }
+}
+```
+
+---
+
+### Get PayPal Deposit Transaction by ID
+
+<div className="mt-6 p-6 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/30 dark:to-blue-950/30 rounded-xl border border-sky-200 dark:border-sky-800">
+  <h4 className="text-lg font-semibold mb-4 text-sky-900 dark:text-sky-100">Query Schema</h4>
+
 ```graphql
 getPaypalDepositTxnById(
   id: Int,
   showStatus: Int
 ): PaypalDepositTransaction
 ```
-- `id` (Int): The ID of the transaction.
-- `showStatus` (Int): The show status to filter by.
+</div>
 
-### Bank Deposit Transactions
+**Parameters:**
+- `id` (Int, Optional) - The ID of the transaction
+- `showStatus` (Int, Optional) - Filter by visibility status
 
-#### Get All Bank Deposit Transactions
+**Example:**
+```graphql
+query {
+  getPaypalDepositTxnById(id: 123, showStatus: 1) {
+    id
+    userId
+    amount
+    currencyCode
+    orderId
+    status
+    createdAt
+    updatedAt
+  }
+}
+```
+
+---
+
+## Bank Deposit Transactions
+
+### Get All Bank Deposit Transactions
+
+<div className="mt-6 p-6 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/30 dark:to-blue-950/30 rounded-xl border border-sky-200 dark:border-sky-800">
+  <h4 className="text-lg font-semibold mb-4 text-sky-900 dark:text-sky-100">Query Schema</h4>
+
 ```graphql
 getAllBankDepositTxns(
   orderBy: String
 ): [BankDepositTransaction]
 ```
-- `orderBy` (String): The field to order the results by.
+</div>
 
-#### Get Bank Deposit Transactions by User
+**Parameters:**
+- `orderBy` (String, Optional) - The field to order the results by
+
+**Example:**
+```graphql
+query {
+  getAllBankDepositTxns(orderBy: "createdAt") {
+    transactionId
+    userId
+    amount
+    currencyCode
+    status
+    createdAt
+  }
+}
+```
+
+---
+
+### Get Bank Deposit Transactions by User
+
+<div className="mt-6 p-6 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/30 dark:to-blue-950/30 rounded-xl border border-sky-200 dark:border-sky-800">
+  <h4 className="text-lg font-semibold mb-4 text-sky-900 dark:text-sky-100">Query Schema</h4>
+
 ```graphql
 getBankDepositTxnsByUser(
   orderBy: String,
   showStatus: Int
 ): [BankDepositTransaction]
 ```
-- `orderBy` (String): The field to order the results by.
-- `showStatus` (Int): The show status to filter by.
+</div>
 
-#### Get Bank Deposit Transaction by ID
+**Parameters:**
+- `orderBy` (String, Optional) - The field to order the results by
+- `showStatus` (Int, Optional) - Filter by visibility status
+
+**Example:**
+```graphql
+query {
+  getBankDepositTxnsByUser(orderBy: "createdAt", showStatus: 1) {
+    transactionId
+    amount
+    currencyCode
+    status
+    createdAt
+  }
+}
+```
+
+---
+
+### Get Bank Deposit Transaction by ID
+
+<div className="mt-6 p-6 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/30 dark:to-blue-950/30 rounded-xl border border-sky-200 dark:border-sky-800">
+  <h4 className="text-lg font-semibold mb-4 text-sky-900 dark:text-sky-100">Query Schema</h4>
+
 ```graphql
 getBankDepositTxnById(
   id: Int,
   showStatus: Int
 ): BankDepositTransaction
 ```
-- `id` (Int): The ID of the transaction.
-- `showStatus` (Int): The show status to filter by.
+</div>
 
-#### Get Bank Deposit Transaction by ID for Admin
+**Parameters:**
+- `id` (Int, Optional) - The ID of the transaction
+- `showStatus` (Int, Optional) - Filter by visibility status
+
+**Example:**
+```graphql
+query {
+  getBankDepositTxnById(id: 456, showStatus: 1) {
+    transactionId
+    userId
+    amount
+    currencyCode
+    status
+    createdAt
+    updatedAt
+  }
+}
+```
+
+---
+
+### Get Bank Deposit Transaction by ID (Admin)
+
+<div className="mt-6 p-6 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/30 dark:to-blue-950/30 rounded-xl border border-sky-200 dark:border-sky-800">
+  <h4 className="text-lg font-semibold mb-4 text-sky-900 dark:text-sky-100">Query Schema</h4>
+
 ```graphql
 getBankDepositTxnByIdByAdmin(
   id: Int
 ): BankDepositTransaction
 ```
-- `id` (Int): The ID of the transaction.
+</div>
 
-#### Get Unconfirmed Bank Deposit Transactions
+<Callout title="Admin Access Required" type="warn">
+This query is accessible only to users with ADMIN privileges.
+</Callout>
+
+**Parameters:**
+- `id` (Int, Optional) - The ID of the transaction
+
+**Example:**
+```graphql
+query {
+  getBankDepositTxnByIdByAdmin(id: 789) {
+    transactionId
+    userId
+    amount
+    currencyCode
+    cryptoType
+    status
+    createdAt
+    updatedAt
+  }
+}
+```
+
+---
+
+### Get Unconfirmed Bank Deposit Transactions
+
+<div className="mt-6 p-6 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/30 dark:to-blue-950/30 rounded-xl border border-sky-200 dark:border-sky-800">
+  <h4 className="text-lg font-semibold mb-4 text-sky-900 dark:text-sky-100">Query Schema</h4>
+
 ```graphql
 getUnconfirmedBankDepositTxns: [BankDepositTransaction]
 ```
+</div>
 
-#### Get Unconfirmed Bank Deposit Transactions by User
+**Parameters:** None
+
+**Example:**
+```graphql
+query {
+  getUnconfirmedBankDepositTxns {
+    transactionId
+    userId
+    amount
+    currencyCode
+    status
+    createdAt
+  }
+}
+```
+
+---
+
+### Get Unconfirmed Bank Deposit Transactions by User
+
+<div className="mt-6 p-6 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/30 dark:to-blue-950/30 rounded-xl border border-sky-200 dark:border-sky-800">
+  <h4 className="text-lg font-semibold mb-4 text-sky-900 dark:text-sky-100">Query Schema</h4>
+
 ```graphql
 getUnconfirmedBankDepositTxnsByUser: [BankDepositTransaction]
 ```
+</div>
 
-### Coinpayment Deposit Transactions
+**Parameters:** None
 
-#### Get All Coinpayment Deposit Transactions
+**Example:**
+```graphql
+query {
+  getUnconfirmedBankDepositTxnsByUser {
+    transactionId
+    amount
+    currencyCode
+    status
+    createdAt
+  }
+}
+```
+
+---
+
+## Coinpayment (Cryptocurrency) Deposit Transactions
+
+### Get All Coinpayment Deposit Transactions
+
+<div className="mt-6 p-6 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/30 dark:to-blue-950/30 rounded-xl border border-sky-200 dark:border-sky-800">
+  <h4 className="text-lg font-semibold mb-4 text-sky-900 dark:text-sky-100">Query Schema</h4>
+
 ```graphql
 getCoinpaymentDepositTx: [CoinpaymentDepositTransaction]
 ```
+</div>
 
-#### Get Coinpayment Deposit Transactions by User
+**Parameters:** None
+
+**Example:**
+```graphql
+query {
+  getCoinpaymentDepositTx {
+    txnId
+    userId
+    coin
+    network
+    depositAddress
+    status
+    createdAt
+  }
+}
+```
+
+---
+
+### Get Coinpayment Deposit Transactions by User
+
+<div className="mt-6 p-6 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/30 dark:to-blue-950/30 rounded-xl border border-sky-200 dark:border-sky-800">
+  <h4 className="text-lg font-semibold mb-4 text-sky-900 dark:text-sky-100">Query Schema</h4>
+
 ```graphql
 getCoinpaymentDepositTxByUser(
   showStatus: Int
 ): [CoinpaymentDepositTransaction]
 ```
-- `showStatus` (Int): The show status to filter by.
+</div>
 
-#### Get Coinpayment Deposit Transactions by Admin
+**Parameters:**
+- `showStatus` (Int, Optional) - Filter by visibility status
+
+**Example:**
+```graphql
+query {
+  getCoinpaymentDepositTxByUser(showStatus: 1) {
+    txnId
+    coin
+    network
+    depositAddress
+    amount
+    status
+    createdAt
+  }
+}
+```
+
+---
+
+### Get Coinpayment Deposit Transactions by Admin
+
+<div className="mt-6 p-6 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/30 dark:to-blue-950/30 rounded-xl border border-sky-200 dark:border-sky-800">
+  <h4 className="text-lg font-semibold mb-4 text-sky-900 dark:text-sky-100">Query Schema</h4>
+
 ```graphql
 getCoinpaymentDepositTxByAdmin(
   userId: Int
 ): [CoinpaymentDepositTransaction]
 ```
-- `userId` (Int): The ID of the user.
+</div>
 
-#### Get Coinpayment Deposit Transaction by ID
+<Callout title="Admin Access Required" type="warn">
+This query is accessible only to users with ADMIN privileges.
+</Callout>
+
+**Parameters:**
+- `userId` (Int, Optional) - The ID of the user to filter by
+
+**Example:**
+```graphql
+query {
+  getCoinpaymentDepositTxByAdmin(userId: 123) {
+    txnId
+    userId
+    coin
+    network
+    depositAddress
+    amount
+    status
+    createdAt
+    updatedAt
+  }
+}
+```
+
+---
+
+### Get Coinpayment Deposit Transaction by ID
+
+<div className="mt-6 p-6 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/30 dark:to-blue-950/30 rounded-xl border border-sky-200 dark:border-sky-800">
+  <h4 className="text-lg font-semibold mb-4 text-sky-900 dark:text-sky-100">Query Schema</h4>
+
 ```graphql
 getCoinpaymentDepositTxById(
   id: Int
 ): CoinpaymentDepositTransaction
 ```
-- `id` (Int): The ID of the transaction.
+</div>
 
-### Note
+**Parameters:**
+- `id` (Int, Optional) - The ID of the transaction
 
-Each query returns the relevant deposit transactions based on the specified parameters. The returned transaction objects include details such as `id`, `amount`, `status`, `createdAt`, `updatedAt`, and other relevant information.
+**Example:**
+```graphql
+query {
+  getCoinpaymentDepositTxById(id: 456) {
+    txnId
+    userId
+    coin
+    network
+    cryptoType
+    depositAddress
+    amount
+    confirmations
+    status
+    createdAt
+    updatedAt
+  }
+}
+```
+
+---
+
+## Common Query Patterns
+
+<div className="grid md:grid-cols-2 gap-4 mt-6">
+  <div className="p-5 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/20 dark:to-blue-950/20 rounded-xl border border-sky-200 dark:border-sky-800">
+    <div className="text-2xl mb-3">📅</div>
+    <h3 className="font-semibold text-lg mb-2 text-sky-900 dark:text-sky-100">Recent Transactions</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">Order by creation date to show most recent deposits first</p>
+    <code className="text-xs bg-white dark:bg-gray-950 p-2 rounded block">orderBy: "createdAt"</code>
+  </div>
+
+  <div className="p-5 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/20 dark:to-blue-950/20 rounded-xl border border-sky-200 dark:border-sky-800">
+    <div className="text-2xl mb-3">💰</div>
+    <h3 className="font-semibold text-lg mb-2 text-sky-900 dark:text-sky-100">High-Value Deposits</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">Order by amount to prioritize large deposits</p>
+    <code className="text-xs bg-white dark:bg-gray-950 p-2 rounded block">orderBy: "amount"</code>
+  </div>
+
+  <div className="p-5 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/20 dark:to-blue-950/20 rounded-xl border border-sky-200 dark:border-sky-800">
+    <div className="text-2xl mb-3">👁️</div>
+    <h3 className="font-semibold text-lg mb-2 text-sky-900 dark:text-sky-100">Visible Transactions</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">Filter to show only visible transactions</p>
+    <code className="text-xs bg-white dark:bg-gray-950 p-2 rounded block">showStatus: 1</code>
+  </div>
+
+  <div className="p-5 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/20 dark:to-blue-950/20 rounded-xl border border-sky-200 dark:border-sky-800">
+    <div className="text-2xl mb-3">⏳</div>
+    <h3 className="font-semibold text-lg mb-2 text-sky-900 dark:text-sky-100">Pending Confirmations</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">Query unconfirmed deposits awaiting approval</p>
+    <code className="text-xs bg-white dark:bg-gray-950 p-2 rounded block">getUnconfirmedBankDepositTxns</code>
+  </div>
+</div>
+
+## Use Cases
+
+<div className="grid md:grid-cols-2 gap-4 mt-6">
+  <div className="p-5 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/20 dark:to-blue-950/20 rounded-xl border border-sky-200 dark:border-sky-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">📊</div>
+    <h3 className="font-semibold text-lg mb-2 text-sky-900 dark:text-sky-100">Transaction History</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Display comprehensive deposit history to users for accounting and tracking purposes.</p>
+  </div>
+
+  <div className="p-5 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/20 dark:to-blue-950/20 rounded-xl border border-sky-200 dark:border-sky-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">🔍</div>
+    <h3 className="font-semibold text-lg mb-2 text-sky-900 dark:text-sky-100">Audit & Compliance</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Enable administrators to review and audit all deposit transactions for compliance.</p>
+  </div>
+
+  <div className="p-5 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/20 dark:to-blue-950/20 rounded-xl border border-sky-200 dark:border-sky-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">📈</div>
+    <h3 className="font-semibold text-lg mb-2 text-sky-900 dark:text-sky-100">Financial Reporting</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Generate financial reports and analytics based on deposit transaction data.</p>
+  </div>
+
+  <div className="p-5 bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-950/20 dark:to-blue-950/20 rounded-xl border border-sky-200 dark:border-sky-800 hover:shadow-lg transition-shadow">
+    <div className="text-2xl mb-3">🛠️</div>
+    <h3 className="font-semibold text-lg mb-2 text-sky-900 dark:text-sky-100">Support & Troubleshooting</h3>
+    <p className="text-sm text-gray-700 dark:text-gray-300">Quickly look up specific transactions to assist users with deposit-related inquiries.</p>
+  </div>
+</div>
+
+## Important Notes
+
+<Callout title="Default Ordering" type="info">
+When no `orderBy` parameter is specified, transactions are typically returned in their default database order. For chronological ordering, explicitly specify `orderBy: "createdAt"`.
+</Callout>
+
+<Callout title="Show Status Filtering" type="warn">
+The `showStatus` parameter allows filtering transactions by visibility. When not specified, the behavior depends on the specific query - some may return all transactions while others may filter by default. Always specify this parameter explicitly for predictable results.
+</Callout>
+
+<div className="mt-6 p-5 bg-gradient-to-r from-sky-50 to-blue-50 dark:from-sky-950/20 dark:to-blue-950/20 border-l-4 border-sky-500 rounded-r-xl">
+  <h3 className="font-semibold text-sky-900 dark:text-sky-100 mb-2 flex items-center gap-2">
+    <span>💡</span> Best Practices
+  </h3>
+  <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+    <li className="flex items-start gap-2">
+      <span className="text-sky-500 mt-1">•</span>
+      <span>Implement pagination for queries that return large result sets to improve performance</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-sky-500 mt-1">•</span>
+      <span>Cache frequently accessed transaction data to reduce database load</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-sky-500 mt-1">•</span>
+      <span>Use specific queries (by ID) instead of fetching all transactions when possible</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-sky-500 mt-1">•</span>
+      <span>Filter by showStatus to respect user privacy preferences for hidden transactions</span>
+    </li>
+    <li className="flex items-start gap-2">
+      <span className="text-sky-500 mt-1">•</span>
+      <span>Implement date range filtering on the client side for better transaction browsing</span>
+    </li>
+  </ul>
+</div>

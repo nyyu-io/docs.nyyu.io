@@ -1,137 +1,351 @@
 ---
-title: Statistics API Introduction
+title: Statistics & Analytics Overview
+description: Comprehensive guide to round performance metrics, statistical analysis, and success rate tracking API endpoints
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-### Types
+<div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-orange-600 via-amber-600 to-yellow-600 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="relative">
+    <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm mb-4">
+      <span>📊</span>
+      STATISTICS API
+    </div>
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">Statistics & Analytics</h1>
+    <p className="text-xl text-orange-100 leading-relaxed max-w-3xl">
+      Real-time performance metrics, statistical analysis, and success rate tracking for auction rounds with comprehensive data visualization support.
+    </p>
+  </div>
+</div>
 
-#### RoundPerform1
-Represents performance metrics for a specific round.
+## Overview
 
-```graphql
-type RoundPerform1 {
-  roundNumber: Int!,
-  tokenPrice: Float!,
-  soldAmount: Float!
-}
-```
+The Statistics API provides essential analytics and metrics for auction round performance. Access token pricing data, statistical distributions, and success rates to build powerful dashboards, charts, and data-driven insights.
 
-##### Fields
-- `roundNumber` (Int): The round number.
-- `tokenPrice` (Float): The token price during the round.
-- `soldAmount` (Float): The amount of tokens sold during the round.
+---
 
-#### RoundPerform2
-Represents additional performance metrics for a specific round.
+## Key Features
 
-```graphql
-type RoundPerform2 {
-  roundNumber: Int!,
-  min: Float!,
-  max: Float!,
-  std: Float!
-}
-```
+<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 my-8">
+  <div className="rounded-xl border border-orange-500/30 bg-gradient-to-br from-orange-500/10 to-amber-500/5 p-6">
+    <div className="w-12 h-12 rounded-lg bg-orange-500/20 flex items-center justify-center text-2xl mb-4">
+      💰
+    </div>
+    <h3 className="font-bold text-lg mb-2">Price Metrics</h3>
+    <p className="text-sm text-muted-foreground">
+      Track token prices and sold amounts across all auction rounds
+    </p>
+  </div>
 
-##### Fields
-- `roundNumber` (Int): The round number.
-- `min` (Float): The minimum value of the metric.
-- `max` (Float): The maximum value of the metric.
-- `std` (Float): The standard deviation of the metric.
+  <div className="rounded-xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-yellow-500/5 p-6">
+    <div className="w-12 h-12 rounded-lg bg-amber-500/20 flex items-center justify-center text-2xl mb-4">
+      📈
+    </div>
+    <h3 className="font-bold text-lg mb-2">Statistical Analysis</h3>
+    <p className="text-sm text-muted-foreground">
+      Min, max, and standard deviation metrics for round performance
+    </p>
+  </div>
 
-#### RoundChance
-Represents the winning and failing rates for a specific round.
+  <div className="rounded-xl border border-yellow-500/30 bg-gradient-to-br from-yellow-500/10 to-orange-500/5 p-6">
+    <div className="w-12 h-12 rounded-lg bg-yellow-500/20 flex items-center justify-center text-2xl mb-4">
+      🎯
+    </div>
+    <h3 className="font-bold text-lg mb-2">Success Rates</h3>
+    <p className="text-sm text-muted-foreground">
+      Win rates and failure rates for comprehensive success tracking
+    </p>
+  </div>
+</div>
 
-```graphql
-type RoundChance {
-  roundNumber: Int!,
-  winRate: Float!,
-  failedRate: Float!
-}
-```
+---
 
-##### Fields
-- `roundNumber` (Int): The round number.
-- `winRate` (Float): The winning rate for the round.
-- `failedRate` (Float): The failing rate for the round.
+## Available Operations
 
-### Queries
+<Cards>
+  <Card title="Round Perform 1" href="/docs/api/statistics/get-round-perform-1">
+    Token price and sold amount metrics for all rounds
+  </Card>
+  <Card title="Round Perform 2" href="/docs/api/statistics/get-round-perform-2">
+    Statistical metrics including min, max, and standard deviation
+  </Card>
+  <Card title="Round Chance" href="/docs/api/statistics/get-round-chance">
+    Win rate and failed rate statistics for success tracking
+  </Card>
+</Cards>
 
-#### getRoundPerform1
-Retrieves the performance metrics for all rounds (token price and sold amount).
+---
 
-```graphql
-getRoundPerform1: [RoundPerform1]
-```
+## Data Types
 
-##### Example Query
+<div className="rounded-lg border border-orange-500/30 bg-background p-6 mb-6">
+  <h3 className="font-bold mb-4 text-lg">Core Statistics Types</h3>
 
-```graphql
-query {
-  getRoundPerform1 {
-    roundNumber,
-    tokenPrice,
-    soldAmount
-  }
-}
-```
+  <div className="space-y-6">
+    <div>
+      <div className="flex items-center gap-2 mb-3">
+        <div className="w-8 h-8 rounded-lg bg-orange-500/20 flex items-center justify-center text-lg">💰</div>
+        <h4 className="font-bold text-base">RoundPerform1</h4>
+      </div>
+      <div className="rounded-lg border border-border bg-muted/30 p-4">
+        <div className="font-mono text-sm mb-3 text-orange-700 dark:text-orange-300">Performance Metrics</div>
+        <div className="space-y-2 text-sm">
+          <div className="flex items-start gap-3">
+            <code className="bg-orange-500/20 text-orange-700 dark:text-orange-300 px-2 py-0.5 rounded text-xs font-mono">roundNumber</code>
+            <span className="text-muted-foreground">The round identifier (integer)</span>
+          </div>
+          <div className="flex items-start gap-3">
+            <code className="bg-orange-500/20 text-orange-700 dark:text-orange-300 px-2 py-0.5 rounded text-xs font-mono">tokenPrice</code>
+            <span className="text-muted-foreground">Token price during the round (float)</span>
+          </div>
+          <div className="flex items-start gap-3">
+            <code className="bg-orange-500/20 text-orange-700 dark:text-orange-300 px-2 py-0.5 rounded text-xs font-mono">soldAmount</code>
+            <span className="text-muted-foreground">Total tokens sold in round (float)</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
-##### Return
-Returns a list of `RoundPerform1` objects.
+    <div>
+      <div className="flex items-center gap-2 mb-3">
+        <div className="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center text-lg">📈</div>
+        <h4 className="font-bold text-base">RoundPerform2</h4>
+      </div>
+      <div className="rounded-lg border border-border bg-muted/30 p-4">
+        <div className="font-mono text-sm mb-3 text-amber-700 dark:text-amber-300">Statistical Metrics</div>
+        <div className="space-y-2 text-sm">
+          <div className="flex items-start gap-3">
+            <code className="bg-amber-500/20 text-amber-700 dark:text-amber-300 px-2 py-0.5 rounded text-xs font-mono">roundNumber</code>
+            <span className="text-muted-foreground">The round identifier (integer)</span>
+          </div>
+          <div className="flex items-start gap-3">
+            <code className="bg-amber-500/20 text-amber-700 dark:text-amber-300 px-2 py-0.5 rounded text-xs font-mono">min</code>
+            <span className="text-muted-foreground">Minimum value metric (float)</span>
+          </div>
+          <div className="flex items-start gap-3">
+            <code className="bg-amber-500/20 text-amber-700 dark:text-amber-300 px-2 py-0.5 rounded text-xs font-mono">max</code>
+            <span className="text-muted-foreground">Maximum value metric (float)</span>
+          </div>
+          <div className="flex items-start gap-3">
+            <code className="bg-amber-500/20 text-amber-700 dark:text-amber-300 px-2 py-0.5 rounded text-xs font-mono">std</code>
+            <span className="text-muted-foreground">Standard deviation (float)</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
-#### getRoundPerform2
-Retrieves additional performance metrics for all rounds (min, max, and std).
+    <div>
+      <div className="flex items-center gap-2 mb-3">
+        <div className="w-8 h-8 rounded-lg bg-yellow-500/20 flex items-center justify-center text-lg">🎯</div>
+        <h4 className="font-bold text-base">RoundChance</h4>
+      </div>
+      <div className="rounded-lg border border-border bg-muted/30 p-4">
+        <div className="font-mono text-sm mb-3 text-yellow-700 dark:text-yellow-300">Success Rate Metrics</div>
+        <div className="space-y-2 text-sm">
+          <div className="flex items-start gap-3">
+            <code className="bg-yellow-500/20 text-yellow-700 dark:text-yellow-300 px-2 py-0.5 rounded text-xs font-mono">roundNumber</code>
+            <span className="text-muted-foreground">The round identifier (integer)</span>
+          </div>
+          <div className="flex items-start gap-3">
+            <code className="bg-yellow-500/20 text-yellow-700 dark:text-yellow-300 px-2 py-0.5 rounded text-xs font-mono">winRate</code>
+            <span className="text-muted-foreground">Percentage of successful outcomes (float)</span>
+          </div>
+          <div className="flex items-start gap-3">
+            <code className="bg-yellow-500/20 text-yellow-700 dark:text-yellow-300 px-2 py-0.5 rounded text-xs font-mono">failedRate</code>
+            <span className="text-muted-foreground">Percentage of failed outcomes (float)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-```graphql
-getRoundPerform2: [RoundPerform2]
-```
+---
 
-##### Example Query
+## Common Use Cases
 
-```graphql
-query {
-  getRoundPerform2 {
-    roundNumber,
-    min,
-    max,
-    std
-  }
-}
-```
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">📊</div>
+    <h3 className="font-bold mb-2">Analytics Dashboard</h3>
+    <p className="text-sm text-muted-foreground">
+      Build comprehensive dashboards showing round performance, token pricing trends, and statistical distributions
+    </p>
+  </Card>
 
-##### Return
-Returns a list of `RoundPerform2` objects.
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">📈</div>
+    <h3 className="font-bold mb-2">Data Visualization</h3>
+    <p className="text-sm text-muted-foreground">
+      Create charts and graphs using Chart.js, Recharts, or D3.js to visualize auction performance over time
+    </p>
+  </Card>
 
-#### getRoundChance
-Retrieves the winning and failing rates for all rounds.
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🎯</div>
+    <h3 className="font-bold mb-2">Performance Tracking</h3>
+    <p className="text-sm text-muted-foreground">
+      Monitor success rates and identify trends in round outcomes for strategic decision making
+    </p>
+  </Card>
 
-```graphql
-getRoundChance: [RoundChance]
-```
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">💡</div>
+    <h3 className="font-bold mb-2">Predictive Analysis</h3>
+    <p className="text-sm text-muted-foreground">
+      Use historical statistics and standard deviation data to forecast future round performance
+    </p>
+  </Card>
+</div>
 
-##### Example Query
+---
 
-```graphql
-query {
-  getRoundChance {
-    roundNumber,
-    winRate,
-    failedRate
-  }
-}
-```
+## Integration Flow
 
-##### Return
-Returns a list of `RoundChance` objects.
+<div className="rounded-xl border border-amber-500/30 bg-background p-6 my-6">
+  <h3 className="font-bold mb-6">Typical Analytics Integration</h3>
 
-### Schema
+  <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+    <div className="flex-1 text-center">
+      <div className="w-16 h-16 rounded-full bg-orange-500/20 border-2 border-orange-500 flex items-center justify-center text-2xl mx-auto mb-2">
+        📡
+      </div>
+      <div className="font-bold text-orange-700 dark:text-orange-300">Fetch Statistics</div>
+      <div className="text-xs text-muted-foreground">Query all metrics</div>
+    </div>
+    <div className="text-2xl text-muted-foreground">→</div>
+    <div className="flex-1 text-center">
+      <div className="w-16 h-16 rounded-full bg-amber-500/20 border-2 border-amber-500 flex items-center justify-center text-2xl mx-auto mb-2">
+        🔄
+      </div>
+      <div className="font-bold text-amber-700 dark:text-amber-300">Process Data</div>
+      <div className="text-xs text-muted-foreground">Transform & analyze</div>
+    </div>
+    <div className="text-2xl text-muted-foreground">→</div>
+    <div className="flex-1 text-center">
+      <div className="w-16 h-16 rounded-full bg-yellow-500/20 border-2 border-yellow-500 flex items-center justify-center text-2xl mx-auto mb-2">
+        📊
+      </div>
+      <div className="font-bold text-yellow-700 dark:text-yellow-300">Visualize</div>
+      <div className="text-xs text-muted-foreground">Render charts</div>
+    </div>
+    <div className="text-2xl text-muted-foreground">→</div>
+    <div className="flex-1 text-center">
+      <div className="w-16 h-16 rounded-full bg-orange-500/20 border-2 border-orange-500 flex items-center justify-center text-2xl mx-auto mb-2">
+        ⚡
+      </div>
+      <div className="font-bold text-orange-700 dark:text-orange-300">Real-time Updates</div>
+      <div className="text-xs text-muted-foreground">Polling/webhooks</div>
+    </div>
+  </div>
+</div>
 
-```graphql
-schema {
-  query: Query
-}
-```
+---
 
-Defines the `Query` type that includes the `getRoundPerform1`, `getRoundPerform2`, and `getRoundChance` queries.
+## Best Practices
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-orange-500 bg-orange-500/10 p-4">
+    <h4 className="font-bold text-orange-700 dark:text-orange-300 mb-1">⚡ Efficient Polling</h4>
+    <p className="text-sm text-orange-900 dark:text-orange-200">
+      Implement smart polling intervals (30-60 seconds) to keep statistics fresh without overwhelming the API
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-amber-500 bg-amber-500/10 p-4">
+    <h4 className="font-bold text-amber-700 dark:text-amber-300 mb-1">💾 Caching Strategy</h4>
+    <p className="text-sm text-amber-900 dark:text-amber-200">
+      Cache statistics data locally and only refresh when necessary to improve performance and reduce API calls
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-yellow-500 bg-yellow-500/10 p-4">
+    <h4 className="font-bold text-yellow-700 dark:text-yellow-300 mb-1">📊 Data Aggregation</h4>
+    <p className="text-sm text-yellow-900 dark:text-yellow-200">
+      Combine multiple statistic queries to build comprehensive analytics views with complete round performance data
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-orange-500 bg-orange-500/10 p-4">
+    <h4 className="font-bold text-orange-700 dark:text-orange-300 mb-1">🎯 Filtering & Sorting</h4>
+    <p className="text-sm text-orange-900 dark:text-orange-200">
+      Process and filter statistics client-side to show specific round ranges or highlight performance anomalies
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-amber-500 bg-amber-500/10 p-4">
+    <h4 className="font-bold text-amber-700 dark:text-amber-300 mb-1">📈 Visualization Libraries</h4>
+    <p className="text-sm text-amber-900 dark:text-amber-200">
+      Use Chart.js, Recharts, or Victory for responsive, accessible charts that work across devices
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-yellow-500 bg-yellow-500/10 p-4">
+    <h4 className="font-bold text-yellow-700 dark:text-yellow-300 mb-1">🔔 Change Detection</h4>
+    <p className="text-sm text-yellow-900 dark:text-yellow-200">
+      Implement diff checking to detect when statistics change and trigger UI updates only when needed
+    </p>
+  </div>
+</div>
+
+---
+
+## Chart Integration Examples
+
+<div className="rounded-lg border border-orange-500/30 bg-background p-6 mb-6">
+  <h3 className="font-bold mb-4">Popular Charting Libraries</h3>
+
+  <div className="grid gap-3 md:grid-cols-3">
+    <div className="p-4 rounded-lg border border-border bg-muted/30">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-2xl">📊</span>
+        <div className="font-bold text-sm">Chart.js</div>
+      </div>
+      <div className="text-xs text-muted-foreground mb-2">
+        Simple, flexible charts with canvas rendering
+      </div>
+      <code className="text-xs bg-orange-500/20 text-orange-700 dark:text-orange-300 px-2 py-1 rounded">react-chartjs-2</code>
+    </div>
+
+    <div className="p-4 rounded-lg border border-border bg-muted/30">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-2xl">📈</span>
+        <div className="font-bold text-sm">Recharts</div>
+      </div>
+      <div className="text-xs text-muted-foreground mb-2">
+        Composable React charts with SVG
+      </div>
+      <code className="text-xs bg-amber-500/20 text-amber-700 dark:text-amber-300 px-2 py-1 rounded">recharts</code>
+    </div>
+
+    <div className="p-4 rounded-lg border border-border bg-muted/30">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-2xl">🎨</span>
+        <div className="font-bold text-sm">Victory</div>
+      </div>
+      <div className="text-xs text-muted-foreground mb-2">
+        Modular, React Native compatible
+      </div>
+      <code className="text-xs bg-yellow-500/20 text-yellow-700 dark:text-yellow-300 px-2 py-1 rounded">victory</code>
+    </div>
+  </div>
+</div>
+
+---
+
+## Related APIs
+
+<Cards>
+  <Card title="Auction Management" href="/docs/api/auction/auction-summary">
+    Auction round creation and configuration
+  </Card>
+  <Card title="Bid Operations" href="/docs/api/bid/bid-summary">
+    User bids and auction participation
+  </Card>
+  <Card title="User Management" href="/docs/api/user/user-summary">
+    User accounts and administrative operations
+  </Card>
+</Cards>

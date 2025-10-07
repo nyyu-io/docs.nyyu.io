@@ -1,0 +1,249 @@
+---
+title: Get Presale Order by ID
+description: Retrieve detailed information about a specific presale order using its unique identifier
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+
+<div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-amber-500 via-orange-600 to-red-700 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
+  <div className="relative">
+    <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm mb-4">
+      <span className="relative flex h-2 w-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-background"></span>
+      </span>
+      ADMIN ONLY
+    </div>
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">Get Order by ID</h1>
+    <p className="text-xl text-amber-100 leading-relaxed max-w-3xl">
+      Retrieve comprehensive details about a specific presale order using its unique identifier.
+    </p>
+  </div>
+</div>
+
+<Callout type="warn" title="Admin Access Required">
+  This query is only accessible to users with **ADMIN** privileges for order management and support operations.
+</Callout>
+
+## Overview
+
+The `getPresaleById` query allows administrators to retrieve complete information about a specific presale order, including order details, status, and delivery information.
+
+---
+
+## GraphQL Schema
+
+<div className="rounded-xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-orange-500/5 p-6 mb-8">
+
+```graphql
+query {
+  getPresaleById(
+    id: Int!
+  ): PreSaleOrder
+}
+```
+
+</div>
+
+---
+
+## Parameters
+
+<div className="grid gap-4 my-6">
+  <div className="rounded-lg border border-amber-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">id</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-amber-600">Int</span></p>
+    <p className="text-sm text-foreground">The unique ID of the presale order to retrieve.</p>
+  </div>
+</div>
+
+---
+
+## Return Value
+
+<div className="rounded-lg border border-green-500/30 bg-gradient-to-br from-green-500/10 to-emerald-500/5 p-6 mb-6">
+  <h3 className="font-bold mb-2 flex items-center gap-2">
+    <span className="text-2xl">✓</span>
+    Success Response
+  </h3>
+  <p className="text-sm text-foreground mb-3">
+    Returns a <span className="font-mono text-green-600">PreSaleOrder</span> object containing:
+  </p>
+  <div className="space-y-2 text-sm">
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-amber-600 min-w-32">id</span>
+      <span className="text-muted-foreground">Unique order identifier</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-amber-600 min-w-32">presaleId</span>
+      <span className="text-muted-foreground">Associated presale round ID</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-amber-600 min-w-32">userId</span>
+      <span className="text-muted-foreground">User who placed the order</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-amber-600 min-w-32">ndbAmount</span>
+      <span className="text-muted-foreground">Token amount ordered</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-amber-600 min-w-32">destination</span>
+      <span className="text-muted-foreground">Delivery destination (1=Internal, 2=External)</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-amber-600 min-w-32">extAddr</span>
+      <span className="text-muted-foreground">External address if applicable</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-amber-600 min-w-32">status</span>
+      <span className="text-muted-foreground">Current order status</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-amber-600 min-w-32">createdAt</span>
+      <span className="text-muted-foreground">Order creation timestamp</span>
+    </div>
+    <div className="flex items-start gap-2">
+      <span className="font-mono text-amber-600 min-w-32">updatedAt</span>
+      <span className="text-muted-foreground">Last update timestamp</span>
+    </div>
+  </div>
+</div>
+
+---
+
+## Example Usage
+
+### Request
+
+```graphql
+query GetSpecificOrder {
+  getPresaleById(id: 456) {
+    id
+    presaleId
+    userId
+    ndbAmount
+    destination
+    extAddr
+    status
+    createdAt
+    updatedAt
+  }
+}
+```
+
+### Response
+
+```json
+{
+  "data": {
+    "getPresaleById": {
+      "id": 456,
+      "presaleId": 12,
+      "userId": 789,
+      "ndbAmount": 1000.0,
+      "destination": 1,
+      "extAddr": null,
+      "status": 2,
+      "createdAt": 1704067200,
+      "updatedAt": 1704153600
+    }
+  }
+}
+```
+
+<Callout type="info" title="Order Retrieved">
+  The query successfully returned the presale order details with ID **456**.
+</Callout>
+
+---
+
+## Use Cases
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔍</div>
+    <h3 className="font-bold mb-2">Customer Support</h3>
+    <p className="text-sm text-muted-foreground">
+      Retrieve order details when assisting users with questions or issues about their presale purchases.
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🛠️</div>
+    <h3 className="font-bold mb-2">Order Management</h3>
+    <p className="text-sm text-muted-foreground">
+      Review and manage individual orders, including status updates and delivery verification.
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">📊</div>
+    <h3 className="font-bold mb-2">Audit & Compliance</h3>
+    <p className="text-sm text-muted-foreground">
+      Access detailed order information for auditing, compliance checks, and transaction verification.
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔐</div>
+    <h3 className="font-bold mb-2">Fraud Prevention</h3>
+    <p className="text-sm text-muted-foreground">
+      Investigate suspicious orders by examining order patterns, amounts, and delivery addresses.
+    </p>
+  </Card>
+</div>
+
+---
+
+## Best Practices
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-amber-500 bg-amber-500/10 p-4">
+    <h4 className="font-bold text-amber-700 dark:text-amber-300 mb-1">🔒 Access Control</h4>
+    <p className="text-sm text-amber-800">
+      Ensure proper authentication and authorization before exposing order details to prevent data leaks.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-orange-500 bg-orange-500/10 p-4">
+    <h4 className="font-bold text-orange-700 dark:text-orange-300 mb-1">📝 Logging</h4>
+    <p className="text-sm text-orange-800">
+      Log all order lookups for audit trails, especially when accessing sensitive user information.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-red-500 bg-red-500/10 p-4">
+    <h4 className="font-bold text-red-700 dark:text-red-300 mb-1">⚡ Cache Strategy</h4>
+    <p className="text-sm text-red-800">
+      Implement appropriate caching for completed orders while ensuring real-time data for pending orders.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-amber-500 bg-amber-500/10 p-4">
+    <h4 className="font-bold text-amber-700 dark:text-amber-300 mb-1">🔍 Error Handling</h4>
+    <p className="text-sm text-amber-800">
+      Handle cases where the order ID doesn't exist gracefully with appropriate error messages.
+    </p>
+  </div>
+</div>
+
+---
+
+## Related Operations
+
+<Cards>
+  <Card title="Get Orders by User" href="/docs/api/presale-orders/get-orders-by-user">
+    View all orders from a specific user
+  </Card>
+  <Card title="Get Orders by Round" href="/docs/api/presale-orders/get-orders-by-round">
+    View all orders in a presale round
+  </Card>
+  <Card title="Get Order Transactions" href="/docs/api/presale-orders/get-order-transactions">
+    View payment transaction history
+  </Card>
+</Cards>

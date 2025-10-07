@@ -1,46 +1,77 @@
 ---
 title: Release User by Admin
+description: Admin operation to restore a suspended user account
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-:::note
-The functions described is accessible only to users with ADMIN privileges.
-:::
+<div className="relative overflow-hidden rounded-xl border bg-gradient-to-br from-teal-500/10 via-emerald-500/10 to-cyan-500/10 p-8 backdrop-blur-sm mb-8">
+  <div className="relative z-10">
+    <div className="flex items-center gap-3 mb-4">
+      <h1 className="text-3xl font-bold bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">
+        Release User
+      </h1>
+      <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-500/20 text-red-400 border border-red-500/30">
+        ADMIN
+      </div>
+    </div>
+    <p className="text-muted-foreground max-w-2xl">
+      Administrative operation to release a suspended user and restore their access.
+    </p>
+  </div>
+</div>
 
-The `releaseUserByAdmin` mutation allows an admin to release a previously suspended user's account. This can be used to restore a user's access to the system.
+## Mutation
 
-### Mutation: `releaseUserByAdmin`
+<div className="relative overflow-hidden rounded-lg border border-teal-500/20 bg-gradient-to-br from-teal-500/5 to-emerald-500/5 p-6 my-6">
+  <h3 className="text-lg font-semibold text-teal-400 mb-4">GraphQL Schema</h3>
 
-#### Schema:
 ```graphql
-releaseUserByAdmin(
-  email: String!
-): String
+releaseUserByAdmin(email: String!): String
 ```
+</div>
 
-#### Parameters
+### Parameters
 
-- `email` (String): The email address of the user to be released. This field is mandatory.
+<div className="space-y-3 my-6">
+  <div className="rounded-lg border border-emerald-500/20 bg-card p-4">
+    <div className="flex items-start justify-between">
+      <div>
+        <code className="text-sm font-mono text-emerald-400">email</code>
+        <span className="ml-2 text-xs text-muted-foreground">String!</span>
+      </div>
+      <div className="text-xs px-2 py-1 rounded bg-red-500/20 text-red-400">Required</div>
+    </div>
+    <p className="text-sm text-muted-foreground mt-2">
+      Email address of the suspended user to be released
+    </p>
+  </div>
+</div>
 
-#### Return
-
-The mutation returns a string indicating the result of the release attempt.
-
-- `"Success"`: Indicates that the user's account has been successfully released.
-- `"Failed"`: Indicates that there was an error in processing the request, such as the user not being found or not being suspended.
-
-### Example Mutation
-
-The following is an example of how to use the `releaseUserByAdmin` mutation to release a user's account:
+## Example Usage
 
 ```graphql
 mutation {
-  releaseUserByAdmin(
-    email: "user@example.com"
-  )
+  releaseUserByAdmin(email: "user@example.com")
 }
 ```
 
-In this example, the mutation attempts to release the user with the email address `user@example.com`. The return value will indicate whether the release was successful.
+## Security Considerations
+
+<div className="space-y-4 my-6">
+  <Callout type="error" title="Admin Access Only">
+    This operation requires ROLE_ADMIN privileges.
+  </Callout>
+
+  <Callout type="info" title="Access Restoration">
+    Released users can immediately log in and access the platform again.
+  </Callout>
+</div>
+
+## Related Operations
+
+<Cards>
+  <Card title="Suspend User" href="/docs/api/user/suspend-user-by-admin" />
+  <Card title="Get User by ID" href="/docs/api/user/get-user-by-id" />
+</Cards>

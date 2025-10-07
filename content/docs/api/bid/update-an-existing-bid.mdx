@@ -1,13 +1,40 @@
 ---
 title: Update an Existing Bid
+description: Modify bid details for an existing auction bid
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
----
-id: update-an-existing-bid
-title: Update an Existing Bid
-sidebar_label: Update an Existing Bid
-sidebar_position: 2
----
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-background p-8 border border-purple-500/20 mb-8">
+  <div className="relative z-10">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Update Existing Bid
+    </h1>
+    <p className="text-xl text-muted-foreground mb-6">
+      Modify your existing bid parameters and settings
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-pink-500/5 rounded-full blur-3xl"></div>
+</div>
+
+<div className="p-5 rounded-lg border border-blue-500/30 bg-blue-500/10 my-6">
+  <div className="flex items-center gap-2 mb-2">
+    <span className="text-lg">ℹ️</span>
+    <div className="font-bold">Update vs Increase</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    This mutation is for general bid updates. To increase token amount or price, use the <code className="bg-muted px-1 rounded">increaseBid</code> mutation instead.
+  </div>
+</div>
+
+<div className="mt-8 p-6 rounded-xl border border-purple-500/30 bg-gradient-to-r from-purple-500/10 to-pink-500/10">
+  <div className="flex items-center gap-3">
+    <span className="text-2xl">💡</span>
+    <div>
+      <div className="font-bold">Note</div>
+      <div className="text-sm text-muted-foreground">For increasing bid amounts or prices, refer to the Increase an Existing Bid documentation</div>
+    </div>
+  </div>
+</div>

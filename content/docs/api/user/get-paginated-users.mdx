@@ -1,49 +1,429 @@
 ---
 title: Get Paginated Users
+description: Retrieve a paginated list of users with flexible filtering and sorting options for admin dashboards
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 
-:::note
-The functions described is accessible only to users with ADMIN privileges.
-:::
+<div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-teal-600 via-emerald-600 to-cyan-600 p-8 shadow-2xl mb-8">
+  <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
+  <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+  <div className="relative">
+    <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-xs font-medium text-white backdrop-blur-sm mb-4">
+      <span className="relative flex h-2 w-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-background"></span>
+      </span>
+      ADMIN ONLY
+    </div>
+    <h1 className="text-4xl font-black text-white mb-3 tracking-tight">Get Paginated Users</h1>
+    <p className="text-xl text-teal-100 leading-relaxed max-w-3xl">
+      Retrieve a paginated list of users with advanced filtering, sorting, and search capabilities for administrative dashboards.
+    </p>
+  </div>
+</div>
 
-The `getPaginatedUsers` query is used to retrieve a paginated list of users. This query supports pagination through a key and limit system, allowing efficient retrieval of user data in chunks.
+<Callout type="warn" title="Admin Access Required">
+  This query requires **ROLE_ADMIN** privileges for accessing user management data.
+</Callout>
 
-### Query: `getPaginatedUsers`
+## Overview
 
-#### Schema:
-```graphql
-getPaginatedUsers(
-  key: String,
-  limit: Int!
-): [User]
-```
+The `getPaginatedUsers` query enables administrators to retrieve user lists with pagination, sorting, and filtering capabilities. Ideal for user management dashboards, analytics, and administrative interfaces.
 
-#### Parameters
+---
 
-- `key` (String): The exclusive start key, representing the last ID of the previous page. For the first page, this should be set to `null`. This field is optional.
-- `limit` (Int): The number of users to retrieve per page. This field is mandatory.
+## GraphQL Schema
 
-#### Return
-
-The query returns a list of users up to the specified limit.
-
-### Example Query
-
-The following is an example of how to use the `getPaginatedUsers` query to retrieve a paginated list of users:
+<div className="rounded-xl border border-teal-500/30 bg-gradient-to-br from-teal-500/10 to-emerald-500/5 p-6 mb-8">
 
 ```graphql
 query {
   getPaginatedUsers(
-    key: "93ccfa0f-3bc8-4cb9-b40b-d68cbc3b8c26",
-    limit: 3
-  ) {
-    id,
-    email
+    offset: Int!
+    limit: Int!
+    sortBy: String
+    order: String
+    filter: String
+  ): PaginatedUsersResponse
+}
+
+type PaginatedUsersResponse {
+  users: [User]
+  totalCount: Int
+  hasMore: Boolean
+}
+```
+
+</div>
+
+---
+
+## Parameters
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <div className="rounded-lg border border-teal-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">offset</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700 dark:text-red-300">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-teal-600 dark:text-teal-400">Int</span></p>
+    <p className="text-sm text-foreground">Number of records to skip. Use 0 for first page. Formula: offset = pageNumber × limit</p>
+  </div>
+
+  <div className="rounded-lg border border-teal-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">limit</h3>
+      <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-700 dark:text-red-300">Required</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-teal-600 dark:text-teal-400">Int</span></p>
+    <p className="text-sm text-foreground">Maximum number of users per page. Recommended: 10-100 for optimal performance.</p>
+  </div>
+
+  <div className="rounded-lg border border-emerald-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">sortBy</h3>
+      <span className="inline-flex items-center rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground">Optional</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-emerald-600 dark:text-emerald-400">String</span></p>
+    <p className="text-sm text-foreground">Field to sort by: "id", "email", "name", "regDate", "tierLevel", "lastLoginDate"</p>
+  </div>
+
+  <div className="rounded-lg border border-emerald-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">order</h3>
+      <span className="inline-flex items-center rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground">Optional</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-emerald-600 dark:text-emerald-400">String</span></p>
+    <p className="text-sm text-foreground">Sort order: "ASC" (ascending) or "DESC" (descending). Default: "DESC"</p>
+  </div>
+
+  <div className="rounded-lg border border-cyan-500/30 bg-background p-5 shadow-sm hover:shadow-md transition-shadow col-span-2">
+    <div className="flex items-start justify-between mb-3">
+      <h3 className="font-bold text-lg">filter</h3>
+      <span className="inline-flex items-center rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground">Optional</span>
+    </div>
+    <p className="text-sm text-muted-foreground mb-2"><span className="font-mono text-cyan-600 dark:text-cyan-400">String (JSON)</span></p>
+    <p className="text-sm text-foreground">JSON string for filtering users by email, role, country, or verification status.</p>
+  </div>
+</div>
+
+---
+
+## Return Value
+
+<div className="rounded-lg border border-green-500/30 bg-gradient-to-br from-green-500/10 to-emerald-500/5 p-6 mb-6">
+  <h3 className="font-bold mb-2 flex items-center gap-2">
+    <span className="text-2xl">✓</span>
+    PaginatedUsersResponse
+  </h3>
+  <p className="text-sm text-foreground mb-3">
+    Returns a paginated response with user array, total count, and pagination metadata.
+  </p>
+
+  <div className="rounded bg-background border border-green-500/30 p-4 mt-4">
+    <div className="font-bold text-sm mb-2">Response Fields:</div>
+    <div className="space-y-1 text-sm font-mono text-muted-foreground">
+      <div>• <span className="text-green-600 dark:text-green-400">users</span>: [User] - Array of user objects</div>
+      <div>• <span className="text-green-600 dark:text-green-400">totalCount</span>: Int - Total users matching filter</div>
+      <div>• <span className="text-green-600 dark:text-green-400">hasMore</span>: Boolean - Whether more pages exist</div>
+    </div>
+  </div>
+</div>
+
+---
+
+## Example Usage
+
+### Basic Pagination
+
+```graphql
+query GetUsers {
+  getPaginatedUsers(offset: 0, limit: 20) {
+    users {
+      id
+      email
+      name
+      role
+      tierLevel
+      regDate
+    }
+    totalCount
+    hasMore
   }
 }
 ```
 
-In this example, the query retrieves up to 3 users starting after the user with the ID `93ccfa0f-3bc8-4cb9-b40b-d68cbc3b8c26`. The returned user objects include their `id` and `email`.
+### With Sorting
+
+```graphql
+query GetRecentUsers {
+  getPaginatedUsers(
+    offset: 0
+    limit: 50
+    sortBy: "regDate"
+    order: "DESC"
+  ) {
+    users {
+      id
+      email
+      name
+      regDate
+      lastLoginDate
+    }
+    totalCount
+  }
+}
+```
+
+### With Filtering
+
+```graphql
+query GetAdminUsers {
+  getPaginatedUsers(
+    offset: 0
+    limit: 25
+    filter: "{\"role\":\"ROLE_ADMIN\",\"country\":\"USA\"}"
+  ) {
+    users {
+      id
+      email
+      name
+      country
+      role
+    }
+    totalCount
+  }
+}
+```
+
+### Response Example
+
+```json
+{
+  "data": {
+    "getPaginatedUsers": {
+      "users": [
+        {
+          "id": 12345,
+          "email": "admin@example.com",
+          "name": "Admin User",
+          "role": ["ROLE_ADMIN"],
+          "tierLevel": 5,
+          "regDate": 1704067200
+        },
+        {
+          "id": 12346,
+          "email": "user@example.com",
+          "name": "Regular User",
+          "role": ["ROLE_USER"],
+          "tierLevel": 2,
+          "regDate": 1704153600
+        }
+      ],
+      "totalCount": 1247,
+      "hasMore": true
+    }
+  }
+}
+```
+
+<Callout type="info" title="Pagination Info">
+  Showing 20 users from a total of **1,247** users. More pages available.
+</Callout>
+
+---
+
+## Implementation Example
+
+<div className="rounded-xl border border-teal-500/30 bg-background p-6 my-6">
+  <h3 className="font-bold mb-4">TypeScript with React Hook</h3>
+
+```typescript
+import { useState, useEffect } from 'react';
+import { useQuery } from '@apollo/client';
+import { gql } from 'graphql-tag';
+
+const GET_PAGINATED_USERS = gql`
+  query GetPaginatedUsers(
+    $offset: Int!
+    $limit: Int!
+    $sortBy: String
+    $order: String
+    $filter: String
+  ) {
+    getPaginatedUsers(
+      offset: $offset
+      limit: $limit
+      sortBy: $sortBy
+      order: $order
+      filter: $filter
+    ) {
+      users {
+        id
+        email
+        name
+        role
+        tierLevel
+        regDate
+      }
+      totalCount
+      hasMore
+    }
+  }
+`;
+
+function UserManagementTable() {
+  const [page, setPage] = useState(0);
+  const [pageSize, setPageSize] = useState(20);
+
+  const { data, loading, error } = useQuery(GET_PAGINATED_USERS, {
+    variables: {
+      offset: page * pageSize,
+      limit: pageSize,
+      sortBy: 'regDate',
+      order: 'DESC'
+    }
+  });
+
+  if (loading) return <div>Loading users...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+
+  const { users, totalCount, hasMore } = data.getPaginatedUsers;
+  const totalPages = Math.ceil(totalCount / pageSize);
+
+  return (
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Tier</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map(user => (
+            <tr key={user.id}>
+              <td>{user.id}</td>
+              <td>{user.email}</td>
+              <td>{user.name}</td>
+              <td>{user.role.join(', ')}</td>
+              <td>{user.tierLevel}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <div className="pagination">
+        <button
+          onClick={() => setPage(p => Math.max(0, p - 1))}
+          disabled={page === 0}
+        >
+          Previous
+        </button>
+        <span>Page {page + 1} of {totalPages}</span>
+        <button
+          onClick={() => setPage(p => p + 1)}
+          disabled={!hasMore}
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  );
+}
+```
+
+</div>
+
+---
+
+## Use Cases
+
+<div className="grid gap-4 md:grid-cols-2 my-6">
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">⚙️</div>
+    <h3 className="font-bold mb-2">Admin Dashboard</h3>
+    <p className="text-sm text-muted-foreground">
+      Display user lists in admin panels with pagination, sorting, and filtering capabilities for efficient management
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">📊</div>
+    <h3 className="font-bold mb-2">User Analytics</h3>
+    <p className="text-sm text-muted-foreground">
+      Generate reports and analytics by filtering users based on tier, country, or verification status
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">🔍</div>
+    <h3 className="font-bold mb-2">User Search</h3>
+    <p className="text-sm text-muted-foreground">
+      Implement search functionality to find specific users by email, name, or other criteria
+    </p>
+  </Card>
+
+  <Card className="p-6 hover:shadow-lg transition-shadow">
+    <div className="text-3xl mb-3">📈</div>
+    <h3 className="font-bold mb-2">Growth Tracking</h3>
+    <p className="text-sm text-muted-foreground">
+      Monitor user registration trends and growth patterns over time with date-based sorting
+    </p>
+  </Card>
+</div>
+
+---
+
+## Best Practices
+
+<div className="space-y-4 my-6">
+  <div className="rounded-lg border-l-4 border-teal-500 bg-teal-500/10 p-4">
+    <h4 className="font-bold text-teal-700 dark:text-teal-300 mb-1">📏 Optimal Page Size</h4>
+    <p className="text-sm text-teal-900 dark:text-teal-200">
+      Use page sizes between 10-100 for best performance. Larger pages may cause timeouts.
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-emerald-500 bg-emerald-500/10 p-4">
+    <h4 className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">💾 Caching Strategy</h4>
+    <p className="text-sm text-emerald-900 dark:text-emerald-200">
+      Implement client-side caching to reduce API calls when navigating between pages
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-cyan-500 bg-cyan-500/10 p-4">
+    <h4 className="font-bold text-cyan-700 dark:text-cyan-300 mb-1">🔐 Data Protection</h4>
+    <p className="text-sm text-cyan-900 dark:text-cyan-200">
+      Only request fields you need. Avoid fetching sensitive data unless necessary
+    </p>
+  </div>
+
+  <div className="rounded-lg border-l-4 border-teal-500 bg-teal-500/10 p-4">
+    <h4 className="font-bold text-teal-700 dark:text-teal-300 mb-1">⚡ Performance</h4>
+    <p className="text-sm text-teal-900 dark:text-teal-200">
+      Use indexes on sortBy fields and optimize filters for faster query execution
+    </p>
+  </div>
+</div>
+
+---
+
+## Related Operations
+
+<Cards>
+  <Card title="Get User" href="/docs/api/user/get-user">
+    Get authenticated user profile
+  </Card>
+  <Card title="Get User by ID" href="/docs/api/user/get-user-by-id">
+    Retrieve specific user details
+  </Card>
+  <Card title="Get Users Count" href="/docs/api/user/get-users-count">
+    Get total user count
+  </Card>
+</Cards>

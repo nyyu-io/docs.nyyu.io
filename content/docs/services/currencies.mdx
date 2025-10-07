@@ -4,14 +4,25 @@ description: List of supported cryptocurrencies and fiat currencies
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
-import { Card, Cards } from 'fumadocs-ui/components/card';
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 
-# NYYU Supported Currencies
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-500/10 via-cyan-500/10 to-background p-12 border border-blue-500/20 mb-8">
+  <div className="relative z-10">
+    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
+      <span className="text-sm font-medium text-blue-400">Financial Service</span>
+    </div>
+    <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+      Supported Currencies
+    </h1>
+    <p className="text-xl text-muted-foreground max-w-3xl">
+      Trade across multiple asset classes including fiat currencies, cryptocurrencies, and commodities on the NYYU platform.
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+</div>
 
-The NYYU platform supports a wide range of currencies, including fiat currencies, cryptocurrencies, and commodities. This section provides an overview of all supported currencies, allowing users to easily identify which currencies can be used for trading, investing, and transacting on the platform.
-
-<Callout type="info">
+<Callout type="info" title="Multi-Asset Platform">
 Trade across multiple asset classes including fiat, crypto, and commodities!
 </Callout>
 
@@ -20,117 +31,312 @@ Trade across multiple asset classes including fiat, crypto, and commodities!
 
 ## Fiat Currencies
 
-The following fiat currencies are supported on the NYYU platform:
+<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-8">
+  <div className="p-4 rounded-xl border border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-background text-center">
+    <div className="text-3xl mb-2">💵</div>
+    <div className="font-bold mb-1">US Dollar</div>
+    <div className="text-sm text-muted-foreground">USD</div>
+  </div>
 
-- 💵 **US Dollar (USD)**
-- 💶 **Euro (EUR)**
-- 💷 **British Pound (GBP)**
-- 💴 **Chinese Yuan (CNY)**
-- 💴 **Japanese Yen (JPY)**
-- 💵 **Australian Dollar (AUD)**
-- 💵 **Canadian Dollar (CAD)**
-- 💵 **Swiss Franc (CHF)**
-- 💵 **New Zealand Dollar (NZD)**
-- 💵 **Singapore Dollar (SGD)**
+  <div className="p-4 rounded-xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-background text-center">
+    <div className="text-3xl mb-2">💶</div>
+    <div className="font-bold mb-1">Euro</div>
+    <div className="text-sm text-muted-foreground">EUR</div>
+  </div>
+
+  <div className="p-4 rounded-xl border border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-background text-center">
+    <div className="text-3xl mb-2">💷</div>
+    <div className="font-bold mb-1">British Pound</div>
+    <div className="text-sm text-muted-foreground">GBP</div>
+  </div>
+
+  <div className="p-4 rounded-xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-background text-center">
+    <div className="text-3xl mb-2">💴</div>
+    <div className="font-bold mb-1">Chinese Yuan</div>
+    <div className="text-sm text-muted-foreground">CNY</div>
+  </div>
+
+  <div className="p-4 rounded-xl border border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-background text-center">
+    <div className="text-3xl mb-2">💴</div>
+    <div className="font-bold mb-1">Japanese Yen</div>
+    <div className="text-sm text-muted-foreground">JPY</div>
+  </div>
+
+  <div className="p-4 rounded-xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-background text-center">
+    <div className="text-3xl mb-2">💵</div>
+    <div className="font-bold mb-1">Australian Dollar</div>
+    <div className="text-sm text-muted-foreground">AUD</div>
+  </div>
+
+  <div className="p-4 rounded-xl border border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-background text-center">
+    <div className="text-3xl mb-2">💵</div>
+    <div className="font-bold mb-1">Canadian Dollar</div>
+    <div className="text-sm text-muted-foreground">CAD</div>
+  </div>
+
+  <div className="p-4 rounded-xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-background text-center">
+    <div className="text-3xl mb-2">💵</div>
+    <div className="font-bold mb-1">Swiss Franc</div>
+    <div className="text-sm text-muted-foreground">CHF</div>
+  </div>
+
+  <div className="p-4 rounded-xl border border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-background text-center">
+    <div className="text-3xl mb-2">💵</div>
+    <div className="font-bold mb-1">NZ Dollar</div>
+    <div className="text-sm text-muted-foreground">NZD</div>
+  </div>
+
+  <div className="p-4 rounded-xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-background text-center">
+    <div className="text-3xl mb-2">💵</div>
+    <div className="font-bold mb-1">Singapore Dollar</div>
+    <div className="text-sm text-muted-foreground">SGD</div>
+  </div>
+</div>
 
 </Tab>
 <Tab value="Cryptocurrencies">
 
 ## Cryptocurrencies
 
-The NYYU platform supports a wide array of cryptocurrencies for trading and transactions, including but not limited to:
+<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-8">
+  <div className="p-4 rounded-xl border border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-background">
+    <div className="flex items-center gap-3 mb-2">
+      <div className="text-2xl">⚡</div>
+      <div>
+        <div className="font-bold">Watt</div>
+        <div className="text-xs text-muted-foreground">WATT</div>
+      </div>
+    </div>
+    <div className="text-xs px-2 py-1 rounded bg-blue-500/10 border border-blue-500/20 text-blue-400 inline-block">Coming Soon</div>
+  </div>
 
-- **Watt (WATT) Coming Soon**
-- **Bitcoin (BTC)**
-- **Ethereum (ETH)**
-- **Binance Coin (BNB)**
-- **Tether (USDT)**
-- **Cardano (ADA)**
-- **Solana (SOL)**
-- **Polkadot (DOT)**
-- **Dogecoin (DOGE)**
-- **Litecoin (LTC)**
-- **Chainlink (LINK)**
-- **Ripple (XRP)**
-- **Stellar (XLM)**
-- **USD Coin (USDC)**
-- **Avalanche (AVAX)**
-- **Shiba Inu (SHIB)**
+  <div className="p-4 rounded-xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-background">
+    <div className="flex items-center gap-3">
+      <div className="text-2xl">₿</div>
+      <div>
+        <div className="font-bold">Bitcoin</div>
+        <div className="text-xs text-muted-foreground">BTC</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-xl border border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-background">
+    <div className="flex items-center gap-3">
+      <div className="text-2xl">💠</div>
+      <div>
+        <div className="font-bold">Ethereum</div>
+        <div className="text-xs text-muted-foreground">ETH</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-background">
+    <div className="flex items-center gap-3">
+      <div className="text-2xl">💠</div>
+      <div>
+        <div className="font-bold">Binance Coin</div>
+        <div className="text-xs text-muted-foreground">BNB</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-xl border border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-background">
+    <div className="flex items-center gap-3">
+      <div className="text-2xl">💵</div>
+      <div>
+        <div className="font-bold">Tether</div>
+        <div className="text-xs text-muted-foreground">USDT</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-background">
+    <div className="flex items-center gap-3">
+      <div className="text-2xl">🔷</div>
+      <div>
+        <div className="font-bold">Cardano</div>
+        <div className="text-xs text-muted-foreground">ADA</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-xl border border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-background">
+    <div className="flex items-center gap-3">
+      <div className="text-2xl">🟣</div>
+      <div>
+        <div className="font-bold">Solana</div>
+        <div className="text-xs text-muted-foreground">SOL</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-background">
+    <div className="flex items-center gap-3">
+      <div className="text-2xl">🔴</div>
+      <div>
+        <div className="font-bold">Polkadot</div>
+        <div className="text-xs text-muted-foreground">DOT</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-xl border border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-background">
+    <div className="flex items-center gap-3">
+      <div className="text-2xl">🐕</div>
+      <div>
+        <div className="font-bold">Dogecoin</div>
+        <div className="text-xs text-muted-foreground">DOGE</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-background">
+    <div className="flex items-center gap-3">
+      <div className="text-2xl">Ł</div>
+      <div>
+        <div className="font-bold">Litecoin</div>
+        <div className="text-xs text-muted-foreground">LTC</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-xl border border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-background">
+    <div className="flex items-center gap-3">
+      <div className="text-2xl">🔗</div>
+      <div>
+        <div className="font-bold">Chainlink</div>
+        <div className="text-xs text-muted-foreground">LINK</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-background">
+    <div className="flex items-center gap-3">
+      <div className="text-2xl">🔷</div>
+      <div>
+        <div className="font-bold">Ripple</div>
+        <div className="text-xs text-muted-foreground">XRP</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-xl border border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-background">
+    <div className="flex items-center gap-3">
+      <div className="text-2xl">⭐</div>
+      <div>
+        <div className="font-bold">Stellar</div>
+        <div className="text-xs text-muted-foreground">XLM</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-background">
+    <div className="flex items-center gap-3">
+      <div className="text-2xl">💵</div>
+      <div>
+        <div className="font-bold">USD Coin</div>
+        <div className="text-xs text-muted-foreground">USDC</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-xl border border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-background">
+    <div className="flex items-center gap-3">
+      <div className="text-2xl">🔺</div>
+      <div>
+        <div className="font-bold">Avalanche</div>
+        <div className="text-xs text-muted-foreground">AVAX</div>
+      </div>
+    </div>
+  </div>
+
+  <div className="p-4 rounded-xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-background">
+    <div className="flex items-center gap-3">
+      <div className="text-2xl">🐕</div>
+      <div>
+        <div className="font-bold">Shiba Inu</div>
+        <div className="text-xs text-muted-foreground">SHIB</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </Tab>
 <Tab value="Commodities">
 
 ## Commodities
 
-In addition to fiat and cryptocurrencies, the NYYU platform also supports trading in various commodities, including:
+### Energy & Fuels
 
-- **Crude Oil**
-- **Jet Fuel A1**
-- **Avgas 100LL**
-- **Avgas JP-8**
-- **LNG**
-- **LPG**
-- **Hydrogen**
-- **Biogas**
-- **Gold**
-- **Silver**
-- **Platinum**
-- **Palladium**
-- **Copper**
-- **Lithium**
-- **Silicon**
-- **Nickel**
-- **Zinc**
-- **Aluminium**
-- **Gallium**
-- **Germanium**
-- **Uranium**
-- **Lead**
-- **Diamond**
-- **Silicon Carbide**
-- **Irone Ore**
-- **Limestone**
-- **Coal**
-- **Soybeans**
-- **Canola**
-- **Corn**
-- **Wheat**
-- **Palm**
-- **Shea**
-- **Cotton**
-- **Wool**
-- **Animal Feed**
-- **Beverages**
+<div className="grid grid-cols-2 md:grid-cols-3 gap-3 my-6">
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">🛢️ Crude Oil</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">✈️ Jet Fuel A1</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">⛽ Avgas 100LL</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">🛩️ Avgas JP-8</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">🔥 LNG</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">🔥 LPG</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">⚡ Hydrogen</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">🌱 Biogas</div>
+</div>
+
+### Precious Metals
+
+<div className="grid grid-cols-2 md:grid-cols-3 gap-3 my-6">
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">🥇 Gold</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">🥈 Silver</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">⚪ Platinum</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">⚪ Palladium</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">💎 Diamond</div>
+</div>
+
+### Industrial Metals
+
+<div className="grid grid-cols-2 md:grid-cols-3 gap-3 my-6">
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">🔶 Copper</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">🔋 Lithium</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">⚙️ Silicon</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">⚪ Nickel</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">⚪ Zinc</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">⚪ Aluminium</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">⚪ Gallium</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">⚪ Germanium</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">☢️ Uranium</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">⚫ Lead</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">💎 Silicon Carbide</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">⛏️ Iron Ore</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">🪨 Limestone</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">⚫ Coal</div>
+</div>
+
+### Agricultural Products
+
+<div className="grid grid-cols-2 md:grid-cols-3 gap-3 my-6">
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">🌱 Soybeans</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">🌻 Canola</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">🌽 Corn</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">🌾 Wheat</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">🌴 Palm</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">🥜 Shea</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">🧵 Cotton</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">🐑 Wool</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">🌾 Animal Feed</div>
+  <div className="p-3 rounded-lg border border-border bg-muted/30 text-sm">☕ Beverages</div>
+</div>
 
 </Tab>
 </Tabs>
 
-## How to View Supported Currencies on the Platform
-
-You can view all supported currencies directly on the NYYU platform through the Wallet and Trade sections.
-
-### Wallet Section
-
-In the Wallet section, you will see a comprehensive list of all your assets, including supported fiat currencies, cryptocurrencies, and commodities. Each asset is listed with its current balance and equivalent value in your default currency.
-
-### Trade Section
-
-In the Trade section, you can see the trading pairs available for all supported currencies. The trading interface provides real-time data on price, volume, and market trends for each currency pair.
-
-## Comprehensive Tutorial: Using Supported Currencies
-
-### Step-by-Step Guide
-
-#### 1. Access the Wallet Section
-
-- Navigate to the Wallet section from the main menu.
-- View the list of all supported currencies along with your balances.
-
-#### 2. Access the Trade Section
-
-- Navigate to the Trade section from the main menu.
-- Select the desired trading pair to view real-time data and execute trades.
-
-#### 3. View Detailed Information
-
-- Click on any currency in the Wallet or Trade section to view detailed information, including historical data, market trends, and more.
+<div className="mt-12 p-8 rounded-2xl border border-blue-500/20 bg-gradient-to-br from-blue-500/10 via-cyan-500/5 to-background relative overflow-hidden">
+  <div className="relative z-10">
+    <div className="flex items-start gap-4">
+      <div className="text-4xl">💱</div>
+      <div className="flex-1">
+        <div className="font-bold text-xl mb-2">Comprehensive Trading Options</div>
+        <div className="text-muted-foreground">
+          NYYU supports a wide range of assets across fiat currencies, cryptocurrencies, and physical commodities. You can view all supported currencies directly on the platform through the Wallet and Trade sections with real-time pricing and market data.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl"></div>
+</div>

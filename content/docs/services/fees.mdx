@@ -4,84 +4,234 @@ description: Comprehensive fee structure for NYYU platform services
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
-import { Card, Cards } from 'fumadocs-ui/components/card';
-import { Step, Steps } from 'fumadocs-ui/components/steps';
 
-# NYYU Fee Structure
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-background p-12 border border-cyan-500/20 mb-8">
+  <div className="relative z-10">
+    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 mb-6">
+      <span className="text-sm font-medium text-cyan-400">Financial Service</span>
+    </div>
+    <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+      Fee Structure
+    </h1>
+    <p className="text-xl text-muted-foreground max-w-3xl">
+      Transparent and competitive fees for all NYYU platform services. Know exactly what you're paying for.
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+</div>
 
-Welcome to the NYYU Fee Structure page. Our platform offers transparent and competitive fees for various services to ensure you have a clear understanding of the costs associated with using NYYU. Below, you will find detailed information about the fees for different transactions and services on our platform.
+<Callout type="info" title="Transparent Pricing">
+All fees are clearly displayed before you commit to any transaction. No hidden charges.
+</Callout>
 
 ## Trading Fees
 
-| Transaction Type        | Fee         |
-|-------------------------|-------------|
-| Spot Trading            | 0.1%        |
-| Margin Trading          | 0.2%        |
-| Futures Trading         | 0.05%       |
-| Decentralized Exchange  | 0.3%        |
+<div className="overflow-x-auto my-8">
+  <table className="w-full border-collapse">
+    <thead>
+      <tr className="border-b border-border">
+        <th className="text-left p-4 font-bold">Transaction Type</th>
+        <th className="text-right p-4 font-bold">Fee</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr className="border-b border-border/50 hover:bg-muted/30 transition-colors">
+        <td className="p-4 font-semibold">Spot Trading</td>
+        <td className="p-4 text-right">
+          <span className="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-semibold text-sm">0.1%</span>
+        </td>
+      </tr>
+      <tr className="border-b border-border/50 hover:bg-muted/30 transition-colors">
+        <td className="p-4 font-semibold">Margin Trading</td>
+        <td className="p-4 text-right">
+          <span className="px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-semibold text-sm">0.2%</span>
+        </td>
+      </tr>
+      <tr className="border-b border-border/50 hover:bg-muted/30 transition-colors">
+        <td className="p-4 font-semibold">Futures Trading</td>
+        <td className="p-4 text-right">
+          <span className="px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 font-semibold text-sm">0.05%</span>
+        </td>
+      </tr>
+      <tr className="border-b border-border/50 hover:bg-muted/30 transition-colors">
+        <td className="p-4 font-semibold">Decentralized Exchange</td>
+        <td className="p-4 text-right">
+          <span className="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-semibold text-sm">0.3%</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Deposit and Withdrawal Fees
 
 ### Cryptocurrency
 
-| Cryptocurrency | Deposit Fee | Withdrawal Fee |
-|----------------|-------------|----------------|
-| Bitcoin (BTC)  | Free        | 0.0005 BTC     |
-| Ethereum (ETH) | Free        | 0.01 ETH       |
-| USDT (ERC-20)  | Free        | 10 USDT        |
-| USDT (TRC-20)  | Free        | 1 USDT         |
+<div className="overflow-x-auto my-6">
+  <table className="w-full border-collapse">
+    <thead>
+      <tr className="border-b border-border">
+        <th className="text-left p-4 font-bold">Cryptocurrency</th>
+        <th className="text-right p-4 font-bold">Deposit Fee</th>
+        <th className="text-right p-4 font-bold">Withdrawal Fee</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr className="border-b border-border/50 hover:bg-muted/30 transition-colors">
+        <td className="p-4 font-semibold">Bitcoin (BTC)</td>
+        <td className="p-4 text-right text-emerald-400 font-semibold">Free</td>
+        <td className="p-4 text-right">0.0005 BTC</td>
+      </tr>
+      <tr className="border-b border-border/50 hover:bg-muted/30 transition-colors">
+        <td className="p-4 font-semibold">Ethereum (ETH)</td>
+        <td className="p-4 text-right text-emerald-400 font-semibold">Free</td>
+        <td className="p-4 text-right">0.01 ETH</td>
+      </tr>
+      <tr className="border-b border-border/50 hover:bg-muted/30 transition-colors">
+        <td className="p-4 font-semibold">USDT (ERC-20)</td>
+        <td className="p-4 text-right text-emerald-400 font-semibold">Free</td>
+        <td className="p-4 text-right">10 USDT</td>
+      </tr>
+      <tr className="border-b border-border/50 hover:bg-muted/30 transition-colors">
+        <td className="p-4 font-semibold">USDT (TRC-20)</td>
+        <td className="p-4 text-right text-emerald-400 font-semibold">Free</td>
+        <td className="p-4 text-right">1 USDT</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ### Fiat Currency
 
-| Currency | Deposit Fee   | Withdrawal Fee   |
-|----------|---------------|------------------|
-| USD      | 1%            | 1.5%             |
-| EUR      | 1%            | 1.5%             |
-| GBP      | 1%            | 1.5%             |
+<div className="overflow-x-auto my-6">
+  <table className="w-full border-collapse">
+    <thead>
+      <tr className="border-b border-border">
+        <th className="text-left p-4 font-bold">Currency</th>
+        <th className="text-right p-4 font-bold">Deposit Fee</th>
+        <th className="text-right p-4 font-bold">Withdrawal Fee</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr className="border-b border-border/50 hover:bg-muted/30 transition-colors">
+        <td className="p-4 font-semibold">USD</td>
+        <td className="p-4 text-right">1%</td>
+        <td className="p-4 text-right">1.5%</td>
+      </tr>
+      <tr className="border-b border-border/50 hover:bg-muted/30 transition-colors">
+        <td className="p-4 font-semibold">EUR</td>
+        <td className="p-4 text-right">1%</td>
+        <td className="p-4 text-right">1.5%</td>
+      </tr>
+      <tr className="border-b border-border/50 hover:bg-muted/30 transition-colors">
+        <td className="p-4 font-semibold">GBP</td>
+        <td className="p-4 text-right">1%</td>
+        <td className="p-4 text-right">1.5%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Listing Fees
 
-### Token Listing
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+  <div className="p-6 rounded-xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-background">
+    <div className="text-3xl mb-3">🪙</div>
+    <div className="font-bold text-lg mb-2">Token Listing</div>
+    <div className="text-3xl font-bold text-cyan-400 mb-2">$5,000</div>
+    <div className="text-sm text-muted-foreground">One-time listing fee</div>
+  </div>
 
-| Service          | Fee         |
-|------------------|-------------|
-| Token Listing    | 5,000 USD   |
+  <div className="p-6 rounded-xl border border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-background">
+    <div className="text-3xl mb-3">🚀</div>
+    <div className="font-bold text-lg mb-2">Reg A Startup Listing</div>
+    <div className="text-3xl font-bold text-blue-400 mb-2">$10,000</div>
+    <div className="text-sm text-muted-foreground">For Regulation A offerings</div>
+  </div>
 
-### Start-Up Listing (Reg A and Reg C)
+  <div className="p-6 rounded-xl border border-indigo-500/20 bg-gradient-to-br from-indigo-500/5 to-background">
+    <div className="text-3xl mb-3">📋</div>
+    <div className="font-bold text-lg mb-2">Reg C Startup Listing</div>
+    <div className="text-3xl font-bold text-indigo-400 mb-2">$7,500</div>
+    <div className="text-sm text-muted-foreground">For crowdfunding campaigns</div>
+  </div>
 
-| Service          | Fee         |
-|------------------|-------------|
-| Reg A Listing    | 10,000 USD  |
-| Reg C Listing    | 7,500 USD   |
+  <div className="p-6 rounded-xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-background">
+    <div className="text-3xl mb-3">🏢</div>
+    <div className="font-bold text-lg mb-2">Property Listing</div>
+    <div className="text-3xl font-bold text-cyan-400 mb-2">$2,000</div>
+    <div className="text-sm text-muted-foreground">Real estate tokenization</div>
+  </div>
 
-### Property Listing
+  <div className="p-6 rounded-xl border border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-background">
+    <div className="text-3xl mb-3">📦</div>
+    <div className="font-bold text-lg mb-2">Commodity Listing</div>
+    <div className="text-3xl font-bold text-blue-400 mb-2">$3,000</div>
+    <div className="text-sm text-muted-foreground">Physical commodity trading</div>
+  </div>
 
-| Service          | Fee         |
-|------------------|-------------|
-| Property Listing | 2,000 USD   |
+  <div className="p-6 rounded-xl border border-indigo-500/20 bg-gradient-to-br from-indigo-500/5 to-background">
+    <div className="text-3xl mb-3">⚡</div>
+    <div className="font-bold text-lg mb-2">Utility Listing</div>
+    <div className="text-3xl font-bold text-indigo-400 mb-2">$4,000</div>
+    <div className="text-sm text-muted-foreground">Electricity utility providers</div>
+  </div>
+</div>
 
-### Commodity Listing
+## Other Services
 
-| Service            | Fee         |
-|--------------------|-------------|
-| Commodity Listing  | 3,000 USD   |
+<div className="overflow-x-auto my-8">
+  <table className="w-full border-collapse">
+    <thead>
+      <tr className="border-b border-border">
+        <th className="text-left p-4 font-bold">Service</th>
+        <th className="text-right p-4 font-bold">Fee</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr className="border-b border-border/50 hover:bg-muted/30 transition-colors">
+        <td className="p-4 font-semibold">Staking</td>
+        <td className="p-4 text-right text-emerald-400 font-semibold">Free</td>
+      </tr>
+      <tr className="border-b border-border/50 hover:bg-muted/30 transition-colors">
+        <td className="p-4 font-semibold">Loan Origination</td>
+        <td className="p-4 text-right">1% of loan amount</td>
+      </tr>
+      <tr className="border-b border-border/50 hover:bg-muted/30 transition-colors">
+        <td className="p-4 font-semibold">Affiliate Commission</td>
+        <td className="p-4 text-right">5% of transaction fees</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-### Electricity Utility Provider Listing
-
-| Service                         | Fee         |
-|---------------------------------|-------------|
-| Electricity Utility Listing     | 4,000 USD   |
-
-## Other Fees
-
-| Service                        | Fee         |
-|--------------------------------|-------------|
-| Staking                        | Free        |
-| Loan Origination               | 1% of loan amount |
-| Affiliate System               | 5% of referred transaction amount |
-
-## Notes
-
-- All fees are subject to change based on market conditions and platform updates.
-- Fees are charged in the respective currencies of the transactions.
-- Detailed breakdowns and additional service fees can be found in our [official documentation](https://docs.nyyu.com).
+<div className="mt-8 p-8 rounded-2xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/10 via-blue-500/5 to-background relative overflow-hidden">
+  <div className="relative z-10">
+    <div className="flex items-start gap-4">
+      <div className="text-4xl">💡</div>
+      <div className="flex-1">
+        <div className="font-bold text-xl mb-2">Important Notes</div>
+        <ul className="space-y-2 text-sm text-muted-foreground">
+          <li className="flex items-start gap-2">
+            <span className="text-cyan-400 mt-1">•</span>
+            <span>All fees are subject to change based on market conditions and platform updates</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-cyan-400 mt-1">•</span>
+            <span>Fees are charged in the respective currencies of the transactions</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-cyan-400 mt-1">•</span>
+            <span>Volume-based discounts may be available for high-frequency traders</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-cyan-400 mt-1">•</span>
+            <span>Network fees for blockchain transactions are separate and depend on network congestion</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div className="absolute top-0 right-0 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl"></div>
+</div>

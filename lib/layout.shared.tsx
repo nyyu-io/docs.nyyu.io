@@ -18,6 +18,8 @@ export function baseOptions(): BaseLayoutProps {
             alt="NYYU Logo"
             width={32}
             height={26}
+
+            
             className="dark:hidden"
           />
           <Image
@@ -31,6 +33,37 @@ export function baseOptions(): BaseLayoutProps {
       ),
       transparentMode: "top",
     },
-  
+    links: [
+      {
+        text: "API",
+        url: "/docs/api",
+        active: "nested-url",
+      },
+      {
+        text: "Tutorial",
+        url: "/docs/tutorial",
+        active: "nested-url",
+      },
+      {
+        text: "Services",
+        url: "/docs/services",
+        active: "nested-url",
+      },
+      {
+        text: "Corporate",
+        url: "/docs/corporate",
+        active: "nested-url",
+      },
+      {
+        text: "Troubleshoot",
+        url: "/docs/troubleshoot",
+        active: "nested-url",
+      },
+      {
+        text: "Changelog",
+        url: "/docs/changelog/intro",
+        active: "nested-url",
+      },
+    ],
   };
 }
