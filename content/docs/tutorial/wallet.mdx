@@ -6,12 +6,25 @@ description: Secure storage and management of your digital assets
 import { Callout } from "fumadocs-ui/components/callout";
 import { Card, Cards } from "fumadocs-ui/components/card";
 import { Step, Steps } from "fumadocs-ui/components/steps";
+import Image from "next/image";
+import Wallet from "@/public/img/Wallet.png";
+import WalletMenu from "@/public/img/WalletMenu.png";
+import EquityValueDisplay from "@/public/img/EquityValueDisplay.png";
+import DepositFunds from "@/public/img/DepositFunds.png";
+import WithdrawFunds from "@/public/img/WithdrawFunds.png";
+import SwapCurrencies from "@/public/img/SwapCurrencies.png";
+import SearchandFilterAccounts from "@/public/img/SearchandFilterAccounts.png";
+import ViewAccountDetails from "@/public/img/ViewAccountDetails.png";
+import AddExternalAccount from "@/public/img/AddExternalAccount.png";
+import AssetBalances from "@/public/img/AssetBalances.png";
 
 ## NYYU Wallet Overview
 
 The NYYU Wallet section provides a comprehensive view of your digital and traditional financial assets. It includes functionalities for depositing, withdrawing, and swapping currencies. This section is designed for both ease of use and detailed financial management.
 
-![Wallet](/img/Wallet.png)
+<div className="my-8 rounded-xl border border-border overflow-hidden">
+  <Image src={Wallet} alt="NYYU Wallet Overview" className="w-full h-auto" />
+</div>
 
 ### Key Features
 
@@ -48,50 +61,613 @@ The NYYU Wallet section provides a comprehensive view of your digital and tradit
 
 Navigate to the "Wallet" section from the main menu.
 
-![Wallet Menu](/img/WalletMenu.png)
+<div className="my-6 flex justify-center">
+  <div className="rounded-xl border border-border overflow-hidden inline-block">
+    <Image src={WalletMenu} alt="Wallet Menu Access" className="h-16 w-auto" />
+  </div>
+</div>
 
 View your total equity value in the top left corner.
 
-![Equity Value Display](/img/EquityValueDisplay.png)
+<div className="my-6 rounded-xl border border-border overflow-hidden">
+  <Image
+    src={EquityValueDisplay}
+    alt="Equity Value Display"
+    className="w-full h-auto max-w-md mx-auto"
+  />
+</div>
 
 ### Viewing Your Asset Balances
 
 On the left side, you will find a comprehensive list of your asset balances. This includes both crypto and fiat currencies, with their equivalent values displayed in USD.
 
-![Asset Balances](/img/AssetBalances.png)
+<div className="my-6 rounded-xl border border-border overflow-hidden">
+  <Image
+    src={AssetBalances}
+    alt="Asset Balances List"
+    className="w-full h-auto max-w-lg mx-auto"
+  />
+</div>
 
 ### Adding Funds
 
 Click the "Deposit" button. Select the account you want to add funds to and follow the instructions to complete the deposit.
 
-![Deposit Funds](/img/DepositFunds.png)
+<div className="my-6 flex justify-center">
+  <div className="rounded-xl border border-border overflow-hidden inline-block">
+    <Image
+      src={DepositFunds}
+      alt="Deposit Funds Button"
+      className="h-16 w-auto"
+    />
+  </div>
+</div>
+
+<Callout type="info" title="Deposit Processing Times">
+  - **Crypto deposits:** Require network confirmations (BTC: 3 confirmations,
+  ETH: 12 confirmations) - **Bank transfers:** 1-3 business days for ACH, same
+  day for wire transfers - **Credit/debit cards:** Instant processing with 2.9%
+  + $0.30 fee
+</Callout>
 
 ### Withdrawing Funds
 
 Click the "Withdraw" button. Choose the account to withdraw from, enter the amount, and confirm the withdrawal.
 
-![Withdraw Funds](/img/WithdrawFunds.png)
+<div className="my-6 flex justify-center">
+  <div className="rounded-xl border border-border overflow-hidden inline-block">
+    <Image
+      src={WithdrawFunds}
+      alt="Withdraw Funds Button"
+      className="h-16 w-auto"
+    />
+  </div>
+</div>
+
+<Callout type="warn" title="Security Notice">
+  Withdrawals require 2FA verification. For your security, large withdrawals may
+  be subject to additional review. Always double-check withdrawal addresses
+  before confirming.
+</Callout>
 
 ### Swapping Currencies
 
 Click the "Swap" button. Select the currencies you wish to exchange between and complete the transaction.
 
-![Swap Currencies](/img/SwapCurrencies.png)
+<div className="my-6 flex justify-center">
+  <div className="rounded-xl border border-border overflow-hidden inline-block">
+    <Image
+      src={SwapCurrencies}
+      alt="Swap Currencies Button"
+      className="h-16 w-auto"
+    />
+  </div>
+</div>
+
+<Callout type="tip">
+  For detailed instructions on swapping currencies, see our [comprehensive swap
+  tutorial](/docs/tutorial/swap) which covers slippage protection, best rates,
+  and cross-chain swaps.
+</Callout>
 
 ### Searching and Filtering Accounts
 
 Use the search bar to quickly find specific accounts or currencies. Use the filter options to display "All," "Crypto," "Currencies," or "Market" accounts.
 
-![Search and Filter Accounts](/img/SearchandFilterAccounts.png)
+<div className="my-6 rounded-xl border border-border overflow-hidden">
+  <Image
+    src={SearchandFilterAccounts}
+    alt="Search and Filter Accounts Interface"
+    className="w-full h-auto max-w-md mx-auto"
+  />
+</div>
 
 ### Viewing Account Details
 
 Click on any account listing to view more details. Review transaction history, current balance, and other relevant information.
 
-![View Account Details](/img/ViewAccountDetails.png)
+<div className="my-6 rounded-xl border border-border overflow-hidden">
+  <Image
+    src={ViewAccountDetails}
+    alt="Account Details View"
+    className="w-full h-auto max-w-md mx-auto"
+  />
+</div>
 
 ### Adding External Accounts with NYYU UNI
 
 Click the "+ Add Account" button. Choose the type of external account you want to add (e.g., bank account, external wallet). Follow the integration steps to connect your external account to the NYYU platform. Note that the level of access may vary depending on the third-party API permissions (some allow transactions, others do not).
 
-![Add External Account](/img/AddExternalAccount.png)
+<div className="my-6 flex justify-center">
+  <div className="rounded-xl border border-border overflow-hidden inline-block">
+    <Image
+      src={AddExternalAccount}
+      alt="Add External Account Button"
+      className="h-16 w-auto"
+    />
+  </div>
+</div>
+
+<Callout type="info" title="NYYU UNI Integration">
+  NYYU UNI allows you to connect external bank accounts and wallets for a
+  unified financial view. Supported integrations include major banks,
+  Plaid-connected accounts, and popular crypto wallets. Some integrations are
+  read-only while others allow transactions.
+</Callout>
+
+## Step-by-Step Wallet Guide
+
+### Step 1: Fund Your Wallet
+
+<Steps>
+<Step>
+### Choose Deposit Method
+
+Select your preferred funding method:
+
+**Crypto Transfer:** Send from another wallet or exchange
+
+**Bank Transfer:** ACH or wire transfer from your bank account
+
+**Credit/Debit Card:** Instant purchase with card (2.9% fee)
+
+**Third-Party Payment:** PayPal, Apple Pay, Google Pay
+
+</Step>
+
+<Step>
+### Enter Deposit Details
+
+For crypto: Copy your unique deposit address for the specific cryptocurrency
+
+For bank: Provide bank account details and initiate ACH/wire transfer
+
+For card: Enter card information and billing address
+
+Always verify the network (e.g., ERC20, BEP20) before sending crypto
+
+</Step>
+
+<Step>
+### Wait for Confirmation
+
+Crypto deposits appear after required network confirmations
+
+Bank transfers process in 1-3 business days
+
+Card deposits are instant
+
+You'll receive email notification when funds arrive
+
+</Step>
+</Steps>
+
+### Step 2: Manage Your Assets
+
+<Steps>
+<Step>
+### View Portfolio Overview
+
+Access your wallet dashboard to see:
+
+Total portfolio value in BTC and USD
+
+Individual asset balances
+
+Recent transaction history
+
+Asset allocation pie chart
+
+Performance metrics and gains/losses
+
+</Step>
+
+<Step>
+### Track Individual Assets
+
+Click on any asset to view:
+
+Current balance and USD equivalent
+
+Transaction history for that asset
+
+Deposit and withdrawal addresses
+
+Price charts and market data
+
+Quick actions (deposit, withdraw, swap, trade)
+
+</Step>
+
+<Step>
+### Organize Your Accounts
+
+Use wallet features to:
+
+Create custom labels for accounts
+
+Set up sub-accounts for different purposes
+
+Hide zero-balance accounts
+
+Star favorite assets for quick access
+
+Export transaction history for taxes
+
+</Step>
+</Steps>
+
+### Step 3: Withdraw Funds
+
+<Steps>
+<Step>
+### Initiate Withdrawal
+
+Navigate to the withdrawal section:
+
+Click "Withdraw" button
+
+Select the asset you want to withdraw
+
+Choose withdrawal method (crypto address, bank account, PayPal)
+
+Check available balance and withdrawal limits
+
+</Step>
+
+<Step>
+### Enter Withdrawal Details
+
+Provide necessary information:
+
+**Crypto:** Destination wallet address and network
+
+**Bank:** Bank account details (must match KYC name)
+
+**Amount:** Within your daily/monthly limits
+
+Review network/processing fees
+
+Add optional memo/note for your records
+
+</Step>
+
+<Step>
+### Verify and Confirm
+
+Complete security verification:
+
+Enter 2FA code from your authenticator app
+
+Confirm email verification code
+
+Review all details one final time
+
+Submit withdrawal request
+
+Wait for processing (instant to 24 hours depending on method)
+
+</Step>
+</Steps>
+
+## Wallet Security Best Practices
+
+<div className="space-y-4 my-8">
+  <div className="p-4 rounded-xl border border-green-500/30 bg-green-500/5">
+    <div className="flex items-start gap-3">
+      <svg className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <div>
+        <div className="font-bold mb-1">Enable Withdrawal Whitelist</div>
+        <div className="text-sm text-muted-foreground">
+          Add trusted withdrawal addresses to your whitelist. Once enabled, you can only withdraw to whitelisted addresses. New addresses require a 24-hour waiting period before activation.
+        </div>
+      </div>
+    </div>
+  </div>
+
+{" "}
+<div className="p-4 rounded-xl border border-green-500/30 bg-green-500/5">
+  <div className="flex items-start gap-3">
+    <svg
+      className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    </svg>
+    <div>
+      <div className="font-bold mb-1">Set Up Anti-Phishing Code</div>
+      <div className="text-sm text-muted-foreground">
+        Create a unique code that appears in all official NYYU emails. If an
+        email lacks your code, it's a phishing attempt. Never click links in
+        emails without verifying your anti-phishing code.
+      </div>
+    </div>
+  </div>
+</div>
+
+{" "}
+<div className="p-4 rounded-xl border border-green-500/30 bg-green-500/5">
+  <div className="flex items-start gap-3">
+    <svg
+      className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    </svg>
+    <div>
+      <div className="font-bold mb-1">Always Verify Addresses</div>
+      <div className="text-sm text-muted-foreground">
+        Before depositing or withdrawing crypto, always verify the address is
+        correct. Check the first and last characters at minimum. For large
+        amounts, do a small test transaction first.
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div className="p-4 rounded-xl border border-green-500/30 bg-green-500/5">
+    <div className="flex items-start gap-3">
+      <svg className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <div>
+        <div className="font-bold mb-1">Regular Security Audits</div>
+        <div className="text-sm text-muted-foreground">
+          Review your account activity weekly. Check login history, authorized devices, and recent transactions. Enable email/SMS alerts for all withdrawals and large deposits.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Common Wallet Issues
+
+<div className="space-y-4 my-8">
+  <div className="p-4 rounded-xl border border-yellow-500/30 bg-yellow-500/5">
+    <div className="flex items-start gap-3">
+      <svg className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+      </svg>
+      <div>
+        <div className="font-bold mb-1">Deposit Not Showing</div>
+        <div className="text-sm text-muted-foreground">
+          <p className="mb-2"><strong>For crypto deposits:</strong> Wait for required network confirmations. Use the blockchain explorer to track your transaction. If confirmed but not credited after 1 hour, contact support with transaction hash.</p>
+          <p><strong>For bank transfers:</strong> ACH transfers take 1-3 business days. Check if your bank account is verified and you've completed KYC.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{" "}
+<div className="p-4 rounded-xl border border-yellow-500/30 bg-yellow-500/5">
+  <div className="flex items-start gap-3">
+    <svg
+      className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+      />
+    </svg>
+    <div>
+      <div className="font-bold mb-1">Withdrawal Pending</div>
+      <div className="text-sm text-muted-foreground">
+        Crypto withdrawals are typically processed within 15-30 minutes. Bank
+        withdrawals take 1-3 business days. If your withdrawal is pending longer
+        than expected, verify you've completed email and 2FA verification. Large
+        withdrawals may require additional review.
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div className="p-4 rounded-xl border border-red-500/30 bg-red-500/5">
+    <div className="flex items-start gap-3">
+      <svg className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+      </svg>
+      <div>
+        <div className="font-bold mb-1">Sent to Wrong Network</div>
+        <div className="text-sm text-muted-foreground">
+          If you sent crypto to the wrong network (e.g., sent ERC20 USDT to a BEP20 address), funds may be recoverable but require manual intervention. Contact support immediately with transaction details. Recovery fees may apply and success is not guaranteed.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Withdrawal Limits by Tier
+
+<div className="my-8 rounded-xl border border-border overflow-hidden">
+  <div className="overflow-x-auto">
+    <table className="w-full text-sm">
+      <thead className="bg-muted/50">
+        <tr>
+          <th className="p-3 text-left font-semibold">Verification Level</th>
+          <th className="p-3 text-left font-semibold">Daily Limit</th>
+          <th className="p-3 text-left font-semibold">Monthly Limit</th>
+          <th className="p-3 text-left font-semibold">Requirements</th>
+        </tr>
+      </thead>
+      <tbody className="divide-y divide-border">
+        <tr>
+          <td className="p-3 font-medium">Level 1 (Basic)</td>
+          <td className="p-3">$2,000</td>
+          <td className="p-3">$20,000</td>
+          <td className="p-3">Email + Phone verification</td>
+        </tr>
+        <tr className="bg-muted/20">
+          <td className="p-3 font-medium">Level 2 (Standard)</td>
+          <td className="p-3">$50,000</td>
+          <td className="p-3">$500,000</td>
+          <td className="p-3">Government ID verification</td>
+        </tr>
+        <tr>
+          <td className="p-3 font-medium">Level 3 (Enhanced)</td>
+          <td className="p-3">$200,000</td>
+          <td className="p-3">$2,000,000</td>
+          <td className="p-3">Proof of address + Source of wealth</td>
+        </tr>
+        <tr className="bg-muted/20">
+          <td className="p-3 font-medium">VIP</td>
+          <td className="p-3">Custom</td>
+          <td className="p-3">Custom</td>
+          <td className="p-3">Contact account manager</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<Callout type="tip">
+  To increase your withdrawal limits, complete higher KYC verification levels in
+  your [Profile Settings](/docs/tutorial/profile). Processing typically takes
+  1-3 business days.
+</Callout>
+
+## Supported Assets
+
+NYYU Wallet supports a wide range of digital and traditional assets:
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+  <div className="p-5 rounded-xl border border-orange-500/20 bg-gradient-to-br from-orange-500/5 to-background">
+    <div className="text-2xl mb-2">₿</div>
+    <div className="font-bold mb-1">Cryptocurrencies</div>
+    <div className="text-sm text-muted-foreground">
+      BTC, ETH, USDT, USDC, BNB, ADA, SOL, DOT, and 200+ tokens
+    </div>
+  </div>
+
+{" "}
+<div className="p-5 rounded-xl border border-green-500/20 bg-gradient-to-br from-green-500/5 to-background">
+  <div className="text-2xl mb-2">💵</div>
+  <div className="font-bold mb-1">Fiat Currencies</div>
+  <div className="text-sm text-muted-foreground">
+    USD, EUR, GBP, JPY, AUD, CAD, CHF, and 25+ currencies
+  </div>
+</div>
+
+  <div className="p-5 rounded-xl border border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-background">
+    <div className="text-2xl mb-2">📊</div>
+    <div className="font-bold mb-1">Tokenized Assets</div>
+    <div className="text-sm text-muted-foreground">
+      Real estate tokens, startup equity, commodity tokens, stablecoins
+    </div>
+  </div>
+</div>
+
+## Next Steps
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
+  <a href="/docs/tutorial/trade" className="p-5 rounded-xl border border-border bg-card hover:bg-muted/50 transition-colors group">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">📈</span>
+      <div className="font-bold group-hover:text-cyan-500 transition-colors">Start Trading</div>
+    </div>
+    <div className="text-sm text-muted-foreground">
+      Learn how to trade your assets on NYYU's exchange
+    </div>
+  </a>
+
+{" "}
+<a
+  href="/docs/tutorial/swap"
+  className="p-5 rounded-xl border border-border bg-card hover:bg-muted/50 transition-colors group"
+>
+  <div className="flex items-center gap-3 mb-2">
+    <span className="text-2xl">🔄</span>
+    <div className="font-bold group-hover:text-cyan-500 transition-colors">
+      Swap Tokens
+    </div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    Exchange cryptocurrencies instantly at the best rates
+  </div>
+</a>
+
+  <a href="/docs/tutorial/profile" className="p-5 rounded-xl border border-border bg-card hover:bg-muted/50 transition-colors group">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">🔐</span>
+      <div className="font-bold group-hover:text-cyan-500 transition-colors">Increase Limits</div>
+    </div>
+    <div className="text-sm text-muted-foreground">
+      Complete KYC to unlock higher withdrawal limits
+    </div>
+  </a>
+</div>
+
+## Need Help?
+
+<div className="rounded-xl border border-border bg-card p-6 my-8">
+  <div className="flex items-start gap-4">
+    <div className="text-3xl">💬</div>
+    <div className="flex-1">
+      <div className="font-bold text-lg mb-2">Wallet Support</div>
+      <div className="text-sm text-muted-foreground mb-4">
+        Questions about deposits, withdrawals, or wallet management? Our support
+        team is available 24/7 to assist you.
+      </div>
+      <div className="flex flex-wrap gap-3">
+        <a
+          href="/docs/troubleshoot"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/20 transition-colors text-sm font-medium"
+        >
+          Browse FAQs
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </a>
+        <a
+          href="https://support.nyyu.io"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/20 transition-colors text-sm font-medium"
+        >
+          Contact Support
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

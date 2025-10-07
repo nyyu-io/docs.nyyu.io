@@ -3,13 +3,13 @@
   "pages": [
     "index",
     "wallet",
+    "profile",
     "trade",
     "swap",
+    "marketplace",
     "save",
     "loan",
-    "marketplace",
     "invites",
-    "profile",
     "price"
   ]
 }

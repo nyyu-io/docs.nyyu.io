@@ -18,8 +18,6 @@ export function baseOptions(): BaseLayoutProps {
             alt="NYYU Logo"
             width={32}
             height={26}
-
-            
             className="dark:hidden"
           />
           <Image
@@ -35,11 +33,6 @@ export function baseOptions(): BaseLayoutProps {
     },
     links: [
       {
-        text: "API",
-        url: "/docs/api",
-        active: "nested-url",
-      },
-      {
         text: "Tutorial",
         url: "/docs/tutorial",
         active: "nested-url",
@@ -52,6 +45,11 @@ export function baseOptions(): BaseLayoutProps {
       {
         text: "Corporate",
         url: "/docs/corporate",
+        active: "nested-url",
+      },
+      {
+        text: "API",
+        url: "/docs/api",
         active: "nested-url",
       },
       {

@@ -3,8 +3,10 @@ title: Referral Program
 description: Earn rewards by inviting friends to NYYU and building your referral network
 ---
 
-import { Callout } from 'fumadocs-ui/components/callout';
-import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Callout } from "fumadocs-ui/components/callout";
+import { Card, Cards } from "fumadocs-ui/components/card";
+import Image from "next/image";
+import Invites from "@/public/img/Invites.png";
 
 <div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-cyan-600 via-sky-600 to-blue-600 p-8 shadow-2xl mb-8">
   <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]" />
@@ -24,6 +26,7 @@ import { Card, Cards } from 'fumadocs-ui/components/card';
     <p className="text-xl text-cyan-100 leading-relaxed max-w-3xl">
       Learn how to earn passive income by inviting friends to NYYU and building your referral network with commission tiers.
     </p>
+
   </div>
 </div>
 
@@ -40,25 +43,27 @@ import { Card, Cards } from 'fumadocs-ui/components/card';
     </p>
   </div>
 
-  <div className="rounded-xl border border-sky-500/30 bg-gradient-to-br from-sky-500/10 to-blue-500/5 p-6 hover:shadow-lg transition-all">
-    <div className="w-12 h-12 rounded-lg bg-sky-500/20 flex items-center justify-center text-2xl mb-4">
-      💰
-    </div>
-    <h3 className="font-bold text-lg mb-2">Earn Commissions</h3>
-    <p className="text-sm text-muted-foreground">
-      Understand commission structures and maximize your earnings
-    </p>
+{" "}
+<div className="rounded-xl border border-sky-500/30 bg-gradient-to-br from-sky-500/10 to-blue-500/5 p-6 hover:shadow-lg transition-all">
+  <div className="w-12 h-12 rounded-lg bg-sky-500/20 flex items-center justify-center text-2xl mb-4">
+    💰
   </div>
+  <h3 className="font-bold text-lg mb-2">Earn Commissions</h3>
+  <p className="text-sm text-muted-foreground">
+    Understand commission structures and maximize your earnings
+  </p>
+</div>
 
-  <div className="rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-cyan-500/5 p-6 hover:shadow-lg transition-all">
-    <div className="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center text-2xl mb-4">
-      📊
-    </div>
-    <h3 className="font-bold text-lg mb-2">Track Performance</h3>
-    <p className="text-sm text-muted-foreground">
-      Monitor your referrals, earnings, and tier progression
-    </p>
+{" "}
+<div className="rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-cyan-500/5 p-6 hover:shadow-lg transition-all">
+  <div className="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center text-2xl mb-4">
+    📊
   </div>
+  <h3 className="font-bold text-lg mb-2">Track Performance</h3>
+  <p className="text-sm text-muted-foreground">
+    Monitor your referrals, earnings, and tier progression
+  </p>
+</div>
 
   <div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-sky-500/5 p-6 hover:shadow-lg transition-all">
     <div className="w-12 h-12 rounded-lg bg-cyan-500/20 flex items-center justify-center text-2xl mb-4">
@@ -111,6 +116,7 @@ import { Card, Cards } from 'fumadocs-ui/components/card';
         <div className="text-sm text-muted-foreground">Level 1 KYC unlocks higher commission tiers</div>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -145,7 +151,16 @@ Navigate to your referral dashboard to view your unique referral code and earnin
         </div>
       </div>
     </div>
+
   </div>
+</div>
+
+<div className="my-8 rounded-xl border border-border overflow-hidden">
+  <Image
+    src={Invites}
+    alt="NYYU Invites Dashboard Overview"
+    className="w-full h-auto"
+  />
 </div>
 
 ### Step 2: Copy Your Referral Link
@@ -176,6 +191,7 @@ Get your unique referral link to share with potential users.
         </div>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -216,6 +232,7 @@ Promote your referral link across various channels to maximize sign-ups.
         <div>• LinkedIn network for professional contacts</div>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -246,6 +263,7 @@ Monitor your referral activity and earnings in real-time.
     <div className="text-sm text-muted-foreground">
       <strong>Referral Details:</strong> View individual referral status, sign-up dates, trading volume, and your commission earned from each user
     </div>
+
   </div>
 </div>
 
@@ -317,6 +335,7 @@ Learn how commission rates increase as you refer more active users.
     <Callout type="info">
       **Active Referral**: A user who has completed KYC Level 1 and has trading volume of at least $100 in the past 30 days
     </Callout>
+
   </div>
 </div>
 
@@ -324,138 +343,65 @@ Learn how commission rates increase as you refer more active users.
 
 Withdraw your referral commissions to your connected wallet.
 
-<div className="rounded-lg border border-blue-500/30 bg-gradient-to-br from-blue-500/5 to-cyan-500/5 p-6 my-6">
+<div className="rounded-lg border border-emerald-500/30 bg-gradient-to-br from-emerald-500/5 to-green-500/5 p-6 my-6">
   <div className="space-y-4">
     <div className="flex items-start gap-3">
       <span className="text-2xl">💳</span>
       <div className="flex-1">
-        <div className="font-bold mb-2">Minimum Withdrawal</div>
-        <div className="text-sm text-muted-foreground">
-          Minimum withdrawal amount is <strong>$50</strong> or equivalent in cryptocurrency
-        </div>
+        <div className="font-bold mb-2">Withdrawal Process</div>
+        <ol className="text-sm text-muted-foreground space-y-2">
+          <li>1. Ensure you have at least <strong>$50</strong> in commission earnings (minimum withdrawal)</li>
+          <li>2. Click the <strong>"Withdraw Earnings"</strong> button</li>
+          <li>3. Select your preferred withdrawal method (USDT, BTC, or ETH)</li>
+          <li>4. Confirm your connected wallet address</li>
+          <li>5. Process completes within 24-48 hours</li>
+        </ol>
       </div>
     </div>
 
     <div className="flex items-start gap-3">
-      <span className="text-2xl">⏱️</span>
+      <span className="text-2xl">📅</span>
       <div className="flex-1">
         <div className="font-bold mb-2">Payout Schedule</div>
         <div className="text-sm text-muted-foreground">
-          Commissions are calculated daily and available for withdrawal within 24 hours
+          Commissions are credited to your account in real-time and are available for withdrawal immediately once they exceed the minimum threshold.
         </div>
       </div>
     </div>
 
-    <div className="flex items-start gap-3">
-      <span className="text-2xl">🔄</span>
-      <div className="flex-1">
-        <div className="font-bold mb-2">Withdrawal Process</div>
-        <div className="text-sm text-muted-foreground space-y-1">
-          <div>1. Click <strong>"Withdraw Earnings"</strong> button</div>
-          <div>2. Select withdrawal currency (BTC, ETH, USDT, etc.)</div>
-          <div>3. Confirm wallet address</div>
-          <div>4. Complete 2FA verification</div>
-          <div>5. Funds sent within 1-4 hours</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-### Step 7: Optimize Your Referral Strategy
-
-Maximize your earnings with proven referral strategies.
-
-<div className="rounded-lg border border-cyan-500/30 bg-gradient-to-br from-cyan-500/5 to-sky-500/5 p-6 my-6">
-  <div className="space-y-4">
-    <div className="font-bold mb-3">Effective Promotion Strategies</div>
-
-    <div className="grid md:grid-cols-2 gap-4">
-      <div className="space-y-2">
-        <div className="flex items-start gap-2 text-sm">
-          <span className="text-cyan-500 mt-0.5">✓</span>
-          <span><strong>Content Creation:</strong> Write reviews, tutorials, or comparison articles</span>
-        </div>
-        <div className="flex items-start gap-2 text-sm">
-          <span className="text-cyan-500 mt-0.5">✓</span>
-          <span><strong>Video Content:</strong> Create YouTube videos or TikTok content</span>
-        </div>
-        <div className="flex items-start gap-2 text-sm">
-          <span className="text-cyan-500 mt-0.5">✓</span>
-          <span><strong>Community Engagement:</strong> Be active in crypto forums and groups</span>
-        </div>
-      </div>
-
-      <div className="space-y-2">
-        <div className="flex items-start gap-2 text-sm">
-          <span className="text-sky-500 mt-0.5">✓</span>
-          <span><strong>Email Marketing:</strong> Build an email list and send newsletters</span>
-        </div>
-        <div className="flex items-start gap-2 text-sm">
-          <span className="text-sky-500 mt-0.5">✓</span>
-          <span><strong>Social Proof:</strong> Share your success stories and earnings</span>
-        </div>
-        <div className="flex items-start gap-2 text-sm">
-          <span className="text-sky-500 mt-0.5">✓</span>
-          <span><strong>Exclusive Offers:</strong> Provide additional value to your referrals</span>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
 ---
 
-## Tips & Tricks
+## Maximizing Your Earnings
 
-<div className="grid md:grid-cols-3 gap-4 my-8">
-  <div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-sky-500/5 p-6">
-    <div className="text-2xl mb-3">📱</div>
-    <h3 className="font-bold mb-2">Use Multiple Channels</h3>
-    <p className="text-sm text-muted-foreground">
-      Don't rely on just one platform. Share your referral link across social media, blogs, forums, and messaging apps for maximum reach.
-    </p>
-  </div>
+<div className="space-y-4 my-8">
+  <Callout type="tip" title="Target Quality Over Quantity">
+    Focus on referring users who will actively trade. One active trader earning you $50/month is worth more than 10 inactive sign-ups earning nothing.
+  </Callout>
 
-  <div className="rounded-xl border border-sky-500/30 bg-gradient-to-br from-sky-500/10 to-blue-500/5 p-6">
-    <div className="text-2xl mb-3">🎯</div>
-    <h3 className="font-bold mb-2">Target the Right Audience</h3>
-    <p className="text-sm text-muted-foreground">
-      Focus on crypto enthusiasts, investors, and traders who are likely to become active users and generate trading volume.
-    </p>
-  </div>
+{" "}
+<Callout type="tip" title="Provide Value">
+  Create helpful content (tutorials, guides, reviews) about NYYU and crypto
+  trading. This builds trust and increases conversion rates.
+</Callout>
 
-  <div className="rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-cyan-500/5 p-6">
-    <div className="text-2xl mb-3">📊</div>
-    <h3 className="font-bold mb-2">Track Your Performance</h3>
-    <p className="text-sm text-muted-foreground">
-      Regularly monitor which channels bring the most active referrals and double down on what works best for you.
-    </p>
-  </div>
+{" "}
+<Callout type="tip" title="Use Multiple Channels">
+  Don't rely on just one platform. Share your referral link on social media,
+  blogs, forums, and with personal contacts for maximum reach.
+</Callout>
 
-  <div className="rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-sky-500/5 p-6">
-    <div className="text-2xl mb-3">💡</div>
-    <h3 className="font-bold mb-2">Provide Value</h3>
-    <p className="text-sm text-muted-foreground">
-      Create helpful content like tutorials, guides, or market analysis to build trust and attract quality referrals who will stay active.
-    </p>
-  </div>
+{" "}
+<Callout type="tip" title="Track What Works">
+  Use different referral codes or UTM parameters to track which channels perform
+  best, then double down on those strategies.
+</Callout>
 
-  <div className="rounded-xl border border-sky-500/30 bg-gradient-to-br from-sky-500/10 to-blue-500/5 p-6">
-    <div className="text-2xl mb-3">🤝</div>
-    <h3 className="font-bold mb-2">Support Your Referrals</h3>
-    <p className="text-sm text-muted-foreground">
-      Help your referrals get started and answer their questions. Active referrals who trade more earn you higher commissions.
-    </p>
-  </div>
-
-  <div className="rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-cyan-500/5 p-6">
-    <div className="text-2xl mb-3">🎁</div>
-    <h3 className="font-bold mb-2">Offer Incentives</h3>
-    <p className="text-sm text-muted-foreground">
-      Consider offering bonuses, guides, or exclusive content to people who sign up using your referral link.
-    </p>
-  </div>
+  <Callout type="tip" title="Stay Engaged">
+    Help your referrals get started, answer questions, and guide them through their first trades. Active referrals earn you more commissions.
+  </Callout>
 </div>
 
 ---
@@ -463,25 +409,123 @@ Maximize your earnings with proven referral strategies.
 ## Common Mistakes to Avoid
 
 <div className="space-y-4 my-8">
-  <Callout type="error" title="Spamming Referral Links">
-    Don't spam your referral link everywhere. This can get you banned from communities and platforms. Focus on providing value and sharing your link organically.
+  <Callout type="error" title="Spamming Your Link">
+    Don't blast your referral link everywhere without context. This can get you banned from communities and platforms. Focus on providing value and sharing your link organically.
   </Callout>
 
-  <Callout type="error" title="Ignoring Quality Over Quantity">
-    Don't just focus on getting as many sign-ups as possible. One active trader is worth more than 100 inactive accounts. Focus on attracting genuine users.
-  </Callout>
+{" "}
+<Callout type="error" title="Ignoring Quality Over Quantity">
+  Don't just focus on getting as many sign-ups as possible. One active trader is
+  worth more than 100 inactive accounts. Focus on attracting genuine users.
+</Callout>
 
-  <Callout type="error" title="Not Tracking Performance">
-    Failing to track which channels and strategies work best means you're wasting effort. Use analytics to optimize your approach and focus on what works.
-  </Callout>
+{" "}
+<Callout type="error" title="Not Tracking Performance">
+  Failing to track which channels and strategies work best means you're wasting
+  effort. Use analytics to optimize your approach and focus on what works.
+</Callout>
 
-  <Callout type="error" title="Forgetting to Withdraw">
-    Don't let your commissions sit idle. Withdraw regularly (above the $50 minimum) to secure your earnings and reinvest or use them as you wish.
-  </Callout>
+{" "}
+<Callout type="error" title="Forgetting to Withdraw">
+  Don't let your commissions sit idle. Withdraw regularly (above the $50
+  minimum) to secure your earnings and reinvest or use them as you wish.
+</Callout>
 
   <Callout type="error" title="Violating Platform Rules">
     Never create fake accounts or engage in fraudulent activity to boost referrals. This will result in account termination and loss of all earnings.
   </Callout>
+</div>
+
+---
+
+## Understanding Commission Breakdown
+
+<div className="my-8 rounded-xl border border-border overflow-hidden">
+  <div className="overflow-x-auto">
+    <table className="w-full text-sm">
+      <thead className="bg-muted/50">
+        <tr>
+          <th className="p-3 text-left font-semibold">Referral Activity</th>
+          <th className="p-3 text-right font-semibold">Your Commission</th>
+        </tr>
+      </thead>
+      <tbody className="divide-y divide-border">
+        <tr>
+          <td className="p-3">Spot Trading Fees</td>
+          <td className="p-3 text-right font-semibold text-cyan-500">10-50%</td>
+        </tr>
+        <tr className="bg-muted/20">
+          <td className="p-3">Margin Trading Fees</td>
+          <td className="p-3 text-right font-semibold text-sky-500">10-50%</td>
+        </tr>
+        <tr>
+          <td className="p-3">Futures Trading Fees</td>
+          <td className="p-3 text-right font-semibold text-blue-500">10-50%</td>
+        </tr>
+        <tr className="bg-muted/20">
+          <td className="p-3">Swap Transactions</td>
+          <td className="p-3 text-right font-semibold text-cyan-500">10-50%</td>
+        </tr>
+        <tr>
+          <td className="p-3">Withdrawal Fees</td>
+          <td className="p-3 text-right font-semibold text-sky-500">10-50%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div className="p-4 bg-muted/30 text-sm text-muted-foreground">
+    <strong>Note:</strong> Commission percentage depends on your tier level.
+    Higher tiers earn higher percentages across all activities.
+  </div>
+</div>
+
+---
+
+## Frequently Asked Questions
+
+<div className="space-y-4 my-8">
+  <div className="rounded-lg border border-border p-5">
+    <div className="font-bold mb-2">How long do commission credits last?</div>
+    <div className="text-sm text-muted-foreground">
+      As long as your referral remains active on the platform, you'll continue earning commissions from their trading activity indefinitely.
+    </div>
+  </div>
+
+{" "}
+<div className="rounded-lg border border-border p-5">
+  <div className="font-bold mb-2">Can I refer users from any country?</div>
+  <div className="text-sm text-muted-foreground">
+    Yes, but ensure the users comply with their local regulations regarding
+    cryptocurrency trading. Some countries may have restrictions.
+  </div>
+</div>
+
+{" "}
+<div className="rounded-lg border border-border p-5">
+  <div className="font-bold mb-2">
+    What happens if my referral becomes inactive?
+  </div>
+  <div className="text-sm text-muted-foreground">
+    They'll no longer count toward your active referral count for tier
+    calculation, but you'll still earn commissions if they trade occasionally.
+  </div>
+</div>
+
+{" "}
+<div className="rounded-lg border border-border p-5">
+  <div className="font-bold mb-2">Can I have multiple referral links?</div>
+  <div className="text-sm text-muted-foreground">
+    You have one main referral code, but you can track different campaigns by
+    using UTM parameters or custom landing pages.
+  </div>
+</div>
+
+  <div className="rounded-lg border border-border p-5">
+    <div className="font-bold mb-2">Is there a limit to how much I can earn?</div>
+    <div className="text-sm text-muted-foreground">
+      No! There's no cap on referral earnings. The more active traders you refer, the more you earn.
+    </div>
+  </div>
 </div>
 
 ---
@@ -497,13 +541,14 @@ Maximize your earnings with proven referral strategies.
     Learn trading basics so you can better explain NYYU to your referrals
   </Card>
 
-  <Card
-    title="Wallet Setup"
-    href="/docs/tutorial/wallet"
-    className="hover:shadow-lg transition-shadow"
-  >
-    Help your referrals set up their wallets securely
-  </Card>
+{" "}
+<Card
+  title="Wallet Setup"
+  href="/docs/tutorial/wallet"
+  className="hover:shadow-lg transition-shadow"
+>
+  Help your referrals set up their wallets securely
+</Card>
 
   <Card
     title="Profile Settings"
@@ -526,11 +571,17 @@ Maximize your earnings with proven referral strategies.
       Our support team is here to help you maximize your referral earnings
     </p>
     <div className="flex flex-wrap gap-4 justify-center">
-      <a href="/docs/troubleshoot" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-cyan-500 text-white hover:bg-cyan-600 transition-colors">
+      <a
+        href="/docs/troubleshoot"
+        className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-cyan-500 text-white hover:bg-cyan-600 transition-colors"
+      >
         <span>📚</span>
         <span>Visit FAQ</span>
       </a>
-      <a href="/docs/corporate/contact-us" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border hover:bg-muted transition-colors">
+      <a
+        href="/docs/corporate/contact-us"
+        className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border hover:bg-muted transition-colors"
+      >
         <span>✉️</span>
         <span>Contact Support</span>
       </a>

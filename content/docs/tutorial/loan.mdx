@@ -3,13 +3,1219 @@ title: NYYU Loan
 description: Access liquidity with crypto-backed loans
 ---
 
-import { Callout } from 'fumadocs-ui/components/callout';
-import { Card, Cards } from 'fumadocs-ui/components/card';
-import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { Callout } from "fumadocs-ui/components/callout";
+import { Card, Cards } from "fumadocs-ui/components/card";
+import { Step, Steps } from "fumadocs-ui/components/steps";
 
----
-id: nyyu-loans
-title: NYYU Loans
-sidebar_label: Loans
-sidebar_position: 6
----
+## NYYU Loan Overview
+
+NYYU Loans allow you to borrow cash or stablecoins using your cryptocurrency as collateral - without selling your assets. This is perfect for accessing liquidity while maintaining exposure to your crypto holdings during bull markets, covering emergency expenses, or leveraging your portfolio for additional investments.
+
+<div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-500/10 via-violet-500/5 to-background p-8 md:p-12 border border-purple-500/20 mb-8">
+  <div className="relative z-10">
+    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/20 border border-purple-500/30 text-sm font-medium mb-4">
+      <span className="relative flex h-2 w-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+      </span>
+      Instant Liquidity
+    </div>
+    <h3 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-500 bg-clip-text text-transparent">
+      Borrow Against Your Crypto
+    </h3>
+    <p className="text-lg text-muted-foreground max-w-2xl mb-6">
+      Access up to 50% of your crypto value as a loan without selling. Keep your
+      Bitcoin, borrow cash, maintain upside potential.
+    </p>
+    <div className="flex flex-wrap gap-4 text-sm">
+      <div className="flex items-center gap-2">
+        <div className="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">
+          <svg
+            className="w-4 h-4 text-purple-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M13 10V3L4 14h7v7l9-11h-7z"
+            />
+          </svg>
+        </div>
+        <span className="text-muted-foreground">Instant Approval</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <div className="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center">
+          <svg
+            className="w-4 h-4 text-violet-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+            />
+          </svg>
+        </div>
+        <span className="text-muted-foreground">No Credit Check</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <div className="w-8 h-8 rounded-lg bg-indigo-500/20 flex items-center justify-center">
+          <svg
+            className="w-4 h-4 text-indigo-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+            />
+          </svg>
+        </div>
+        <span className="text-muted-foreground">Flexible Repayment</span>
+      </div>
+    </div>
+  </div>
+  <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl"></div>
+</div>
+
+### Key Features
+
+<Cards>
+  <Card
+    title="No Selling Required"
+    description="Maintain ownership and upside potential of your crypto while accessing cash or stablecoins."
+  />
+  <Card
+    title="Up to 50% LTV"
+    description="Borrow up to 50% of your collateral value (Loan-to-Value ratio) depending on the asset."
+  />
+  <Card
+    title="Competitive Rates"
+    description="Interest rates from 5-15% APR, significantly lower than credit cards or personal loans."
+  />
+  <Card
+    title="Multiple Collateral Types"
+    description="Use BTC, ETH, and other major cryptocurrencies as collateral for your loan."
+  />
+  <Card
+    title="Flexible Terms"
+    description="Choose loan duration from 7 days to 365 days with options for early repayment without penalties."
+  />
+  <Card
+    title="Instant Funding"
+    description="Receive your loan funds immediately after collateral deposit - no waiting period."
+  />
+</Cards>
+
+## How Crypto Loans Work
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+  <div className="p-6 rounded-xl border border-border bg-card">
+    <div className="text-2xl mb-3">🔐</div>
+    <div className="font-bold text-lg mb-3">Step 1: Lock Collateral</div>
+    <div className="text-sm text-muted-foreground mb-4">
+      You deposit cryptocurrency (like BTC or ETH) into a secure smart contract as collateral. This collateral is locked but remains yours.
+    </div>
+    <div className="text-xs text-muted-foreground p-3 rounded-lg bg-muted/30">
+      Example: Deposit 1 BTC worth $60,000
+    </div>
+  </div>
+
+{" "}
+
+<div className="p-6 rounded-xl border border-border bg-card">
+  <div className="text-2xl mb-3">💰</div>
+  <div className="font-bold text-lg mb-3">Step 2: Receive Loan</div>
+  <div className="text-sm text-muted-foreground mb-4">
+    Based on your collateral value and chosen LTV ratio, you receive cash or
+    stablecoins. Funds arrive instantly in your wallet.
+  </div>
+  <div className="text-xs text-muted-foreground p-3 rounded-lg bg-muted/30">
+    Example: Borrow $30,000 USDT (50% LTV)
+  </div>
+</div>
+
+{" "}
+
+<div className="p-6 rounded-xl border border-border bg-card">
+  <div className="text-2xl mb-3">📊</div>
+  <div className="font-bold text-lg mb-3">Step 3: Maintain Health</div>
+  <div className="text-sm text-muted-foreground mb-4">
+    Monitor your loan health ratio. If collateral value drops and LTV exceeds
+    maximum, you must add more collateral or face liquidation.
+  </div>
+  <div className="text-xs text-muted-foreground p-3 rounded-lg bg-muted/30">
+    Health: 75% (Safe) | 85% (Warning) | 90%+ (Danger)
+  </div>
+</div>
+
+  <div className="p-6 rounded-xl border border-border bg-card">
+    <div className="text-2xl mb-3">✅</div>
+    <div className="font-bold text-lg mb-3">Step 4: Repay & Reclaim</div>
+    <div className="text-sm text-muted-foreground mb-4">
+      Repay the loan amount plus accrued interest anytime before maturity. Upon full repayment, your collateral is immediately unlocked.
+    </div>
+    <div className="text-xs text-muted-foreground p-3 rounded-lg bg-muted/30">
+      Example: Repay $30,000 + $1,200 interest → Receive 1 BTC back
+    </div>
+  </div>
+</div>
+
+## Understanding LTV & Liquidation
+
+<div className="rounded-xl border border-orange-500/30 bg-gradient-to-r from-orange-500/10 to-orange-500/5 p-6 mb-8">
+  <div className="flex items-start gap-3">
+    <svg
+      className="w-6 h-6 text-orange-400 mt-0.5 flex-shrink-0"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+      />
+    </svg>
+    <div className="flex-1">
+      <div className="font-bold text-lg mb-3">CRITICAL: Liquidation Risk</div>
+      <div className="space-y-3 text-sm text-muted-foreground">
+        <div>
+          <strong className="text-foreground">Loan-to-Value (LTV):</strong> The
+          ratio of your loan amount to collateral value. Starting at 50% means
+          you borrow $50,000 against $100,000 collateral.
+        </div>
+        <div>
+          <strong className="text-foreground">Liquidation Threshold:</strong>{" "}
+          When your LTV reaches 80-90% (varies by asset), your collateral gets
+          automatically sold to repay the loan. You lose your crypto AND don't
+          get any excess value back.
+        </div>
+        <div className="p-4 rounded-lg border border-red-500/30 bg-red-500/5 mt-3">
+          <strong className="text-red-400">
+            Example Liquidation Scenario:
+          </strong>
+          <div className="mt-2 space-y-1 text-xs">
+            <div>
+              • You deposit 1 BTC at $60,000 and borrow $30,000 (50% LTV)
+            </div>
+            <div>• BTC drops to $40,000 → Your LTV is now 75% (still safe)</div>
+            <div>• BTC drops to $35,000 → Your LTV is now 85% (WARNING!)</div>
+            <div>• BTC drops to $33,000 → Your LTV hits 90% → LIQUIDATION!</div>
+            <div>• Platform sells your BTC to repay the $30,000 loan</div>
+            <div>
+              • You lose your Bitcoin and potentially owe liquidation fees
+            </div>
+          </div>
+        </div>
+        <div>
+          <strong className="text-foreground">Prevention:</strong> Always
+          maintain LTV below 70%. Add collateral immediately when you receive
+          margin call warnings. Set up price alerts for your collateral assets.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Prerequisites
+
+<div className="rounded-xl border border-border bg-card p-6 mb-8">
+  <div className="flex items-center gap-3 mb-4">
+    <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
+      <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+      </svg>
+    </div>
+    <div className="font-bold text-lg">Before Taking a Loan</div>
+  </div>
+
+  <div className="pl-[52px]">
+    <div className="space-y-3 text-sm">
+      <div className="flex items-start gap-2">
+        <svg className="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+        </svg>
+        <span>Verified NYYU account with completed KYC (Tier 2 minimum)</span>
+      </div>
+      <div className="flex items-start gap-2">
+        <svg className="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+        </svg>
+        <span>Eligible cryptocurrency in your wallet (BTC, ETH, or other approved assets)</span>
+      </div>
+      <div className="flex items-start gap-2">
+        <svg className="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+        </svg>
+        <span>Understanding of liquidation risk and margin calls</span>
+      </div>
+      <div className="flex items-start gap-2">
+        <svg className="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+        </svg>
+        <span>Clear repayment plan - know when and how you'll repay the loan</span>
+      </div>
+      <div className="flex items-start gap-2">
+        <svg className="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+        </svg>
+        <span>Risk tolerance for crypto volatility - can you add collateral if needed?</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Step-by-Step Guide
+
+### Step 1: Access Loan Dashboard
+
+<div className="rounded-xl border border-border bg-card p-6 mb-6">
+  <div className="flex items-center gap-3 mb-4">
+    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500/20 to-purple-500/10 flex items-center justify-center font-bold text-purple-400">
+      1
+    </div>
+    <div className="font-bold text-lg">Navigate to Loans</div>
+  </div>
+
+  <div className="space-y-4 text-sm">
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Open the loan section:</div>
+      <ul className="space-y-2 ml-4">
+        <li className="flex items-start gap-2">
+          <span className="text-purple-400 mt-0.5">•</span>
+          <span>Click "Loan" or "Borrow" from the main navigation menu</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-purple-400 mt-0.5">•</span>
+          <span>View available loan products and current interest rates</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-purple-400 mt-0.5">•</span>
+          <span>Check your eligible collateral assets and their values</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-purple-400 mt-0.5">•</span>
+          <span>Review your active loans if you have any existing positions</span>
+        </li>
+      </ul>
+    </div>
+
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Loan calculator:</div>
+      <div className="p-4 rounded-lg border border-border bg-muted/30 mt-2">
+        <div className="text-xs text-muted-foreground mb-3">
+          Use the built-in calculator to plan your loan before applying
+        </div>
+        <div className="space-y-2 text-xs">
+          <div className="flex items-center justify-between py-1 border-b border-border/50">
+            <span>Collateral Asset:</span>
+            <span className="font-semibold">Select from dropdown</span>
+          </div>
+          <div className="flex items-center justify-between py-1 border-b border-border/50">
+            <span>Collateral Amount:</span>
+            <span className="font-semibold">Enter amount</span>
+          </div>
+          <div className="flex items-center justify-between py-1 border-b border-border/50">
+            <span>Maximum Loan:</span>
+            <span className="font-semibold text-purple-400">Auto-calculated</span>
+          </div>
+          <div className="flex items-center justify-between py-1">
+            <span>Interest Rate:</span>
+            <span className="font-semibold text-purple-400">Based on asset & term</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+### Step 2: Configure Your Loan
+
+<div className="rounded-xl border border-border bg-card p-6 mb-6">
+  <div className="flex items-center gap-3 mb-4">
+    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-violet-500/20 to-violet-500/10 flex items-center justify-center font-bold text-violet-400">
+      2
+    </div>
+    <div className="font-bold text-lg">Set Loan Parameters</div>
+  </div>
+
+  <div className="space-y-4 text-sm">
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Select collateral type:</div>
+      <ol className="space-y-2 ml-4 list-decimal">
+        <li>Choose which cryptocurrency you want to use as collateral</li>
+        <li>Review the LTV ratio for that asset (varies by volatility)</li>
+        <li>Check current interest rate for the chosen collateral</li>
+        <li>Verify you have sufficient balance in your wallet</li>
+      </ol>
+    </div>
+
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Collateral comparison:</div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-3">
+        <div className="p-3 rounded-lg border border-border bg-muted/30">
+          <div className="font-semibold mb-1">Bitcoin (BTC)</div>
+          <div className="text-xs space-y-1">
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Max LTV:</span>
+              <span className="font-semibold text-purple-400">50%</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Interest:</span>
+              <span className="font-semibold">8% APR</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Liquidation:</span>
+              <span className="text-red-400">85% LTV</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="p-3 rounded-lg border border-border bg-muted/30">
+          <div className="font-semibold mb-1">Ethereum (ETH)</div>
+          <div className="text-xs space-y-1">
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Max LTV:</span>
+              <span className="font-semibold text-purple-400">50%</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Interest:</span>
+              <span className="font-semibold">9% APR</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Liquidation:</span>
+              <span className="text-red-400">85% LTV</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="p-3 rounded-lg border border-border bg-muted/30">
+          <div className="font-semibold mb-1">Stablecoins</div>
+          <div className="text-xs space-y-1">
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Max LTV:</span>
+              <span className="font-semibold text-purple-400">90%</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Interest:</span>
+              <span className="font-semibold">5% APR</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Liquidation:</span>
+              <span className="text-red-400">95% LTV</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Choose loan amount and term:</div>
+      <ul className="space-y-2 ml-4">
+        <li className="flex items-start gap-2">
+          <span className="text-violet-400 mt-0.5">•</span>
+          <span>Enter the amount you want to borrow (in USDT, USDC, or other assets)</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-violet-400 mt-0.5">•</span>
+          <span>System calculates required collateral based on selected LTV</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-violet-400 mt-0.5">•</span>
+          <span>Select loan duration: 7, 30, 60, 90, 180, or 365 days</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-violet-400 mt-0.5">•</span>
+          <span>Longer terms may have higher interest rates but more stability</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-violet-400 mt-0.5">•</span>
+          <span>Review total interest you'll pay over the loan period</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<div className="rounded-xl border border-cyan-500/30 bg-gradient-to-r from-cyan-500/10 to-cyan-500/5 p-5 mb-6">
+  <div className="flex items-start gap-3">
+    <svg
+      className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    </svg>
+    <div>
+      <div className="font-bold mb-1">Pro Tip: Conservative Borrowing</div>
+      <div className="text-sm text-muted-foreground">
+        Never borrow the maximum LTV. If you can borrow up to 50%, only borrow
+        30-35%. This gives you a safety buffer if collateral value drops. The
+        extra room prevents liquidation and lets you sleep well at night.
+      </div>
+    </div>
+  </div>
+</div>
+
+### Step 3: Deposit Collateral
+
+<div className="rounded-xl border border-border bg-card p-6 mb-6">
+  <div className="flex items-center gap-3 mb-4">
+    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500/20 to-indigo-500/10 flex items-center justify-center font-bold text-indigo-400">
+      3
+    </div>
+    <div className="font-bold text-lg">Lock Your Collateral</div>
+  </div>
+
+  <div className="space-y-4 text-sm">
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Complete the deposit:</div>
+      <ol className="space-y-2 ml-4 list-decimal">
+        <li>Review the loan summary including all terms and conditions</li>
+        <li>Verify collateral amount, loan amount, LTV ratio, and interest rate</li>
+        <li>Check liquidation threshold and understand the risks</li>
+        <li>Accept terms and conditions (read them carefully!)</li>
+        <li>Click "Deposit Collateral" to lock your assets</li>
+        <li>Collateral is transferred to smart contract escrow</li>
+        <li>Transaction confirmation appears on screen</li>
+      </ol>
+    </div>
+
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">What happens to your collateral:</div>
+      <div className="space-y-2 mt-2">
+        <div className="p-3 rounded-lg border border-border bg-muted/30">
+          <div className="font-semibold mb-1 flex items-center gap-2">
+            <svg className="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            Secure Custody
+          </div>
+          <div className="text-xs text-muted-foreground">
+            Your crypto is held in audited smart contracts, not controlled by NYYU directly
+          </div>
+        </div>
+        <div className="p-3 rounded-lg border border-border bg-muted/30">
+          <div className="font-semibold mb-1 flex items-center gap-2">
+            <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Still Yours
+          </div>
+          <div className="text-xs text-muted-foreground">
+            You retain ownership - the crypto is locked, not sold or transferred permanently
+          </div>
+        </div>
+        <div className="p-3 rounded-lg border border-border bg-muted/30">
+          <div className="font-semibold mb-1 flex items-center gap-2">
+            <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            </svg>
+            Price Exposure
+          </div>
+          <div className="text-xs text-muted-foreground">
+            You maintain full exposure to price appreciation (and depreciation) of the collateral
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+### Step 4: Receive Loan Funds
+
+<div className="rounded-xl border border-border bg-card p-6 mb-6">
+  <div className="flex items-center gap-3 mb-4">
+    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500/20 to-blue-500/10 flex items-center justify-center font-bold text-blue-400">
+      4
+    </div>
+    <div className="font-bold text-lg">Get Your Funds</div>
+  </div>
+
+  <div className="space-y-4 text-sm">
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Loan disbursement:</div>
+      <ul className="space-y-2 ml-4">
+        <li className="flex items-start gap-2">
+          <span className="text-blue-400 mt-0.5">•</span>
+          <span>Loan funds are instantly transferred to your wallet</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-blue-400 mt-0.5">•</span>
+          <span>Receive USDT, USDC, or other stablecoins (your choice)</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-blue-400 mt-0.5">•</span>
+          <span>Can withdraw to external wallet or bank account</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-blue-400 mt-0.5">•</span>
+          <span>Interest starts accruing immediately</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-blue-400 mt-0.5">•</span>
+          <span>Loan details appear in your active loans dashboard</span>
+        </li>
+      </ul>
+    </div>
+
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Loan confirmation example:</div>
+      <div className="p-4 rounded-lg border border-purple-500/30 bg-purple-500/5 mt-2">
+        <div className="space-y-2 text-xs">
+          <div className="flex items-center justify-between py-1 border-b border-border/50">
+            <span className="text-muted-foreground">Collateral:</span>
+            <span className="font-semibold">1.5 ETH @ $3,000 = $4,500</span>
+          </div>
+          <div className="flex items-center justify-between py-1 border-b border-border/50">
+            <span className="text-muted-foreground">Loan Amount:</span>
+            <span className="font-semibold">$2,000 USDT</span>
+          </div>
+          <div className="flex items-center justify-between py-1 border-b border-border/50">
+            <span className="text-muted-foreground">LTV Ratio:</span>
+            <span className="font-semibold text-green-400">44% (Safe)</span>
+          </div>
+          <div className="flex items-center justify-between py-1 border-b border-border/50">
+            <span className="text-muted-foreground">Interest Rate:</span>
+            <span className="font-semibold">9% APR</span>
+          </div>
+          <div className="flex items-center justify-between py-1 border-b border-border/50">
+            <span className="text-muted-foreground">Loan Term:</span>
+            <span className="font-semibold">90 days</span>
+          </div>
+          <div className="flex items-center justify-between py-1 border-b border-border/50">
+            <span className="text-muted-foreground">Total Interest:</span>
+            <span className="font-semibold">$45</span>
+          </div>
+          <div className="flex items-center justify-between py-1 border-b border-border/50">
+            <span className="text-muted-foreground">Liquidation Price:</span>
+            <span className="font-semibold text-red-400">ETH below $1,568</span>
+          </div>
+          <div className="flex items-center justify-between py-1 pt-2">
+            <span className="text-muted-foreground">Total Repayment:</span>
+            <span className="font-bold text-purple-400">$2,045 USDT</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+### Step 5: Monitor Loan Health
+
+<div className="rounded-xl border border-border bg-card p-6 mb-6">
+  <div className="flex items-center gap-3 mb-4">
+    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-teal-500/20 to-teal-500/10 flex items-center justify-center font-bold text-teal-400">
+      5
+    </div>
+    <div className="font-bold text-lg">Track Your Position</div>
+  </div>
+
+  <div className="space-y-4 text-sm">
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Monitor these metrics daily:</div>
+      <ul className="space-y-2 ml-4">
+        <li className="flex items-start gap-2">
+          <span className="text-teal-400 mt-0.5">•</span>
+          <span><strong>Current LTV:</strong> Should always stay below 70% for safety</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-teal-400 mt-0.5">•</span>
+          <span><strong>Collateral Value:</strong> Track real-time price of your locked crypto</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-teal-400 mt-0.5">•</span>
+          <span><strong>Health Ratio:</strong> Green (safe), Yellow (warning), Red (danger)</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-teal-400 mt-0.5">•</span>
+          <span><strong>Accrued Interest:</strong> See how much you owe so far</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-teal-400 mt-0.5">•</span>
+          <span><strong>Days Remaining:</strong> Time until loan maturity</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-teal-400 mt-0.5">•</span>
+          <span><strong>Liquidation Price:</strong> Price at which you'll be liquidated</span>
+        </li>
+      </ul>
+    </div>
+
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Health status indicators:</div>
+      <div className="space-y-2 mt-2">
+        <div className="p-3 rounded-lg border border-green-500/30 bg-green-500/5">
+          <div className="font-semibold mb-1 flex items-center gap-2 text-green-400">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Healthy (LTV below 70%)
+          </div>
+          <div className="text-xs text-muted-foreground">
+            Your loan is safe. No action needed. Continue monitoring regularly.
+          </div>
+        </div>
+        <div className="p-3 rounded-lg border border-yellow-500/30 bg-yellow-500/5">
+          <div className="font-semibold mb-1 flex items-center gap-2 text-yellow-400">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+            Warning (LTV 70-80%)
+          </div>
+          <div className="text-xs text-muted-foreground">
+            Margin call zone. Consider adding collateral or partially repaying the loan soon.
+          </div>
+        </div>
+        <div className="p-3 rounded-lg border border-red-500/30 bg-red-500/5">
+          <div className="font-semibold mb-1 flex items-center gap-2 text-red-400">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Critical (LTV above 80%)
+          </div>
+          <div className="text-xs text-muted-foreground">
+            URGENT! Add collateral immediately or face liquidation. You may have 24-48 hours.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Set up alerts:</div>
+      <ul className="space-y-2 ml-4 text-xs">
+        <li className="flex items-start gap-2">
+          <span className="text-teal-400 mt-0.5">•</span>
+          <span>Enable email/SMS notifications for LTV changes</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-teal-400 mt-0.5">•</span>
+          <span>Set custom alerts at 60%, 70%, and 80% LTV</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-teal-400 mt-0.5">•</span>
+          <span>Configure price alerts for your collateral asset</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-teal-400 mt-0.5">•</span>
+          <span>Download the mobile app for push notifications</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+### Step 6: Manage Your Loan
+
+<div className="rounded-xl border border-border bg-card p-6 mb-6">
+  <div className="flex items-center gap-3 mb-4">
+    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-cyan-500/10 flex items-center justify-center font-bold text-cyan-400">
+      6
+    </div>
+    <div className="font-bold text-lg">Maintain Loan Health</div>
+  </div>
+
+  <div className="space-y-4 text-sm">
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Adding collateral (if LTV rises):</div>
+      <ol className="space-y-2 ml-4 list-decimal">
+        <li>Navigate to your active loan</li>
+        <li>Click "Add Collateral"</li>
+        <li>Enter additional crypto amount to deposit</li>
+        <li>Review new LTV ratio after addition</li>
+        <li>Confirm transaction</li>
+        <li>Collateral is added instantly, LTV drops immediately</li>
+      </ol>
+    </div>
+
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Partial repayment (reduce risk):</div>
+      <ol className="space-y-2 ml-4 list-decimal">
+        <li>Go to active loan dashboard</li>
+        <li>Click "Partial Repayment"</li>
+        <li>Enter amount to repay (minimum $100 typically)</li>
+        <li>See updated LTV after partial repayment</li>
+        <li>Interest savings from reduced principal are calculated</li>
+        <li>Confirm repayment from your wallet</li>
+        <li>Loan balance updates immediately</li>
+      </ol>
+    </div>
+
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Extending loan term:</div>
+      <ul className="space-y-2 ml-4">
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span>Before maturity, request term extension</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span>Pay accrued interest to date</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span>Select new term length (30, 60, 90 days)</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span>May incur extension fee (typically 1-2%)</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span>New interest rate applies based on current market</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+### Step 7: Repay and Reclaim
+
+<div className="rounded-xl border border-border bg-card p-6 mb-6">
+  <div className="flex items-center gap-3 mb-4">
+    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-green-500/20 to-green-500/10 flex items-center justify-center font-bold text-green-400">
+      7
+    </div>
+    <div className="font-bold text-lg">Complete Repayment</div>
+  </div>
+
+  <div className="space-y-4 text-sm">
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Full repayment process:</div>
+      <ol className="space-y-2 ml-4 list-decimal">
+        <li>Navigate to your active loan</li>
+        <li>Click "Repay Loan" or "Full Repayment"</li>
+        <li>System calculates total amount due (principal + interest)</li>
+        <li>Review repayment summary and final costs</li>
+        <li>Ensure sufficient funds in your wallet</li>
+        <li>Confirm full repayment transaction</li>
+        <li>Loan is marked as completed</li>
+        <li>Collateral is automatically unlocked and returned to your wallet</li>
+        <li>Receive confirmation and loan summary</li>
+      </ol>
+    </div>
+
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Repayment options:</div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
+        <div className="p-3 rounded-lg border border-border bg-muted/30">
+          <div className="font-semibold mb-1">Early Repayment</div>
+          <div className="text-xs text-muted-foreground mb-2">
+            Repay anytime before maturity
+          </div>
+          <div className="text-xs">
+            <div className="flex items-center gap-1 text-green-400">
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              No prepayment penalty
+            </div>
+            <div className="flex items-center gap-1 text-green-400">
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              Save on interest costs
+            </div>
+          </div>
+        </div>
+
+        <div className="p-3 rounded-lg border border-border bg-muted/30">
+          <div className="font-semibold mb-1">At Maturity</div>
+          <div className="text-xs text-muted-foreground mb-2">
+            Repay on due date
+          </div>
+          <div className="text-xs">
+            <div className="flex items-center gap-1 text-yellow-400">
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              Set calendar reminder
+            </div>
+            <div className="flex items-center gap-1 text-yellow-400">
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              Auto-extend option available
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">What if you can't repay?</div>
+      <div className="p-4 rounded-lg border border-red-500/30 bg-red-500/5 mt-2">
+        <div className="text-xs space-y-2">
+          <div>
+            <strong className="text-red-400">Option 1: Extend the Loan</strong>
+            <div className="text-muted-foreground mt-1">Pay accrued interest and extend for another term (fees apply)</div>
+          </div>
+          <div>
+            <strong className="text-red-400">Option 2: Partial Repayment</strong>
+            <div className="text-muted-foreground mt-1">Pay down some principal to reduce liquidation risk and buy time</div>
+          </div>
+          <div>
+            <strong className="text-red-400">Option 3: Add Collateral</strong>
+            <div className="text-muted-foreground mt-1">Deposit more crypto to improve LTV and avoid liquidation</div>
+          </div>
+          <div>
+            <strong className="text-red-400">Option 4: Default & Liquidation</strong>
+            <div className="text-muted-foreground mt-1">Platform sells collateral to repay loan. You lose your crypto and may owe liquidation fees.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+## Common Mistakes to Avoid
+
+<div className="space-y-4 mb-8">
+  <Callout type="error" title="Borrowing Maximum LTV">
+    Never borrow at 50% LTV. If your collateral drops 20-30% (common in crypto), you'll face liquidation. Always borrow at 30-40% LTV maximum to give yourself breathing room. The extra liquidity isn't worth losing all your collateral.
+  </Callout>
+
+{" "}
+
+<Callout type="error" title="Not Monitoring During Volatility">
+  Check your loan health multiple times per day during volatile markets. Set up
+  price alerts and LTV notifications. Many users get liquidated because they
+  "forgot" to check their position during a crash.
+</Callout>
+
+{" "}
+
+<Callout type="error" title="Using Loans for Leverage Trading">
+  Taking a loan to buy more crypto is extremely risky. If prices drop, you'll
+  need to repay the loan AND face losses on your new purchases. Only use loans
+  for legitimate liquidity needs, not speculation.
+</Callout>
+
+{" "}
+
+<Callout type="error" title="Ignoring Margin Calls">
+  When you receive a margin call warning (usually at 70-75% LTV), act
+  immediately. Don't wait "to see if the price recovers." Add collateral or
+  repay within 24 hours. Waiting = liquidation.
+</Callout>
+
+{" "}
+
+<Callout type="error" title="No Repayment Plan">
+  Don't take a loan without knowing exactly how and when you'll repay it. "I'll
+  figure it out later" leads to defaults. Have the repayment funds ready or
+  scheduled before taking the loan.
+</Callout>
+
+  <Callout type="error" title="Borrowing for Daily Expenses">
+    Crypto loans are for strategic liquidity needs, not paying bills. The interest rates (8-15% APR) and liquidation risk make this a terrible option for everyday expenses. Use traditional credit or savings instead.
+  </Callout>
+</div>
+
+## Understanding Liquidation
+
+<div className="rounded-xl border border-red-500/30 bg-gradient-to-r from-red-500/10 to-red-500/5 p-6 mb-8">
+  <div className="flex items-start gap-3">
+    <svg
+      className="w-6 h-6 text-red-400 mt-0.5 flex-shrink-0"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+      />
+    </svg>
+    <div className="flex-1">
+      <div className="font-bold text-lg mb-3">
+        Liquidation Process Explained
+      </div>
+      <div className="space-y-3 text-sm text-muted-foreground">
+        <div>
+          <strong className="text-foreground">When it happens:</strong> When
+          your LTV ratio exceeds the liquidation threshold (typically 85-90%),
+          the platform automatically sells your collateral to repay the loan.
+        </div>
+        <div>
+          <strong className="text-foreground">What you lose:</strong> Your
+          entire collateral is sold. You receive NOTHING back, even if the
+          collateral value exceeds the loan amount. Any excess goes to the
+          platform as liquidation fees (usually 10-15%).
+        </div>
+        <div>
+          <strong className="text-foreground">Timeline:</strong> Liquidation is
+          usually automatic and instant. There's no grace period or opportunity
+          to fix it once the threshold is crossed. Some platforms give a 24-48
+          hour margin call window before liquidation.
+        </div>
+        <div>
+          <strong className="text-foreground">Example scenario:</strong>
+          <div className="p-3 rounded-lg border border-border bg-muted/30 mt-2 space-y-1 text-xs">
+            <div>1. Deposit 2 BTC at $60,000 = $120,000 collateral</div>
+            <div>2. Borrow $50,000 USDT (41.7% LTV)</div>
+            <div>3. BTC crashes to $33,000 → 2 BTC now worth $66,000</div>
+            <div>4. Your LTV jumps to 75.7% → Margin call warning</div>
+            <div>5. BTC drops further to $29,000 → 2 BTC worth $58,000</div>
+            <div>6. LTV now 86% → Liquidation triggered</div>
+            <div>7. Platform sells your 2 BTC for $58,000</div>
+            <div>
+              8. Platform takes $50,000 loan + $3,000 interest + $5,000
+              liquidation fee
+            </div>
+            <div>
+              9. You get NOTHING. You lost 2 BTC and still owe potential fees if
+              sale didn't cover costs
+            </div>
+          </div>
+        </div>
+        <div>
+          <strong className="text-foreground">Prevention:</strong> Keep LTV
+          under 60%, set aggressive price alerts, maintain emergency collateral
+          reserves, check position daily during volatility, and add collateral
+          at first warning sign.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Pro Tips for Smart Borrowing
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+  <div className="p-5 rounded-xl border border-purple-500/30 bg-purple-500/5">
+    <div className="flex items-center gap-2 mb-3">
+      <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+      </svg>
+      <div className="font-bold">Use Stablecoins as Collateral</div>
+    </div>
+    <div className="text-sm text-muted-foreground">
+      If available, use stablecoins as collateral with 90% LTV. No liquidation risk from price volatility, and you can borrow against assets you weren't holding for appreciation anyway.
+    </div>
+  </div>
+
+{" "}
+
+<div className="p-5 rounded-xl border border-violet-500/30 bg-violet-500/5">
+  <div className="flex items-center gap-2 mb-3">
+    <svg
+      className="w-5 h-5 text-violet-400"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    </svg>
+    <div className="font-bold">Keep Emergency Collateral</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    Always keep 20-30% extra collateral in your wallet ready to deposit
+    instantly during flash crashes. This emergency fund has saved countless
+    loans from liquidation.
+  </div>
+</div>
+
+{" "}
+
+<div className="p-5 rounded-xl border border-indigo-500/30 bg-indigo-500/5">
+  <div className="flex items-center gap-2 mb-3">
+    <svg
+      className="w-5 h-5 text-indigo-400"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+      />
+    </svg>
+    <div className="font-bold">Borrow in Bear, Repay in Bull</div>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    Take loans during bear markets when you need liquidity but don't want to
+    sell at losses. Repay during bull markets when your collateral has
+    appreciated and you have profits to cover the loan.
+  </div>
+</div>
+
+  <div className="p-5 rounded-xl border border-blue-500/30 bg-blue-500/5">
+    <div className="flex items-center gap-2 mb-3">
+      <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+      </svg>
+      <div className="font-bold">Calculate Total Cost First</div>
+    </div>
+    <div className="text-sm text-muted-foreground">
+      Before taking a loan, calculate total cost: (loan amount × interest rate × time) + potential liquidation risk. Compare this to just selling a small portion of your crypto - sometimes selling 20% is better than risking 100%.
+    </div>
+  </div>
+</div>
+
+## Next Steps
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+  <a href="/docs/tutorial/save" className="p-5 rounded-xl border border-border bg-card hover:border-purple-500/50 hover:bg-purple-500/5 transition-all group">
+    <div className="text-2xl mb-3">💰</div>
+    <div className="font-bold mb-2 group-hover:text-purple-400 transition-colors">Earn Interest</div>
+    <div className="text-sm text-muted-foreground mb-3">
+      Use your loan proceeds to earn interest through NYYU Save and offset borrowing costs
+    </div>
+    <div className="text-xs text-purple-400 flex items-center gap-1">
+      Learn About Savings
+      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+      </svg>
+    </div>
+  </a>
+
+{" "}
+
+<a
+  href="/docs/tutorial/wallet"
+  className="p-5 rounded-xl border border-border bg-card hover:border-purple-500/50 hover:bg-purple-500/5 transition-all group"
+>
+  <div className="text-2xl mb-3">💼</div>
+  <div className="font-bold mb-2 group-hover:text-purple-400 transition-colors">
+    Wallet Management
+  </div>
+  <div className="text-sm text-muted-foreground mb-3">
+    Learn to manage collateral assets and loan repayment from your NYYU wallet
+  </div>
+  <div className="text-xs text-purple-400 flex items-center gap-1">
+    Setup Wallet
+    <svg
+      className="w-3 h-3"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M9 5l7 7-7 7"
+      />
+    </svg>
+  </div>
+</a>
+
+  <a href="/docs/tutorial/trade" className="p-5 rounded-xl border border-border bg-card hover:border-purple-500/50 hover:bg-purple-500/5 transition-all group">
+    <div className="text-2xl mb-3">📈</div>
+    <div className="font-bold mb-2 group-hover:text-purple-400 transition-colors">Trading Guide</div>
+    <div className="text-sm text-muted-foreground mb-3">
+      Use borrowed funds strategically for trading opportunities (only for experienced traders)
+    </div>
+    <div className="text-xs text-purple-400 flex items-center gap-1">
+      Learn Trading
+      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+      </svg>
+    </div>
+  </a>
+</div>
+
+## Need Help?
+
+<div className="rounded-xl border border-border bg-card p-6">
+  <div className="flex items-start gap-4">
+    <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center flex-shrink-0">
+      <svg
+        className="w-5 h-5 text-purple-400"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
+        />
+      </svg>
+    </div>
+    <div className="flex-1">
+      <div className="font-bold text-lg mb-2">Questions About Loans?</div>
+      <div className="text-sm text-muted-foreground mb-4">
+        Crypto loans involve significant risk. Our support team can help you
+        understand the risks, choose appropriate LTV ratios, and set up proper
+        monitoring. Don't hesitate to reach out before taking your first loan.
+      </div>
+      <div className="flex flex-wrap gap-3">
+        <a
+          href="/docs/troubleshoot"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-500 text-white hover:bg-purple-600 transition-colors text-sm font-medium"
+        >
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span>Visit FAQ</span>
+        </a>
+        <a
+          href="/docs/corporate/contact-us"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border hover:bg-muted transition-colors text-sm font-medium"
+        >
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+            />
+          </svg>
+          <span>Contact Support</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

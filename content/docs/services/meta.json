@@ -6,13 +6,13 @@
     "real-estate-listing",
     "commodity-listing",
     "utility-listing",
+    "de-listing",
     "staking",
     "loan",
     "fees",
-    "bug-bounty",
-    "affiliate-program",
-    "de-listing",
+    "currencies",
     "proof-of-reserves",
-    "currencies"
+    "affiliate-program",
+    "bug-bounty"
   ]
 }

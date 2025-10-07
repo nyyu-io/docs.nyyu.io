@@ -3,11 +3,31 @@ title: Master Trading on NYYU
 description: Complete guide to trading cryptocurrencies with market and limit orders, risk management, and technical analysis
 ---
 
+import Image from "next/image";
+import Trade from "@/public/img/Trade.png";
+import TradeMarketData from "@/public/img/TradeMarketData.png";
+import AdvancedChartingTools from "@/public/img/AdvancedChartingTools.png";
+import OrderBook from "@/public/img/OrderBook.png";
+import PlaceLimitOrder from "@/public/img/PlaceLimitOrder.png";
+import MarketTrades from "@/public/img/MarketTrades.png";
+import OpenOrders from "@/public/img/OpenOrders.png";
+import TradingPairs from "@/public/img/TradingPairs.png";
+
 <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-cyan-500/10 via-sky-500/5 to-background p-8 md:p-12 border border-cyan-500/20 mb-8">
   <div className="relative z-10">
     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-500/30 text-sm font-medium mb-4">
-      <svg className="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+      <svg
+        className="w-4 h-4 text-cyan-400"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
+        />
       </svg>
       Trading Tutorial
     </div>
@@ -15,71 +35,91 @@ description: Complete guide to trading cryptocurrencies with market and limit or
       Master Trading on NYYU
     </h1>
     <p className="text-xl text-muted-foreground max-w-2xl mb-6">
-      Learn to execute trades like a pro with market and limit orders, understand the order book, manage risk effectively, and use advanced trading tools to maximize your profits.
+      Learn to execute trades like a pro with market and limit orders,
+      understand the order book, manage risk effectively, and use advanced
+      trading tools to maximize your profits.
     </p>
-    <div className="flex flex-wrap gap-3">
-      <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-cyan-500/10 border border-cyan-500/20">
-        <svg className="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-        <span className="text-sm font-medium">15 min read</span>
-      </div>
-      <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-yellow-500/10 border border-yellow-500/20">
-        <svg className="w-4 h-4 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-        <span className="text-sm font-medium">Intermediate Level</span>
-      </div>
-      <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-red-500/10 border border-red-500/20">
-        <svg className="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-        </svg>
-        <span className="text-sm font-medium">Risk Management Essential</span>
-      </div>
-    </div>
   </div>
-  <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
-  <div className="absolute bottom-0 left-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl"></div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-sky-500/5 rounded-full blur-3xl"></div>
+</div>
+
+## NYYU Trade Overview
+
+The NYYU Trade section provides comprehensive trading capabilities with real-time data, advanced charting tools, and an intuitive interface for executing trades efficiently.
+
+<div className="my-8 rounded-xl border border-border overflow-hidden">
+  <Image
+    src={Trade}
+    alt="NYYU Trade Interface Overview"
+    className="w-full h-auto"
+  />
 </div>
 
 ## What You'll Learn
 
-<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
   <div className="p-4 rounded-xl border border-border bg-card">
     <div className="flex items-center gap-3 mb-2">
       <div className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center">
         <svg className="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
         </svg>
       </div>
       <span className="font-semibold">Order Types</span>
     </div>
-    <p className="text-sm text-muted-foreground">Master market, limit, and stop-limit orders for different trading strategies</p>
+    <p className="text-sm text-muted-foreground">Master limit, market, and stop-limit orders for different strategies</p>
   </div>
 
-  <div className="p-4 rounded-xl border border-border bg-card">
-    <div className="flex items-center gap-3 mb-2">
-      <div className="w-8 h-8 rounded-lg bg-sky-500/20 flex items-center justify-center">
-        <svg className="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-        </svg>
-      </div>
-      <span className="font-semibold">Order Book Analysis</span>
+{" "}
+<div className="p-4 rounded-xl border border-border bg-card">
+  <div className="flex items-center gap-3 mb-2">
+    <div className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center">
+      <svg
+        className="w-4 h-4 text-cyan-400"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+        />
+      </svg>
     </div>
-    <p className="text-sm text-muted-foreground">Read and interpret buy/sell walls, market depth, and liquidity levels</p>
+    <span className="font-semibold">Order Book Analysis</span>
   </div>
+  <p className="text-sm text-muted-foreground">
+    Read market depth and identify support/resistance levels
+  </p>
+</div>
 
-  <div className="p-4 rounded-xl border border-border bg-card">
-    <div className="flex items-center gap-3 mb-2">
-      <div className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">
-        <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-        </svg>
-      </div>
-      <span className="font-semibold">Risk Management</span>
+{" "}
+<div className="p-4 rounded-xl border border-border bg-card">
+  <div className="flex items-center gap-3 mb-2">
+    <div className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center">
+      <svg
+        className="w-4 h-4 text-cyan-400"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+        />
+      </svg>
     </div>
-    <p className="text-sm text-muted-foreground">Set stop losses, manage position sizes, and protect your capital</p>
+    <span className="font-semibold">Risk Management</span>
   </div>
+  <p className="text-sm text-muted-foreground">
+    Set stop losses, manage position sizes, and protect your capital
+  </p>
+</div>
 
   <div className="p-4 rounded-xl border border-border bg-card">
     <div className="flex items-center gap-3 mb-2">
@@ -99,36 +139,92 @@ description: Complete guide to trading cryptocurrencies with market and limit or
 <div className="rounded-xl border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-blue-500/5 p-6 mb-8">
   <div className="flex items-start gap-4">
     <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center flex-shrink-0">
-      <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+      <svg
+        className="w-5 h-5 text-blue-400"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+        />
       </svg>
     </div>
     <div className="flex-1">
       <div className="font-bold text-lg mb-3">Before You Start</div>
       <div className="space-y-2 text-sm">
         <div className="flex items-start gap-2">
-          <svg className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          <svg
+            className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5 13l4 4L19 7"
+            />
           </svg>
           <span>Funded NYYU wallet with crypto or fiat to trade</span>
         </div>
         <div className="flex items-start gap-2">
-          <svg className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          <svg
+            className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5 13l4 4L19 7"
+            />
           </svg>
-          <span>Complete wallet tutorial (understanding deposits/withdrawals)</span>
+          <span>
+            Complete wallet tutorial (understanding deposits/withdrawals)
+          </span>
         </div>
         <div className="flex items-start gap-2">
-          <svg className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          <svg
+            className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5 13l4 4L19 7"
+            />
           </svg>
-          <span>Basic understanding of cryptocurrency markets and price charts</span>
+          <span>
+            Basic understanding of cryptocurrency markets and price charts
+          </span>
         </div>
         <div className="flex items-start gap-2">
-          <svg className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          <svg
+            className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5 13l4 4L19 7"
+            />
           </svg>
-          <span>Risk capital only - never trade with money you can't afford to lose</span>
+          <span>
+            Risk capital only - never trade with money you can't afford to lose
+          </span>
         </div>
       </div>
     </div>
@@ -157,63 +253,109 @@ description: Complete guide to trading cryptocurrencies with market and limit or
         </li>
         <li className="flex items-start gap-2">
           <span className="text-cyan-400 mt-0.5">•</span>
-          <span>View live market data at the top (current price, 24h change, volume)</span>
+          <span>Select your preferred trading pair (e.g., BTC/USDT)</span>
         </li>
         <li className="flex items-start gap-2">
           <span className="text-cyan-400 mt-0.5">•</span>
-          <span>Chart displays on the left, order book on the right</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <span className="text-cyan-400 mt-0.5">•</span>
-          <span>Trading panel at the bottom for placing orders</span>
+          <span>Choose between Spot, Margin, or Futures trading</span>
         </li>
       </ul>
     </div>
   </div>
 </div>
 
-### Step 2: Choose Your Trading Pair
+### Step 2: Understanding Market Data
 
 <div className="rounded-xl border border-border bg-card p-6 mb-6">
   <div className="flex items-center gap-3 mb-4">
-    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-sky-500/20 to-sky-500/10 flex items-center justify-center font-bold text-sky-400">
+    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-cyan-500/10 flex items-center justify-center font-bold text-cyan-400">
       2
     </div>
-    <div className="font-bold text-lg">Select Assets to Trade</div>
+    <div className="font-bold text-lg">Analyze Real-Time Market Information</div>
   </div>
 
   <div className="space-y-4 text-sm">
     <div className="pl-[52px]">
-      <div className="font-semibold mb-2">Finding trading pairs:</div>
-      <ol className="space-y-2 ml-4 list-decimal">
-        <li>Click the trading pair dropdown (e.g., BTC/USDT)</li>
-        <li>Use the search bar to find specific cryptocurrencies</li>
-        <li>Filter by base currency (USDT, BTC, ETH, BNB)</li>
-        <li>Check trading volume and liquidity before selecting</li>
-        <li>Review the 24h price change percentage</li>
-      </ol>
-    </div>
-
-    <div className="pl-[52px]">
-      <div className="font-semibold mb-2">Popular trading pairs:</div>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mt-2">
-        <div className="px-3 py-2 rounded-lg bg-muted/50 text-xs font-mono">BTC/USDT</div>
-        <div className="px-3 py-2 rounded-lg bg-muted/50 text-xs font-mono">ETH/USDT</div>
-        <div className="px-3 py-2 rounded-lg bg-muted/50 text-xs font-mono">BNB/USDT</div>
-        <div className="px-3 py-2 rounded-lg bg-muted/50 text-xs font-mono">SOL/USDT</div>
-        <div className="px-3 py-2 rounded-lg bg-muted/50 text-xs font-mono">ADA/USDT</div>
-        <div className="px-3 py-2 rounded-lg bg-muted/50 text-xs font-mono">XRP/USDT</div>
-      </div>
+      <div className="font-semibold mb-2">Key market metrics to monitor:</div>
+      <ul className="space-y-2 ml-4">
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span><strong>Current Price:</strong> Latest trading price for the pair</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span><strong>24h Change:</strong> Percentage price movement in last 24 hours</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span><strong>24h High/Low:</strong> Price range boundaries</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span><strong>24h Volume:</strong> Total trading activity</span>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
 
-### Step 3: Understand the Order Book
+<div className="my-8 rounded-xl border border-border overflow-hidden">
+  <Image
+    src={TradeMarketData}
+    alt="Market Data Display"
+    className="w-full h-auto max-w-4xl mx-auto"
+  />
+</div>
+
+### Step 3: Utilize Advanced Charting Tools
 
 <div className="rounded-xl border border-border bg-card p-6 mb-6">
   <div className="flex items-center gap-3 mb-4">
-    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500/20 to-blue-500/10 flex items-center justify-center font-bold text-blue-400">
+    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-cyan-500/10 flex items-center justify-center font-bold text-cyan-400">
       3
+    </div>
+    <div className="font-bold text-lg">Perform Technical Analysis</div>
+  </div>
+
+  <div className="space-y-4 text-sm">
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Available chart features:</div>
+      <ul className="space-y-2 ml-4">
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span><strong>Time Frames:</strong> 1m, 5m, 15m, 1H, 4H, 1D, 1W, 1M</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span><strong>Chart Types:</strong> Candlestick, Line, Area, Depth</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span><strong>Indicators:</strong> MA, EMA, MACD, RSI, Bollinger Bands</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-cyan-400 mt-0.5">•</span>
+          <span><strong>Drawing Tools:</strong> Trend lines, support/resistance levels</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div className="my-8 rounded-xl border border-border overflow-hidden">
+  <Image
+    src={AdvancedChartingTools}
+    alt="Advanced Charting Tools Interface"
+    className="w-full h-auto max-w-3xl mx-auto"
+  />
+</div>
+
+### Step 4: Understanding the Order Book
+
+<div className="rounded-xl border border-border bg-card p-6 mb-6">
+  <div className="flex items-center gap-3 mb-4">
+    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-green-500/20 to-green-500/10 flex items-center justify-center font-bold text-green-400">
+      4
     </div>
     <div className="font-bold text-lg">Read Market Depth</div>
   </div>
@@ -221,87 +363,80 @@ description: Complete guide to trading cryptocurrencies with market and limit or
   <div className="space-y-4 text-sm">
     <div className="pl-[52px]">
       <div className="font-semibold mb-2">Order book components:</div>
-      <div className="space-y-3">
-        <div className="p-3 rounded-lg border border-green-500/30 bg-green-500/5">
-          <div className="font-semibold mb-1 text-green-400">Buy Orders (Bids)</div>
-          <ul className="space-y-1 text-xs text-muted-foreground">
-            <li>• Displayed in green on the left side</li>
-            <li>• Shows price and amount buyers are willing to pay</li>
-            <li>• Higher prices appear at the top</li>
-          </ul>
-        </div>
-
-        <div className="p-3 rounded-lg border border-red-500/30 bg-red-500/5">
-          <div className="font-semibold mb-1 text-red-400">Sell Orders (Asks)</div>
-          <ul className="space-y-1 text-xs text-muted-foreground">
-            <li>• Displayed in red on the right side</li>
-            <li>• Shows price and amount sellers are asking</li>
-            <li>• Lower prices appear at the bottom</li>
-          </ul>
-        </div>
-
-        <div className="p-3 rounded-lg border border-border bg-muted/30">
-          <div className="font-semibold mb-1">Spread</div>
-          <div className="text-xs text-muted-foreground">
-            The difference between the highest buy order and lowest sell order. Smaller spreads indicate better liquidity.
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-### Step 4: Place Your First Trade
-
-<div className="rounded-xl border border-border bg-card p-6 mb-6">
-  <div className="flex items-center gap-3 mb-4">
-    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-cyan-500/10 flex items-center justify-center font-bold text-cyan-400">
-      4
-    </div>
-    <div className="font-bold text-lg">Execute a Limit Order</div>
-  </div>
-
-  <div className="space-y-4 text-sm">
-    <div className="pl-[52px]">
-      <div className="font-semibold mb-2">Placing a limit order:</div>
-      <ol className="space-y-2 ml-4 list-decimal">
-        <li>Select "Limit" order type in the trading panel</li>
-        <li>Choose Buy or Sell based on your trade direction</li>
-        <li>Enter your desired price per unit</li>
-        <li>Input the amount you want to trade</li>
-        <li>Review total cost (price × amount) + fees</li>
-        <li>Check that you have sufficient balance</li>
-        <li>Click "Buy [Asset]" or "Sell [Asset]"</li>
-        <li>Confirm the order details in the popup</li>
-      </ol>
-    </div>
-
-    <div className="pl-[52px]">
-      <div className="font-semibold mb-2">Order execution:</div>
       <ul className="space-y-2 ml-4">
         <li className="flex items-start gap-2">
-          <span className="text-cyan-400 mt-0.5">•</span>
-          <span>Limit orders only execute at your specified price or better</span>
+          <span className="text-green-400 mt-0.5">•</span>
+          <span><strong>Buy Orders (Bids):</strong> Displayed in green with price and quantity</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-red-400 mt-0.5">•</span>
+          <span><strong>Sell Orders (Asks):</strong> Displayed in red with price and quantity</span>
         </li>
         <li className="flex items-start gap-2">
           <span className="text-cyan-400 mt-0.5">•</span>
-          <span>Order appears in "Open Orders" until filled or cancelled</span>
+          <span><strong>Spread:</strong> Difference between highest bid and lowest ask</span>
         </li>
         <li className="flex items-start gap-2">
           <span className="text-cyan-400 mt-0.5">•</span>
-          <span>Partial fills are possible for large orders</span>
+          <span><strong>Market Depth:</strong> Visual representation of order volume</span>
         </li>
       </ul>
     </div>
   </div>
 </div>
 
-### Step 5: Use Market Orders (Advanced)
+<div className="my-8 flex justify-center">
+  <div className="rounded-xl border border-border overflow-hidden max-w-sm">
+    <Image src={OrderBook} alt="Order Book Display" className="w-full h-auto" />
+  </div>
+</div>
+
+### Step 5: Placing a Limit Order
+
+<div className="rounded-xl border border-border bg-card p-6 mb-6">
+  <div className="flex items-center gap-3 mb-4">
+    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500/20 to-blue-500/10 flex items-center justify-center font-bold text-blue-400">
+      5
+    </div>
+    <div className="font-bold text-lg">Execute Your First Trade</div>
+  </div>
+
+  <div className="space-y-4 text-sm">
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Steps to place a limit order:</div>
+      <ol className="space-y-2 ml-4 list-decimal">
+        <li>Select "Limit" as your order type</li>
+        <li>Enter your desired price per unit</li>
+        <li>Specify the amount you want to buy or sell</li>
+        <li>Review the total cost (price × amount + fees)</li>
+        <li>Click "Buy BTC" or "Sell BTC" to place the order</li>
+      </ol>
+
+      <div className="mt-4 p-3 rounded-lg bg-blue-500/5 border border-blue-500/20">
+        <div className="font-semibold mb-1 text-blue-400">Pro Tip:</div>
+        <div className="text-muted-foreground">
+          Limit orders give you price control but may not fill immediately. Use market orders for instant execution at current prices.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div className="my-8 rounded-xl border border-border overflow-hidden">
+  <Image
+    src={PlaceLimitOrder}
+    alt="Limit Order Placement Interface"
+    className="w-full h-auto max-w-3xl mx-auto"
+  />
+</div>
+
+### Step 6: Using Market Orders
 
 <div className="rounded-xl border border-border bg-card p-6 mb-6">
   <div className="flex items-center gap-3 mb-4">
     <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-sky-500/20 to-sky-500/10 flex items-center justify-center font-bold text-sky-400">
-      5
+      6
     </div>
     <div className="font-bold text-lg">Execute Instant Trades</div>
   </div>
@@ -316,252 +451,279 @@ description: Complete guide to trading cryptocurrencies with market and limit or
         <li>Review the estimated execution price</li>
         <li>Click to execute immediately at market price</li>
       </ol>
-    </div>
 
-    <div className="pl-[52px]">
-      <div className="font-semibold mb-2">When to use market vs limit:</div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
-        <div className="p-3 rounded-lg border border-border bg-muted/30">
-          <div className="font-semibold mb-1 text-cyan-400">Market Orders</div>
-          <ul className="space-y-1 text-xs text-muted-foreground">
-            <li>• Instant execution</li>
-            <li>• Price not guaranteed</li>
-            <li>• Best for urgent trades</li>
-            <li>• Higher slippage risk</li>
-          </ul>
-        </div>
-        <div className="p-3 rounded-lg border border-border bg-muted/30">
-          <div className="font-semibold mb-1 text-sky-400">Limit Orders</div>
-          <ul className="space-y-1 text-xs text-muted-foreground">
-            <li>• Price guaranteed</li>
-            <li>• May not execute</li>
-            <li>• Best for patient traders</li>
-            <li>• No slippage</li>
-          </ul>
+      <div className="mt-4">
+        <div className="font-semibold mb-2">When to use market vs limit:</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
+          <div className="p-3 rounded-lg border border-border bg-muted/30">
+            <div className="font-semibold mb-1 text-cyan-400">Limit Orders</div>
+            <ul className="text-xs text-muted-foreground space-y-1">
+              <li>• Better price control</li>
+              <li>• May not fill immediately</li>
+              <li>• Best for patient traders</li>
+              <li>• Ideal for volatile markets</li>
+            </ul>
+          </div>
+          <div className="p-3 rounded-lg border border-border bg-muted/30">
+            <div className="font-semibold mb-1 text-sky-400">Market Orders</div>
+            <ul className="text-xs text-muted-foreground space-y-1">
+              <li>• Instant execution</li>
+              <li>• May have slippage</li>
+              <li>• Best for urgent trades</li>
+              <li>• Ideal for liquid markets</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
 </div>
 
-<div className="rounded-xl border border-yellow-500/30 bg-gradient-to-r from-yellow-500/10 to-yellow-500/5 p-5 mb-6">
-  <div className="flex items-start gap-3">
-    <svg className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-    </svg>
-    <div>
-      <div className="font-bold mb-1">Market Order Warning</div>
-      <div className="text-sm text-muted-foreground">
-        Market orders execute at the best available price, which can differ significantly from the last traded price in volatile or low-liquidity markets. Always check the estimated execution price before confirming.
-      </div>
-    </div>
-  </div>
-</div>
-
-### Step 6: Monitor and Manage Open Orders
+### Step 7: Monitor Your Trades
 
 <div className="rounded-xl border border-border bg-card p-6 mb-6">
   <div className="flex items-center gap-3 mb-4">
-    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500/20 to-blue-500/10 flex items-center justify-center font-bold text-blue-400">
-      6
-    </div>
-    <div className="font-bold text-lg">Track Your Trades</div>
-  </div>
-
-  <div className="space-y-4 text-sm">
-    <div className="pl-[52px]">
-      <div className="font-semibold mb-2">Managing open orders:</div>
-      <ul className="space-y-2 ml-4">
-        <li className="flex items-start gap-2">
-          <span className="text-cyan-400 mt-0.5">•</span>
-          <span>View all active orders in the "Open Orders" tab</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <span className="text-cyan-400 mt-0.5">•</span>
-          <span>Cancel individual orders or use "Cancel All" for multiple pairs</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <span className="text-cyan-400 mt-0.5">•</span>
-          <span>Check order status: Open, Partially Filled, or Filled</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <span className="text-cyan-400 mt-0.5">•</span>
-          <span>Review "Order History" for completed and cancelled orders</span>
-        </li>
-        <li className="flex items-start gap-2">
-          <span className="text-cyan-400 mt-0.5">•</span>
-          <span>View "Trade History" to see all executed trades with fees</span>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-### Step 7: Implement Risk Management
-
-<div className="rounded-xl border border-border bg-card p-6 mb-6">
-  <div className="flex items-center gap-3 mb-4">
-    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-cyan-500/10 flex items-center justify-center font-bold text-cyan-400">
+    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500/20 to-purple-500/10 flex items-center justify-center font-bold text-purple-400">
       7
     </div>
-    <div className="font-bold text-lg">Protect Your Capital</div>
+    <div className="font-bold text-lg">Track Market and Personal Activity</div>
   </div>
 
   <div className="space-y-4 text-sm">
     <div className="pl-[52px]">
-      <div className="font-semibold mb-2">Essential risk management rules:</div>
-      <ol className="space-y-2 ml-4 list-decimal">
-        <li>Never risk more than 1-2% of your portfolio on a single trade</li>
-        <li>Always set stop-loss orders to limit potential losses</li>
-        <li>Use stop-limit orders to protect profits on winning trades</li>
-        <li>Diversify across multiple assets to reduce risk</li>
-        <li>Avoid trading with leverage until you're experienced</li>
-        <li>Keep emotions in check - stick to your trading plan</li>
-      </ol>
-    </div>
-
-    <div className="pl-[52px]">
-      <div className="font-semibold mb-2">Stop-loss order setup:</div>
+      <div className="font-semibold mb-2">Available trade views:</div>
       <ul className="space-y-2 ml-4">
         <li className="flex items-start gap-2">
-          <span className="text-cyan-400 mt-0.5">•</span>
-          <span>Select "Stop-Limit" order type</span>
+          <span className="text-purple-400 mt-0.5">•</span>
+          <span><strong>Market Trades:</strong> Recent executed trades from all users</span>
         </li>
         <li className="flex items-start gap-2">
-          <span className="text-cyan-400 mt-0.5">•</span>
-          <span>Set stop price (triggers the order) below your entry for buys</span>
+          <span className="text-purple-400 mt-0.5">•</span>
+          <span><strong>My Trades:</strong> Your completed trade history</span>
         </li>
         <li className="flex items-start gap-2">
-          <span className="text-cyan-400 mt-0.5">•</span>
-          <span>Set limit price (execution price) slightly below stop price</span>
+          <span className="text-purple-400 mt-0.5">•</span>
+          <span><strong>Open Orders:</strong> Your pending limit orders</span>
         </li>
         <li className="flex items-start gap-2">
-          <span className="text-cyan-400 mt-0.5">•</span>
-          <span>This automatically sells to limit losses if price drops</span>
+          <span className="text-purple-400 mt-0.5">•</span>
+          <span><strong>Order History:</strong> All past orders and their status</span>
         </li>
       </ul>
     </div>
   </div>
 </div>
 
-<div className="rounded-xl border border-red-500/30 bg-gradient-to-r from-red-500/10 to-red-500/5 p-5 mb-6">
-  <div className="flex items-start gap-3">
-    <svg className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
+<div className="my-8 flex justify-center">
+  <div className="rounded-xl border border-border overflow-hidden max-w-sm">
+    <Image
+      src={MarketTrades}
+      alt="Market Trades Display"
+      className="w-full h-auto"
+    />
+  </div>
+</div>
+
+### Step 8: Managing Open Orders
+
+<div className="rounded-xl border border-border bg-card p-6 mb-6">
+  <div className="flex items-center gap-3 mb-4">
+    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500/20 to-amber-500/10 flex items-center justify-center font-bold text-amber-400">
+      8
+    </div>
+    <div className="font-bold text-lg">View and Manage Active Orders</div>
+  </div>
+
+  <div className="space-y-4 text-sm">
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Order management options:</div>
+      <ul className="space-y-2 ml-4">
+        <li className="flex items-start gap-2">
+          <span className="text-amber-400 mt-0.5">•</span>
+          <span>View all open orders with details (date, pair, price, amount)</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-amber-400 mt-0.5">•</span>
+          <span>Track filled vs unfilled portions of your orders</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-amber-400 mt-0.5">•</span>
+          <span>Cancel individual orders or all orders at once</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-amber-400 mt-0.5">•</span>
+          <span>Monitor trigger conditions for stop-limit orders</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div className="my-8 rounded-xl border border-border overflow-hidden">
+  <Image
+    src={OpenOrders}
+    alt="Open Orders Management Interface"
+    className="w-full h-auto"
+  />
+</div>
+
+### Step 9: Searching and Selecting Trading Pairs
+
+<div className="rounded-xl border border-border bg-card p-6 mb-6">
+  <div className="flex items-center gap-3 mb-4">
+    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-emerald-500/20 to-emerald-500/10 flex items-center justify-center font-bold text-emerald-400">
+      9
+    </div>
+    <div className="font-bold text-lg">Find the Right Trading Pairs</div>
+  </div>
+
+  <div className="space-y-4 text-sm">
+    <div className="pl-[52px]">
+      <div className="font-semibold mb-2">Trading pair selection:</div>
+      <ul className="space-y-2 ml-4">
+        <li className="flex items-start gap-2">
+          <span className="text-emerald-400 mt-0.5">•</span>
+          <span>Use search functionality to find specific pairs quickly</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-emerald-400 mt-0.5">•</span>
+          <span>Filter by quote currency (USDT, BTC, ETH, etc.)</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-emerald-400 mt-0.5">•</span>
+          <span>Sort by volume, price change, or market cap</span>
+        </li>
+        <li className="flex items-start gap-2">
+          <span className="text-emerald-400 mt-0.5">•</span>
+          <span>Add favorite pairs for quick access</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div className="my-8 flex justify-center">
+  <div className="rounded-xl border border-border overflow-hidden max-w-sm">
+    <Image
+      src={TradingPairs}
+      alt="Trading Pairs Selection Interface"
+      className="w-full h-auto"
+    />
+  </div>
+</div>
+
+## Advanced Trading Features
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+  <div className="p-6 rounded-xl border border-border bg-gradient-to-br from-violet-500/10 to-transparent">
+    <div className="flex items-center gap-3 mb-3">
+      <span className="text-3xl">⚡</span>
+      <div className="font-bold text-lg">Stop-Limit Orders</div>
+    </div>
+    <div className="text-sm text-muted-foreground mb-3">
+      Protect profits or limit losses by setting trigger prices for automatic order execution.
+    </div>
+    <ul className="text-sm space-y-1">
+      <li className="flex items-start gap-2">
+        <span className="text-violet-400 mt-0.5">•</span>
+        <span>Set stop price to trigger the order</span>
+      </li>
+      <li className="flex items-start gap-2">
+        <span className="text-violet-400 mt-0.5">•</span>
+        <span>Define limit price for execution</span>
+      </li>
+      <li className="flex items-start gap-2">
+        <span className="text-violet-400 mt-0.5">•</span>
+        <span>Ideal for risk management</span>
+      </li>
+    </ul>
+  </div>
+
+  <div className="p-6 rounded-xl border border-border bg-gradient-to-br from-pink-500/10 to-transparent">
+    <div className="flex items-center gap-3 mb-3">
+      <span className="text-3xl">🎯</span>
+      <div className="font-bold text-lg">Margin Trading</div>
+    </div>
+    <div className="text-sm text-muted-foreground mb-3">
+      Trade with leverage to amplify potential profits (and risks) using borrowed funds.
+    </div>
+    <ul className="text-sm space-y-1">
+      <li className="flex items-start gap-2">
+        <span className="text-pink-400 mt-0.5">•</span>
+        <span>Choose between Cross and Isolated margin</span>
+      </li>
+      <li className="flex items-start gap-2">
+        <span className="text-pink-400 mt-0.5">•</span>
+        <span>Leverage up to 10x (varies by pair)</span>
+      </li>
+      <li className="flex items-start gap-2">
+        <span className="text-pink-400 mt-0.5">•</span>
+        <span>Manage liquidation risks carefully</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+## Risk Management Best Practices
+
+<div className="rounded-xl border border-red-500/30 bg-gradient-to-br from-red-500/10 to-orange-500/5 p-6 my-8">
+  <div className="flex items-start gap-4">
+    <div className="flex-shrink-0 text-3xl">⚠️</div>
     <div>
-      <div className="font-bold mb-1">Trading Risks</div>
-      <div className="text-sm text-muted-foreground space-y-1">
-        <p>• Cryptocurrency trading is highly volatile and risky</p>
-        <p>• You can lose your entire investment</p>
-        <p>• Past performance doesn't guarantee future results</p>
-        <p>• Never trade with money you cannot afford to lose</p>
-        <p>• Consider consulting a financial advisor before trading</p>
+      <div className="font-bold text-lg mb-3">
+        Essential Trading Safety Guidelines
       </div>
-    </div>
-  </div>
-</div>
-
-## Tips & Tricks
-
-<div className="space-y-3 mb-8">
-  <div className="p-4 rounded-xl border border-cyan-500/30 bg-gradient-to-r from-cyan-500/10 to-cyan-500/5">
-    <div className="flex items-start gap-3">
-      <svg className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-      </svg>
-      <div>
-        <div className="font-bold mb-1">Start Small and Learn</div>
-        <div className="text-sm text-muted-foreground">
-          Begin with small trades to understand how the platform works. Practice with different order types before committing large amounts. Experience is the best teacher in trading.
+      <div className="space-y-3 text-sm">
+        <div className="flex items-start gap-2">
+          <span className="text-red-400 font-bold mt-0.5">1.</span>
+          <div>
+            <span className="font-semibold">
+              Never invest more than you can afford to lose
+            </span>
+            <div className="text-muted-foreground mt-1">
+              Only trade with risk capital, not funds needed for living expenses
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div className="p-4 rounded-xl border border-cyan-500/30 bg-gradient-to-r from-cyan-500/10 to-cyan-500/5">
-    <div className="flex items-start gap-3">
-      <svg className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-      <div>
-        <div className="font-bold mb-1">Use Chart Timeframes Wisely</div>
-        <div className="text-sm text-muted-foreground">
-          Short-term traders use 1m-15m charts. Swing traders use 1H-4H charts. Long-term investors use daily and weekly charts. Match your timeframe to your trading strategy.
+        <div className="flex items-start gap-2">
+          <span className="text-red-400 font-bold mt-0.5">2.</span>
+          <div>
+            <span className="font-semibold">Always use stop-loss orders</span>
+            <div className="text-muted-foreground mt-1">
+              Protect your capital by limiting potential losses on each trade
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div className="p-4 rounded-xl border border-cyan-500/30 bg-gradient-to-r from-cyan-500/10 to-cyan-500/5">
-    <div className="flex items-start gap-3">
-      <svg className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-      </svg>
-      <div>
-        <div className="font-bold mb-1">Watch Trading Volume</div>
-        <div className="text-sm text-muted-foreground">
-          High volume indicates strong market interest and better liquidity. Low volume can lead to higher slippage and difficulty executing large orders. Always check 24h volume before trading.
+        <div className="flex items-start gap-2">
+          <span className="text-red-400 font-bold mt-0.5">3.</span>
+          <div>
+            <span className="font-semibold">Diversify your portfolio</span>
+            <div className="text-muted-foreground mt-1">
+              Don't put all funds into a single asset or trading pair
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-## Common Mistakes to Avoid
-
-<div className="space-y-3 mb-8">
-  <div className="p-4 rounded-xl border border-red-500/30 bg-red-500/5">
-    <div className="flex items-start gap-3">
-      <svg className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-      </svg>
-      <div>
-        <div className="font-bold mb-1">Emotional Trading (FOMO/Panic)</div>
-        <div className="text-sm text-muted-foreground">
-          Buying during hype or selling during panic leads to losses. Stick to your trading plan. Set price alerts instead of watching charts constantly. Remove emotion from your decisions.
+        <div className="flex items-start gap-2">
+          <span className="text-red-400 font-bold mt-0.5">4.</span>
+          <div>
+            <span className="font-semibold">
+              Start small and learn gradually
+            </span>
+            <div className="text-muted-foreground mt-1">
+              Begin with smaller positions while you develop your trading skills
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div className="p-4 rounded-xl border border-red-500/30 bg-red-500/5">
-    <div className="flex items-start gap-3">
-      <svg className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-      </svg>
-      <div>
-        <div className="font-bold mb-1">Ignoring Trading Fees</div>
-        <div className="text-sm text-muted-foreground">
-          Frequent trading accumulates fees quickly. Factor in maker/taker fees (typically 0.1-0.2% per trade) when calculating profits. High-frequency trading requires larger gains to be profitable.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div className="p-4 rounded-xl border border-red-500/30 bg-red-500/5">
-    <div className="flex items-start gap-3">
-      <svg className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-      </svg>
-      <div>
-        <div className="font-bold mb-1">Overleveraging</div>
-        <div className="text-sm text-muted-foreground">
-          Using high leverage (10x, 20x, 100x) magnifies both gains AND losses. Beginners should avoid leverage entirely. Even experienced traders should use it cautiously - liquidation can wipe out your account instantly.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div className="p-4 rounded-xl border border-red-500/30 bg-red-500/5">
-    <div className="flex items-start gap-3">
-      <svg className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-      </svg>
-      <div>
-        <div className="font-bold mb-1">No Stop-Loss Orders</div>
-        <div className="text-sm text-muted-foreground">
-          Hoping a losing trade will recover is gambling, not trading. Always use stop-losses to limit downside. It's better to take a small loss than risk total account destruction.
+        <div className="flex items-start gap-2">
+          <span className="text-red-400 font-bold mt-0.5">5.</span>
+          <div>
+            <span className="font-semibold">Keep emotions in check</span>
+            <div className="text-muted-foreground mt-1">
+              Stick to your strategy and avoid impulsive decisions based on fear
+              or greed
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -570,76 +732,93 @@ description: Complete guide to trading cryptocurrencies with market and limit or
 
 ## Next Steps
 
-<div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-  <a href="/docs/tutorial/price" className="p-5 rounded-xl border border-border bg-card hover:border-cyan-500/50 hover:bg-cyan-500/5 transition-all group">
-    <div className="text-2xl mb-3">📊</div>
-    <div className="font-bold mb-2 group-hover:text-cyan-400 transition-colors">Price Analysis</div>
-    <div className="text-sm text-muted-foreground mb-3">
-      Learn to read charts, use technical indicators, and analyze market trends
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
+  <a href="/docs/tutorial/wallet" className="p-5 rounded-xl border border-border bg-card hover:bg-muted/50 transition-colors group">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">👛</span>
+      <div className="font-bold group-hover:text-cyan-500 transition-colors">Wallet Management</div>
     </div>
-    <div className="text-xs text-cyan-400 flex items-center gap-1">
-      Learn Analysis
-      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-      </svg>
+    <div className="text-sm text-muted-foreground">
+      Learn to manage deposits, withdrawals, and security
     </div>
   </a>
 
-  <a href="/docs/tutorial/swap" className="p-5 rounded-xl border border-border bg-card hover:border-cyan-500/50 hover:bg-cyan-500/5 transition-all group">
-    <div className="text-2xl mb-3">🔄</div>
-    <div className="font-bold mb-2 group-hover:text-cyan-400 transition-colors">Token Swapping</div>
-    <div className="text-sm text-muted-foreground mb-3">
-      Quick exchanges between cryptocurrencies without traditional trading
+{" "}
+<a
+  href="/docs/tutorial/marketplace"
+  className="p-5 rounded-xl border border-border bg-card hover:bg-muted/50 transition-colors group"
+>
+  <div className="flex items-center gap-3 mb-2">
+    <span className="text-2xl">🏪</span>
+    <div className="font-bold group-hover:text-cyan-500 transition-colors">
+      Explore Marketplace
     </div>
-    <div className="text-xs text-cyan-400 flex items-center gap-1">
-      Learn Swapping
-      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-      </svg>
-    </div>
-  </a>
+  </div>
+  <div className="text-sm text-muted-foreground">
+    Discover real estate, commodities, and startup investments
+  </div>
+</a>
 
-  <a href="/docs/tutorial/save" className="p-5 rounded-xl border border-border bg-card hover:border-cyan-500/50 hover:bg-cyan-500/5 transition-all group">
-    <div className="text-2xl mb-3">💰</div>
-    <div className="font-bold mb-2 group-hover:text-cyan-400 transition-colors">Earn Passive Income</div>
-    <div className="text-sm text-muted-foreground mb-3">
-      Stake your crypto and earn interest instead of just holding
+  <a href="/docs/services/fee-structure" className="p-5 rounded-xl border border-border bg-card hover:bg-muted/50 transition-colors group">
+    <div className="flex items-center gap-3 mb-2">
+      <span className="text-2xl">💰</span>
+      <div className="font-bold group-hover:text-cyan-500 transition-colors">Fee Structure</div>
     </div>
-    <div className="text-xs text-cyan-400 flex items-center gap-1">
-      Start Earning
-      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-      </svg>
+    <div className="text-sm text-muted-foreground">
+      Understand trading fees and how to reduce costs
     </div>
   </a>
 </div>
 
 ## Need Help?
 
-<div className="rounded-xl border border-border bg-card p-6">
+<div className="rounded-xl border border-border bg-card p-6 my-8">
   <div className="flex items-start gap-4">
-    <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center flex-shrink-0">
-      <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
-      </svg>
-    </div>
+    <div className="text-3xl">💬</div>
     <div className="flex-1">
       <div className="font-bold text-lg mb-2">Get Support</div>
       <div className="text-sm text-muted-foreground mb-4">
-        Questions about order types or need help with a trade? Our 24/7 support team can assist you. We also offer educational resources and trading guides for all skill levels.
+        If you encounter any issues or have questions about trading on NYYU, our
+        support team is here to help.
       </div>
       <div className="flex flex-wrap gap-3">
-        <a href="/docs/corporate/contact-us" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-sm font-medium transition-colors">
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+        <a
+          href="/docs/troubleshoot"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/20 transition-colors text-sm font-medium"
+        >
+          Browse FAQs
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
           </svg>
-          Contact Support
         </a>
-        <a href="/docs/services/fees" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-muted hover:bg-muted/80 border border-border text-sm font-medium transition-colors">
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <a
+          href="https://support.nyyu.io"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/20 transition-colors text-sm font-medium"
+        >
+          Contact Support
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+            />
           </svg>
-          View Fee Structure
         </a>
       </div>
     </div>

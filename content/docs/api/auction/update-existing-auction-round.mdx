@@ -2,24 +2,25 @@
 title: Update Existing Auction Round
 ---
 
-import { Callout } from 'fumadocs-ui/components/callout';
-import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Callout } from "fumadocs-ui/components/callout";
+import { Card, Cards } from "fumadocs-ui/components/card";
 
-:::note
-The functions described is accessible only to users with ADMIN privileges.
-:::
+<Callout type="info" title="ADMIN privileges">
+  The functions described is accessible only to users with ADMIN privileges.
+</Callout>
 
-The `updateAuction` mutation allows an admin to update an existing auction round's details. 
+The `updateAuction` mutation allows an admin to update an existing auction round's details.
 
 ### Mutation: `updateAuction`
 
 #### Schema:
+
 ```graphql
 updateAuction(
   id: String!,
-  round: Int, 
-  duration: Float,  
-  totalToken: Float, 
+  round: Int,
+  duration: Float,
+  totalToken: Float,
   minPrice: Float,
   avatar: [AvatarSetInput],
   token: Float

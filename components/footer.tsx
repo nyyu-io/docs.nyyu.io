@@ -28,10 +28,10 @@ const footerLinks: FooterSection[] = [
     title: "Services",
     items: [
       { label: "Token Listing", href: "/docs/services/token-listing" },
-      { label: "Startup Listing", href: "/docs/services/start-up-listing" },
+      { label: "Startup Listing", href: "/docs/services/startup-listing" },
       { label: "Property Listing", href: "/docs/services/real-estate-listing" },
       { label: "Commodity Listing", href: "/docs/services/commodity-listing" },
-      { label: "Fees", href: "/docs/services/fee-structure" },
+      { label: "Fees", href: "/docs/services/fees" },
       { label: "Bug Bounty", href: "/docs/services/bug-bounty" },
       { label: "Delistings", href: "/docs/services/de-listing" },
       {
@@ -58,7 +58,7 @@ const footerLinks: FooterSection[] = [
         href: "/docs/corporate/whistleblower-contact",
       },
       { label: "Security", href: "/docs/corporate/security" },
-      { label: "Changelogs", href: "/docs/changelog" },
+      { label: "Changelogs", href: "/docs/changelog/intro" },
       { label: "Contact Us", href: "/docs/corporate/contact-us" },
     ],
   },
@@ -81,7 +81,11 @@ const footerLinks: FooterSection[] = [
         href: "https://facebook.com/nyyu.io",
         external: true,
       },
-      { label: "YouTube", href: "https://youtube.com/nyyu.io", external: true },
+      {
+        label: "YouTube",
+        href: "https://www.youtube.com/@nyyuio",
+        external: true,
+      },
     ],
   },
   {

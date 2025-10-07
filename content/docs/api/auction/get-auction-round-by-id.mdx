@@ -2,18 +2,19 @@
 title: Get Auction Round by Id
 ---
 
-import { Callout } from 'fumadocs-ui/components/callout';
-import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Callout } from "fumadocs-ui/components/callout";
+import { Card, Cards } from "fumadocs-ui/components/card";
 
-:::note
-The functions described is accessible only to users with ADMIN privileges.
-:::
+<Callout type="info" title="ADMIN privileges">
+  The functions described is accessible only to users with ADMIN privileges.
+</Callout>
 
 The `getAuctionById` query is used to retrieve a specific auction round based on its unique ID. This query can be executed by users with ADMIN privileges.
 
 ### Query: `getAuctionById`
 
 #### Schema:
+
 ```graphql
 query getAuctionById(
   id: Int!
@@ -34,20 +35,18 @@ The following is an example of how to use the `getAuctionById` query to retrieve
 
 ```graphql
 query {
-  getAuctionById(
-    id: 123
-  ) {
-    id,
-    round,
-    startedAt,
-    duration,
-    totalToken,
-    minPrice,
+  getAuctionById(id: 123) {
+    id
+    round
+    startedAt
+    duration
+    totalToken
+    minPrice
     avatar {
-      groupId,
+      groupId
       compId
-    },
-    token,
+    }
+    token
     status
   }
 }

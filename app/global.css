@@ -1,6 +1,6 @@
-@import 'tailwindcss';
-@import 'fumadocs-ui/css/solar.css';
-@import 'fumadocs-ui/css/preset.css';
+@import "tailwindcss";
+@import "fumadocs-ui/css/solar.css";
+@import "fumadocs-ui/css/preset.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -117,5 +117,23 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Fix for footer links being blocked by TOC sidebar */
+footer {
+  position: relative;
+  z-index: 40;
+}
+
+/* Ensure TOC doesn't overlap footer */
+[data-toc] {
+  z-index: 30;
+}
+
+/* Alternative: Limit TOC height to viewport minus footer */
+@media (min-width: 1024px) {
+  [data-toc] {
+    max-height: calc(100vh - 200px);
   }
 }
